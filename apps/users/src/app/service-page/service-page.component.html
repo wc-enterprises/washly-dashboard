@@ -1,0 +1,66 @@
+<html>
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&family=Roboto+Condensed&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&family=Roboto&family=Roboto+Condensed&display=swap"
+    rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&family=Lato:ital,wght@0,700;1,400&family=Roboto&family=Roboto+Condensed&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <div class="main-container" [ngClass]="{ blur: isModalActive }">
+    <washly-nav-bar></washly-nav-bar>
+    <div class="container">
+      <washly-header></washly-header>
+      <div class="option">
+        <div class="option1">Service</div>
+        <div (click)="campaign()" class="option2">Campaigns</div>
+      </div>
+      <div *ngIf="showDiv" class="inner-container">
+        <div class="service-list">
+          <div class="list">Regular wash</div>
+          <div class="list">Wash and press</div>
+          <div class="list">
+            Dry cleaning
+            <button>
+              <img (click)="serviceediting()" class="editimg" src="/assets/edit.png" />
+              <img (click)="openDeleteConfirmationModal()" class="deleteimg" src="/assets/delete.png" />
+            </button>
+          </div>
+          <div class="list">Just ironing</div>
+          <div class="list">Regular wash + Ironing</div>
+          <div class="list" id="addlist">ADD NEW +</div>
+        </div>
+        <div class="details">
+          <div class="details-list">
+            <div class="leftsidelist">Name</div>
+            <div class="rightsidelist">Dry cleaning</div>
+          </div>
+          <div class="details-list">
+            <div class="leftsidelist">Price per unit</div>
+            <div class="rightsidelist">9</div>
+          </div>
+          <div class="details-list">
+            <div class="leftsidelist">Unit of calculation</div>
+            <div class="rightsidelist">Per piece</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <washly-app-delete-confirmation-modal *ngIf="isModalActive" [isActive]="isModalActive"
+    (close)="closeDeleteConfirmationModal()" (delete)="deleteItem()"></washly-app-delete-confirmation-modal>
+</body>
+
+</html>

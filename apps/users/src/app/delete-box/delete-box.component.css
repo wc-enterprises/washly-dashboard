@@ -1,0 +1,88 @@
+.deleteimg{
+   width: 15px;
+height: 15px;
+margin-left: 17vw;
+
+}
+
+.delete{
+    box-sizing: border-box;
+
+position: absolute;
+width: 216px;
+height: 137px;
+left: 650px;
+top: 210px;
+
+background: rgba(255, 255, 255, 0.95);
+border: 0.75px solid rgba(33, 36, 39, 0.25);
+border-radius: 4px;
+}
+p{
+    position: absolute;
+width: 100px;
+height: 16px;
+left: 71px;
+top: 74px;
+
+font-family: 'IBM Plex Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 12.5px;
+line-height: 16px;
+
+color: #000000;
+
+}
+.trash{
+    box-sizing: border-box;
+
+position: absolute;
+width: 53px;
+height: 20px;
+left: 30px;
+top: 104px;
+
+background: rgba(255, 174, 154, 0.75);
+border: 0.75px solid #FFAE9A;
+border-radius: 3px;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 9px;
+line-height: 9px;
+/* identical to box height */
+
+
+color: #000000;
+}
+img{
+    
+position: absolute;
+width: 60px;
+height: 60px;
+left: 76px;
+top: 10px;
+}
+.cancel{
+    box-sizing: border-box;
+
+position: absolute;
+width: 53px;
+height: 20px;
+left: 120px;
+top: 104px;
+
+background: rgba(255, 174, 154, 0.75);
+border: 0.75px solid #FFAE9A;
+border-radius: 3px;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 9px;
+line-height: 9px;
+/* identical to box height */
+
+
+color: #000000;
+}

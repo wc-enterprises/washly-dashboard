@@ -1,0 +1,347 @@
+.main-container {
+  display: flex;
+  flex-direction: row;
+}
+.logo {
+  margin-top: 10px;
+  width: 190px;
+  height: 100px;
+  margin-left: 35px;
+}
+.logoimage {
+  width: 100px;
+  height: 60px;
+  margin-top: 5px;
+  opacity: 5;
+}
+.box1 {
+  width: 50vw;
+  height: 100vh;
+}
+.content {
+  align-items: center;
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+  height: 70vh;
+  margin-left: 20px;
+  top: 120px;
+}
+.form {
+  width: 20vw;
+  height: 5vh;
+}
+h1 {
+  font-family: 'Arial';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 20px;
+  margin-left: 3.5vw;
+  color: #000000;
+}
+h3 {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  color: #000000;
+  opacity: 1;
+  margin-top: 2vh;
+  margin-left: -1vw;
+}
+.box2 {
+  width: 100vw;
+  height: 100vh;
+  left: 450px;
+  /* background-image: url("/assets/Laundry 1.jpeg"); */
+}
+.wash-bgimage {
+  width: 100vw;
+  height: 100vh;
+}
+.google {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid black;
+  width: 280px;
+  height: 35px;
+  box-sizing: border-box;
+  border: 0.9px solid rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  margin-top: -1vh;
+  margin-left: 5vw;
+}
+p {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 17px;
+  color: #000000;
+  margin-left: 10px;
+  margin-top: 1.5vh;
+}
+.googleicon {
+  width: 19px;
+  height: 20px;
+  margin-left: 50px;
+  top: 5px;
+}
+.text1 {
+  margin-top: -5vh;
+  margin-left: 3vw;
+}
+
+.lines {
+  width: 18vw;
+
+  
+  margin-left: 5vw;
+}
+h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h2 span {
+  background: #fff;
+  margin: 0 10px;
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+}
+h2:before {
+  background: gray;
+  opacity: 0.25;
+  height: 1px;
+  flex: 1;
+  content: '';
+  margin-top: 1vh;
+}
+h2:after {
+  background: gray;
+  opacity: 0.25;
+  height: 1px;
+  flex: 1;
+  content: '';
+  margin-left: 1vw;
+  margin-top: -8.5vh;
+}
+h2.left:after {
+  background: none;
+}
+h2.right:before {
+  background: none;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5vw;
+  margin-top: -8vh;
+}
+#Email {
+  border-bottom: 2px solid gray;
+  outline: none;
+  width: 280px;
+  color: #000000;
+}
+#Password {
+  border-bottom: 2px solid gray;
+  width: 280px;
+  outline: none;
+  margin-top: 3vh;
+  color: #000000;
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  margin-left: 8vw;
+  align-items: center;
+  margin-top: -2vh;
+  width: 18vw;
+  
+}
+#check {
+  margin-left: -10vw;
+  margin-top: -1px;
+  size: 10px;
+}
+span{
+  margin-left: 1px;
+}
+
+.password {
+  margin-left: 1vw;
+}
+.login {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11.5px;
+  color: #ffffff;
+  width: 280px;
+  height: 35px;
+  background: rgba(33, 36, 39, 0.955011);
+  border-radius: 3px;
+  margin-left: 5.5vw;
+ 
+}
+.para {
+  position: absolute;
+  width: 505px;
+  height: 116px;
+  left: 40vw;
+  top: 55vh;
+
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 27.5px;
+  line-height: 29px;
+
+  color: #ffffff;
+}
+
+.dots {
+  display: flex;
+  margin-left: 30vw;
+  margin-top: -15vh;
+}
+
+.dots span {
+  width: 10px;
+  height: 10px;
+  background-color: gray;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  margin-left: 1vw;
+}
+
+.dots span.active {
+  background-color: white;
+}
+
+.pageone {
+  white-space: pre-wrap;
+
+  position: absolute;
+  width: 500px;
+  height: 116px;
+  left: 650px;
+  top: 450px;
+
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 29px;
+
+  color: #ffffff;
+}
+.group 			  { 
+  position:relative; 
+  margin-bottom:45px; 
+  margin-left:-6.5vw;
+  height: 5vh;
+  width: 6vw;
+}
+input 				{
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:280px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+input:focus 		{ outline:none; }
+
+/* LABEL ======================================= */
+label 				 {
+  color:#999; 
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label 		{
+  top:-20px;
+  font-size:14px;
+  color:#5264AE;
+}
+
+/* BOTTOM BARS ================================= */
+.bar 	{ position:relative; display:block; width:280px; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:0.5px; 
+  position:absolute;
+  background:#5264AE; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%; 
+  width:100px; 
+  top:25%; 
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+	from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+	from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+	from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+form{
+  margin-top: -6vh;
+}
