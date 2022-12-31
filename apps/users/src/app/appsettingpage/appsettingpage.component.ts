@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 
@@ -11,25 +11,30 @@ import { ModalDirective } from 'ngx-bootstrap/modal';
 })
 export class AppsettingpageComponent {
 
-     items = [
-    { name:'Campaign service 1',   icon1:'/assets/edit.png', icon2: '/assets/delete.png',status:'active'},
-    { name:'Campaign service 2',   icon1:'/assets/edit.png', icon2: '/assets/delete.png',status:'inactive' },
-    { name:'Campaign service 3',   icon1:'/assets/edit.png', icon2: '/assets/delete.png',status:'active' },
-    { name:'Campaign service 4',   icon1:'/assets/edit.png', icon2: '/assets/delete.png',status:'active' },
-    { name:'Campaign service 5',   icon1:'/assets/edit.png', icon2: '/assets/delete.png',status:'inactive'},
-    
-  
-  ];
-
-
-
- 
-
   constructor(private router: Router) {}
    // eslint-disable-next-line @typescript-eslint/member-ordering
-   showDiv = true;
+   
 
    isModalActive = false;
+
+     @ViewChildren('tab1, tab2, tab3') tabs!: QueryList<ElementRef>;
+  @ViewChildren('tabPane1, tabPane2, tabPane3') tabPanes!: QueryList<ElementRef>;
+
+  ngAfterViewInit() {
+    this.tabs.forEach((tab: ElementRef) => {
+      tab.nativeElement.addEventListener('click', () => {
+        this.tabPanes.forEach((tabPane: ElementRef) => {
+          tabPane.nativeElement.classList.remove('active');
+        });
+        this.tabs.forEach((tab: ElementRef) => {
+          tab.nativeElement.classList.remove('active');
+        });
+        tab.nativeElement.classList.add('active');
+        tab.nativeElement.nextElementSibling.classList.add('active');
+      });
+    });
+  }
+
 
   openDeleteConfirmationModal() {
     this.isModalActive = true;
@@ -44,17 +49,4 @@ export class AppsettingpageComponent {
     return
   }
 
-
-
-  editing() {
-    this.router.navigate(['/campaigneditpage']);
-  }
-  deleting(){
-    this.router.navigate(['/deletebox']);
-  }
-  service(){
-    this.router.navigate(['/servicepage']);
-  }
- 
-  
 }
