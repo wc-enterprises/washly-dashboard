@@ -1,19 +1,16 @@
 <html>
 
 <head>
-    <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&family=Lato:wght@700&family=Open+Sans:wght@600&family=Roboto:wght@400;500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&family=Lato:wght@700&family=Open+Sans:wght@600&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
 </head>
 
 <body>
     <div class="main-container" [ngClass]="{ blur: isModalActive }">
-        <div style="height: 100vh; width: 230px; margin-right: 5px;">
+        <div style="display: contents">
             <washly-nav-bar></washly-nav-bar>
         </div>
-        <div style="height: 100vh; flex: 1; margin-right: 5px;">
-
-            <div style="display: contents;">
+        <div style="height: 100vh; flex: 1; margin-right: 5px">
+            <div style="display: contents">
                 <washly-header [heading]="'App setting'"></washly-header>
             </div>
 
@@ -28,7 +25,6 @@
                     <div class="tab-pane" #tabPane2>Tab 2 content</div>
                     <div class="tab-pane" #tabPane3>Tab 3 content</div>
                 </div>
-
             </div>
 
             <div>
@@ -37,12 +33,10 @@
                         <p>Jilebi</p>
                     </mat-tab>
                     <mat-tab label="Campaign">
-                        <div style="background-color: indianred; width: 100vw   ; height: 100vh;"></div>
+                        <div style="background-color: indianred; width: 100vw; height: 100vh"></div>
                     </mat-tab>
-
                 </mat-tab-group>
             </div>
-
         </div>
         <!--   <div class="container" style="background-color: aqua;">
             <washly-header></washly-header>
@@ -66,8 +60,7 @@
         </div> -->
     </div>
     <!-- modal component -->
-    <washly-app-delete-confirmation-modal *ngIf="isModalActive" [isActive]="isModalActive"
-        (close)="closeDeleteConfirmationModal()" (delete)="deleteItem()"></washly-app-delete-confirmation-modal>
+    <washly-app-delete-confirmation-modal *ngIf="isModalActive" [isActive]="isModalActive" (close)="closeDeleteConfirmationModal()" (delete)="deleteItem()"></washly-app-delete-confirmation-modal>
 </body>
 
 </html>

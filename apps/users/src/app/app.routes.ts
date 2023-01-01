@@ -8,21 +8,19 @@ import { ServiceEditpageComponent } from './service-editpage/service-editpage.co
 import { DeleteBoxComponent } from './delete-box/delete-box.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HeaderComponent } from './header/header.component';
+import { BookingComponent } from './booking/booking.component';
 import { CampaignComponent } from './campaign/campaign.component';
 
 export const appRoutes: Route[] = [
-
-    {path:'App',component:AppComponent},
-{path:'Loginpage',component:LoginpageComponent},
- {path:'appsettingpage',component:AppsettingpageComponent},  
- {path:'campaigneditpage',component: CampaignEditpageComponent},
- {path:'servicepage',component:ServicePageComponent},
- {path:'serviceeditpage',component:ServiceEditpageComponent},
- {path:'deletebox',component:DeleteBoxComponent},
- {path:'navbar',component:NavBarComponent },
- {path:'header',component:HeaderComponent},
- {path:'campaign',component:CampaignComponent}
-
- 
-
+  { path: 'App', component: AppComponent },
+  { path: 'login', component: LoginpageComponent },
+  { path: 'app-setting', component: AppsettingpageComponent },
+  { path: 'campaigneditpage', component: CampaignEditpageComponent },
+  { path: 'servicepage', component: ServicePageComponent },
+  { path: 'serviceeditpage', component: ServiceEditpageComponent },
+  { path: 'deletebox', component: DeleteBoxComponent },
+  { path: 'navbar', component: NavBarComponent },
+  { path: 'header', component: HeaderComponent },
+  { path: 'bookings', component: BookingComponent },
+  { path: 'campaign', component: CampaignComponent },
 ];

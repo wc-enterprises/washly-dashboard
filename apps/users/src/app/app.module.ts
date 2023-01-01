@@ -5,21 +5,26 @@ import { NxWelcomeComponent } from './nx-welcome.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { NgImageSliderModule } from 'ng-image-slider';
-import { MatInputModule } from '@angular/material/input';
 
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// Angular material modules
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppsettingpageComponent } from './appsettingpage/appsettingpage.component';
 import { CampaignEditpageComponent } from './campaign-editpage/campaign-editpage.component';
 import { ServicePageComponent } from './service-page/service-page.component';
 import { ServiceEditpageComponent } from './service-editpage/service-editpage.component';
 import { DeleteBoxComponent } from './delete-box/delete-box.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { NavBarComponent } from './utils/nav-bar/nav-bar.component';
 import { HeaderComponent } from './header/header.component';
-import { MatTabsModule } from '@angular/material/tabs';
 import { CampaignComponent } from './campaign/campaign.component';
+import { BookingComponent } from './booking/booking.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +39,7 @@ import { CampaignComponent } from './campaign/campaign.component';
     NavBarComponent,
     HeaderComponent,
     CampaignComponent,
+    BookingComponent,
   ],
 
   imports: [
@@ -46,6 +52,7 @@ import { CampaignComponent } from './campaign/campaign.component';
     FormsModule,
     ReactiveFormsModule,
     MatTabsModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
