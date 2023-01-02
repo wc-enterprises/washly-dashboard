@@ -7,6 +7,30 @@
     justify-content: space-between;
 }
 
+
+/* Media query for screens with a minimum width of 600 pixels */
+
+@media (min-width: 600px) {
+    body {
+        font-size: 18px;
+    }
+    .nav {
+        width: 20vw;
+    }
+}
+
+
+/* Media query for screens with a minimum width of 900 pixels */
+
+@media (min-width: 2500px) {
+    body {
+        font-size: 20px;
+    }
+    .nav {
+        width: 25vw;
+    }
+}
+
 .logo {
     width: 170px;
     height: 120px;
