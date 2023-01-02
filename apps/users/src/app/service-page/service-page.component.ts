@@ -7,6 +7,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./service-page.component.css'],
 })
 export class ServicePageComponent {
+ items = [
+    { name:'Regular wash',   icon1:'/assets/edit.png', icon2: '/assets/delete.png',status:'active'},
+    { name:'Wash and press',   icon1:'/assets/edit.png', icon2: '/assets/delete.png',status:'inactive' },
+    { name:'Dry cleaning',   icon1:'/assets/edit.png', icon2: '/assets/delete.png',status:'active' },
+    { name:'Just ironing',   icon1:'/assets/edit.png', icon2: '/assets/delete.png',status:'active' },
+    { name:'Regular wash + Ironing',   icon1:'/assets/edit.png', icon2: '/assets/delete.png',status:'inactive'},
+    
+  
+  ];
+
+
   constructor(private router: Router) {}
    showDiv = true;
    isModalActive = false;
