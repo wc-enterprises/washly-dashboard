@@ -2,7 +2,7 @@
     <div class="service-list">
         <div *ngFor="let item of items; let i = index" class="list">
             {{item.name}} <img class="editimg" (click)="editing()" [src]="item.icon1"> <img
-                (click)="openDeleteConfirmationModal()" class="deleteimg" [src]="item.icon2">
+                (click)="openDeleteConfirmationModal()" (click)="toggleBlur()" class="deleteimg" [src]="item.icon2">
             <div class="status" *ngIf="item.status==='active'">
                 <img src="/assets/greendot.png">
             </div>

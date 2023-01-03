@@ -3,60 +3,59 @@
 <head>
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&family=Lato:wght@700&family=Open+Sans:wght@600&family=Roboto:wght@400;500&display=swap"
-    rel="stylesheet">
+    rel="stylesheet" />
 </head>
 
 <body>
-  <!-- <div class="main-container" [ngClass]="{ blur: isModalActive }">
-    <washly-nav-bar></washly-nav-bar> -->
-  <!-- <div class="container">
-      <washly-header></washly-header>
-      <div class="option">
-        <div class="option1">Service</div>
-        <div (click)="campaign()" class="option2">Campaigns</div>
-      </div> -->
   <div *ngIf="showDiv" class="inner-container">
     <div class="service-list">
-      <div *ngFor="let item of items; let i = index" class="list">{{item.name}} <img class="editimg"
-          (click)="serviceediting()" [src]="item.icon1"> <img (click)="openDeleteConfirmationModal()" class="deleteimg"
-          [src]="item.icon2">
-        <div class="status" *ngIf="item.status==='active'">
-          <img src="/assets/greendot.png">
+      <div (click)="displayData(objects)" *ngFor="let item of items; let i = index" class="list">
+        {{ item.name }}
+        <img class="editimg" (click)="editText()" [src]="item.icon1" />
+        <img (click)="openDeleteConfirmationModal()" (click)="toggleBlur()" class="deleteimg" [src]="item.icon2" />
+        <div class="status" *ngIf="item.status === 'active'">
+          <img src="/assets/greendot.png" />
         </div>
-        <div class="status" *ngIf="item.status==='inactive'">
-          <img src="/assets/red.png">
+        <div class="status" *ngIf="item.status === 'inactive'">
+          <img src="/assets/red.png" />
         </div>
       </div>
-      <!-- <div class="list">Wash and press</div>
-      <div class="list">
-        Dry cleaning
-        <button>
-          <img (click)="serviceediting()" class="editimg" src="/assets/edit.png" />
-          <img (click)="openDeleteConfirmationModal()" class="deleteimg" src="/assets/delete.png" />
-        </button>
-      </div>
-      <div class="list">Just ironing</div>
-      <div class="list">Regular wash + Ironing</div> -->
       <div class="list" id="addlist">ADD NEW +</div>
     </div>
     <div class="details">
-      <div class="details-list">
-        <div class="leftsidelist">Name</div>
-        <div class="rightsidelist">Dry cleaning</div>
+      <div *ngFor="let object of objects; let i = index" class="details-list">
+        <div class="leftsidelist">{{ object.title }}</div>
+        <div class="rightsidelist">
+          <input style="
+                margin-top:-1vh;
+                padding-left: 5px;
+                margin-left:-5vw;
+                width: 15vw;
+                height: 5vh;
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.17);
+                border-radius: 3px;
+              " *ngIf="editing; else name" type="text" [(ngModel)]="object.name" required />
+          <ng-template #name>{{ object.name }}</ng-template>
+        </div>
       </div>
-      <div class="details-list">
+      <!-- <div class="details-list">
         <div class="leftsidelist">Price per unit</div>
-        <div class="rightsidelist">9</div>
+        <div class="rightsidelist">{{displayedData}}</div>
       </div>
       <div class="details-list">
         <div class="leftsidelist">Unit of calculation</div>
-        <div class="rightsidelist">Per piece</div>
-      </div>
+        <div class="rightsidelist">{{displayedData}}</div>
+      </div> -->
+      <ng-container *ngIf="editing">
+        <button class="save" (click)="save()">Save</button>
+      </ng-container>
     </div>
+
   </div>
-  <!-- </div>
-  </div> -->
-  <washly-app-delete-confirmation-modal *ngIf="isModalActive" [isActive]="isModalActive"
+
+  <washly-app-delete-confirmation-modal style="filter: none" *ngIf="isModalActive" [isActive]="isModalActive"
     (close)="closeDeleteConfirmationModal()" (delete)="deleteItem()"></washly-app-delete-confirmation-modal>
 </body>
 

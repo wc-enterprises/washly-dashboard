@@ -11,19 +11,18 @@ margin-left: 17vw;
 position: absolute;
 width: 216px;
 height: 137px;
-left: 650px;
-top: 210px;
-
+left: 45vw;
+top: 320px;
 background: rgba(255, 255, 255, 0.95);
 border: 0.75px solid rgba(33, 36, 39, 0.25);
 border-radius: 4px;
 }
 p{
-    position: absolute;
+ 
 width: 100px;
 height: 16px;
-left: 71px;
-top: 74px;
+margin-left:4.5vw;
+margin-top:10vh;
 
 font-family: 'IBM Plex Sans';
 font-style: normal;
@@ -37,10 +36,10 @@ color: #000000;
 .trash{
     box-sizing: border-box;
 
-position: absolute;
+
 width: 53px;
 height: 20px;
-left: 30px;
+margin-left:2.5vw;
 top: 104px;
 
 background: rgba(255, 174, 154, 0.75);
@@ -67,10 +66,10 @@ top: 10px;
 .cancel{
     box-sizing: border-box;
 
-position: absolute;
+
 width: 53px;
 height: 20px;
-left: 120px;
+margin-left:2vw;
 top: 104px;
 
 background: rgba(255, 174, 154, 0.75);
@@ -85,4 +84,7 @@ line-height: 9px;
 
 
 color: #000000;
+}
+.clear-blur {
+  filter: none;
 }

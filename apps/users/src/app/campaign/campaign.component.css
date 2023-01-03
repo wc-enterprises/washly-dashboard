@@ -129,3 +129,6 @@
   margin-top:-4vh;
   margin-left: 18vw;
 }
+.clear-blur {
+  filter: none;
+}
