@@ -535,6 +535,8 @@ export class BookingDetailsComponent {
 
   editing = false;
 
+  totalServiceAmount: any ;
+
   items = [
     { name: 'Dry wash', quantity: 5, weight: '10', amount: 10, editing: false },
     { name: 'Ironing', quantity: 3, weight: '15', amount: 10, editing: false },
@@ -569,14 +571,14 @@ export class BookingDetailsComponent {
     },
   ];
 
-  // total =0;
+  total =0;
 
-  // getTotalAmount() {
-  //   this.total = 0;
-  //   for (const item of this.items) {
-  //     this.total += item.amount;
-  //   }
-  // }
+  getTotalAmount() {
+    this.total = 0;
+    for (const item of this.items) {
+      this.total += item.amount;
+    }
+  }
 
   // objects = [
   //   {billTag: 'Total service amount', billAmount: '20',editing:false},
@@ -584,6 +586,7 @@ export class BookingDetailsComponent {
   //   {billTag: 'GST', billAmount: '20',editing:false},
   //   {billTag: 'Amount', billAmount: '20',editing:false},
   // ]
+// eslint-disable-next-line @typescript-eslint/member-ordering
 text= 'Arun';
   editModeOn() {
     this.editing = true;

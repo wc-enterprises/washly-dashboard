@@ -122,7 +122,28 @@
                       height: 4vh;" *ngIf="editing;" type="text" [(ngModel)]="total" (keyup)="getTotalAmount()"  required />
                 <ng-template #total > {{getTotalAmount() }}</ng-template>
                   </span> -->
-                  <input style=" width: 6vw;justify-content: center;align-items: center;
+                 <span class="billamount"> 
+                    <input style=" width: 6vw;justify-content: center;align-items: center; border: 1px solid red;
+                      height: 4vh;" *ngIf="editing;" type="text" [(ngModel)]="total" (keyup)="getTotalAmount()"  required />
+                        <!-- <ng-template #totalServiceAmount>{{ item.amount }}</ng-template> -->
+
+                     <p class="totalamount"> {{ this.total }}</p></span>
+                    </div>
+                    <div class="service-bill-details">
+                        <span class="billtag"><p>Delivery charges</p></span>
+                  <input style=" width: 6vw;justify-content: center;align-items: center;border: 0.5px solid rgba(33, 36, 39, 0.25);
+                      height: 4vh;"  type="text" [(ngModel)]="text"   required />
+                      
+                    </div>
+                    <div class="service-bill-details">
+                        <span class="billtag"><p>GST</p></span>
+                  <input style=" width: 6vw;justify-content: center;align-items: center;border: 0.5px solid rgba(33, 36, 39, 0.25);
+                      height: 4vh;"  type="text" [(ngModel)]="text"   required />
+                      
+                    </div>
+                    <div class="service-bill-details">
+                        <span class="billtag"><p>Total</p></span>
+                  <input style=" width: 6vw;justify-content: center;align-items: center;border: 0.5px solid rgba(33, 36, 39, 0.25);
                       height: 4vh;"  type="text" [(ngModel)]="text"   required />
                       
                     </div>
