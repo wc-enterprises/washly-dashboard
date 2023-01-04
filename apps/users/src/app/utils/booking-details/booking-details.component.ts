@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ArgumentOutOfRangeError } from 'rxjs';
 
 @Component({
   selector: 'washly-booking-details',
@@ -583,7 +584,7 @@ export class BookingDetailsComponent {
   //   {billTag: 'GST', billAmount: '20',editing:false},
   //   {billTag: 'Amount', billAmount: '20',editing:false},
   // ]
-
+text= 'Arun';
   editModeOn() {
     this.editing = true;
   }

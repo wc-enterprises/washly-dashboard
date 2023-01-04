@@ -69,7 +69,7 @@
                   justify-content: center;
                 ">
                                 <!-- use *ngIf to show and hide the form control based on the editing state of the row -->
-                                <input style="
+                    <input style="
                     width: 12vw;
                     height: 4vh;
                     font-style: normal;
@@ -122,6 +122,9 @@
                       height: 4vh;" *ngIf="editing;" type="text" [(ngModel)]="total" (keyup)="getTotalAmount()"  required />
                 <ng-template #total > {{getTotalAmount() }}</ng-template>
                   </span> -->
+                  <input style=" width: 6vw;justify-content: center;align-items: center;
+                      height: 4vh;"  type="text" [(ngModel)]="text"   required />
+                      
                     </div>
 
                     <ng-container *ngIf="editing">
