@@ -40,10 +40,12 @@
             <div class="service-title">
                 <h4 class="bill-details-title">BILL DETAILS</h4>
                 <mat-icon class="edit-icon" (click)="editModeOn()">mode_edit</mat-icon>
-                <div id="approve-button-box" ><button class="approve-button"><p class="approve-button-cont">APPROVE</p></button>
-                    <mat-icon id="drop-down-logo" >arrow_drop_down</mat-icon>
-                    <!-- <button class="approve-button"><p class="approve-button-cont">REJECT</p></button>   -->
+               <div id="approve-reject-box"> 
+                  <div class="approve-button-box" ><button class="approve-button"><p class="approve-button-cont">APPROVE</p></button>
+                    <mat-icon id="drop-down-logo" (click)="showElements=!showElements" >arrow_drop_down</mat-icon>
                 </div>
+                <button *ngIf="showElements"  class="reject-button"><p class="approve-button-cont">REJECT</p></button>
+                 </div>
             </div>
 
             <div class="service-table-box">

@@ -78,24 +78,29 @@ Details:
     flex-direction: column;
     overflow: scroll;
     padding: 2vh;
+    
 }
 
 .service-title {
     height: 7vh;
+    width: 100%;
     display: flex;
     flex-direction: row;
+    
 }
 
 .bill-details-title {
     color: black;
     font-weight: 500;
     position: relative;
+    
 }
 
 .edit-icon {
     margin-left: 0.75vw;
     position: relative;
     bottom: 1px;
+    
 }
 
 .service-title-header {
@@ -106,6 +111,7 @@ Details:
     font-weight: 700;
     font-size: 14px;
     color: #000000;
+   
 }
 
 .bill-contents {
@@ -114,6 +120,7 @@ Details:
     border: 1px solid black;
     align-items: center;
     justify-content: center;
+    
 }
 
 .service-table {
@@ -124,9 +131,10 @@ Details:
 .service-table-data {
     width: 25.5vw;
     height: 77.5vh;
-    border: 1px solid black;
+  
     align-items: center;
     justify-content: center;
+   
 }
 
 
@@ -143,13 +151,14 @@ Details:
     width: 100%;
     height: 7vh;
     background: rgba(42, 46, 50, 0.78);
-    border: 1px solid rgba(42, 46, 50, 0.09);
+    /* border: 1px solid rgba(42, 46, 50, 0.09); */
     border-radius: 3px;
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 600;
     font-size: 12px;
     color: #ffffff;
+
 }
 
 .service-bill {
@@ -161,6 +170,7 @@ Details:
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 .service-bill-details {
@@ -170,6 +180,7 @@ Details:
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+    
 }
 
 .billtag {
@@ -183,6 +194,7 @@ Details:
     font-size: 20px;
     line-height: 22px;
     color: #000000;
+  
 }
 
 .save-button {
@@ -192,7 +204,7 @@ Details:
     border-radius: 5px;
 }
 
-#approve-button-box{
+.approve-button-box{
     width: 8.5vw;
     height: 4vh;
     display: flex;
@@ -200,7 +212,7 @@ Details:
     background: rgba(215, 239, 125, 0.75);
     border: 0.35px solid #A2B84E;
     border-radius: 2px;
-    margin-left: 13vh;
+   
 }
 .approve-button{
     width: 6.5vw;
@@ -210,6 +222,19 @@ Details:
   text-align: center;
   align-items: center;
   justify-content: center;
+}
+.reject-button{
+    width: 6.5vw;
+    height: 3vh;
+   border: 0.5px solid #212427;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background: #FE8F8F;
+  border: 0.4px solid rgba(33, 36, 39, 0.22);
+  border-radius: 2px;
+    
+   z-index: 100;
 }
 .approve-button-cont{
    margin-top: 0.2vh;
@@ -222,4 +247,12 @@ align-items: center;
   justify-content: center;
 color: #212427;
 
+}
+#approve-reject-box{
+    display: flex;
+    flex-direction: column;
+    width: 8.5vw;
+    height: 7vh;
+   
+margin-left: 13vh;
 }
