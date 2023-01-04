@@ -162,7 +162,7 @@ input {
   border-radius: 3px;
 }
 /* //media query */
-@media (min-width: 1360px) and (max-width: 1369px) and (min-height: 768px) and (max-height: 768px){
+@media (min-width: 768px) and (min-width: 768px){
   .details {
   width: 40vw;
   margin-left: 2px;
