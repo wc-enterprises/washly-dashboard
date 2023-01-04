@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ArgumentOutOfRangeError } from 'rxjs';
 
 @Component({
   selector: 'washly-booking-details',
@@ -1612,14 +1613,14 @@ export class BookingDetailsComponent {
     },
   ];
 
-  // total =0;
+  total =0;
 
-  // getTotalAmount() {
-  //   this.total = 0;
-  //   for (const item of this.items) {
-  //     this.total += item.amount;
-  //   }
-  // }
+  getTotalAmount() {
+    this.total = 0;
+    for (const item of this.items) {
+      this.total += item.amount;
+    }
+  }
 
   // objects = [
   //   {billTag: 'Total service amount', billAmount: '20',editing:false},
@@ -1627,7 +1628,8 @@ export class BookingDetailsComponent {
   //   {billTag: 'GST', billAmount: '20',editing:false},
   //   {billTag: 'Amount', billAmount: '20',editing:false},
   // ]
-
+// eslint-disable-next-line @typescript-eslint/member-ordering
+text= 'Arun';
   editModeOn() {
     this.editing = true;
   }
@@ -1635,7 +1637,15 @@ export class BookingDetailsComponent {
   save() {
     this.editing = false;
   }
-
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  // showButton = false;
+  // toggleButton() {
+  //   this.showButton = !this.showButton;
+  // }
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  showElements = false;
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  showListElements = false;
   setSelectedBooking(booking: any) {
     this.bookings.forEach((booking) => {
       booking.cardData.selected = false;
