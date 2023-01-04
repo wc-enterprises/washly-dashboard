@@ -213,10 +213,16 @@
   color: #212427;
 }
 
-@media (min-width: 768px) and (min-width: 768px) {
+@media screen and (max-width:1372px){
   .details{
   width: 45vw;
   margin-left: 2px;
+
+}
+.rightsidelist{
+  margin-left:0px;
+  width: 20vw;
+ 
 }
 .save{
   margin-left: 18vw;

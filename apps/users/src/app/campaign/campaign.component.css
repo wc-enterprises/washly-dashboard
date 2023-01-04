@@ -162,9 +162,9 @@ input {
   border-radius: 3px;
 }
 /* //media query */
-@media (min-width: 768px) and (min-width: 768px){
+@media screen and (max-width:1372px){
   .details {
-  width: 40vw;
+  width:40vw;
   margin-left: 2px;
 }
 }
