@@ -50,25 +50,144 @@ Details:
     height: 77.5vh;
     background-color: #212427;
     border-radius: 5px 0 0 5px;
+    padding: 3vh;
+    overflow: scroll;
 }
+
+.key {
+    width: 50%;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.value {
+    width: 50%;
+    text-align: left;
+    color: white;
+}
+
+
+/* Service details */
 
 .service-details {
     width: 28vw;
     height: 77.5vh;
     background-color: white;
     border-radius: 0 5px 5px 0;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    padding: 2vh;
 }
 
-.key {
-    float: left;
-    width: 50%;
-    text-align: right;
-    color: white;
+.service-title {
+    height: 7vh;
+    display: flex;
+    flex-direction: row;
 }
 
-.value {
-    float: right;
-    width: 50%;
-    text-align: left;
-    color: white;
+.bill-details-title {
+    color: black;
+    font-weight: 500;
+    position: relative;
+}
+
+.edit-icon {
+    margin-left: 0.75vw;
+    position: relative;
+    bottom: 1px;
+}
+
+.service-title-header {
+    width: 9vw;
+    height: 3vh;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    color: #000000;
+}
+
+.bill-contents {
+    width: 36vw;
+    height: 91vh;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-table {
+    width: 25.5vw;
+    height: 77.5vh;
+}
+
+.service-table-data {
+    width: 25.5vw;
+    height: 77.5vh;
+    border: 1px solid black;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* .service-table{
+    overflow: hidden;
+    overflow-y: auto;
+}
+.service-table::-webkit-scrollbar {
+    display: none;
+    scroll-behavior: smooth;
+} */
+
+#table-header {
+    width: 100%;
+    height: 7vh;
+    background: rgba(42, 46, 50, 0.78);
+    border: 1px solid rgba(42, 46, 50, 0.09);
+    border-radius: 3px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.service-bill {
+    width: 100%;
+    height: 31vh;
+    background: rgba(42, 46, 50, 0.04);
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.service-bill-details {
+    width: 100%;
+    height: 6vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.billtag {
+    width: 15vw;
+    justify-content: center;
+    align-items: center;
+    height: 4vh;
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 22px;
+    color: #000000;
+}
+
+.save-button {
+    width: 10vw;
+    height: 5vh;
+    background: rgba(215, 239, 125, 0.58);
+    border-radius: 5px;
 }
