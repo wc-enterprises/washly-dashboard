@@ -88,7 +88,7 @@
     margin-left: -0.5vw;
 }
   .logotitle{
-    margin-top: 6vh;
+    margin-top: 7vh;
   }
  .booking{
     padding: 5px;
@@ -110,30 +110,33 @@ padding-left: 1px;
 
 
 
-/* @media   (min-width: 1370px) {
+@media screen and (max-width:1920px) {
   .nav {
-  width: 18vw;
+  width:250px;
   }
   .logo{
-    margin-left: -3.5vw;
+    margin-left: -1vw;
 
   }
   .logotitle{
-    margin-top: 10.5vh;
+    margin-top:5vh;
   }
  .booking{
-    padding: 18px;
+    padding: 5px;
     width: 10vw;
     
    
  }
+ .content{
+    padding-top: 3.5px;
+}
   .logoutlogo{
-bottom: 4.5vh;
+bottom: 6.5vh;
 
  }
  .logouttext{
-bottom: 5.5vh; 
+bottom: 5.6vh; 
 
  }
 
-} */
+}

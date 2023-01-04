@@ -215,17 +215,27 @@
 
 @media screen and (max-width:1372px){
   .details{
-  width: 45vw;
+  width: 40vw;
   margin-left: 2px;
+  height: 38vh;
 
 }
-.rightsidelist{
-  margin-left:0px;
-  width: 20vw;
- 
+.deleteimg {
+  
+  
 }
+.details-list{
+margin-left: -1vw;
+}
+.rightsidelist{
+  
+  width: 15vw;
+
+}
+
 .save{
   margin-left: 18vw;
+  margin-top: 4vh;
 }
 }
 /* @media (max-width: 1370px){
