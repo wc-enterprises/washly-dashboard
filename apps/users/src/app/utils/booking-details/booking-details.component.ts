@@ -591,6 +591,11 @@ export class BookingDetailsComponent {
   save() {
     this.editing = false;
   }
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  // showButton = false;
+  // toggleButton() {
+  //   this.showButton = !this.showButton;
+  // }
 
   setSelectedBooking(booking: any) {
     this.bookings.forEach((booking) => {

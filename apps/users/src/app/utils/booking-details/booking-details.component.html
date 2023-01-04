@@ -26,7 +26,7 @@
             </div>
 
             <!-- PICKUP AND DELIVERY DETAILS -->
-            <div style="height: 65%; margin-top: 3%">
+            <div style="height: 65%; margin-top: 19%">
                 <h4 style="color: white">PICKUP AND DELIVERY DETAILS</h4>
                 <div style="display: flex; justify-content: space-between; padding: 3% 0" *ngFor="let item of selectedBooking.pickUpAndDeliveryDetails">
                     <div class="key">{{ item.title }}</div>
@@ -40,6 +40,10 @@
             <div class="service-title">
                 <h4 class="bill-details-title">BILL DETAILS</h4>
                 <mat-icon class="edit-icon" (click)="editModeOn()">mode_edit</mat-icon>
+                <div id="approve-button-box" ><button class="approve-button"><p class="approve-button-cont">APPROVE</p></button>
+                    <mat-icon id="drop-down-logo" >arrow_drop_down</mat-icon>
+                    <!-- <button class="approve-button"><p class="approve-button-cont">REJECT</p></button>   -->
+                </div>
             </div>
 
             <div class="service-table-box">
@@ -70,17 +74,18 @@
                     font-weight: 600;
                     font-size: 15px;
                     line-height: 16px;
+                    border: 0.5px solid rgba(33, 36, 39, 0.25);
                     color: #000000;
                     justify-content: center;
                   " *ngIf="editing; else name" type="text" [(ngModel)]="item.name" required />
                                 <ng-template #name>{{ item.name }}</ng-template>
                             </td>
                             <td style="width: 7vw; height: 4vh">
-                                <input style="width: 6vw; height: 4vh" *ngIf="editing; else quantity" type="number" [(ngModel)]="item.quantity" required />
+                                <input style="width: 6vw; height: 4vh; border: 0.5px solid rgba(33, 36, 39, 0.25);" *ngIf="editing; else quantity" type="number" [(ngModel)]="item.quantity" required />
                                 <ng-template #quantity>{{ item.quantity }}</ng-template>
                             </td>
                             <td style="width: 7vw; height: 4vh">
-                                <input style="width: 6vw; height: 4vh" *ngIf="editing; else weight" type="text" [(ngModel)]="item.weight" required />
+                                <input style="width: 6vw; height: 4vh;border: 0.5px solid rgba(33, 36, 39, 0.25);" *ngIf="editing; else weight" type="text" [(ngModel)]="item.weight" required />
                                 <ng-template #weight>{{ item.weight }}</ng-template>
                             </td>
                             <td style="
@@ -93,7 +98,7 @@
                     width: 6vw;
                     justify-content: center;
                     align-items: center;
-                    height: 4vh;
+                    height: 4vh;border: 0.5px solid rgba(33, 36, 39, 0.25);
                   " *ngIf="editing; else amount" type="text" [(ngModel)]="item.amount" required />
                                 <ng-template #amount>{{ item.amount }}</ng-template>
                             </td>
