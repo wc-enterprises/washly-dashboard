@@ -1,9 +1,7 @@
 <html>
 
 <head>
-    <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&family=Lato:wght@700&family=Open+Sans:wght@600&family=Roboto:wght@400;500&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&family=Lato:wght@700&family=Open+Sans:wght@600&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
 </head>
 
 <body>
@@ -19,23 +17,21 @@
             <div>
                 <mat-tab-group>
                     <mat-tab label="Service">
-                        <div style=" height: 80vh;">
+                        <div style="height: 80vh">
                             <washly-service-page></washly-service-page>
                         </div>
                     </mat-tab>
                     <mat-tab label="Campaign">
-                        <div style="height: 80vh;">
+                        <div style="height: 80vh">
                             <washly-campaign></washly-campaign>
                         </div>
                     </mat-tab>
                 </mat-tab-group>
             </div>
         </div>
-
     </div>
     <!-- modal component -->
-    <washly-app-delete-confirmation-modal *ngIf="isModalActive" [isActive]="isModalActive"
-        (close)="closeDeleteConfirmationModal()" (delete)="deleteItem()"></washly-app-delete-confirmation-modal>
+    <washly-app-delete-confirmation-modal *ngIf="isModalActive" [isActive]="isModalActive" (close)="closeDeleteConfirmationModal()" (delete)="deleteItem()"></washly-app-delete-confirmation-modal>
 </body>
 
 </html>

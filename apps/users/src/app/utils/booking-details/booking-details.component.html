@@ -1,0 +1,25 @@
+<div class="main">
+    <div class="card-list">
+        <div *ngFor="let item of bookings" class="card-container">
+            <mat-card class="card" [ngClass]="{ selected: item.cardData.selected }" (click)="setSelectedBooking(item)">
+                <mat-card-title>{{ item.cardData.bookingId }}</mat-card-title>
+                <mat-card-content class="card-content">
+                    <ul>
+                        <li>{{ item.cardData.storeName }}</li>
+                        <li>{{ item.cardData.date }}</li>
+                    </ul>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+
+    <div class="details">
+        <div class="booking-details">
+            <div *ngFor="let bookingDetail of selectedBooking.bookingDetails">
+                <div class="key">{{ bookingDetail.title }}</div>
+                <div class="value">{{ bookingDetail.value }}</div>
+            </div>
+        </div>
+        <div class="service-details"></div>
+    </div>
+</div>

@@ -14,6 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppsettingpageComponent } from './appsettingpage/appsettingpage.component';
@@ -25,6 +26,7 @@ import { NavBarComponent } from './utils/nav-bar/nav-bar.component';
 import { HeaderComponent } from './header/header.component';
 import { CampaignComponent } from './campaign/campaign.component';
 import { BookingComponent } from './booking/booking.component';
+import { BookingDetailsComponent } from './utils/booking-details/booking-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +42,7 @@ import { BookingComponent } from './booking/booking.component';
     HeaderComponent,
     CampaignComponent,
     BookingComponent,
+    BookingDetailsComponent,
   ],
 
   imports: [
@@ -49,6 +52,7 @@ import { BookingComponent } from './booking/booking.component';
     MatInputModule,
     NgImageSliderModule,
     MatFormFieldModule,
+    MatCardModule,
     FormsModule,
     ReactiveFormsModule,
     MatTabsModule,

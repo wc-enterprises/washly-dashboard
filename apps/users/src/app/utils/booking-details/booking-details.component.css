@@ -1,0 +1,74 @@
+.main {
+    height: 100%;
+    display: flex;
+}
+
+.card-list {
+    width: 23vw;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    overflow: scroll;
+}
+
+.card-container {
+    padding: 2vh 2.5vh 0 5vh;
+}
+
+.card {
+    /* box-sizing: border-box;
+    */
+    padding-left: 1vw;
+    padding-top: 0.8vh;
+    box-shadow: 3px 3px 5px 0px rgba(0.2, 0, 0, 0.2), -3px -3px 5px 0px rgba(0.2, 0, 0, 0.2);
+    background-color: #f5f4ee;
+    cursor: pointer;
+}
+
+.card.selected {
+    background-color: rgba(33, 36, 39, 0.06);
+}
+
+.card-content {
+    position: relative;
+    left: -1vw;
+}
+
+
+/* 
+Details: 
+   Total aval. width - 59vw
+   Toatal aval. height - 77vh */
+
+.details {
+    flex-grow: 1;
+    padding: 5.1vh 2.5vh 0vh 2.5vh;
+    display: flex;
+}
+
+.booking-details {
+    width: 28vw;
+    height: 77.5vh;
+    background-color: #212427;
+    border-radius: 5px 0 0 5px;
+}
+
+.service-details {
+    width: 28vw;
+    height: 77.5vh;
+    background-color: white;
+    border-radius: 0 5px 5px 0;
+}
+
+.key {
+    float: left;
+    width: 50%;
+    text-align: right;
+    color: white;
+}
+
+.value {
+    float: right;
+    width: 50%;
+    text-align: left;
+    color: white;
+}
