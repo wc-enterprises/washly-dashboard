@@ -5,7 +5,7 @@
 </head>
 
 <body>
-    <div class="main-container" [ngClass]="{ blur: isModalActive }">
+    <div class="main-container">
         <div style="display: contents">
             <washly-nav-bar></washly-nav-bar>
         </div>
@@ -31,7 +31,8 @@
         </div>
     </div>
     <!-- modal component -->
-    <washly-app-delete-confirmation-modal *ngIf="isModalActive" [isActive]="isModalActive" (close)="closeDeleteConfirmationModal()" (delete)="deleteItem()"></washly-app-delete-confirmation-modal>
+    <!-- <washly-app-delete-confirmation-modal *ngIf="isModalActive" [isActive]="isModalActive"
+        (close)="closeDeleteConfirmationModal()" (delete)="deleteItem()"></washly-app-delete-confirmation-modal> -->
 </body>
 
 </html>

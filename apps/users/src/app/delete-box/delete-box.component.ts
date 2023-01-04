@@ -21,4 +21,11 @@ export class DeleteBoxComponent {
     this.isActive = false;
     this.delete.emit();
   }
+   // eslint-disable-next-line @typescript-eslint/member-ordering
+   showClearBlurComponent = false;
+
+
+  toggleClearBlurComponent() {
+    this.showClearBlurComponent = !this.showClearBlurComponent;
+  }
 }

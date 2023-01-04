@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./service-page.component.css'],
 })
 export class ServicePageComponent {
+
+  @Output() deletePopUp = new EventEmitter<boolean>();
+
  items = [
     { name:'Regular wash',   icon1:'/assets/edit.png', icon2: '/assets/delete.png',status:'active'},
     { name:'Wash and press',   icon1:'/assets/edit.png', icon2: '/assets/delete.png',status:'inactive' },
@@ -16,14 +19,24 @@ export class ServicePageComponent {
     
   
   ];
-
+  objects = [{title:'Name', name: 'Regular wash',editing:false },
+    {title:'Price per unit', name: '9',editing:false },
+    {title:'Unit of calculation', name: 'Per piece',editing:false}]
+ 
+  displayedData: any;
+  
 
   constructor(private router: Router) {}
    showDiv = true;
    isModalActive = false;
 
+    displayData(data: any) {
+    this.displayedData = data;
+  }
+
   openDeleteConfirmationModal() {
     this.isModalActive = true;
+    this.deletePopUp.emit(true);
     console.log("change modal active status to:" , this.isModalActive)
   }
 
@@ -35,11 +48,29 @@ export class ServicePageComponent {
     return
   }
 
-  serviceediting() {
-    this.router.navigate(['/serviceeditpage']);
-  }
+  // editing() {
+  //   this.router.navigate(['/serviceeditpage']);
+  // }
   campaign(){
     this.router.navigate(['/appsettingpage']);
   }
+   @HostListener('document:click')
+  toggleBlur() {
+    document.body.classList.toggle('blur');
+  }
+   // eslint-disable-next-line @typescript-eslint/member-ordering
+   text = 'Text to be edited';
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  editing = false;
+
   
+
+  editText() {
+    this.editing = true;
+  }
+
+  save() {
+    this.editing = false;
+  }
+
 }

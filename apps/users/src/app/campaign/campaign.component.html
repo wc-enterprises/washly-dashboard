@@ -1,51 +1,73 @@
 <div *ngIf="showDiv" class="inner-container">
     <div class="service-list">
-        <div *ngFor="let item of items; let i = index" class="list">
-            {{item.name}} <img class="editimg" (click)="editing()" [src]="item.icon1"> <img
-                (click)="openDeleteConfirmationModal()" class="deleteimg" [src]="item.icon2">
-            <div class="status" *ngIf="item.status==='active'">
+        <div (click)="displayData(campaigns)" *ngFor="let campaign of campaigns; let i = index" class="list">
+            {{campaign.heading}} <img src="/assets/edit.png" class="editimg" (click)="editText()"> <img
+                src="/assets/delete.png" (click)="openDeleteConfirmationModal()" (click)="toggleBlur()"
+                class="deleteimg">
+            <div class="status" *ngIf="campaign.status==='ACTIVE'">
                 <img src="/assets/greendot.png">
             </div>
-            <div class="status" *ngIf="item.status==='inactive'">
+            <div class="status" *ngIf="campaign.status==='INACTIVE'">
                 <img src="/assets/red.png">
             </div>
         </div>
 
         <div class="list" id="addlist">ADD NEW +</div>
     </div>
-    <div class="details">
+    <div class="details" *ngFor="let campaign of campaigns">
+
         <div class="details-list">
             <div class="leftsidelist">Heading</div>
-            <div class="rightsidelist">50 % OFFER</div>
+            <div class="rightsidelist">
+                <input *ngIf="editing; else heading" type="text" [(ngModel)]="campaign.heading" required />
+                <ng-template #heading>{{ campaign.heading }}</ng-template>
+            </div>
         </div>
         <div class="details-list">
             <div class="leftsidelist">Description</div>
             <div class="rightsidelist">
-                Grab your offer by using Promo code FIRST
+                <input *ngIf="editing; else description" type="text" [(ngModel)]="campaign.description" required />
+                <ng-template #description>{{ campaign.description }}</ng-template>
             </div>
         </div>
         <div class="details-list">
             <div class="leftsidelist">Button</div>
-            <div class="rightsidelist">KNOW MORE</div>
+            <div class="rightsidelist">
+                <input *ngIf="editing; else buttonLabel" type="text" [(ngModel)]="campaign.buttonLabel" required />
+                <ng-template #buttonLabel>{{ campaign.buttonLabel }}</ng-template>
+            </div>
         </div>
         <div class="details-list">
             <div class="leftsidelist">Image URL</div>
             <div class="rightsidelist">
-                https://pixabay.com/images/search/nature/
+                <input *ngIf="editing; else imageUrl" type="text" [(ngModel)]="campaign.imageUrl" required />
+                <ng-template #imageUrl>{{ campaign.imageUrl }}</ng-template>
             </div>
         </div>
         <div class="details-list">
             <div class="leftsidelist">Start date</div>
-            <div class="rightsidelist">28/10/2022</div>
+            <div class="rightsidelist"><input *ngIf="editing; else startDate" type="text"
+                    [(ngModel)]="campaign.startDate" required />
+                <ng-template #startDate>{{ campaign.startDate }}</ng-template>
+            </div>
         </div>
         <div class="details-list">
             <div class="leftsidelist">End date</div>
-            <div class="rightsidelist">18/10/2022</div>
+            <div class="rightsidelist"><input *ngIf="editing; else endDate" type="text" [(ngModel)]="campaign.endDate"
+                    required />
+                <ng-template #endDate>{{ campaign.endDate }}</ng-template>
+            </div>
         </div>
         <div class="details-list">
             <div class="leftsidelist">Status</div>
-            <div class="rightsidelist">ACTIVE</div>
+            <div class="rightsidelist"><input *ngIf="editing; else status" type="text" [(ngModel)]="campaign.status"
+                    required />
+                <ng-template #status>{{ campaign.status }}</ng-template>
+            </div>
         </div>
+        <ng-container *ngIf="editing">
+            <button class="save" (click)="save()">Save</button>
+        </ng-container>
     </div>
 </div>
 <washly-app-delete-confirmation-modal *ngIf="isModalActive" [isActive]="isModalActive"
