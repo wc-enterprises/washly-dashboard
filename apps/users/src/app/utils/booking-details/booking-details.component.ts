@@ -535,8 +535,6 @@ export class BookingDetailsComponent {
 
   editing = false;
 
-  totalServiceAmount: any ;
-
   items = [
     { name: 'Dry wash', quantity: 5, weight: '10', amount: 10, editing: false },
     { name: 'Ironing', quantity: 3, weight: '15', amount: 10, editing: false },
