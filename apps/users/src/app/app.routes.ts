@@ -10,6 +10,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HeaderComponent } from './header/header.component';
 import { BookingComponent } from './booking/booking.component';
 import { CampaignComponent } from './campaign/campaign.component';
+import { BillDetailsComponent } from './booking-details/booking-details.component';
 
 export const appRoutes: Route[] = [
   { path: 'App', component: AppComponent },
@@ -23,4 +24,5 @@ export const appRoutes: Route[] = [
   { path: 'header', component: HeaderComponent },
   { path: 'bookings', component: BookingComponent },
   { path: 'campaign', component: CampaignComponent },
+  { path: 'bill', component: BillDetailsComponent },
 ];
