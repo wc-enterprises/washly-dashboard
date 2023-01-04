@@ -213,7 +213,7 @@
   color: #212427;
 }
 
-@media (min-width: 1366px){
+@media (min-width: 1360px) and (max-width: 1370px) and (min-height: 768px) and (max-height: 768px) {
   .details{
   width: 45vw;
   margin-left: 2px;
@@ -222,3 +222,12 @@
   margin-left: 18vw;
 }
 }
+/* @media (max-width: 1370px){
+  .details{
+  width: 40vw;
+  margin-left: 2vw;
+}
+.save{
+  margin-left: 15vw;
+}
+} */
