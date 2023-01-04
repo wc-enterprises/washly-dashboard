@@ -17,7 +17,7 @@ export class BookingDetailsComponent {
       },
       bookingDetails: [
         {
-          title: 'Booking Id',
+          title: 'Booking id',
           value: 'X78976TY6546I',
         },
         {
@@ -56,15 +56,15 @@ export class BookingDetailsComponent {
         },
         {
           title: 'Pickup address',
-          value: `14/A, East street, West
-          kottaram, V.k Puram,
-          Tirunelveli. 627422  `,
+          value: `14/A, East coast street, South west
+          Kotturpalayamkotai, Vikasvendra kundramma puram,
+          Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.  `,
         },
         {
           title: 'Delivery address',
-          value: `14/A, East street, West
-          kottaram, V.k Puram,
-          Tirunelveli. 627422  `,
+          value: `14/A, East coast street, South west
+          Kotturpalayamkotai, Vikasvendra kundramma puram,
+          Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.   `,
         },
       ],
       selectedService: [
@@ -104,7 +104,7 @@ export class BookingDetailsComponent {
       },
       bookingDetails: [
         {
-          title: 'Booking Id',
+          title: 'Booking id',
           value: '1234567890X78976TY6546I',
         },
         {
@@ -191,7 +191,7 @@ export class BookingDetailsComponent {
       },
       bookingDetails: [
         {
-          title: 'Booking Id',
+          title: 'Booking id',
           value: 'qwertyuiop',
         },
         {
@@ -278,7 +278,7 @@ export class BookingDetailsComponent {
       },
       bookingDetails: [
         {
-          title: 'Booking Id',
+          title: 'Booking id',
           value: 'asdfghjkl',
         },
         {
@@ -365,7 +365,7 @@ export class BookingDetailsComponent {
       },
       bookingDetails: [
         {
-          title: 'Booking Id',
+          title: 'Booking id',
           value: 'zxcvbnm',
         },
         {
@@ -452,7 +452,7 @@ export class BookingDetailsComponent {
       },
       bookingDetails: [
         {
-          title: 'Booking Id',
+          title: 'Booking id',
           value: 'X78976TY6546I',
         },
         {
@@ -531,6 +531,66 @@ export class BookingDetailsComponent {
     },
   ];
   selectedBooking = this.bookings[0];
+
+  editing = false;
+
+  items = [
+    { name: 'Dry wash', quantity: 5, weight: '10', amount: 10, editing: false },
+    { name: 'Ironing', quantity: 3, weight: '15', amount: 10, editing: false },
+    { name: 'Washing', quantity: 3, weight: '15', amount: 10, editing: false },
+    {
+      name: 'Washing & Ironing',
+      quantity: 3,
+      weight: '15',
+      amount: 10,
+      editing: false,
+    },
+    {
+      name: 'Dry wash & Ironing',
+      quantity: 3,
+      weight: '15',
+      amount: 10,
+      editing: false,
+    },
+    {
+      name: 'Dry wash & Washing',
+      quantity: 3,
+      weight: '15',
+      amount: 10,
+      editing: false,
+    },
+    {
+      name: 'Dry wash & Ironing & Washing',
+      quantity: 3,
+      weight: '15',
+      amount: 10,
+      editing: false,
+    },
+  ];
+
+  // total =0;
+
+  // getTotalAmount() {
+  //   this.total = 0;
+  //   for (const item of this.items) {
+  //     this.total += item.amount;
+  //   }
+  // }
+
+  // objects = [
+  //   {billTag: 'Total service amount', billAmount: '20',editing:false},
+  //   {billTag: 'Delivery charge', billAmount: '20',editing:false},
+  //   {billTag: 'GST', billAmount: '20',editing:false},
+  //   {billTag: 'Amount', billAmount: '20',editing:false},
+  // ]
+
+  editModeOn() {
+    this.editing = true;
+  }
+
+  save() {
+    this.editing = false;
+  }
 
   setSelectedBooking(booking: any) {
     this.bookings.forEach((booking) => {

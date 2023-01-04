@@ -27,6 +27,7 @@ import { HeaderComponent } from './header/header.component';
 import { CampaignComponent } from './campaign/campaign.component';
 import { BookingComponent } from './booking/booking.component';
 import { BookingDetailsComponent } from './utils/booking-details/booking-details.component';
+import { BillDetailsComponent } from './booking-details/booking-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,9 +44,11 @@ import { BookingDetailsComponent } from './utils/booking-details/booking-details
     CampaignComponent,
     BookingComponent,
     BookingDetailsComponent,
+    BillDetailsComponent,
   ],
 
   imports: [
+    FormsModule,
     BrowserModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     BrowserAnimationsModule,
@@ -53,7 +56,6 @@ import { BookingDetailsComponent } from './utils/booking-details/booking-details
     NgImageSliderModule,
     MatFormFieldModule,
     MatCardModule,
-    FormsModule,
     ReactiveFormsModule,
     MatTabsModule,
     MatIconModule,
