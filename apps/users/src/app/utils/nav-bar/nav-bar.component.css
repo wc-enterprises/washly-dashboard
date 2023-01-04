@@ -80,7 +80,7 @@
     font-size: medium;
 }
 
-@media (min-width: 1360px) and (max-width: 1370px) and (min-height: 768px) and (max-height: 768px) {
+@media (min-width: 1360px) and (max-width: 1369px) and (min-height: 768px) and (max-height: 768px) {
   .nav {
   width:250px;
   }
@@ -132,7 +132,7 @@ bottom: 4.5vh;
 
  }
  .logouttext{
-bottom: 5.5vh;
+bottom: 5.5vh; 
 
  }
 
