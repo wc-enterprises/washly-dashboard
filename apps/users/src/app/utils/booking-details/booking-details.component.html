@@ -2,7 +2,7 @@
     <div class="card-list">
         <div *ngFor="let item of bookings" class="card-container">
             <mat-card class="card" [ngClass]="{ selected: item.cardData.selected }" (click)="setSelectedBooking(item)">
-                <mat-card-title>{{ item.cardData.bookingId }}</mat-card-title>
+                <mat-card-title>{{ item.cardData.bookingId }} </mat-card-title>
                 <mat-card-content class="card-content">
                     <ul>
                         <li>{{ item.cardData.storeName }}</li>
@@ -42,7 +42,7 @@
                 <mat-icon class="edit-icon" (click)="editModeOn()">mode_edit</mat-icon>
             </div>
 
-            <div class="service-table-box">
+            <div class="bill-contents">
                 <div class="service-table">
                     <table class="service-table-data">
                         <tr id="table-header">
