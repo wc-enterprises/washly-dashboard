@@ -10,18 +10,20 @@ import { EditableTableComponent } from './utils/table/table.component';
 import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
-
+import { BookingDetailsComponent } from './booking-details/booking-details.component';
+import { MatTabsModule } from '@angular/material/tabs';
 @NgModule({
   declarations: [
-        AppComponent,
+    AppComponent,
     NxWelcomeComponent,
     BookingComponent,
-    EditableTableComponent
+    EditableTableComponent,
+    BookingDetailsComponent,
   ],
   imports: [
+    MatTabsModule,
     MatFormFieldModule,
-    MatTableModule ,
+    MatTableModule,
     FormsModule,
     BrowserModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),

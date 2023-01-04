@@ -213,49 +213,20 @@
         <!-- order-details end div -->
         <div class="booking-details-box">
           <div class="order-detail-box">
-            <div class="order-detail-cont">
+            <div *ngFor="let bookinglist of bookinglist; let i = index"  class="order-detail-cont">
                 <!-- <div class="booking-detail-card"> -->
-            <div ><p class="booking-id">b_78yu-67</p></div>
-            <div ><p class="booking-store-name">Guduvanchery</p></div>
-            <div ><p class="booking-date">25/07/2022</p></div>
+            <div ><p class="booking-id">{{bookinglist.id}}</p></div>
+            <div ><p class="booking-store-name">{{bookinglist.place}}</p></div>
+            <div ><p class="booking-date">{{bookinglist.date}}</p></div>
                 <!-- </div> -->
             </div>
-            <div class="order-detail-cont">
-                <div ><p class="booking-id">b_78yu-68</p></div>
-                <div ><p class="booking-store-name">Oorapakkam</p></div>
-                <div ><p class="booking-date">25/07/2022</p></div>  
-            </div>
-            <div class="order-detail-cont">
-                <div ><p class="booking-id">b_78yu-69</p></div>
-                <div ><p class="booking-store-name">Potheri</p></div>
-                <div ><p class="booking-date">25/07/2022</p></div> 
-            </div>
-            <div class="order-detail-cont">
-                <div ><p class="booking-id">b_78yu-70</p></div>
-            <div ><p class="booking-store-name">Sp kovil</p></div>
-            <div ><p class="booking-date">25/07/2022</p></div>
-            </div>
-            <div class="order-detail-cont">
-                <div ><p class="booking-id">b_78yu-71</p></div>
-            <div ><p class="booking-store-name">Thambaram</p></div>
-            <div ><p class="booking-date">25/07/2022</p></div>
-            </div>
-            <div class="order-detail-cont">
-                <div ><p class="booking-id">b_78yu-72</p></div>
-            <div ><p class="booking-store-name">Chrompet</p></div>
-            <div ><p class="booking-date">25/07/2022</p></div>
-            </div>
-            <div class="order-detail-cont">
-                <div ><p class="booking-id">b_78yu-73</p></div>
-            <div ><p class="booking-store-name">Pallavaram</p></div>
-            <div ><p class="booking-date">25/07/2022</p></div>
-            </div>
+            
           </div>
           <div class="order-detail-show-box">
             <div class="booking-detail-show-box">
               <div class="booking-detail-nav-bar">
                 <p class="booking-detail-header">BOOKING DETAILS</p>
-                <button class="booking-approve-button">APPROVE</button>
+               
               </div> 
               
               <div class="booking-customer-detail-box">
@@ -280,27 +251,28 @@
                     <div class="booking-tag-box"> <p class="booking-tag-name">Status</p></div>
                     <div class="booking-name-box"><p class="booking-customer-name">PENDING APPROVAL</p></div>
                   </div>
-                  <div class="booking-detail-tag">
-                    <div class="booking-tag-box"> <p class="booking-tag-name">PickTimeSlot</p></div>
-                    <div class="booking-name-box"><p class="booking-customer-name">8:00 AM - 10:00 AM  </p></div>
-                  </div>
-                  <div class="booking-detail-tag">
-                    <div class="booking-tag-box"> <p class="booking-tag-name">DeliveryTimeSlot</p></div>
-                    <div class="booking-name-box"><p class="booking-customer-name">8:00 AM - 10:00 AM  </p></div>
-                  </div>
-                <div class="booking-partner-detail-tag">
-                    <div class="booking-tag-pickup-partner-box"> <p class="booking-pickup-partner-name">Pickup partner name</p></div>
-                    <div class="booking-partner-name-box"><button class="booking-partner-name-cont"><p class="booking-partner-name">Assign executive</p> <img class="dropdown-logo" src="/assets/dropdown.png"></button></div>
-                  </div>
-                  <div class="booking-partner-detail-tag">
-                    <div class="booking-tag-pickup-partner-box"> <p class="booking-pickup-partner-name">Delivery partner name</p></div>
-                    <div class="booking-partner-name-box"><button class="booking-partner-name-cont"><p class="booking-partner-name">Assign executive</p> <img class="dropdown-logo" src="/assets/dropdown.png"></button></div>
-                  </div>
+                  
                   </div>
                   <div id="booking-address-show-box">
                     <div class="booking-detail-nav-bar">
-                        <p class="booking-address-header">ADDRESSES</p>
+                        <p class="booking-address-header">PICKUP & DELIVERY DETAILS</p>
                       </div> 
+                      <div class="booking-detail-tag">
+                        <div class="booking-tag-box"> <p class="booking-tag-name">PickTimeSlot</p></div>
+                        <div class="booking-name-box"><p class="booking-customer-name">8:00 AM - 10:00 AM  </p></div>
+                      </div>
+                      <div class="booking-detail-tag">
+                        <div class="booking-tag-box"> <p class="booking-tag-name">DeliveryTimeSlot</p></div>
+                        <div class="booking-name-box"><p class="booking-customer-name">8:00 AM - 10:00 AM  </p></div>
+                      </div>
+                    <div class="booking-partner-detail-tag">
+                        <div class="booking-tag-pickup-partner-box"> <p class="booking-pickup-partner-name">Pickup partner name</p></div>
+                        <div class="booking-partner-name-box"><button class="booking-partner-name-cont"><p class="booking-partner-name">Assign executive</p> <img class="dropdown-logo" src="/assets/dropdown.png"></button></div>
+                      </div>
+                      <div class="booking-partner-detail-tag">
+                        <div class="booking-tag-pickup-partner-box"> <p class="booking-pickup-partner-name">Delivery partner name</p></div>
+                        <div class="booking-partner-name-box"><button class="booking-partner-name-cont"><p class="booking-partner-name">Assign executive</p> <img class="dropdown-logo" src="/assets/dropdown.png"></button></div>
+                      </div>
                   <div class="booking-detail-tag-address">
                     <div class="booking-tag-address-box"><img class="location-logo" src="/assets/Location.png"> <p class="booking-tag-address">Pickup address</p></div>
                     <div class="booking-address-box"><p class="booking-customer-address">14/A, Eaststreet,Westkottaram, V.k Puram,Tirunelveli. 627422</p></div>
@@ -309,6 +281,9 @@
                     <div class="booking-tag-address-box"><img class="location-logo" src="/assets/Location.png"> <p class="booking-tag-address">Delivery address</p></div>
                     <div class="booking-address-box"><p class="booking-customer-address">14/A, Eaststreet,Westkottaram, V.k Puram,Tirunelveli. 627422</p></div>
                   </div>
+                  <div id="approve-reject-butt-box"><button class="booking-approve-button">APPROVE</button>
+                    <button class="booking-reject-button">REJECT</button>
+                </div>
                   </div>
               </div> 
             </div>
@@ -319,7 +294,62 @@
                   </div>
                   <div id="service-detail-show-box">
                   <div id="service-table-detail-box">
-                    <button *ngIf="!editing" (click)="startEditing()">Edit</button>
+                    
+                  </div>
+                  <div id="service-bill-detail-box">
+                   
+                  </div>
+                  </div>
+
+            </div>
+          </div>
+          
+        </div>
+    
+        </div>
+        </div>
+    
+     </div>
+     
+    </body>
+</html>
+<!-- <washly-table></washly-table>
+
+<table mat-table [dataSource]="dataSource">
+    <ng-container [matColumnDef]="col.key" *ngFor="let col of columnsSchema">
+      <th mat-header-cell *matHeaderCellDef>
+        {{ col.label }}
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div [ngSwitch]="col.type" *ngIf="!element.isEdit">
+          <div class="btn-edit" *ngSwitchCase="'isEdit'">
+            <button mat-button (click)="element.isEdit = !element.isEdit">Edit</button>
+          </div>
+          <span *ngSwitchDefault>
+            {{ element[col.key] }}
+          </span>
+        </div>
+        <div *ngIf="element.isEdit">
+          <div class="btn-edit" *ngIf="col.key === 'isEdit'; else dataField">
+            <button mat-button (click)="element.isEdit = !element.isEdit">Done</button>
+          </div>
+          <ng-template #dataField>
+            <mat-form-field>
+              <input
+                [type]="col.type"
+                matInput
+                [(ngModel)]="element[col.key]"
+              />
+            </mat-form-field>
+          </ng-template>
+        </div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table> -->
+
+  <!-- <button *ngIf="!editing" (click)="startEditing()">Edit</button>
     <button *ngIf="editing" (click)="stopEditing()">Save</button>
     <table>
       <thead>
@@ -368,56 +398,4 @@
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
-                  </div>
-                  <div id="service-bill-detail-box">
-                   
-                  </div>
-                  </div>
-
-            </div>
-          </div>
-          
-        </div>
-    
-        </div>
-        </div>
-    
-     </div>
-     
-    </body>
-</html>
-<washly-table></washly-table>
-<table mat-table [dataSource]="dataSource">
-    <ng-container [matColumnDef]="col.key" *ngFor="let col of columnsSchema">
-      <th mat-header-cell *matHeaderCellDef>
-        {{ col.label }}
-      </th>
-      <td mat-cell *matCellDef="let element">
-        <div [ngSwitch]="col.type" *ngIf="!element.isEdit">
-          <div class="btn-edit" *ngSwitchCase="'isEdit'">
-            <button mat-button (click)="element.isEdit = !element.isEdit">Edit</button>
-          </div>
-          <span *ngSwitchDefault>
-            {{ element[col.key] }}
-          </span>
-        </div>
-        <div *ngIf="element.isEdit">
-          <div class="btn-edit" *ngIf="col.key === 'isEdit'; else dataField">
-            <button mat-button (click)="element.isEdit = !element.isEdit">Done</button>
-          </div>
-          <ng-template #dataField>
-            <mat-form-field>
-              <input
-                [type]="col.type"
-                matInput
-                [(ngModel)]="element[col.key]"
-              />
-            </mat-form-field>
-          </ng-template>
-        </div>
-      </td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
+      </table> -->

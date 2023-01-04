@@ -733,14 +733,11 @@ display:flex;
 flex-direction: column;
 justify-content: space-evenly;
 }
-/* .booking-detail-card{
-   
-} */
+
 .booking-id{
     width: 120px;
     height: 24px;
-    /* left: 5px;
-    top: -2px; */
+    
     
     font-family: 'Lato';
     font-style: normal;
@@ -755,8 +752,7 @@ justify-content: space-evenly;
 .booking-store-name{
     width: 120px;
     height: 15px;
-    /* left: 5px;
-    top: 18px; */
+   
     margin-left: 20px;
     font-family: 'Open Sans';
     font-style: normal;
@@ -769,8 +765,7 @@ justify-content: space-evenly;
 .booking-date{
     width: 120px;
     height: 15px;
-/* left: 5px;
-top: 29px; */
+
 margin-left: 20px;
 font-family: 'Open Sans';
 font-style: normal;
@@ -790,14 +785,14 @@ color: #000000;
 .booking-detail-show-box{
     width: 380px;
     height: 480px;
-    border: 1px solid #FFFFFF;
+  
     background: rgba(33, 36, 39, 0.88);
 border-radius: 5px 5px 0px 0px;
 }
 .booking-detail-nav-bar{
     width: 400px;
     height: 35px;
-    /* border: 1px solid #FFFFFF; */
+   
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -816,41 +811,67 @@ margin-left: 15px;
 }
 .booking-approve-button{
     width: 90px;
-height: 20px;
+height: 22px;
 background: #FFFFFF;
-opacity: 0.5;
-border: 0.65px solid rgba(0, 0, 0, 0.94);
-border-radius: 7px;
 font-family: 'Roboto';
 font-style: normal;
 font-weight: 700;
-font-size:8px;
-line-height: 11px;
+font-size:12px;
+line-height: 14px;
 color: #000000;
-margin-right: 65px;
+background: rgba(215, 239, 125, 0.75);
+border: 0.65px solid #A2B84E;
+border-radius: 4px;
+margin-left: 67px;
+}
+.booking-reject-button{
+    width: 60px;
+    height: 16px;
+    background: #FFFFFF;
+    border-radius: 7px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size:10px;
+    line-height: 12px;
+    color: #000000;
+    background: rgba(215, 43, 0, 0.65);
+border: 0.35px solid rgba(215, 43, 0, 0.75);
+border-radius: 2px;
+margin-left: 8px;
+}
+#approve-reject-butt-box{
+    width: 340px;
+    height: 40px;
+   
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
 }
 #booking-customer-detail-show-box{
-    width: 320px;
-    height: 300px;
-    border: 1px solid #FFFFFF;
+    width: 340px;
+    height: 130px;
+  
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 .booking-customer-detail-box{
-    width: 320px;
+    width: 340px;
     height: 420px;
-    border: 1px solid #FFFFFF;
-    margin-left: 30px;
-    margin-top: 5px;
+    
+    margin-left: 20px;
+    margin-top: 3px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 .booking-detail-tag{
-    width: 350px;
+    width: 340px;
     height: 20px;
-    /* border: 1px solid #FFFFFF; */
+   
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -859,16 +880,16 @@ margin-right: 65px;
 .booking-tag-box{
     width: 150px;
     height: 20px;
-    /* border: 1px solid #FFFFFF; */
+    
     justify-content: left;
     display: flex;
     align-items: center;
     
 }
 .booking-name-box{
-    width: 200px;
+    width: 190px;
     height: 20px;
-    /* border: 1px solid #FFFFFF; */
+   
     justify-content: left;
     display: flex;
     align-items: center;
@@ -879,7 +900,7 @@ height: 12px;
 font-family: 'Open Sans';
 font-style: normal;
 font-weight: 600;
-font-size: 10px;
+font-size: 12px;
 line-height: 12px;
 color: rgba(255, 255, 255, 0.75);
 opacity: 0.75;
@@ -887,27 +908,28 @@ opacity: 0.75;
 margin-left: 5px;
 }
 .booking-customer-name{
-    width: 200px;
+    width: 190px;
 height: 15px;
 font-family: 'Open Sans';
 font-style: normal;
 font-weight: 700;
-font-size: 10px;
+font-size: 12px;
 line-height: 12px;
 color: #FFFFFF;
 margin-left: 5px;
 }
 #booking-address-show-box{
-    width: 320px;
-    height: 200px;
+    width: 340px;
+    height: 290px;
     border: 1px solid #FFFFFF;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 .booking-detail-tag-address{
-    width: 350px;
+    width: 340px;
     height: 40px;
-    /* border: 1px solid #FFFFFF; */
+   
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -915,7 +937,7 @@ margin-left: 5px;
 .booking-tag-address-box{
     width: 150px;
     height: 40px;
-    /* border: 1px solid #FFFFFF; */
+  
     justify-content: left;
     display: flex;
     align-items: center;
@@ -927,9 +949,8 @@ margin-left: 5px;
     margin-bottom: 25px;
 }
 .booking-address-box{
-    width: 200px;
+    width: 190px;
     height: 40px;
-    /* border: 1px solid #FFFFFF; */
     justify-content: left;
     display: flex;
     align-items: center;
@@ -941,7 +962,7 @@ height: 40px;
 font-family: 'Open Sans';
 font-style: normal;
 font-weight: 600;
-font-size: 10px;
+font-size: 12px;
 line-height: 12px;
 color: rgba(255, 255, 255, 0.75);
 opacity: 0.75;
@@ -949,21 +970,21 @@ margin-top: 3px;
 margin-left: 5px;
 }
 .booking-customer-address{
-    width: 150px;
+    width: 180px;
     height: 40px;
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 700;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 12px;
     color: #FFFFFF;
     margin-left: 5px; 
     margin-top: 3px;
 }
 .booking-partner-detail-tag{
-    width: 350px;
+    width: 340px;
     height: 25px;
-    /* border: 1px solid #FFFFFF; */
+  
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -971,18 +992,18 @@ margin-left: 5px;
 .booking-tag-pickup-partner-box{
     width: 150px;
     height: 25px;
-    /* border: 1px solid #FFFFFF; */
+   
     justify-content: left;
     display: flex;
     align-items: center;
 }
 .booking-pickup-partner-name{
-    width: 200px;
+    width: 190px;
 height: 25px;
 font-family: 'Open Sans';
 font-style: normal;
 font-weight: 600;
-font-size: 10px;
+font-size: 12px;
 line-height: 25px;
 color: rgba(255, 255, 255, 0.75);
 opacity: 0.75;
@@ -990,17 +1011,17 @@ margin-left: 5px;
 align-items: center;
 }
 .booking-partner-name-box{
-    width: 200px;
+    width: 190px;
     height: 25px;
-    /* border: 1px solid #FFFFFF; */
+  
     justify-content: left;
     display: flex;
     align-items: center;
 }
 .booking-partner-name-cont{
-    width: 100px;
-    height: 15px;
-    border: 1px solid #FFFFFF;
+    width: 130px;
+    height: 24px;
+ 
     background: rgba(255, 255, 255, 0.2);
 border-radius: 3px;
 display: flex;
@@ -1009,14 +1030,14 @@ justify-content: space-between;
 margin-left: 5px;
 }
 .booking-partner-name{
-    width: 52px;
+    width: 100px;
 height: 9px;
 
 font-family: 'Open Sans';
 font-style: normal;
 font-weight: 600;
-font-size: 6.5px;
-line-height: 9px;
+font-size: 11px;
+line-height: 14px;
 color: #FFFFFF;
 }
 .dropdown-logo{
@@ -1024,13 +1045,13 @@ color: #FFFFFF;
 height: 10px;
 }
 .booking-address-header{
-    width: 43px;
+    width: 190px;
 height: 9px;
 
 font-family: 'Lato';
 font-style: normal;
 font-weight: 700;
-font-size: 11px;
+font-size: 12px;
 line-height: 9px;
 color: #FFFFFF;
 margin-right: 200px;

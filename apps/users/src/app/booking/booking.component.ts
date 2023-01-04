@@ -8,6 +8,14 @@ import { Component } from '@angular/core';
 
 export class BookingComponent {
 
+  bookinglist = [{id:"b_78yu-67", place:"Guduvanchery", date:"25/07/2022"},
+  {id:"b_78yu-68", place:"Urappakkam", date:"25/07/2022"},
+  {id:"b_78yu-69", place:"Thambaram", date:"25/07/2022"},
+  {id:"b_78yu-70", place:"Chrompet", date:"25/07/2022"},
+  {id:"b_78yu-71", place:"Sp kovil", date:"25/07/2022"},
+  {id:"b_78yu-72", place:"Potheri", date:"25/07/2022"},
+  {id:"b_78yu-73", place:"Pallavaram", date:"25/07/2022"}];
+
   columns = ['name', 'no of items', 'weight', 'amount'];
   data = [['washing', '2', '3 kg', '50'],['ironing', '3' , '3' , '30']];
   
