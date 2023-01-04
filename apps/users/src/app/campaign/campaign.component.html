@@ -2,8 +2,7 @@
     <div class="service-list">
         <div (click)="displayData(campaigns)" *ngFor="let campaign of campaigns; let i = index" class="list">
             {{campaign.heading}} <img src="/assets/edit.png" class="editimg" (click)="editText()"> <img
-                src="/assets/delete.png" (click)="openDeleteConfirmationModal()" (click)="toggleBlur()"
-                class="deleteimg">
+                src="/assets/delete.png" (click)="openDeleteConfirmationModal()" class="deleteimg">
             <div class="status" *ngIf="campaign.status==='ACTIVE'">
                 <img src="/assets/greendot.png">
             </div>

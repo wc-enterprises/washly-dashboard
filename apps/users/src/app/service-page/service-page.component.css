@@ -212,3 +212,13 @@
 
   color: #212427;
 }
+
+@media (min-width: 1366px){
+  .details{
+  width: 45vw;
+  margin-left: 2px;
+}
+.save{
+  margin-left: 18vw;
+}
+}

@@ -79,3 +79,33 @@
     font-weight: 400;
     font-size: medium;
 }
+@media (min-width: 1366px) {
+  .nav {
+  width:250px;
+  }
+  .logo{
+    margin-left: -0.5vw;
+
+  }
+  .logotitle{
+    margin-top: 4vh;
+  }
+ .booking{
+    padding: 5px;
+    width: 13vw;
+    margin-left: 0.5vw;
+   
+ }
+  .logoutlogo{
+bottom: 6.6vh;
+
+ }
+ .logouttext{
+bottom: 5.6vh;
+padding-left: 1px;
+ }
+.content{
+    padding-top: 2.5px;
+}
+
+}

@@ -19,16 +19,18 @@
             <div style="height: 35%">
                 <h4 style="color: white">BOOKING DETAILS</h4>
 
-                <div style="display: flex; justify-content: space-between; padding: 2% 0" *ngFor="let bookingDetail of selectedBooking.bookingDetails">
+                <div style="display: flex; justify-content: space-between; padding: 2% 0"
+                    *ngFor="let bookingDetail of selectedBooking.bookingDetails">
                     <div class="key">{{ bookingDetail.title }}</div>
                     <div class="value">{{ bookingDetail.value }}</div>
                 </div>
             </div>
 
             <!-- PICKUP AND DELIVERY DETAILS -->
-            <div style="height: 65%; margin-top: 3%">
+            <div style="height: 65%; margin-top: 9%">
                 <h4 style="color: white">PICKUP AND DELIVERY DETAILS</h4>
-                <div style="display: flex; justify-content: space-between; padding: 3% 0" *ngFor="let item of selectedBooking.pickUpAndDeliveryDetails">
+                <div style="display: flex; justify-content: space-between; padding: 3% 0"
+                    *ngFor="let item of selectedBooking.pickUpAndDeliveryDetails">
                     <div class="key">{{ item.title }}</div>
                     <div class="value">{{ item.value }}</div>
                 </div>
@@ -76,11 +78,13 @@
                                 <ng-template #name>{{ item.name }}</ng-template>
                             </td>
                             <td style="width: 7vw; height: 4vh">
-                                <input style="width: 6vw; height: 4vh" *ngIf="editing; else quantity" type="number" [(ngModel)]="item.quantity" required />
+                                <input style="width: 6vw; height: 4vh" *ngIf="editing; else quantity" type="number"
+                                    [(ngModel)]="item.quantity" required />
                                 <ng-template #quantity>{{ item.quantity }}</ng-template>
                             </td>
                             <td style="width: 7vw; height: 4vh">
-                                <input style="width: 6vw; height: 4vh" *ngIf="editing; else weight" type="text" [(ngModel)]="item.weight" required />
+                                <input style="width: 6vw; height: 4vh" *ngIf="editing; else weight" type="text"
+                                    [(ngModel)]="item.weight" required />
                                 <ng-template #weight>{{ item.weight }}</ng-template>
                             </td>
                             <td style="
@@ -109,7 +113,9 @@
                 <ng-template  #billAmount>{{ object.billAmount}}</ng-template></div>
                </div> -->
                     <div class="service-bill-details">
-                        <span class="billtag"><p>Total service amount</p></span>
+                        <span class="billtag">
+                            <p>Total service amount</p>
+                        </span>
                         <!-- <span class="billamount">
                     <input style=" width: 6vw;justify-content: center;align-items: center;
                       height: 4vh;" *ngIf="editing;" type="text" [(ngModel)]="total" (keyup)="getTotalAmount()"  required />

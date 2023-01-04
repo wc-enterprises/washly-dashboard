@@ -61,16 +61,16 @@ export class CampaignComponent {
   // ];
 
   campaigns: ICampaign[] = [    
-  { id: 'c_usf443_383',heading: 'Campaign service 1', description: '50% OFF', buttonLabel: 'Get Now.', status: 'ACTIVE', imageUrl: 'https://google.com/ice-cream.png',startDate:'03/01/2023',endDate:'10/12/2023'},
-  { id: 'c_usf443_384',heading: 'Campaign service 2', description: '60% OFF', buttonLabel: 'Get Now.', status: 'INACTIVE', imageUrl: 'https://google.com/ice-cream.png',startDate:'03/01/2023',endDate:'10/12/2023'},
-  { id: 'c_usf443_385',heading: 'Campaign service 3', description: '70% OFF', buttonLabel: 'Get Now.', status: 'ACTIVE', imageUrl: 'https://google.com/ice-cream.png',startDate:'03/01/2023',endDate:'10/12/2023'},
-  { id: 'c_usf443_386',heading: 'Campaign service 4',description: '80% OFF', buttonLabel: 'Get Now.', status: 'INACTIVE', imageUrl: 'https://google.com/ice-cream.png',startDate:'03/01/2023',endDate:'10/12/2023'},
-  { id: 'c_usf443_387',heading: 'Campaign service 5', description: '90% OFF', buttonLabel: 'Get Now.', status: 'ACTIVE', imageUrl: 'https://google.com/ice-cream.png',startDate:'03/01/2023',endDate:'10/12/2023'}
+  { id: 'c_usf443_383',heading: 'Campaign service 1', description: '50% OFF', buttonLabel: 'Get Now.', status: 'ACTIVE', imageUrl: 'https://google.com/ice-cream.png',startDate:'03/01/2023',endDate:'10/12/2023',editing:false },
+  { id: 'c_usf443_384',heading: 'Campaign service 2', description: '60% OFF', buttonLabel: 'Get Now.', status: 'INACTIVE', imageUrl: 'https://google.com/ice-cream.png',startDate:'03/01/2023',endDate:'10/12/2023',editing:false },
+  { id: 'c_usf443_385',heading: 'Campaign service 3', description: '70% OFF', buttonLabel: 'Get Now.', status: 'ACTIVE', imageUrl: 'https://google.com/ice-cream.png',startDate:'03/01/2023',endDate:'10/12/2023',editing:false },
+  { id: 'c_usf443_386',heading: 'Campaign service 4',description: '80% OFF', buttonLabel: 'Get Now.', status: 'INACTIVE', imageUrl: 'https://google.com/ice-cream.png',startDate:'03/01/2023',endDate:'10/12/2023',editing:false },
+  { id: 'c_usf443_387',heading: 'Campaign service 5', description: '90% OFF', buttonLabel: 'Get Now.', status: 'ACTIVE', imageUrl: 'https://google.com/ice-cream.png',startDate:'03/01/2023',endDate:'10/12/2023',editing:false },
 ];
 
 
 
-  displayedData: any;
+  displayedData= this.campaigns[0];
 
   constructor(private router: Router) {}
   // eslint-disable-next-line @typescript-eslint/member-ordering
@@ -112,9 +112,12 @@ export class CampaignComponent {
   editing = false;
   editText() {
     this.editing = true;
+    
   }
 
   save() {
     this.editing = false;
   }
+  
+  
 }

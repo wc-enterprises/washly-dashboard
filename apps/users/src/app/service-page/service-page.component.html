@@ -12,7 +12,7 @@
       <div (click)="displayData(objects)" *ngFor="let item of items; let i = index" class="list">
         {{ item.name }}
         <img class="editimg" (click)="editText()" [src]="item.icon1" />
-        <img (click)="openDeleteConfirmationModal()" (click)="toggleBlur()" class="deleteimg" [src]="item.icon2" />
+        <img (click)="openDeleteConfirmationModal()" class="deleteimg" [src]="item.icon2" />
         <div class="status" *ngIf="item.status === 'active'">
           <img src="/assets/greendot.png" />
         </div>
@@ -30,7 +30,7 @@
                 margin-top:-1vh;
                 padding-left: 5px;
                 margin-left:-5vw;
-                width: 15vw;
+                width: 17vw;
                 height: 5vh;
                 background: rgba(255, 255, 255, 0.1);
                 border: 1px solid rgba(255, 255, 255, 0.3);

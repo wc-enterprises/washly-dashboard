@@ -1,4 +1,5 @@
 export interface ICampaign {
+   
    id: string;
    heading: string;
    description: string;
@@ -6,5 +7,7 @@ export interface ICampaign {
    imageUrl: string;
    startDate:string;
    endDate:string;
+   editing:boolean;
+   
    status: 'ACTIVE' | 'INACTIVE';
 }
