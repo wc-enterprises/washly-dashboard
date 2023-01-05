@@ -347,6 +347,16 @@ display: none;
   .service-details::-webkit-scrollbar{
 display: none;
   }
+  .approve-button {
+   line-height: 0.8vh;
+}
+   #drop-down-logo{
+    
+   margin-top: -7px;
+   }       
+   #head-line{
+    padding-top: 5vh;
+   }   
 }
 
 @media screen and (max-width:1540px) {
@@ -362,7 +372,16 @@ display: none;
  display: none;
   }
  
-                
+.approve-button {
+   line-height: 1vh;
+}
+   #drop-down-logo{
+    
+   margin-top: -6px;
+   }       
+   #head-line{
+    padding-top: 3vh;
+   }    
 }
 
 

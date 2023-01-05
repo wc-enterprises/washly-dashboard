@@ -90,14 +90,13 @@
 
   }
   .logotitle{
-    margin-top:5vh;
+    margin-top:8vh;
   }
   .booking{
      padding:5px;
-    width: 20vw;
+    width: 20px;
     text-align: center;
-    background-color: aqua;
-    border:1px solid white;
+  
 
   }
 
@@ -108,7 +107,7 @@
 }
 .icon{
 padding-right: 2vw;
-border: 1px solid wheat;
+
  }
 .logoutlogo{
 bottom: 6.5vh;
