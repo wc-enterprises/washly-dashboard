@@ -92,6 +92,96 @@ export class BookingDetailsComponent {
           weight: '12',
           amount: '121',
         },
+        {
+          name: 'Regular Wash',
+          numberOfItems: 7,
+          weight: '12',
+          amount: '122',
+        },
+        {
+          name: 'Ironing',
+          numberOfItems: 7,
+          weight: '21',
+          amount: '232',
+        },
+        {
+          name: 'Dry Wash',
+          numberOfItems: 7,
+          weight: '12',
+          amount: '121',
+        },
+        {
+          name: 'Regular Wash',
+          numberOfItems: 7,
+          weight: '12',
+          amount: '122',
+        },
+        {
+          name: 'Ironing',
+          numberOfItems: 7,
+          weight: '21',
+          amount: '232',
+        },
+        {
+          name: 'Dry Wash',
+          numberOfItems: 7,
+          weight: '12',
+          amount: '121',
+        },
+        {
+          name: 'Regular Wash',
+          numberOfItems: 7,
+          weight: '12',
+          amount: '122',
+        },
+        {
+          name: 'Ironing',
+          numberOfItems: 7,
+          weight: '21',
+          amount: '232',
+        },
+        {
+          name: 'Dry Wash',
+          numberOfItems: 7,
+          weight: '12',
+          amount: '121',
+        },
+        {
+          name: 'Regular Wash',
+          numberOfItems: 7,
+          weight: '12',
+          amount: '122',
+        },
+        {
+          name: 'Ironing',
+          numberOfItems: 7,
+          weight: '21',
+          amount: '232',
+        },
+        {
+          name: 'Dry Wash',
+          numberOfItems: 7,
+          weight: '12',
+          amount: '121',
+        },
+        {
+          name: 'Regular Wash',
+          numberOfItems: 7,
+          weight: '12',
+          amount: '122',
+        },
+        {
+          name: 'Ironing',
+          numberOfItems: 7,
+          weight: '21',
+          amount: '232',
+        },
+        {
+          name: 'Dry Wash',
+          numberOfItems: 7,
+          weight: '12',
+          amount: '121',
+        },
       ],
       bill: {
         totalServiceAmount: '342',
@@ -106,7 +196,7 @@ export class BookingDetailsComponent {
         bookingId: 'X78976TY6546I',
         storeName: 'Guduvanchery washly',
         date: '2/1/2023',
-        selected: true,
+        selected: false,
       },
       bookingDetails: [
         {
@@ -193,7 +283,7 @@ export class BookingDetailsComponent {
         bookingId: 'X78976TY6546I',
         storeName: 'Guduvanchery washly',
         date: '2/1/2023',
-        selected: true,
+        selected: false,
       },
       bookingDetails: [
         {
@@ -280,7 +370,7 @@ export class BookingDetailsComponent {
         bookingId: 'X78976TY6546I',
         storeName: 'Guduvanchery washly',
         date: '2/1/2023',
-        selected: true,
+        selected: false,
       },
       bookingDetails: [
         {

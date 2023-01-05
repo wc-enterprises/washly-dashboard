@@ -25,7 +25,7 @@
 }
 
 .card.selected {
-    background-color: rgba(33, 36, 39, 0.06);
+    background-color: rgba(33, 36, 39, 0.1);
 }
 
 .card-content {
@@ -83,12 +83,13 @@ Details:
 
 .service-title {
     height: 9vh;
-    width: 28vw;
+    width: 27.75vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     position: fixed;
     padding: 2.1vh 2vh 0 2vh;
+    background-color: white;
 }
 
 .bill-details-title {
