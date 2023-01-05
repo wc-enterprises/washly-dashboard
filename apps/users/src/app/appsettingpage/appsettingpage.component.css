@@ -3,6 +3,7 @@
   flex-direction: row;
   width: 100vw;
   height: 100vh;
+  
 
 }
 
@@ -87,3 +88,18 @@
 .mat-tab-label {
   width: 30%;
 }
+
+@media screen and (max-width:1370px){
+    body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+}
+
+@media screen and (max-width:1540px){
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+}
+
