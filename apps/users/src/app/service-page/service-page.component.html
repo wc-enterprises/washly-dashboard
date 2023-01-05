@@ -18,11 +18,13 @@
             <div *ngIf="editing" style="text-align: right; width: 32vw">
                 <mat-icon class="cancel-icon" (click)="cancelEditing()">clear</mat-icon>
             </div>
-            <div style="display: flex; justify-content: space-between; padding: 2% 0" *ngFor="let serviceData of displayedData.dataToDisplay">
+            <div style="display: flex; justify-content: space-between; padding: 2% 0"
+                *ngFor="let serviceData of displayedData.dataToDisplay">
                 <div class="key">{{ serviceData.title }}</div>
 
                 <div class="value">
-                    <input class="edit-box" *ngIf="editing; else name" type="text" [(ngModel)]="serviceData.value" required />
+                    <input class="edit-box" *ngIf="editing; else name" type="text" [(ngModel)]="serviceData.value"
+                        required />
                     <ng-template #name>{{ serviceData.value }}</ng-template>
                 </div>
             </div>
@@ -70,4 +72,5 @@
     </div>
 </div>
 
-<washly-app-delete-confirmation-modal style="filter: none" *ngIf="isModalActive" [isActive]="isModalActive" (close)="closeDeleteConfirmationModal()" (delete)="deleteItem()"></washly-app-delete-confirmation-modal>
+<washly-app-delete-confirmation-modal style="filter: none" *ngIf="isModalActive" [isActive]="isModalActive"
+    (close)="closeDeleteConfirmationModal()" (delete)="deleteItem()"></washly-app-delete-confirmation-modal>

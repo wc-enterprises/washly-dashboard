@@ -335,3 +335,34 @@ Details:
     border-radius: 3px;
     text-align: right;
 }
+
+@media screen and (max-width:1370px) {
+  .card-list::-webkit-scrollbar{
+    display: none;
+    
+  }
+  .booking-details::-webkit-scrollbar{
+display: none;
+  }
+  .service-details::-webkit-scrollbar{
+display: none;
+  }
+}
+
+@media screen and (max-width:1540px) {
+
+  .card-list::-webkit-scrollbar{
+   display: none;
+    
+  }
+  .booking-details::-webkit-scrollbar {
+ display: none;
+  }
+  .service-details::-webkit-scrollbar{
+ display: none;
+  }
+ 
+                
+}
+
+
