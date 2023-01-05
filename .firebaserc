@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "laundry-guru-50b7a"
+  },
+  "targets": {
+    "laundry-guru-50b7a": {
+      "hosting": {
+        "users": [
+          "laundry-guru-50b7a"
+        ]
+      }
+    }
+  }
+}

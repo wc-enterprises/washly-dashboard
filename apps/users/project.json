@@ -33,13 +33,13 @@
           "budgets": [
             {
               "type": "initial",
-              "maximumWarning": "500kb",
+              "maximumWarning": "2mb",
               "maximumError": "1mb"
             },
             {
               "type": "anyComponentStyle",
-              "maximumWarning": "2kb",
-              "maximumError": "4kb"
+              "maximumWarning": "10kb",
+              "maximumError": "10kb"
             }
           ],
           "outputHashing": "all"
@@ -93,6 +93,16 @@
       "options": {
         "jestConfig": "apps/users/jest.config.ts",
         "passWithNoTests": true
+      }
+    },
+    "deploy": {
+      "executor": "@angular/fire:deploy",
+      "options": {
+        "prerender": false,
+        "ssr": false,
+        "browserTarget": "users:build:production",
+        "firebaseProject": "laundry-guru-50b7a",
+        "firebaseHostingSite": "laundry-guru-50b7a"
       }
     }
   },

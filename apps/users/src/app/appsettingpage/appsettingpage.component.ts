@@ -12,6 +12,9 @@ import { ModalDirective } from 'ngx-bootstrap/modal';
 export class AppsettingpageComponent {
 
   constructor(private router: Router) {}
+
+
+  }
    // eslint-disable-next-line @typescript-eslint/member-ordering
    
 
@@ -34,4 +37,4 @@ export class AppsettingpageComponent {
   //   return
   // }
 
-}
+
