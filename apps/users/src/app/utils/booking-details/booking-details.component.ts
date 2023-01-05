@@ -7,6 +7,19 @@ import { ArgumentOutOfRangeError } from 'rxjs';
   styleUrls: ['./booking-details.component.css'],
 })
 export class BookingDetailsComponent {
+  dataSource = [
+    { serviceName: 'Laundry', noOfItems: 20, weightOfItems: 10, amount: 200 },
+    { serviceName: 'Ironing', noOfItems: 15, weightOfItems: 5, amount: 100 },
+    {
+      serviceName: 'Dry Cleaning',
+      noOfItems: 10,
+
+      amount: 150,
+    },
+  ];
+
+  displayedColumns = ['serviceName', 'noOfItems', 'weightOfItems', 'amount'];
+
   bookings = [
     {
       bookingId: 'X78976TY6546I',
@@ -1577,7 +1590,7 @@ export class BookingDetailsComponent {
   ];
   selectedBooking = this.bookings[0];
 
-  editing = false;
+  editMode = false;
 
   items = [
     { name: 'Dry wash', quantity: 5, weight: '10', amount: 10, editing: false },
@@ -1613,7 +1626,13 @@ export class BookingDetailsComponent {
     },
   ];
 
-  total =0;
+  total = 0;
+
+  ngOnIt() {
+    this.dataSource.forEach((item) => {
+      if (!item.weightOfItems) item.weightOfItems = 0 as any;
+    });
+  }
 
   getTotalAmount() {
     this.total = 0;
@@ -1628,14 +1647,18 @@ export class BookingDetailsComponent {
   //   {billTag: 'GST', billAmount: '20',editing:false},
   //   {billTag: 'Amount', billAmount: '20',editing:false},
   // ]
-// eslint-disable-next-line @typescript-eslint/member-ordering
-text= 'Arun';
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  text = 'Arun';
   editModeOn() {
-    this.editing = true;
+    this.editMode = true;
+  }
+
+  editModeOff() {
+    this.editMode = false;
   }
 
   save() {
-    this.editing = false;
+    this.editMode = false;
   }
   // eslint-disable-next-line @typescript-eslint/member-ordering
   // showButton = false;

@@ -77,30 +77,55 @@ Details:
     display: flex;
     flex-direction: column;
     overflow: scroll;
-    padding: 2vh;
-    
+    padding-bottom: 2vh;
 }
 
 .service-title {
-    height: 7vh;
-    width: 100%;
+    height: 9vh;
+    width: 28vw;
     display: flex;
     flex-direction: row;
-    
+    justify-content: space-between;
+    position: fixed;
+    padding: 2.1vh 2vh 0 2vh;
 }
 
 .bill-details-title {
     color: black;
     font-weight: 500;
-    position: relative;
-    
+    text-align: left;
+    margin-top: 1vh;
 }
 
 .edit-icon {
+    cursor: pointer;
+    margin-top: 0.2vh;
     margin-left: 0.75vw;
-    position: relative;
-    bottom: 1px;
-    
+    font-size: large;
+    margin-top: 1.1vh;
+}
+
+#cancel-icon {
+    cursor: pointer;
+    font-size: x-large;
+    margin-top: 1.1vh;
+}
+
+#save-button {
+    box-sizing: border-box;
+    width: 100px;
+    height: 40px;
+    background: rgba(215, 239, 125, 0.9);
+    border: 0.65px solid #a2b84e;
+    border-radius: 3px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 11px;
+    /* identical to box height */
+    color: #212427;
+    align-self: center;
 }
 
 .service-title-header {
@@ -111,48 +136,80 @@ Details:
     font-weight: 700;
     font-size: 14px;
     color: #000000;
-   
 }
 
 .bill-contents {
-    width: 36vw;
-    height: 91vh;
-    border: 1px solid black;
+    width: 100%;
+    height: auto;
     align-items: center;
     justify-content: center;
-    
+    background-color: violet;
+    margin-top: 9vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-bottom: 5vh;
+}
+
+.table-header-cell {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.75) !important;
+}
+
+#final-bill {
+    width: 100%;
+    height: 30vh;
+    background-color: beige;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bill-items {
+    padding: 1vh 0 1vh 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 5vh;
+    justify-content: space-between;
+    background-color: aquamarine;
+}
+
+#final-bill>div:last-child {
+    border-top: 1px solid black;
+}
+
+.input-box {
+    flex: 0.35;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+}
+
+.mat-column-serviceName {
+    /* Increase width of Service Name column */
+    min-width: 30%;
+    max-width: 30%;
 }
 
 .service-table {
-    width: 25.5vw;
-    height: 77.5vh;
+    width: 100%;
+    height: auto;
 }
 
 .service-table-data {
-    width: 25.5vw;
-    height: 77.5vh;
-  
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
     align-items: center;
     justify-content: center;
-   
 }
-
-
-/* .service-table{
-    overflow: hidden;
-    overflow-y: auto;
-}
-.service-table::-webkit-scrollbar {
-    display: none;
-    scroll-behavior: smooth;
-} */
 
 #table-header {
     width: 100%;
     height: 7vh;
     background: rgba(42, 46, 50, 0.78);
     /* border: 1px solid rgba(42, 46, 50, 0.09); */
-    border-radius: 3px;
+    border-radius: 5px;
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 600;
@@ -169,7 +226,6 @@ Details:
     display: flex;
     flex-direction: column;
     align-items: center;
-    
 }
 
 .service-bill-details {
@@ -196,10 +252,10 @@ Details:
     border: 1px solid red;
 }
 
-.totalamount{
+.totalamount {
     width: 6vw;
     height: 4vh;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     align-items: center;
     font-family: 'IBM Plex Sans';
     font-style: normal;
@@ -216,55 +272,65 @@ Details:
     border-radius: 5px;
 }
 
-.approve-button-box{
+.approve-button-box {
     width: 8.5vw;
     height: 4vh;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5vw;
     background: rgba(215, 239, 125, 0.75);
-    border: 0.35px solid #A2B84E;
+    border: 0.35px solid #a2b84e;
     border-radius: 2px;
-   
 }
-.approve-button{
-    width: 6.5vw;
-    height: 3vh;
-   border-right: 0.5px solid #212427;
-  margin-top: 0.4vh;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-}
-.reject-button{
-    width: 6.5vw;
-    height: 3vh;
-   border: 0.5px solid #212427;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  background: #FE8F8F;
-  border: 0.4px solid rgba(33, 36, 39, 0.22);
-  border-radius: 2px;
-    
-   z-index: 100;
-}
-.approve-button-cont{
-   margin-top: 0.2vh;
-    font-family: 'Roboto';
-font-style: normal;
-font-weight: 700;
-font-size: 10px;
-text-align: center;
-align-items: center;
-  justify-content: center;
-color: #212427;
 
+.approve-button {
+    border-right: 0.5px solid #212427;
+    width: 6vw;
 }
-#approve-reject-box{
+
+.reject-button {
+    width: 6.5vw;
+    height: 3vh;
+    border: 0.5px solid #212427;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background: #fe8f8f;
+    border: 0.4px solid rgba(33, 36, 39, 0.22);
+    border-radius: 2px;
+    position: absolute;
+    top: 4.2vh;
+    z-index: 4;
+}
+
+.approve-button-cont {
+    margin-top: 0.2vh;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: #212427;
+}
+
+#approve-reject-box {
     display: flex;
     flex-direction: column;
-    width: 8.5vw;
-    height: 7vh;
-   
-margin-left: 13vh;
+    width: auto;
+    height: auto;
+    margin-left: 13vh;
+    position: relative;
+}
+
+.edit-box {
+    padding: 15px !important;
+    padding-left: 5px;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.17);
+    border-radius: 3px;
+    text-align: right;
 }

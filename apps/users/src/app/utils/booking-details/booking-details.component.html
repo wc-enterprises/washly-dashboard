@@ -26,7 +26,7 @@
             </div>
 
             <!-- PICKUP AND DELIVERY DETAILS -->
-            <div style="height: 65%; margin-top: 19%">
+            <div style="height: 65%; margin-top: 5%">
                 <h4 style="color: white">PICKUP AND DELIVERY DETAILS</h4>
                 <div style="display: flex; justify-content: space-between; padding: 3% 0" *ngFor="let item of selectedBooking.pickUpAndDeliveryDetails">
                     <div class="key">{{ item.title }}</div>
@@ -39,17 +39,95 @@
         <div class="service-details">
             <div class="service-title">
                 <h4 class="bill-details-title">BILL DETAILS</h4>
-                <mat-icon class="edit-icon" (click)="editModeOn()">mode_edit</mat-icon>
-               <div id="approve-reject-box"> 
-                  <div class="approve-button-box" ><button class="approve-button"><p class="approve-button-cont">APPROVE</p></button>
-                    <mat-icon id="drop-down-logo" (click)="showElements=!showElements" >arrow_drop_down</mat-icon>
+                <mat-icon *ngIf="!editMode" class="edit-icon" (click)="editModeOn()">mode_edit</mat-icon>
+                <mat-icon *ngIf="editMode" id="cancel-icon" (click)="editModeOff()">close</mat-icon>
+
+                <div id="approve-reject-box">
+                    <div class="approve-button-box">
+                        <button class="approve-button">APPROVE</button>
+                        <mat-icon id="drop-down-logo" (click)="showElements = !showElements">arrow_drop_down</mat-icon>
+                    </div>
+                    <button *ngIf="showElements" class="reject-button">REJECT</button>
                 </div>
-                <button *ngIf="showElements"  class="reject-button"><p class="approve-button-cont">REJECT</p></button>
-                 </div>
             </div>
 
             <div class="bill-contents">
-                <div class="service-table">
+                <mat-table [dataSource]="dataSource" class="service-table">
+                    <ng-container style="width: 40%" matColumnDef="serviceName">
+                        <mat-header-cell style="border-radius: 5px 0 0 5px" class="table-header-cell" *matHeaderCellDef>
+                            Service Name
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                            {{ element.serviceName }}
+                        </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="noOfItems">
+                        <mat-header-cell class="table-header-cell" *matHeaderCellDef>
+                            No. of Items
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                            {{ element.noOfItems }}
+                        </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="weightOfItems">
+                        <mat-header-cell class="table-header-cell" *matHeaderCellDef>
+                            Weight of Items (in kg)
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                            <div *ngIf="!editMode; else editTemplate">
+                                {{ element.weightOfItems }}
+                            </div>
+                            <ng-template #editTemplate>
+                                <input class="edit-box" type="text" [(ngModel)]="element.weightOfItems" />
+                            </ng-template>
+                        </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="amount">
+                        <mat-header-cell style="border-radius: 0 5px 5px 0" class="table-header-cell" *matHeaderCellDef>
+                            Amount (in Rs)
+                        </mat-header-cell>
+
+                        <mat-cell *matCellDef="let element">
+                            <div *ngIf="!editMode; else editTemplate">
+                                {{ element.amount }}
+                            </div>
+                            <ng-template #editTemplate>
+                                <input class="edit-box" type="text" [(ngModel)]="element.amount" />
+                            </ng-template>
+                        </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+                </mat-table>
+                <div id="final-bill">
+                    <div class="bill-items">
+                        <div style="flex: 0.75; text-align: right">
+                            Total service amount (in Rs)
+                        </div>
+                        <div class="input-box"></div>
+                    </div>
+                    <div class="bill-items">
+                        <div style="flex: 0.75; text-align: right">Delivery charges</div>
+                        <div class="input-box"></div>
+                    </div>
+                    <div class="bill-items">
+                        <div style="flex: 0.75; text-align: right">GST</div>
+                        <div class="input-box"></div>
+                    </div>
+                    <div class="bill-items">
+                        <div style="flex: 0.75; text-align: right">Total Amount</div>
+                        <div class="input-box"></div>
+                    </div>
+                </div>
+
+                <ng-container *ngIf="editMode">
+                    <button id="save-button" (click)="save()">Save</button>
+                </ng-container>
+                <!-- <div class="service-table">
                     <table class="service-table-data">
                         <tr id="table-header">
                             <th>Service Name</th>
@@ -68,8 +146,7 @@
                   color: #000000;
                   justify-content: center;
                 ">
-                                <!-- use *ngIf to show and hide the form control based on the editing state of the row -->
-                    <input style="
+                                <input style="
                     width: 12vw;
                     height: 4vh;
                     font-style: normal;
@@ -83,11 +160,19 @@
                                 <ng-template #name>{{ item.name }}</ng-template>
                             </td>
                             <td style="width: 7vw; height: 4vh">
-                                <input style="width: 6vw; height: 4vh; border: 0.5px solid rgba(33, 36, 39, 0.25);" *ngIf="editing; else quantity" type="number" [(ngModel)]="item.quantity" required />
+                                <input style="
+                    width: 6vw;
+                    height: 4vh;
+                    border: 0.5px solid rgba(33, 36, 39, 0.25);
+                  " *ngIf="editing; else quantity" type="number" [(ngModel)]="item.quantity" required />
                                 <ng-template #quantity>{{ item.quantity }}</ng-template>
                             </td>
                             <td style="width: 7vw; height: 4vh">
-                                <input style="width: 6vw; height: 4vh;border: 0.5px solid rgba(33, 36, 39, 0.25);" *ngIf="editing; else weight" type="text" [(ngModel)]="item.weight" required />
+                                <input style="
+                    width: 6vw;
+                    height: 4vh;
+                    border: 0.5px solid rgba(33, 36, 39, 0.25);
+                  " *ngIf="editing; else weight" type="text" [(ngModel)]="item.weight" required />
                                 <ng-template #weight>{{ item.weight }}</ng-template>
                             </td>
                             <td style="
@@ -100,7 +185,8 @@
                     width: 6vw;
                     justify-content: center;
                     align-items: center;
-                    height: 4vh;border: 0.5px solid rgba(33, 36, 39, 0.25);
+                    height: 4vh;
+                    border: 0.5px solid rgba(33, 36, 39, 0.25);
                   " *ngIf="editing; else amount" type="text" [(ngModel)]="item.amount" required />
                                 <ng-template #amount>{{ item.amount }}</ng-template>
                             </td>
@@ -109,49 +195,63 @@
                 </div>
 
                 <div class="service-bill">
-                    <!-- <div class="service-bill-details"  *ngFor="let object of objects">
-                <div class="billtag">{{object.billTag}}</div>
-               <div> <input style=" width: 6vw;justify-content: center;align-items: center;
-                      height: 4vh;" *ngIf="editing; else billAmount" type="text" [(ngModel)]="object.billAmount" required />
-                <ng-template  #billAmount>{{ object.billAmount}}</ng-template></div>
-               </div> -->
                     <div class="service-bill-details">
                         <span class="billtag"><p>Total service amount</p></span>
-                        <!-- <span class="billamount">
-                    <input style=" width: 6vw;justify-content: center;align-items: center;
-                      height: 4vh;" *ngIf="editing;" type="text" [(ngModel)]="total" (keyup)="getTotalAmount()"  required />
-                <ng-template #total > {{getTotalAmount() }}</ng-template>
-                  </span> -->
-                 <span class="billamount"> 
-                    <input style=" width: 6vw;justify-content: center;align-items: center; border: 1px solid red;
-                      height: 4vh;" *ngIf="editing;" type="text" [(ngModel)]="total" (keyup)="getTotalAmount()"  required />
-                        <!-- <ng-template #totalServiceAmount>{{ item.amount }}</ng-template> -->
 
-                     <p class="totalamount"> {{ this.total }}</p></span>
-                    </div>
-                    <div class="service-bill-details">
-                        <span class="billtag"><p>Delivery charges</p></span>
-                  <input style=" width: 6vw;justify-content: center;align-items: center;border: 0.5px solid rgba(33, 36, 39, 0.25);
-                      height: 4vh;"  type="text" [(ngModel)]="text"   required />
-                      
+                        <span class="billamount">
+              <input
+                style="
+                  width: 6vw;
+                  justify-content: center;
+                  align-items: center;
+                  border: 1px solid red;
+                  height: 4vh;
+                "
+                *ngIf="editing"
+                type="text"
+                [(ngModel)]="total"
+                (keyup)="getTotalAmount()"
+                required
+              />
+
+              <p class="totalamount">{{ this.total }}</p></span
+            >
+          </div>
+          <div class="service-bill-details">
+            <span class="billtag"><p>Delivery charges</p></span>
+                        <input style="
+                width: 6vw;
+                justify-content: center;
+                align-items: center;
+                border: 0.5px solid rgba(33, 36, 39, 0.25);
+                height: 4vh;
+              " type="text" [(ngModel)]="text" required />
                     </div>
                     <div class="service-bill-details">
                         <span class="billtag"><p>GST</p></span>
-                  <input style=" width: 6vw;justify-content: center;align-items: center;border: 0.5px solid rgba(33, 36, 39, 0.25);
-                      height: 4vh;"  type="text" [(ngModel)]="text"   required />
-                      
+                        <input style="
+                width: 6vw;
+                justify-content: center;
+                align-items: center;
+                border: 0.5px solid rgba(33, 36, 39, 0.25);
+                height: 4vh;
+              " type="text" [(ngModel)]="text" required />
                     </div>
                     <div class="service-bill-details">
                         <span class="billtag"><p>Total</p></span>
-                  <input style=" width: 6vw;justify-content: center;align-items: center;border: 0.5px solid rgba(33, 36, 39, 0.25);
-                      height: 4vh;"  type="text" [(ngModel)]="text"   required />
-                      
+                        <input style="
+                width: 6vw;
+                justify-content: center;
+                align-items: center;
+                border: 0.5px solid rgba(33, 36, 39, 0.25);
+                height: 4vh;
+              " type="text" [(ngModel)]="text" required />
                     </div>
 
                     <ng-container *ngIf="editing">
                         <button class="save-button" (click)="save()">Save</button>
                     </ng-container>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
