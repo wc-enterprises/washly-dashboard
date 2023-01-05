@@ -88,6 +88,7 @@ Details:
     justify-content: space-between;
     position: fixed;
     padding: 2.1vh 2vh 0 2vh;
+    background-color: yellowgreen;
 }
 
 .bill-details-title {
