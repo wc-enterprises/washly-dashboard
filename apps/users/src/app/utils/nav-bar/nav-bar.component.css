@@ -92,27 +92,35 @@
   .logotitle{
     margin-top:5vh;
   }
- 
+  .booking{
+     padding:5px;
+    width: 20vw;
+    text-align: center;
+    background-color: aqua;
+    border:1px solid white;
+
+  }
+
  .content{
     padding-top: 3.5px;
-    width: 18vw;
-   
+    
+    width:20vw;
 }
-
-  .logoutlogo{
+.icon{
+padding-right: 2vw;
+border: 1px solid wheat;
+ }
+.logoutlogo{
 bottom: 6.5vh;
 
  }
  .logouttext{
-bottom: 3vh; 
+bottom: 3.5vh; 
 
  }
 }
 
-
-
-
-@media screen and (max-width:1540px) {
+@media screen and (max-width:1540px)  {
   .nav {
   width:250px;
   }
@@ -142,7 +150,7 @@ bottom: 6.5vh;
 
  }
  .logouttext{
-bottom: 5.5vh; 
+bottom: 3.5vh; 
 
  }
 
