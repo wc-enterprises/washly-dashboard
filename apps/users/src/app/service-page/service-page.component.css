@@ -3,6 +3,7 @@
     height: 100%;
     display: flex;
     flex-direction: row;
+  
 }
 
 .card-list {
@@ -178,4 +179,18 @@
     color: #212427;
     align-self: center;
     margin-top: 2vh;
+}
+
+@media screen and (max-width:1370px) {
+  .card-list::-webkit-scrollbar{
+    display: none;
+    
+  }
+}
+
+@media screen and (max-width:1540px) {
+  .card-list::-webkit-scrollbar{
+    display: none;
+    
+  }
 }
