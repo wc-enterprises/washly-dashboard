@@ -19,7 +19,8 @@
             <div style="height: 35%">
                 <h4 style="color: white">BOOKING DETAILS</h4>
 
-                <div style="display: flex; justify-content: space-between; padding: 2% 0" *ngFor="let bookingDetail of selectedBooking.bookingDetails">
+                <div style="display: flex; justify-content: space-between; padding: 2% 0"
+                    *ngFor="let bookingDetail of selectedBooking.bookingDetails">
                     <div class="key">{{ bookingDetail.title }}</div>
                     <div class="value">{{ bookingDetail.value }}</div>
                 </div>
@@ -28,7 +29,8 @@
             <!-- PICKUP AND DELIVERY DETAILS -->
             <div style="height: 65%; margin-top: 5%">
                 <h4 style="color: white">PICKUP AND DELIVERY DETAILS</h4>
-                <div style="display: flex; justify-content: space-between; padding: 3% 0" *ngFor="let item of selectedBooking.pickUpAndDeliveryDetails">
+                <div style="display: flex; justify-content: space-between; padding: 3% 0"
+                    *ngFor="let item of selectedBooking.pickUpAndDeliveryDetails">
                     <div class="key">{{ item.title }}</div>
                     <div class="value">{{ item.value }}</div>
                 </div>

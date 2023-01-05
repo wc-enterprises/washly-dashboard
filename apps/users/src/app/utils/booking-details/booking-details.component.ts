@@ -13,6 +13,92 @@ export class BookingDetailsComponent {
     {
       serviceName: 'Dry Cleaning',
       noOfItems: 10,
+      amount: 150,
+    }, { serviceName: 'Laundry', noOfItems: 20, weightOfItems: 10, amount: 200 },
+    { serviceName: 'Ironing', noOfItems: 15, weightOfItems: 5, amount: 100 },
+    {
+      serviceName: 'Dry Cleaning',
+      noOfItems: 10,
+
+      amount: 150,
+    }, { serviceName: 'Laundry', noOfItems: 20, weightOfItems: 10, amount: 200 },
+    { serviceName: 'Ironing', noOfItems: 15, weightOfItems: 5, amount: 100 },
+    {
+      serviceName: 'Dry Cleaning',
+      noOfItems: 10,
+
+      amount: 150,
+    }, { serviceName: 'Laundry', noOfItems: 20, weightOfItems: 10, amount: 200 },
+    { serviceName: 'Ironing', noOfItems: 15, weightOfItems: 5, amount: 100 },
+    {
+      serviceName: 'Dry Cleaning',
+      noOfItems: 10,
+
+      amount: 150,
+    }, { serviceName: 'Laundry', noOfItems: 20, weightOfItems: 10, amount: 200 },
+    { serviceName: 'Ironing', noOfItems: 15, weightOfItems: 5, amount: 100 },
+    {
+      serviceName: 'Dry Cleaning',
+      noOfItems: 10,
+
+      amount: 150,
+    }, { serviceName: 'Laundry', noOfItems: 20, weightOfItems: 10, amount: 200 },
+    { serviceName: 'Ironing', noOfItems: 15, weightOfItems: 5, amount: 100 },
+    {
+      serviceName: 'Dry Cleaning',
+      noOfItems: 10,
+
+      amount: 150,
+    }, { serviceName: 'Laundry', noOfItems: 20, weightOfItems: 10, amount: 200 },
+    { serviceName: 'Ironing', noOfItems: 15, weightOfItems: 5, amount: 100 },
+    {
+      serviceName: 'Dry Cleaning',
+      noOfItems: 10,
+
+      amount: 150,
+    }, { serviceName: 'Laundry', noOfItems: 20, weightOfItems: 10, amount: 200 },
+    { serviceName: 'Ironing', noOfItems: 15, weightOfItems: 5, amount: 100 },
+    {
+      serviceName: 'Dry Cleaning',
+      noOfItems: 10,
+
+      amount: 150,
+    }, { serviceName: 'Laundry', noOfItems: 20, weightOfItems: 10, amount: 200 },
+    { serviceName: 'Ironing', noOfItems: 15, weightOfItems: 5, amount: 100 },
+    {
+      serviceName: 'Dry Cleaning',
+      noOfItems: 10,
+
+      amount: 150,
+    }, { serviceName: 'Laundry', noOfItems: 20, weightOfItems: 10, amount: 200 },
+    { serviceName: 'Ironing', noOfItems: 15, weightOfItems: 5, amount: 100 },
+    {
+      serviceName: 'Dry Cleaning',
+      noOfItems: 10,
+
+      amount: 150,
+    }, { serviceName: 'Laundry', noOfItems: 20, weightOfItems: 10, amount: 200 },
+    { serviceName: 'Ironing', noOfItems: 15, weightOfItems: 5, amount: 100 },
+   
+    {serviceName: 'Laundry', noOfItems: 20, weightOfItems: 10, amount: 200 },
+    { serviceName: 'Ironing', noOfItems: 15, weightOfItems: 5, amount: 100 },
+    {
+      serviceName: 'Dry Cleaning',
+      noOfItems: 10,
+
+      amount: 150,
+    }, { serviceName: 'Laundry', noOfItems: 20, weightOfItems: 10, amount: 200 },
+    { serviceName: 'Ironing', noOfItems: 15, weightOfItems: 5, amount: 100 },
+    {
+      serviceName: 'Dry Cleaning',
+      noOfItems: 10,
+
+      amount: 150,
+    }, { serviceName: 'Laundry', noOfItems: 20, weightOfItems: 10, amount: 200 },
+    { serviceName: 'Ironing', noOfItems: 15, weightOfItems: 5, amount: 100 },
+    {
+      serviceName: 'Dry Cleaning',
+      noOfItems: 10,
 
       amount: 150,
     },
