@@ -30,6 +30,7 @@ import { BookingComponent } from './booking/booking.component';
 import { BookingDetailsComponent } from './utils/booking-details/booking-details.component';
 import { BillDetailsComponent } from './booking-details/booking-details.component';
 import { DisplayPanelComponent } from './utils/display-panel/display-panel.component';
+
 @NgModule({
   declarations: [
     AppComponent,
