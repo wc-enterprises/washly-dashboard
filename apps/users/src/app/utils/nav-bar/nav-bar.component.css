@@ -81,32 +81,32 @@
 }
 
 
-@media screen and (max-width:1372px){
-  .nav {
+@media screen and (max-width:1370px) {
+ .nav {
   width:250px;
   }
   .logo{
-    margin-left: -0.5vw;
-}
-  .logotitle{
-    margin-top: 7vh;
+    margin-left: -1vw;
+
   }
- .booking{
-    padding: 5px;
-    width: 13vw;
-    margin-left: 0.5vw;
+  .logotitle{
+    margin-top:5vh;
+  }
+ 
+ .content{
+    padding-top: 3.5px;
+    width: 18vw;
+   
 }
+
   .logoutlogo{
-bottom: 6.6vh;
+bottom: 6.5vh;
 
  }
  .logouttext{
-bottom: 5.6vh;
-padding-left: 1px;
+bottom: 3vh; 
+
  }
-.content{
-    padding-top: 2.5px;
-}
 }
 
 
@@ -129,15 +129,20 @@ padding-left: 1px;
     
    
  }
+ .icon{
+padding-right: 2vw;
+ }
  .content{
     padding-top: 3.5px;
+    
+    width: 15vw;
 }
   .logoutlogo{
 bottom: 6.5vh;
 
  }
  .logouttext{
-bottom: 3.4vh; 
+bottom: 5.5vh; 
 
  }
 
