@@ -1,14 +1,8 @@
 #outer-service-box{
-    width: 37vw;
-height: 100%;
-background: #FFFFFF;
-border: 0.75px solid rgba(33, 36, 39, 0.44);
-border-radius: 0px 5px 5px 0px;
-display: flex;
-flex-direction: column;
-align-items: center;
-overflow: hidden;
-    overflow-y: auto;
+    width: 1535px;
+height: 100vh;
+background-color: #000000;
+
 }
 
 .service-title{
