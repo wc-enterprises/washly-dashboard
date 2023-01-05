@@ -348,14 +348,14 @@ display: none;
 display: none;
   }
   .approve-button {
-   line-height: 1vh;
+   line-height: 0.8vh;
 }
    #drop-down-logo{
     
-   margin-top: -6px;
+   margin-top: -7px;
    }       
    #head-line{
-    padding-top: 3vh;
+    padding-top: 5vh;
    }   
 }
 
