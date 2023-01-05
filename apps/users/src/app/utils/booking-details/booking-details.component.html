@@ -52,13 +52,13 @@
             </div>
 
             <div class="bill-contents">
-                <mat-table [dataSource]="dataSource" class="service-table">
+                <mat-table [dataSource]="selectedBooking.selectedService" class="service-table">
                     <ng-container style="width: 40%" matColumnDef="serviceName">
                         <mat-header-cell style="border-radius: 5px 0 0 5px" class="table-header-cell" *matHeaderCellDef>
                             Service Name
                         </mat-header-cell>
                         <mat-cell *matCellDef="let element">
-                            {{ element.serviceName }}
+                            {{ element.name }}
                         </mat-cell>
                     </ng-container>
 
@@ -77,7 +77,7 @@
                         </mat-header-cell>
                         <mat-cell *matCellDef="let element">
                             <div *ngIf="!editMode; else editTemplate">
-                                {{ element.weightOfItems }}
+                                {{ element.weight }}
                             </div>
                             <ng-template #editTemplate>
                                 <input class="edit-box" type="text" [(ngModel)]="element.weightOfItems" />
@@ -108,7 +108,14 @@
                         <div style="flex: 0.75; text-align: right">
                             Total service amount (in Rs)
                         </div>
-                        <div class="input-box"></div>
+                        <div class="input-box">
+                            <div *ngIf="!editMode; else editTemplate">
+                                {{ selectedBooking.bill.totalServiceAmount }}
+                            </div>
+                            <ng-template #editTemplate>
+                                <input class="edit-box" type="text" [(ngModel)]="selectedBooking.bill.totalServiceAmount" />
+                            </ng-template>
+                        </div>
                     </div>
                     <div class="bill-items">
                         <div style="flex: 0.75; text-align: right">Delivery charges</div>
