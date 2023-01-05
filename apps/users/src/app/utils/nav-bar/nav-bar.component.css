@@ -90,31 +90,38 @@
 
   }
   .logotitle{
-    margin-top:8vh;
+    top:12.5vh;
   }
   .booking{
      padding:5px;
-    width: 20px;
+     width:12vw;
     text-align: center;
-  
+    align-items: center;
+ justify-content: space-evenly;
 
   }
 
  .content{
-    padding-top: 3.5px;
+    width:12vw;
+    height: 4vh;
+    font-size: 15px;
+ align-items: start;
     
-    width:20vw;
+    
 }
-.icon{
+/* .icon{
 padding-right: 2vw;
 
- }
+ } */
 .logoutlogo{
-bottom: 6.5vh;
 
+
+padding-bottom: 4vh;
  }
  .logouttext{
-bottom: 3.5vh; 
+padding-top: 0.2vh;
+padding-left: 1vh;
+font-size: medium;
 
  }
 }
