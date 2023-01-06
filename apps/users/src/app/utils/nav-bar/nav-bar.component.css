@@ -44,6 +44,7 @@
     display: flex;
     align-items: center;
     padding: 18px;
+    cursor: pointer;
 }
 
 .booking:hover {
@@ -69,6 +70,7 @@
     position: relative;
     left: 4.5vw;
     bottom: 6vh;
+  cursor: pointer;
 }
 
 .logouttext {
@@ -78,6 +80,7 @@
     color: white;
     font-weight: 400;
     font-size: medium;
+    cursor: pointer;
 }
 
 
