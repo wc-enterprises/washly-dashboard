@@ -30,6 +30,7 @@ import { BookingComponent } from './booking/booking.component';
 import { BookingDetailsComponent } from './utils/booking-details/booking-details.component';
 import { BillDetailsComponent } from './booking-details/booking-details.component';
 import { DisplayPanelComponent } from './utils/display-panel/display-panel.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { DisplayPanelComponent } from './utils/display-panel/display-panel.compo
   ],
 
   imports: [
+    MatSelectModule,
     FormsModule,
     BrowserModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),

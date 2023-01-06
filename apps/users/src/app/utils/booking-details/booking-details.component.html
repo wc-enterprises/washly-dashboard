@@ -29,7 +29,27 @@
             <!-- PICKUP AND DELIVERY DETAILS -->
             <div style="height: 65%; margin-top: 5%">
                 <h4 id="head-line" style="color: white">PICKUP AND DELIVERY DETAILS</h4>
-                <div style="display: flex; justify-content: space-between; padding: 3% 0"
+                <div class="pickuppartner" style="display: flex;flex-direction: row;">
+                    <div class="key">Pickup Partner</div>
+                    <mat-form-field style="height: 100%;width: 12vw;text-align: center;"  appearance="fill">
+                        <mat-label style="text-align: center;color: black;font-size: small;">Pickup partner</mat-label>
+                        <mat-select>
+                            <mat-option>None</mat-option>
+                         <mat-option *ngFor="let partner of partner" [value]="partner">{{ partner}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+                <div class="pickuppartner" style="display: flex;flex-direction: row;">
+                    <div class="key">Pickup Partner</div>
+                    <mat-form-field style="height: 100%;width: 12vw;text-align: center;"  appearance="fill">
+                        <mat-label style="text-align: center;color: black;font-size: small;">Pickup partner</mat-label>
+                        <mat-select>
+                            <mat-option>None</mat-option>
+                         <mat-option *ngFor="let partner of partner" [value]="partner">{{ partner}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+                <div style="display: flex;  padding: 3% 0"
                     *ngFor="let item of selectedBooking.pickUpAndDeliveryDetails">
                     <div class="key">{{ item.title }}</div>
                     <div class="value">{{ item.value }}</div>

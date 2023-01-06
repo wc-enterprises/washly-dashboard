@@ -177,6 +177,10 @@
     display: none;
     
   }
+  #add-new-label {
+    margin-top: 0.5vh;
+    
+}
   .key {
 margin-left: 3vw;
 }
