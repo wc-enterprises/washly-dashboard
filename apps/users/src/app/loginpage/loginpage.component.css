@@ -74,6 +74,7 @@ h3 {
   border-radius: 4px;
   margin-top: -1vh;
   margin-left: 5vw;
+  cursor: pointer;
 }
 p {
   font-family: 'IBM Plex Sans';
@@ -156,8 +157,12 @@ h2.right:before {
   outline: none;
   margin-top: 3vh;
   color: #000000;
+  
 }
 
+.invalid {
+  border: 1px solid red;
+}
 .checkbox {
   display: flex;
   flex-direction: row;
@@ -182,6 +187,7 @@ span{
 
 .password {
   margin-left: 1vw;
+  cursor: pointer;
 }
 .login {
   font-family: 'Roboto';

@@ -41,18 +41,28 @@
                 <form>
 
                     <div class="group">
-                        <input type="text" required>
+                        <input type="text" id="email" name="email" required #nameControl="ngModel" [(ngModel)]="email"
+                            [ngClass]="{ 'invalid': nameControl.invalid && nameControl.touched }">
                         <span class="highlight"></span>
                         <span class="bar"></span>
-                        <label>Email</label>
-
+                        <label for="email">Email</label>
+                        <div style="width: 10vw; color:red;" *ngIf="nameControl.invalid && nameControl.touched"
+                            class="error">
+                            Email is required
+                        </div>
                     </div>
 
                     <div class="group">
-                        <input type="text" required>
+                        <input type="text" id="password" name="password" required #nameControl="ngModel"
+                            [(ngModel)]="password"
+                            [ngClass]="{ 'invalid': nameControl.invalid && nameControl.touched }">
                         <span class="highlight"></span>
                         <span class="bar"></span>
-                        <label>Password</label>
+                        <label for="password">Password</label>
+                        <div style="width: 10vw; color:red;" *ngIf="nameControl.invalid && nameControl.touched"
+                            class="error">
+                            Password is required
+                        </div>
 
                     </div>
 
