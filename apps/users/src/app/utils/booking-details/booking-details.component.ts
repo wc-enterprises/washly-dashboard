@@ -463,13 +463,13 @@ export class BookingDetailsComponent {
   ];
 
   partner: string[] = [
-    'Alabama',
-    'Alaska',
-    'Arizona',
-    'Arkansas',
-    'California',
-    'Colorado',
-    'Connecticut',
+    'Arunkumar',
+    'Abinpaul',
+    'Aniruth',
+    'Dhoni',
+    'Madhan',
+    'Siva',
+    'Siva Ram',
   ];
 
 

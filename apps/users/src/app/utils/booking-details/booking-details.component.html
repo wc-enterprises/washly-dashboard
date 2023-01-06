@@ -34,17 +34,17 @@
                     <mat-form-field style="height: 100%;width: 12vw;text-align: center;"  appearance="fill">
                         <mat-label style="text-align: center;color: black;font-size: small;">Pickup partner</mat-label>
                         <mat-select>
-                            <mat-option>None</mat-option>
+                            
                          <mat-option *ngFor="let partner of partner" [value]="partner">{{ partner}}</mat-option>
                         </mat-select>
                       </mat-form-field>
                 </div>
                 <div class="pickuppartner" style="display: flex;flex-direction: row;">
-                    <div class="key">Pickup Partner</div>
+                    <div class="key">Delivery Partner</div>
                     <mat-form-field style="height: 100%;width: 12vw;text-align: center;"  appearance="fill">
-                        <mat-label style="text-align: center;color: black;font-size: small;">Pickup partner</mat-label>
+                        <mat-label style="text-align: center;color: black;font-size: small;">Delivery Partner</mat-label>
                         <mat-select>
-                            <mat-option>None</mat-option>
+                           
                          <mat-option *ngFor="let partner of partner" [value]="partner">{{ partner}}</mat-option>
                         </mat-select>
                       </mat-form-field>
