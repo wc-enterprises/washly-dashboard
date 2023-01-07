@@ -81,14 +81,14 @@
     width: 50%;
     text-align: left;
     color: rgba(255, 255, 255, 0.65);
-    font-family: 'IBM Plex Sans';
-font-style: normal;
+   
 }
 
 .value {
     width: 50%;
     text-align: left;
     color: white;
+   
 }
 
 #edit-icon {
@@ -177,6 +177,10 @@ font-style: normal;
     display: none;
     
   }
+  #add-new-label {
+    margin-top: 0.5vh;
+    
+}
   .key {
 margin-left: 3vw;
 }

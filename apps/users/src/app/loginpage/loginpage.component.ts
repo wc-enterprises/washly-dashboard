@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormControl, Validators,FormGroup} from '@angular/forms';
+
 
 
 
@@ -10,11 +11,9 @@ import {FormControl, Validators} from '@angular/forms';
 })
 export class LoginpageComponent implements OnInit {
 
+email:'madhan177@gmail.com' | undefined;
+password:'madhan12345'|undefined;
 
- emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
   imageStyle = {
     width: '100vw',
     height: '100vh'

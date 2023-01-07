@@ -4,15 +4,16 @@
 }
 .logo {
   margin-top: 10px;
-  width: 190px;
+  width: 150px;
   height: 100px;
-  margin-left: 35px;
+  margin-left: 10.5vw;
+  
 }
 .logoimage {
-  width: 100px;
-  height: 60px;
-  margin-top: 5px;
-  opacity: 5;
+  width: 150px;
+  height: 100px;
+  margin-top: 8px;
+  
 }
 .box1 {
   width: 50vw;
@@ -26,7 +27,7 @@
   width: 25vw;
   height: 70vh;
   margin-left: 20px;
-  top: 120px;
+ margin-top: 20px;
 }
 .form {
   width: 20vw;
@@ -73,6 +74,7 @@ h3 {
   border-radius: 4px;
   margin-top: -1vh;
   margin-left: 5vw;
+  cursor: pointer;
 }
 p {
   font-family: 'IBM Plex Sans';
@@ -155,8 +157,12 @@ h2.right:before {
   outline: none;
   margin-top: 3vh;
   color: #000000;
+  
 }
 
+.invalid {
+  border: 1px solid red;
+}
 .checkbox {
   display: flex;
   flex-direction: row;
@@ -181,6 +187,7 @@ span{
 
 .password {
   margin-left: 1vw;
+  cursor: pointer;
 }
 .login {
   font-family: 'Roboto';
