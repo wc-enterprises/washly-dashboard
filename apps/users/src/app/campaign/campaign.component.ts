@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, HostListener } from '@angular/core';
+import { Component, Output, EventEmitter, HostListener,ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ICampaign } from './utils/interface';
 
@@ -9,6 +9,11 @@ import { ICampaign } from './utils/interface';
 })
 export class CampaignComponent {
   @Output() deletePopUp = new EventEmitter<boolean>();
+  @ViewChild('click')
+  divElement!: ElementRef;
+   isBlurred = true;
+  
+  
 
 //    campaigns: ICampaign[] = [    
 //   { id: 'c_usf443_383',heading: 'Campaign service 1', description: '50% OFF', buttonLabel: 'Get Now.', status: 'ACTIVE', imageUrl: 'https://google.com/ice-cream.png',startDate:'03/01/2023',endDate:'10/12/2023'},
@@ -206,8 +211,14 @@ addNew = false;
     document.body.classList.toggle('blur');
   }
 
+  ngAfterViewInit() {
+     this.isBlurred = !this.isBlurred;
+  this.divElement.nativeElement.style.filter = this.isBlurred ? 'blur(5px)' : 'none';
+  };
+
+
   openDeleteConfirmationModal() {
-    this.isModalActive = true;
+    this.isModalActive = !this.isModalActive;
     this.deletePopUp.emit(true);
     console.log('change modal active status to:', this.isModalActive);
   }

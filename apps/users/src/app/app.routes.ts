@@ -11,7 +11,11 @@ import { HeaderComponent } from './header/header.component';
 import { BookingComponent } from './booking/booking.component';
 import { CampaignComponent } from './campaign/campaign.component';
 import { BillDetailsComponent } from './booking-details/booking-details.component';
-import { DisplayPanelComponent } from './utils/display-panel/display-panel.component';
+import { ExecutiveComponent } from './executive/executive.component';
+import { CustomerComponent } from './customer/customer.component';
+import { RevenueComponent } from './revenue/revenue.component';
+import { StoreComponent } from './store/store.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
 
 export const appRoutes: Route[] = [
   { path: 'App', component: AppComponent },
@@ -26,5 +30,10 @@ export const appRoutes: Route[] = [
   { path: 'bookings', component: BookingComponent },
   { path: 'campaign', component: CampaignComponent },
   { path: 'bill', component: BillDetailsComponent },
-  {  path: 'display',component:DisplayPanelComponent}
+  {  path: 'customer',component:CustomerComponent},
+  {path:'Executive',component:ExecutiveComponent},
+  {path:'Revenue',component: RevenueComponent},
+  {path:'Store',component:StoreComponent},
+  {path:'Analytics',component:AnalyticsComponent},
+
 ];

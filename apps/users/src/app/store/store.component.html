@@ -17,25 +17,15 @@
           width: 82vw;
           margin-right: 5px;">
             <div style="display: contents">
-                <washly-header [heading]="'App settings'"></washly-header>
+                <washly-header [heading]="'Stores'"></washly-header>
             </div>
 
             <div>
+                <div class="process">
 
-                <mat-tab-group>
-                    <mat-tab label="Service">
-                        <div style="height: 85.3vh">
-                            <washly-service-page></washly-service-page>
+                    <div [@moveText]="state"> {{ currentText }}</div>
+                </div>
 
-                        </div>
-                    </mat-tab>
-                    <mat-tab label="Campaign">
-                        <div style="height: 85.3vh">
-                            <washly-campaign></washly-campaign>
-                        </div>
-                    </mat-tab>
-                </mat-tab-group>
-                <div style="display: contents"><washly-customer></washly-customer></div>
             </div>
         </div>
     </div>
