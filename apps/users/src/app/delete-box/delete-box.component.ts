@@ -9,7 +9,7 @@ export class DeleteBoxComponent {
   @Input() isActive = false;
   @Output() closeEvent = new EventEmitter<void>();
   @Output() delete = new EventEmitter<void>();
-
+  
 
 
   closeModal() {
