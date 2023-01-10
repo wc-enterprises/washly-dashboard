@@ -1,0 +1,48 @@
+<html>
+
+<head>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&family=Lato:wght@700&family=Open+Sans:wght@600&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="main-container">
+    <washly-nav-bar></washly-nav-bar>
+    <div class="container">
+      <washly-header></washly-header>
+      <div class="option">
+        <div (click)="service()" class="option1">Service</div>
+        <div (click)="campaign()" class="option2">Campaigns</div>
+      </div>
+      <div class="inner-container">
+        <div class="service-list">
+          <div class="list">Regular wash</div>
+          <div class="list">Wash and press</div>
+          <div class="list">Just ironing</div>
+          <div class="list">Regular wash + Ironing</div>
+          <div class="list">Campaign service 5</div>
+          <div class="list" id="addlist">ADD NEW +</div>
+        </div>
+        <div class="details">
+          <div class="details-list">
+            <div class="leftsidelist">Name</div>
+            <textarea class="rightsidelist"></textarea>
+          </div>
+          <div class="details-list">
+            <div class="leftsidelist">Price per unit</div>
+            <textarea class="rightsidelist"></textarea>
+          </div>
+          <div class="details-list">
+            <div class="leftsidelist">Unit of calculation</div>
+            <textarea class="rightsidelist"></textarea>
+          </div>
+
+          <button class="save">SAVE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

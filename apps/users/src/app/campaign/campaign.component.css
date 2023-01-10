@@ -1,0 +1,199 @@
+.main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.card-list {
+    width: 30vw;
+    padding-top: 3vh;
+    padding-bottom: 7vh;
+    overflow: scroll;
+    
+}
+
+.card-container {
+    padding: 2vh 2.5vh 0 5vh;
+    /* align the elements in the card horizontally */
+}
+
+.card {
+    /* box-sizing: border-box;
+  */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: auto;
+    box-shadow: 3px 3px 5px 0px rgba(0.2, 0, 0, 0.2), -3px -3px 5px 0px rgba(0.2, 0, 0, 0.2);
+    cursor: pointer;
+    padding: 1.5vh;
+    text-align: left;
+}
+
+.card.selected {
+    background-color: rgba(33, 36, 39, 0.06);
+}
+
+.card-title {
+    font-weight: 400;
+    font-size: large;
+    word-wrap: break-word;
+    /* break the text and wrap it to the next line if necessary */
+    width: 70%;
+    /* specify the width of the text element */
+}
+#edit-icon {
+    font-size: large;
+    margin-top: 5px;
+}
+
+.details {
+    width: auto;
+    height: auto;
+    margin-left: 2vw;
+    margin-top: 40px;
+    background: #212427;
+    box-shadow: 0px 2px 8px 5px rgba(0, 0, 0, 0.03);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.total-display-area {
+    width: 70vw;
+    height: 100%;
+    padding: 5vh 0 0 5vw;
+    position: relative;
+}
+
+.black-area {
+    width: 70%;
+    height: auto;
+    border-radius: 5px;
+    padding: 20px 50px 30px 50px;
+    background-color: #212427;
+    display: flex;
+    flex-direction: column;
+}
+
+.key {
+    width: 50%;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.65);
+   
+}
+
+.value {
+    width: 50%;
+    text-align: left;
+    color: white;
+   
+}
+
+#edit-icon {
+    font-size: large;
+    margin-top: 5px;
+}
+
+.delete-icon {
+    font-size: large;
+    padding-top:5px;
+}
+
+.cancel-icon {
+    color: white;
+    cursor: pointer;
+}
+
+.edit-box {
+    padding: 15px !important;
+    margin-top: -1vh;
+    padding-left: 5px;
+    margin-left: -5vw;
+    width: 15vw;
+    height: 5vh;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.17);
+    border-radius: 3px;
+}
+
+#save-button {
+    box-sizing: border-box;
+    width: 100px;
+    height: 40px;
+    background: rgba(215, 239, 125, 0.9);
+    border: 0.65px solid #a2b84e;
+    border-radius: 3px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 11px;
+    /* identical to box height */
+    color: #212427;
+    align-self: center;
+    margin-top: 2vh;
+}
+
+#submit-button {
+    box-sizing: border-box;
+    width: 100px;
+    height: 40px;
+    background: rgba(215, 239, 125, 0.9);
+    border: 0.65px solid #a2b84e;
+    border-radius: 3px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 11px;
+    /* identical to box height */
+    color: #212427;
+    align-self: center;
+    margin-top: 2vh;
+}
+#add-new-label {
+    margin-top: 1.1vh;
+    font-weight: 500;
+    font-size: large;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    /* This will center the text vertically */
+    justify-content: center;
+}
+#add-new-service {
+    cursor: pointer;
+    margin-top: 3vh;
+    height: 6vh;
+    box-shadow: 3px 3px 5px 0px rgba(0.2, 0, 0, 0.2), -3px -3px 5px 0px rgba(0.2, 0, 0, 0.2);
+    border-radius: 4px;
+    background-color: rgba(33, 36, 39, 0.95);
+}
+
+@media screen and (max-width:1370px) {
+  .card-list::-webkit-scrollbar{
+    display: none;
+    
+  }
+  #add-new-label {
+    margin-top: 0.5vh;
+    
+}
+  .key {
+margin-left: 3vw;
+}
+}
+
+@media screen and (max-width:1540px) {
+  .card-list::-webkit-scrollbar{
+    display: none;
+    
+  }
+   .key {
+margin-left: 3vw;
+font-size: large;
+}
+}

@@ -1,0 +1,195 @@
+<div class="main" *ngIf="selectedBooking; else emptyBooking">
+    <div class="card-list">
+        <div *ngFor="let item of bookings" class="card-container">
+            <mat-card class="card" [ngClass]="{ selected: item.cardData.selected }" (click)="setSelectedBooking(item)">
+                <mat-card-title class="card-title">{{ item.cardData.id }}
+                </mat-card-title>
+                <mat-card-content class="card-content">
+                    <ul>
+                        <li>{{ item.cardData.storeName }}</li>
+                        <li>{{ item.cardData.date }}</li>
+                    </ul>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+
+    <div class="details">
+        <div class="booking-details">
+            <!-- BOOKING DETAILS -->
+            <div style="height: 35%">
+                <h4 style="color: white">BOOKING DETAILS</h4>
+
+                <div style="display: flex; justify-content: space-between; padding: 2% 0" *ngFor="let bookingDetail of selectedBooking.bookingDetails">
+                    <div class="key">{{ bookingDetail.title }}</div>
+                    <div class="value">{{ bookingDetail.value }}</div>
+                </div>
+            </div>
+
+            <!-- PICKUP AND DELIVERY DETAILS -->
+            <div style="height: 65%; margin-top: 5%">
+                <h4 id="head-line" style="color: white">PICKUP AND DELIVERY DETAILS</h4>
+                <!-- <div class="pickuppartner" style="display: flex; flex-direction: row">
+                    <div class="key">Pickup Partner</div>
+                    <mat-form-field style="height: 100%; width: 12vw; text-align: center" appearance="fill">
+                        <mat-label style="text-align: center; color: black; font-size: small">Pickup partner</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let partner of partner" [value]="partner">{{ partner }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="pickuppartner" style="display: flex; flex-direction: row">
+                    <div class="key">Delivery Partner</div>
+                    <mat-form-field style="height: 100%; width: 12vw; text-align: center" appearance="fill">
+                        <mat-label style="text-align: center; color: black; font-size: small">Delivery Partner</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let partner of partner" [value]="partner">{{ partner }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div> -->
+                <div style="display: flex; padding: 3% 0" *ngFor="let item of selectedBooking.pickUpAndDeliveryDetails">
+                    <div class="key">{{ item.title }}</div>
+                    <div class="value">{{ item.value }}</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service details -->
+        <div class="service-details">
+            <div class="service-title">
+                <h4 class="bill-details-title">BILL DETAILS</h4>
+                <mat-icon *ngIf="!editMode" class="edit-icon" (click)="editModeOn()">mode_edit</mat-icon>
+                <mat-icon *ngIf="editMode" id="cancel-icon" (click)="editModeOff()">close</mat-icon>
+
+                <div id="approve-reject-box">
+                    <div class="approve-button-box">
+                        <button class="approve-button">APPROVE</button>
+                        <mat-icon id="drop-down-logo" (click)="showElements = !showElements">arrow_drop_down</mat-icon>
+                    </div>
+                    <button *ngIf="showElements" class="reject-button">REJECT</button>
+                </div>
+            </div>
+
+            <div class="bill-contents">
+                <mat-table [dataSource]="selectedBooking.selectedService" class="service-table">
+                    <ng-container style="width: 40%" matColumnDef="serviceName">
+                        <mat-header-cell style="border-radius: 5px 0 0 5px" class="table-header-cell" *matHeaderCellDef>
+                            Service Name
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                            {{ element.name }}
+                        </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="noOfItems">
+                        <mat-header-cell class="table-header-cell" *matHeaderCellDef>
+                            No. of Items
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                            {{ element.numberOfItems }}
+                        </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="weightOfItems">
+                        <mat-header-cell class="table-header-cell" *matHeaderCellDef>
+                            Weight of Items (in kg)
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                            <div *ngIf="!editMode; else editTemplate">
+                                {{ element.weight }}
+                            </div>
+                            <ng-template #editTemplate>
+                                <input class="edit-box" type="text" [(ngModel)]="element.weight" />
+                            </ng-template>
+                        </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="amount">
+                        <mat-header-cell style="border-radius: 0 5px 5px 0" class="table-header-cell" *matHeaderCellDef>
+                            Amount (in Rs)
+                        </mat-header-cell>
+
+                        <mat-cell *matCellDef="let element">
+                            <div *ngIf="!editMode; else editTemplate">
+                                {{ element.amount }}
+                            </div>
+                            <ng-template #editTemplate>
+                                <input class="edit-box" type="text" [(ngModel)]="element.amount" />
+                            </ng-template>
+                        </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+                </mat-table>
+                <div id="final-bill">
+                    <div class="bill-item">
+                        <div style="flex: 0.85; text-align: right; margin-top: 1.3vh">
+                            Total service amount (in Rs)
+                        </div>
+                        <div class="input-box">
+                            <div style="margin-top: 1.3vh" *ngIf="!editMode; else editTemplate">
+                                {{ selectedBooking.bill.totalServiceAmount }}
+                            </div>
+                            <ng-template #editTemplate>
+                                <input class="edit-box" type="text" [(ngModel)]="selectedBooking.bill.totalServiceAmount" />
+                            </ng-template>
+                        </div>
+                    </div>
+                    <div class="bill-item">
+                        <div style="flex: 0.85; text-align: right; margin-top: 1.3vh">
+                            Delivery charges
+                        </div>
+                        <div class="input-box">
+                            <div style="margin-top: 1.3vh" *ngIf="!editMode; else editTemplate">
+                                {{ selectedBooking.bill.totalServiceAmount }}
+                            </div>
+                            <ng-template #editTemplate>
+                                <input class="edit-box" type="text" [(ngModel)]="selectedBooking.bill.totalServiceAmount" />
+                            </ng-template>
+                        </div>
+                    </div>
+                    <div class="bill-item">
+                        <div style="flex: 0.85; text-align: right; margin-top: 1.3vh">
+                            GST
+                        </div>
+                        <div class="input-box">
+                            <div style="margin-top: 1.3vh" *ngIf="!editMode; else editTemplate">
+                                {{ selectedBooking.bill.totalServiceAmount }}
+                            </div>
+                            <ng-template #editTemplate>
+                                <input class="edit-box" type="text" [(ngModel)]="selectedBooking.bill.totalServiceAmount" />
+                            </ng-template>
+                        </div>
+                    </div>
+                    <div class="bill-item" style="
+              margin-top: 3vh;
+              margin-bottom: 2vh;
+              border-top: 1px solid black;
+            ">
+                        <div style="flex: 0.85; text-align: right; margin-top: 1.3vh">
+                            Total Amount
+                        </div>
+                        <div class="input-box">
+                            <div style="margin-top: 1.3vh" *ngIf="!editMode; else editTemplate">
+                                {{ selectedBooking.bill.totalServiceAmount }}
+                            </div>
+                            <ng-template #editTemplate>
+                                <input class="edit-box" type="text" [(ngModel)]="selectedBooking.bill.totalServiceAmount" />
+                            </ng-template>
+                        </div>
+                    </div>
+                    <ng-container style="margin-top: 2vh" *ngIf="editMode">
+                        <button id="save-button" (click)="save()">Save</button>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #emptyBooking>
+    <div class="empty-bookings">No bookings yet</div>
+</ng-template>
