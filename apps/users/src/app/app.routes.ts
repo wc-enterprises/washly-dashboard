@@ -26,5 +26,11 @@ export const appRoutes: Route[] = [
   { path: 'bookings', component: BookingComponent },
   { path: 'campaign', component: CampaignComponent },
   { path: 'bill', component: BillDetailsComponent },
-  {  path: 'display',component:DisplayPanelComponent}
+  { path: 'display', component: DisplayPanelComponent },
+  { path: '', component: BookingComponent },
+  { path: 'customers', component: DisplayPanelComponent },
+  { path: 'stores', component: DisplayPanelComponent },
+  { path: 'revenue', component: DisplayPanelComponent },
+  { path: 'analytics', component: DisplayPanelComponent },
+  { path: 'executives', component: DisplayPanelComponent },
 ];
