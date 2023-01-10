@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, HostListener } from '@angular/core';
+import { Component, Output, EventEmitter, HostListener,ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
 })
 export class ServicePageComponent {
   @Output() deletePopUp = new EventEmitter<boolean>();
+   @ViewChild('click')
+  divElement!: ElementRef;
+   isBlurred = true;
 
   editing = false;
   addNew = false;
@@ -85,9 +88,14 @@ export class ServicePageComponent {
     data.selected = true;
     this.displayedData = data;
   }
+  
+  ngAfterViewInit() {
+     this.isBlurred = !this.isBlurred;
+  this.divElement.nativeElement.style.filter = this.isBlurred ? 'blur(5px)' : 'none';
+  };
 
   openDeleteConfirmationModal() {
-    this.isModalActive = true;
+    this.isModalActive = !this.isModalActive;
     this.deletePopUp.emit(true);
     console.log('change modal active status to:', this.isModalActive);
   }

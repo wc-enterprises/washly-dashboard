@@ -1,5 +1,4 @@
 import { Route } from '@angular/router';
-import { AppComponent } from './app.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { AppsettingpageComponent } from './appsettingpage/appsettingpage.component';
 import { CampaignEditpageComponent } from './campaign-editpage/campaign-editpage.component';
@@ -11,10 +10,14 @@ import { HeaderComponent } from './header/header.component';
 import { BookingComponent } from './booking/booking.component';
 import { CampaignComponent } from './campaign/campaign.component';
 import { BillDetailsComponent } from './booking-details/booking-details.component';
-import { DisplayPanelComponent } from './utils/display-panel/display-panel.component';
+import { ExecutiveComponent } from './executive/executive.component';
+import { CustomerComponent } from './customer/customer.component';
+import { RevenueComponent } from './revenue/revenue.component';
+import { StoreComponent } from './store/store.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
 
 export const appRoutes: Route[] = [
-  { path: 'App', component: AppComponent },
+  { path: '', component: BookingComponent },
   { path: 'login', component: LoginpageComponent },
   { path: 'app-setting', component: AppsettingpageComponent },
   { path: 'campaigneditpage', component: CampaignEditpageComponent },
@@ -26,11 +29,9 @@ export const appRoutes: Route[] = [
   { path: 'bookings', component: BookingComponent },
   { path: 'campaign', component: CampaignComponent },
   { path: 'bill', component: BillDetailsComponent },
-  { path: 'display', component: DisplayPanelComponent },
-  { path: '', component: BookingComponent },
-  { path: 'customers', component: DisplayPanelComponent },
-  { path: 'stores', component: DisplayPanelComponent },
-  { path: 'revenue', component: DisplayPanelComponent },
-  { path: 'analytics', component: DisplayPanelComponent },
-  { path: 'executives', component: DisplayPanelComponent },
+  { path: 'customer', component: CustomerComponent },
+  { path: 'executive', component: ExecutiveComponent },
+  { path: 'revenue', component: RevenueComponent },
+  { path: 'store', component: StoreComponent },
+  { path: 'analytics', component: AnalyticsComponent },
 ];

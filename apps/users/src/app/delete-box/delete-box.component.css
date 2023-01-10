@@ -1,10 +1,10 @@
 .delete {
     box-sizing: border-box;
     position: absolute;
-    width: 216px;
-    height: 137px;
-    left: 45vw;
-    top: 320px;
+    width: 14vw;
+    height: 20vh;
+    left: 40vw;
+    top: 20vh;
     background: rgba(255, 255, 255, 0.95);
     border: 0.75px solid rgba(33, 36, 39, 0.25);
     border-radius: 4px;
