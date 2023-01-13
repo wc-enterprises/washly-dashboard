@@ -1,8 +1,9 @@
-<div class="main">
+<div class="main" *ngIf="selectedBooking; else emptyBooking">
     <div class="card-list">
         <div *ngFor="let item of bookings" class="card-container">
             <mat-card class="card" [ngClass]="{ selected: item.cardData.selected }" (click)="setSelectedBooking(item)">
-                <mat-card-title>{{ item.cardData.bookingId }} </mat-card-title>
+                <mat-card-title class="card-title">{{ item.cardData.id }}
+                </mat-card-title>
                 <mat-card-content class="card-content">
                     <ul>
                         <li>{{ item.cardData.storeName }}</li>
@@ -19,8 +20,7 @@
             <div style="height: 35%">
                 <h4 style="color: white">BOOKING DETAILS</h4>
 
-                <div style="display: flex; justify-content: space-between; padding: 2% 0"
-                    *ngFor="let bookingDetail of selectedBooking.bookingDetails">
+                <div style="display: flex; justify-content: space-between; padding: 2% 0" *ngFor="let bookingDetail of selectedBooking.bookingDetails">
                     <div class="key">{{ bookingDetail.title }}</div>
                     <div class="value">{{ bookingDetail.value }}</div>
                 </div>
@@ -29,28 +29,27 @@
             <!-- PICKUP AND DELIVERY DETAILS -->
             <div style="height: 65%; margin-top: 5%">
                 <h4 id="head-line" style="color: white">PICKUP AND DELIVERY DETAILS</h4>
-                <div class="pickuppartner" style="display: flex;flex-direction: row;">
+                <!-- <div class="pickuppartner" style="display: flex; flex-direction: row">
                     <div class="key">Pickup Partner</div>
-                    <mat-form-field style="height: 100%;width: 12vw;text-align: center;"  appearance="fill">
-                        <mat-label style="text-align: center;color: black;font-size: small;">Pickup partner</mat-label>
+                    <mat-form-field style="height: 100%; width: 12vw; text-align: center" appearance="fill">
+                        <mat-label style="text-align: center; color: black; font-size: small">Pickup partner</mat-label>
                         <mat-select>
-                            
-                         <mat-option *ngFor="let partner of partner" [value]="partner">{{ partner}}</mat-option>
+                            <mat-option *ngFor="let partner of partner" [value]="partner">{{ partner }}
+                            </mat-option>
                         </mat-select>
-                      </mat-form-field>
+                    </mat-form-field>
                 </div>
-                <div class="pickuppartner" style="display: flex;flex-direction: row;">
+                <div class="pickuppartner" style="display: flex; flex-direction: row">
                     <div class="key">Delivery Partner</div>
-                    <mat-form-field style="height: 100%;width: 12vw;text-align: center;"  appearance="fill">
-                        <mat-label style="text-align: center;color: black;font-size: small;">Delivery Partner</mat-label>
+                    <mat-form-field style="height: 100%; width: 12vw; text-align: center" appearance="fill">
+                        <mat-label style="text-align: center; color: black; font-size: small">Delivery Partner</mat-label>
                         <mat-select>
-                           
-                         <mat-option *ngFor="let partner of partner" [value]="partner">{{ partner}}</mat-option>
+                            <mat-option *ngFor="let partner of partner" [value]="partner">{{ partner }}
+                            </mat-option>
                         </mat-select>
-                      </mat-form-field>
-                </div>
-                <div style="display: flex;  padding: 3% 0"
-                    *ngFor="let item of selectedBooking.pickUpAndDeliveryDetails">
+                    </mat-form-field>
+                </div> -->
+                <div style="display: flex; padding: 3% 0" *ngFor="let item of selectedBooking.pickUpAndDeliveryDetails">
                     <div class="key">{{ item.title }}</div>
                     <div class="value">{{ item.value }}</div>
                 </div>
@@ -61,7 +60,7 @@
         <div class="service-details">
             <div class="service-title">
                 <h4 class="bill-details-title">BILL DETAILS</h4>
-                <mat-icon *ngIf="!editMode"  class="edit-icon" (click)="editModeOn()">mode_edit</mat-icon>
+                <mat-icon *ngIf="!editMode" class="edit-icon" (click)="editModeOn()">mode_edit</mat-icon>
                 <mat-icon *ngIf="editMode" id="cancel-icon" (click)="editModeOff()">close</mat-icon>
 
                 <div id="approve-reject-box">
@@ -135,8 +134,7 @@
                                 {{ selectedBooking.bill.totalServiceAmount }}
                             </div>
                             <ng-template #editTemplate>
-                                <input class="edit-box" type="text"
-                                    [(ngModel)]="selectedBooking.bill.totalServiceAmount" />
+                                <input class="edit-box" type="text" [(ngModel)]="selectedBooking.bill.totalServiceAmount" />
                             </ng-template>
                         </div>
                     </div>
@@ -149,8 +147,7 @@
                                 {{ selectedBooking.bill.totalServiceAmount }}
                             </div>
                             <ng-template #editTemplate>
-                                <input class="edit-box" type="text"
-                                    [(ngModel)]="selectedBooking.bill.totalServiceAmount" />
+                                <input class="edit-box" type="text" [(ngModel)]="selectedBooking.bill.totalServiceAmount" />
                             </ng-template>
                         </div>
                     </div>
@@ -163,8 +160,7 @@
                                 {{ selectedBooking.bill.totalServiceAmount }}
                             </div>
                             <ng-template #editTemplate>
-                                <input class="edit-box" type="text"
-                                    [(ngModel)]="selectedBooking.bill.totalServiceAmount" />
+                                <input class="edit-box" type="text" [(ngModel)]="selectedBooking.bill.totalServiceAmount" />
                             </ng-template>
                         </div>
                     </div>
@@ -181,8 +177,7 @@
                                 {{ selectedBooking.bill.totalServiceAmount }}
                             </div>
                             <ng-template #editTemplate>
-                                <input class="edit-box" type="text"
-                                    [(ngModel)]="selectedBooking.bill.totalServiceAmount" />
+                                <input class="edit-box" type="text" [(ngModel)]="selectedBooking.bill.totalServiceAmount" />
                             </ng-template>
                         </div>
                     </div>
@@ -194,3 +189,7 @@
         </div>
     </div>
 </div>
+
+<ng-template #emptyBooking>
+    <div class="empty-bookings">No bookings yet</div>
+</ng-template>

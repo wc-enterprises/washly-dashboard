@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppsettingpageComponent } from './appsettingpage/appsettingpage.component';
@@ -30,13 +31,18 @@ import { BookingComponent } from './booking/booking.component';
 import { BookingDetailsComponent } from './utils/booking-details/booking-details.component';
 import { BillDetailsComponent } from './booking-details/booking-details.component';
 import { DisplayPanelComponent } from './utils/display-panel/display-panel.component';
-import { MatSelectModule } from '@angular/material/select';
 import { CustomerComponent } from './customer/customer.component';
 import { ExecutiveComponent } from './executive/executive.component';
 import { StoreComponent } from './store/store.component';
 import { RevenueComponent } from './revenue/revenue.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
+import { environment } from '../environments/environment';
+import { WashlyService } from './services/washly.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,8 +82,11 @@ import { AnalyticsComponent } from './analytics/analytics.component';
     MatTabsModule,
     MatIconModule,
     MatTableModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
   ],
-  providers: [],
+  providers: [WashlyService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,5 +1,4 @@
 import { Route } from '@angular/router';
-import { AppComponent } from './app.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { AppsettingpageComponent } from './appsettingpage/appsettingpage.component';
 import { CampaignEditpageComponent } from './campaign-editpage/campaign-editpage.component';
@@ -18,7 +17,7 @@ import { StoreComponent } from './store/store.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 
 export const appRoutes: Route[] = [
-  { path: 'App', component: AppComponent },
+  { path: '', component: BookingComponent },
   { path: 'login', component: LoginpageComponent },
   { path: 'app-setting', component: AppsettingpageComponent },
   { path: 'campaigneditpage', component: CampaignEditpageComponent },
@@ -30,10 +29,9 @@ export const appRoutes: Route[] = [
   { path: 'bookings', component: BookingComponent },
   { path: 'campaign', component: CampaignComponent },
   { path: 'bill', component: BillDetailsComponent },
-  {  path: 'customer',component:CustomerComponent},
-  {path:'Executive',component:ExecutiveComponent},
-  {path:'Revenue',component: RevenueComponent},
-  {path:'Store',component:StoreComponent},
-  {path:'Analytics',component:AnalyticsComponent},
-
+  { path: 'customer', component: CustomerComponent },
+  { path: 'executive', component: ExecutiveComponent },
+  { path: 'revenue', component: RevenueComponent },
+  { path: 'store', component: StoreComponent },
+  { path: 'analytics', component: AnalyticsComponent },
 ];

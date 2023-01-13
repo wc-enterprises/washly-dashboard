@@ -206,8 +206,10 @@ export class CampaignComponent {
   }
 
   deleteData() {
-    this.campaign = this.campaign.filter((data) => data.id !== this.itemToDelete.id);
-     this.isModalActive = false;
+    this.campaign = this.campaign.filter(
+      (data) => data.id !== this.itemToDelete.id
+    );
+    this.isModalActive = false;
   }
 
   openDeleteConfirmationModal(item: any) {

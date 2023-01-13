@@ -17,32 +17,41 @@
                 <washly-header [heading]="'Bookings'"></washly-header>
             </div>
 
-            <div class="main-content">
+            <div class="main-content" *ngIf="!loadingData; else loadScreen">
                 <mat-tab-group class="mat-tab-group">
                     <mat-tab label="Pending" class="mat-tab">
                         <div class="tab-area">
-                            <washly-booking-details></washly-booking-details>
+                            <washly-booking-details [bookings]="this.pendingBookings"></washly-booking-details>
                         </div>
                     </mat-tab>
                     <mat-tab label="Ongoing">
                         <div>
-                            <washly-booking-details></washly-booking-details>
+                            <washly-booking-details [bookings]="this.ongoingBookings"></washly-booking-details>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Out for delivery">
+                        <div>
+                            <washly-booking-details [bookings]="this.outForDeliveryBookings"></washly-booking-details>
                         </div>
                     </mat-tab>
                     <mat-tab label="Completed">
                         <div>
-                            <washly-booking-details></washly-booking-details>
+                            <washly-booking-details [bookings]="this.completedBookings"></washly-booking-details>
                         </div>
                     </mat-tab>
                     <mat-tab label="Rejected">
                         <div>
-                            <washly-booking-details></washly-booking-details>
+                            <washly-booking-details [bookings]="this.rejectedBookings"></washly-booking-details>
                         </div>
                     </mat-tab>
                 </mat-tab-group>
             </div>
+
+            <ng-template #loadScreen>
+                <div class="loading-spinner"></div>
+            </ng-template>
         </div>
     </div>
 </body>
 
-</html> 
+</html>
