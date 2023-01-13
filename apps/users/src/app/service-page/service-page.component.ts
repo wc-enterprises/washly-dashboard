@@ -1,4 +1,11 @@
-import { Component, Output, EventEmitter, HostListener,ElementRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  Output,
+  EventEmitter,
+  HostListener,
+  ElementRef,
+  ViewChild,
+} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,9 +15,9 @@ import { Router } from '@angular/router';
 })
 export class ServicePageComponent {
   @Output() deletePopUp = new EventEmitter<boolean>();
-   @ViewChild('click')
+  @ViewChild('click')
   divElement!: ElementRef;
-   isBlurred = true;
+  isBlurred =false;
 
   editing = false;
   addNew = false;
@@ -79,6 +86,7 @@ export class ServicePageComponent {
   ];
 
   displayedData: any = this.service[0];
+  itemToDelete: any;
 
   constructor(private router: Router) {}
   isModalActive = false;
@@ -88,13 +96,9 @@ export class ServicePageComponent {
     data.selected = true;
     this.displayedData = data;
   }
-  
-  ngAfterViewInit() {
-     this.isBlurred = !this.isBlurred;
-  this.divElement.nativeElement.style.filter = this.isBlurred ? 'blur(5px)' : 'none';
-  };
 
-  openDeleteConfirmationModal() {
+  openDeleteConfirmationModal(item: any) {
+    this.itemToDelete = item;
     this.isModalActive = !this.isModalActive;
     this.deletePopUp.emit(true);
     console.log('change modal active status to:', this.isModalActive);
@@ -104,17 +108,22 @@ export class ServicePageComponent {
     this.isModalActive = false;
   }
 
-  deleteItem() {
-    return;
-  }
-
-  @HostListener('document:click')
-  toggleBlur() {
-    document.body.classList.toggle('blur');
+  blurDisplayPanel() {
+    this.isBlurred = !this.isBlurred;
+    this.divElement.nativeElement.style.filter = this.isBlurred
+      ? 'blur(5px)'
+      : 'none';
   }
 
   editService() {
     this.editing = true;
+  }
+
+  deleteData() {
+    this.service = this.service.filter(
+      (data) => data.name !== this.itemToDelete.name
+    );
+    this.isModalActive = false;
   }
 
   save() {
@@ -160,16 +169,5 @@ export class ServicePageComponent {
     this.displayedData = this.service[0];
     this.displayedData.selected = true;
     this.addNew = false;
-  }
-
-  @HostListener('click', ['$event'])
-  onClick(event: MouseEvent) {
-    // console.log(event.target);
-    // console.log(document.getElementById('edit-icon'));
-    // if (this.editing && event.target !== document.getElementById('edit-icon')) {
-    //   if (event.target !== document.getElementById('save-button')) {
-    //     this.editing = false;
-    //   }
-    // }
   }
 }

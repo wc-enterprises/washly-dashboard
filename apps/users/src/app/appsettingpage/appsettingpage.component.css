@@ -3,36 +3,15 @@
   flex-direction: row;
   width: 100vw;
   height: 100vh;
-  background-color:  #F5F4EE;
-
-}
-
-.blur {
-  filter: blur(5px);
+  background-color: #f5f4ee;
 }
 
 .container {
-   
   width: 85vw;
   height: 100vh;
   box-shadow: 0px 2px 8px 5px rgba(0, 0, 0, 0.03);
 }
 
-/* .title {
-  position: absolute;
-  width: 160px;
-  height: 10px;
-  left: 32px;
-  margin-top: 120px;
-
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 1000;
-  font-size: 10px;
-  line-height: 10px;
-  color: #ffffff;
-  opacity: 1;
-} */
 .option {
   width: 500px;
   height: 30px;
@@ -40,7 +19,7 @@
   margin-top: -89vh;
   display: flex;
   flex-direction: row;
-  
+
   position: absolute;
 }
 .option1 {
@@ -65,8 +44,6 @@
   margin-left: 2vw;
 }
 
-
-
 .tabs {
   display: flex;
 }
@@ -89,17 +66,16 @@
   width: 30%;
 }
 
-@media screen and (max-width:1370px){
-    body {
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-}
-
-@media screen and (max-width:1540px){
-body {
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
+@media screen and (max-width: 1370px) {
+  body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
 }
 
+@media screen and (max-width: 1540px) {
+  body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+}

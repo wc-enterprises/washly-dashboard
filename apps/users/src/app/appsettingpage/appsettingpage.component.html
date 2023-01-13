@@ -12,21 +12,16 @@
             <washly-nav-bar></washly-nav-bar>
         </div>
 
-        <div style="
-          height: 100vh;
-          width: 82vw;
-          margin-right: 5px;">
+        <div style="height: 100vh; width: 82vw; margin-right: 5px">
             <div style="display: contents">
                 <washly-header [heading]="'App settings'"></washly-header>
             </div>
 
             <div>
-
                 <mat-tab-group>
                     <mat-tab label="Service">
                         <div style="height: 85.3vh">
                             <washly-service-page></washly-service-page>
-
                         </div>
                     </mat-tab>
                     <mat-tab label="Campaign">
@@ -35,14 +30,12 @@
                         </div>
                     </mat-tab>
                 </mat-tab-group>
-                <div style="display: contents"><washly-customer></washly-customer></div>
+                <div style="display: contents">
+                    <washly-customer></washly-customer>
+                </div>
             </div>
         </div>
     </div>
-    <!-- modal component -->
-    <!-- <washly-app-delete-confirmation-modal *ngIf="isModalActive" [isActive]="isModalActive"
-        (close)="closeDeleteConfirmationModal()" (delete)="deleteItem()"></washly-app-delete-confirmation-modal> -->
-
 </body>
 
 </html>

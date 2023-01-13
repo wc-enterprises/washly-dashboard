@@ -15,26 +15,4 @@ export class AppsettingpageComponent {
 
 
   }
-   // eslint-disable-next-line @typescript-eslint/member-ordering
-   
-
-  //  isModalActive = false;
-
   
-
-
-  // openDeleteConfirmationModal() {
-  //   this.isModalActive = true;
-  
-  //   console.log("change modal active status to:" , this.isModalActive)
-  // }
-
-  // closeDeleteConfirmationModal() {
-  //   this.isModalActive = false;
-  // }
-
-  // deleteItem(){
-  //   return
-  // }
-
-

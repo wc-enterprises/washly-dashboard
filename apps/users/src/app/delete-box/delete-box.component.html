@@ -1,8 +1,8 @@
-<div [ngClass]="{ 'clear-blur': showClearBlurComponent }" class="delete">
+<div class="delete">
     <img src="/assets/DELETE3.png" />
     <p>Are you Sure</p>
     <div>
-        <button class="trash">DELETE</button>
-        <button class="cancel">CANCEL</button>
+        <button class="trash" (click)="removeBlurClick()" (click)="onDelete()">DELETE</button>
+        <button class="cancel" (click)="removeBlurClick()" (click)="closeModal()">CANCEL</button>
     </div>
 </div>

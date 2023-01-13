@@ -1,6 +1,11 @@
-import { Component, Output, EventEmitter, HostListener,ElementRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  Output,
+  EventEmitter,
+  ElementRef,
+  ViewChild,
+} from '@angular/core';
 import { Router } from '@angular/router';
-import { ICampaign } from './utils/interface';
 
 @Component({
   selector: 'washly-campaign',
@@ -9,18 +14,15 @@ import { ICampaign } from './utils/interface';
 })
 export class CampaignComponent {
   @Output() deletePopUp = new EventEmitter<boolean>();
-  @ViewChild('click')
-  divElement!: ElementRef;
-   isBlurred = true;
-  
-  
 
-addNew = false; 
- editing = false;
+  isBlurred = false;
 
- campaign = [
-    { 
-      id:"c_usf443_383",
+  addNew = false;
+  editing = false;
+
+  campaign = [
+    {
+      id: 'c_usf443_383',
       heading: 'Campaign service 1',
       selected: true,
       dataToDisplay: [
@@ -32,30 +34,29 @@ addNew = false;
           title: 'Description',
           value: '50% OFF',
         },
-        { title: 'ButtonLabel',
-         value: 'Get Now.' },
-         {
+        { title: 'ButtonLabel', value: 'Get Now.' },
+        {
           title: 'ImageUrl',
-         value: 'Get https://google.com/ice-cream.png.'
-         },
-         {
+          value: 'Get https://google.com/ice-cream.png.',
+        },
+        {
           title: 'StartDate',
-         value: '03/01/2023'
-         },
-         {
+          value: '03/01/2023',
+        },
+        {
           title: 'EndDate',
-         value: '03/01/2023'
-         },
-         {
+          value: '03/01/2023',
+        },
+        {
           title: 'Status',
-         value: 'ACTIVE'
-         },
+          value: 'ACTIVE',
+        },
       ],
     },
     {
-      id:"c_usf443_384",
+      id: 'c_usf443_384',
       heading: 'Campaign service 2',
-      selected: true,
+      selected: false,
       dataToDisplay: [
         {
           title: 'Heading',
@@ -65,30 +66,29 @@ addNew = false;
           title: 'Description',
           value: '60% OFF',
         },
-        { title: 'ButtonLabel',
-         value: 'Get Now.' },
-         {
+        { title: 'ButtonLabel', value: 'Get Now.' },
+        {
           title: 'ImageUrl',
-         value: 'Get https://google.com/ice-cream.png.'
-         },
-         {
+          value: 'Get https://google.com/ice-cream.png.',
+        },
+        {
           title: 'StartDate',
-         value: '03/01/2023'
-         },
-         {
+          value: '03/01/2023',
+        },
+        {
           title: 'EndDate',
-         value: '03/01/2023'
-         },
-         {
+          value: '03/01/2023',
+        },
+        {
           title: 'Status',
-         value: 'INACTIVE'
-         },
+          value: 'INACTIVE',
+        },
       ],
     },
     {
-       id:"c_usf443_385",
+      id: 'c_usf443_385',
       heading: 'Campaign service 3',
-      selected: true,
+      selected: false,
       dataToDisplay: [
         {
           title: 'Heading',
@@ -98,30 +98,29 @@ addNew = false;
           title: 'Description',
           value: '70% OFF',
         },
-        { title: 'ButtonLabel',
-         value: 'Get Now.' },
-         {
+        { title: 'ButtonLabel', value: 'Get Now.' },
+        {
           title: 'ImageUrl',
-         value: 'Get https://google.com/ice-cream.png.'
-         },
-         {
+          value: 'Get https://google.com/ice-cream.png.',
+        },
+        {
           title: 'StartDate',
-         value: '03/01/2023'
-         },
-         {
+          value: '03/01/2023',
+        },
+        {
           title: 'EndDate',
-         value: '03/01/2023'
-         },
-         {
+          value: '03/01/2023',
+        },
+        {
           title: 'Status',
-         value: 'ACTIVE'
-         },
+          value: 'ACTIVE',
+        },
       ],
     },
     {
-       id:"c_usf443_386",
+      id: 'c_usf443_386',
       heading: 'Campaign service 4',
-      selected: true,
+      selected: false,
       dataToDisplay: [
         {
           title: 'Heading',
@@ -131,30 +130,29 @@ addNew = false;
           title: 'Description',
           value: '70% OFF',
         },
-        { title: 'ButtonLabel',
-         value: 'Get Now.' },
-         {
+        { title: 'ButtonLabel', value: 'Get Now.' },
+        {
           title: 'ImageUrl',
-         value: 'Get https://google.com/ice-cream.png.'
-         },
-         {
+          value: 'Get https://google.com/ice-cream.png.',
+        },
+        {
           title: 'StartDate',
-         value: '03/01/2023'
-         },
-         {
+          value: '03/01/2023',
+        },
+        {
           title: 'EndDate',
-         value: '03/01/2023'
-         },
-         {
+          value: '03/01/2023',
+        },
+        {
           title: 'Status',
-         value: 'INACTIVE'
-         },
+          value: 'INACTIVE',
+        },
       ],
     },
     {
-       id:"c_usf443_385",
+      id: 'c_usf443_385',
       heading: 'Campaign service 5',
-      selected: true,
+      selected: false,
       dataToDisplay: [
         {
           title: 'Heading',
@@ -164,59 +162,61 @@ addNew = false;
           title: 'Description',
           value: '80% OFF',
         },
-        { title: 'ButtonLabel',
-         value: 'Get Now.' },
-         {
+        { title: 'ButtonLabel', value: 'Get Now.' },
+        {
           title: 'ImageUrl',
-         value: 'Get https://google.com/ice-cream.png.'
-         },
-         {
+          value: 'Get https://google.com/ice-cream.png.',
+        },
+        {
           title: 'StartDate',
-         value: '03/01/2023'
-         },
-         {
+          value: '03/01/2023',
+        },
+        {
           title: 'EndDate',
-         value: '03/01/2023'
-         },
-         {
+          value: '03/01/2023',
+        },
+        {
           title: 'Status',
-         value: 'ACTIVE'
-         },
+          value: 'ACTIVE',
+        },
       ],
-    }
-    ]
+    },
+  ];
 
-    
-
-  displayedData: any = this.campaign[0];
+  displayedData = this.campaign[0];
+  itemToDelete: any;
 
   constructor(private router: Router) {}
   isModalActive = false;
 
   setSelectedBooking(data: any) {
-    this.campaign.forEach((item) => (item.selected = false));
+    this.campaign.forEach((item) => {
+      item.selected = false;
+    });
     data.selected = true;
     this.displayedData = data;
   }
 
-  @HostListener('document:click')
-  toggleBlur() {
-    document.body.classList.toggle('blur');
+  blurDisplayPanel() {
+    this.isBlurred = true;
   }
 
-  ngAfterViewInit() {
-     this.isBlurred = !this.isBlurred;
-  this.divElement.nativeElement.style.filter = this.isBlurred ? 'blur(5px)' : 'none';
-  };
+  removeBlur() {
+    this.isBlurred = false;
+  }
 
- 
+  deleteData() {
+    this.campaign = this.campaign.filter((data) => data.id !== this.itemToDelete.id);
+     this.isModalActive = false;
+  }
 
-  openDeleteConfirmationModal() {
+  openDeleteConfirmationModal(item: any) {
+    this.itemToDelete = item;
     this.isModalActive = !this.isModalActive;
     this.deletePopUp.emit(true);
     console.log('change modal active status to:', this.isModalActive);
   }
-   addNewCampaign() {
+  addNewCampaign() {
     this.campaign.forEach((item) => (item.selected = false));
     this.addNew = true;
   }
@@ -225,10 +225,10 @@ addNew = false;
     this.isModalActive = false;
   }
 
-  deleteItem() {
-    return;
-  }
-onSubmit(data: any) {
+  // deleteItem() {
+  //   return;
+  // }
+  onSubmit(data: any) {
     console.log('new', data);
     console.log('new campaign', data.status);
     this.addNew = false;
@@ -246,10 +246,10 @@ onSubmit(data: any) {
           value: data.description,
         },
         { title: 'ButtonLabel', value: data.buttonLabel },
-        {title: 'ImageUrl', value: data.imageUrl},
-       { title: 'StartDate', value: data.startDate},
-       {title: 'EndDate', value: data.EndDate},
-       {title: 'Status', value: data.status}
+        { title: 'ImageUrl', value: data.imageUrl },
+        { title: 'StartDate', value: data.startDate },
+        { title: 'EndDate', value: data.EndDate },
+        { title: 'Status', value: data.status },
       ],
     };
 
@@ -267,16 +267,15 @@ onSubmit(data: any) {
     this.router.navigate(['/servicepage']);
   }
   // eslint-disable-next-line @typescript-eslint/member-ordering
- 
 
- editCampaign() {
+  editCampaign() {
     this.editing = true;
   }
 
   save() {
     this.editing = false;
   }
-   cancelEditing() {
+  cancelEditing() {
     console.log('Cancel editing called', this.editing);
     this.editing = false;
   }
@@ -285,16 +284,5 @@ onSubmit(data: any) {
     this.displayedData = this.campaign[0];
     this.displayedData.selected = true;
     this.addNew = false;
-  }
-
-   @HostListener('click', ['$event'])
-  onClick(event: MouseEvent) {
-    // console.log(event.target);
-    // console.log(document.getElementById('edit-icon'));
-    // if (this.editing && event.target !== document.getElementById('edit-icon')) {
-    //   if (event.target !== document.getElementById('save-button')) {
-    //     this.editing = false;
-    //   }
-    // }
   }
 }

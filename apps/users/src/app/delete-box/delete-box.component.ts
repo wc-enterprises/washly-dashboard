@@ -1,4 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { AnyARecord } from 'dns';
+import { ICampaign } from '../campaign/utils/interface';
 
 @Component({
   selector: 'washly-app-delete-confirmation-modal',
@@ -6,26 +8,27 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./delete-box.component.css'],
 })
 export class DeleteBoxComponent {
-  @Input() isActive = false;
-  @Output() closeEvent = new EventEmitter<void>();
-  @Output() delete = new EventEmitter<void>();
+  @Output() closePopup = new EventEmitter<void>();
+  @Output() delete = new EventEmitter<any>();
+ @Output() removeBlurEvent = new EventEmitter();
+
+
   
 
-
-  closeModal() {
-    this.isActive = false;
-    this.closeEvent.emit();
+  closeModal() { 
+   
+    this.closePopup.emit();
   }
 
-  deleteItem() {
-    this.isActive = false;
+    onDelete() {
+      console.log("Delete button clicked.")
     this.delete.emit();
+    
+     }
+ removeBlurClick() {
+    this.removeBlurEvent.emit();
+    
   }
-   // eslint-disable-next-line @typescript-eslint/member-ordering
-   showClearBlurComponent = false;
-
-
-  toggleClearBlurComponent() {
-    this.showClearBlurComponent = !this.showClearBlurComponent;
-  }
+ 
+ 
 }

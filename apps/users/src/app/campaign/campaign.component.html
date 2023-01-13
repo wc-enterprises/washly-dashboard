@@ -1,30 +1,21 @@
-<div class="main" (click)="onClick($event)">
+<div class="main">
     <div class="card-list">
         <div *ngFor="let item of campaign; let i = index" class="card-container">
             <mat-card class="card" [ngClass]="{ selected: item.selected }" (click)="setSelectedBooking(item)">
                 <mat-card-title class="card-title">{{ item.heading }}</mat-card-title>
                 <mat-icon id="edit-icon" (click)="editCampaign()">mode_edit</mat-icon>
-                <!-- <mat-icon class="delete-icon" (click)="openDeleteConfirmationModal()">delete</mat-icon> -->
-                <mat-icon (click)="ngAfterViewInit()" (click)="openDeleteConfirmationModal()"
+
+                <mat-icon (click)="blurDisplayPanel()" (click)="openDeleteConfirmationModal(item)"
                     class="delete-icon">delete</mat-icon>
             </mat-card>
-            <!-- <div class="status" *ngIf="campaign.status==='ACTIVE'">
-                <img src="/assets/greendot.png">
-            </div>
-            <div class="status" *ngIf="campaign.status==='INACTIVE'">
-                <img src="/assets/red.png">
-            </div> -->
 
             <mat-card id="add-new-service" *ngIf="i === campaign.length - 1" (click)="addNewCampaign()">
                 <mat-card-title id="add-new-label">ADD NEW +</mat-card-title>
             </mat-card>
         </div>
-
-
     </div>
 
-
-    <div #click class="total-display-area">
+    <div [class.blurred]="isBlurred" class="total-display-area">
         <div class="black-area" *ngIf="!addNew; else addNewForm">
             <div *ngIf="editing" style="text-align: right; width: 32vw">
                 <mat-icon class="cancel-icon" (click)="cancelEditing()">clear</mat-icon>
@@ -47,11 +38,11 @@
         <ng-template #addNewForm>
             <div class="black-area">
                 <form style="
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    padding: 2% 0;
-                  " #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 2% 0;
+          " #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
                     <div style="text-align: right; width: 32vw; margin-bottom: 2vh">
                         <mat-icon class="cancel-icon" (click)="cancelAddForm()">clear</mat-icon>
                     </div>
@@ -105,62 +96,6 @@
             </div>
         </ng-template>
     </div>
-
-    <!-- <div class="details" *ngFor="let campaign of campaigns">
-
-        <div class="details-list">
-            <div class="leftsidelist">Heading</div>
-            <div class="rightsidelist">
-                <input *ngIf="editing; else heading" type="text" [(ngModel)]="campaign.heading" required />
-                <ng-template #heading>{{ campaign.heading }}</ng-template>
-            </div>
-        </div>
-        <div class="details-list">
-            <div class="leftsidelist">Description</div>
-            <div class="rightsidelist">
-                <input *ngIf="editing; else description" type="text" [(ngModel)]="campaign.description" required />
-                <ng-template #description>{{ campaign.description }}</ng-template>
-            </div>
-        </div>
-        <div class="details-list">
-            <div class="leftsidelist">Button</div>
-            <div class="rightsidelist">
-                <input *ngIf="editing; else buttonLabel" type="text" [(ngModel)]="campaign.buttonLabel" required />
-                <ng-template #buttonLabel>{{ campaign.buttonLabel }}</ng-template>
-            </div>
-        </div>
-        <div class="details-list">
-            <div class="leftsidelist">Image URL</div>
-            <div class="rightsidelist">
-                <input *ngIf="editing; else imageUrl" type="text" [(ngModel)]="campaign.imageUrl" required />
-                <ng-template #imageUrl>{{ campaign.imageUrl }}</ng-template>
-            </div>
-        </div>
-        <div class="details-list">
-            <div class="leftsidelist">Start date</div>
-            <div class="rightsidelist"><input *ngIf="editing; else startDate" type="text"
-                    [(ngModel)]="campaign.startDate" required />
-                <ng-template #startDate>{{ campaign.startDate }}</ng-template>
-            </div>
-        </div>
-        <div class="details-list">
-            <div class="leftsidelist">End date</div>
-            <div class="rightsidelist"><input *ngIf="editing; else endDate" type="text" [(ngModel)]="campaign.endDate"
-                    required />
-                <ng-template #endDate>{{ campaign.endDate }}</ng-template>
-            </div>
-        </div>
-        <div class="details-list">
-            <div class="leftsidelist">Status</div>
-            <div class="rightsidelist"><input *ngIf="editing; else status" type="text" [(ngModel)]="campaign.status"
-                    required />
-                <ng-template #status>{{ campaign.status }}</ng-template>
-            </div>
-        </div>
-        <ng-container *ngIf="editing">
-            <button class="save" (click)="save()">Save</button>
-        </ng-container>
-    </div> -->
 </div>
-<washly-app-delete-confirmation-modal *ngIf="isModalActive" [isActive]="isModalActive"
-    (close)="closeDeleteConfirmationModal()" (delete)="deleteItem()"></washly-app-delete-confirmation-modal>
+<washly-app-delete-confirmation-modal (removeBlurEvent)="removeBlur()" *ngIf="isModalActive"
+    (closePopup)="closeDeleteConfirmationModal()" (delete)="deleteData()"></washly-app-delete-confirmation-modal>

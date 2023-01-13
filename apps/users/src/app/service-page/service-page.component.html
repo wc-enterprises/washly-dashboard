@@ -1,19 +1,17 @@
-<div class="main" (click)="onClick($event)">
+<div class="main">
     <div class="card-list">
         <div *ngFor="let item of service; let i = index" class="card-container">
             <mat-card class="card" [ngClass]="{ selected: item.selected }" (click)="setSelectedBooking(item)">
                 <mat-card-title class="card-title">{{ item.name }}</mat-card-title>
                 <mat-icon id="edit-icon" (click)="editService()">mode_edit</mat-icon>
-                <!-- <mat-icon class="delete-icon" (click)="openDeleteConfirmationModal()">delete</mat-icon> -->
-                <mat-icon (click)="ngAfterViewInit()" (click)="openDeleteConfirmationModal()"
-                    class="delete-icon">delete</mat-icon>
 
+                <mat-icon (click)="blurDisplayPanel()" (click)="openDeleteConfirmationModal(item)"
+                    class="delete-icon">delete</mat-icon>
             </mat-card>
             <mat-card id="add-new-service" *ngIf="i === service.length - 1" (click)="addNewService()">
                 <mat-card-title id="add-new-label">ADD NEW +</mat-card-title>
             </mat-card>
         </div>
-        <!-- <div id="add-new-service">ADD NEW +</div> -->
     </div>
 
     <div #click class="total-display-area">
@@ -75,5 +73,5 @@
     </div>
 </div>
 
-<washly-app-delete-confirmation-modal style="filter: none" *ngIf="isModalActive" [isActive]="isModalActive"
-    (close)="closeDeleteConfirmationModal()" (delete)="deleteItem()"></washly-app-delete-confirmation-modal>
+<washly-app-delete-confirmation-modal *ngIf="isModalActive" (closePopup)="closeDeleteConfirmationModal()"
+    (delete)="deleteData()"></washly-app-delete-confirmation-modal>
