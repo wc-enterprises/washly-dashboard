@@ -12,6 +12,7 @@ import { BookingComponent } from './booking/booking.component';
 import { CampaignComponent } from './campaign/campaign.component';
 import { BillDetailsComponent } from './booking-details/booking-details.component';
 import { DisplayPanelComponent } from './utils/display-panel/display-panel.component';
+import { CustomerComponent } from './customer/customer.component';
 
 export const appRoutes: Route[] = [
   { path: 'App', component: AppComponent },
@@ -26,5 +27,6 @@ export const appRoutes: Route[] = [
   { path: 'bookings', component: BookingComponent },
   { path: 'campaign', component: CampaignComponent },
   { path: 'bill', component: BillDetailsComponent },
-  {  path: 'display',component:DisplayPanelComponent}
+  {  path: 'display',component:DisplayPanelComponent},
+  {path: 'customer', component:CustomerComponent},
 ];

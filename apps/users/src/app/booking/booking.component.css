@@ -1,36 +1,36 @@
 .outerbox {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
 }
 
 .nav-bar {
-    display: contents;
+  display: contents;
 }
 
 .main-container {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    background-color: #f5f4ee;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-color: #f5f4ee;
 }
 
 .main-content {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 .tab-area {
-    height: 85.3vh;
+  height: 85.3vh;
 }
-@media screen and (max-width:1370px){
-    body {
-  overflow-x: hidden;
-  overflow-y: hidden;
+@media screen and (max-width: 1370px) {
+  body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
 }
-}
-@media screen and (max-width:1540px){
-body {
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
+@media screen and (max-width: 1540px) {
+  body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
 }

@@ -30,7 +30,8 @@ import { BookingComponent } from './booking/booking.component';
 import { BookingDetailsComponent } from './utils/booking-details/booking-details.component';
 import { BillDetailsComponent } from './booking-details/booking-details.component';
 import { DisplayPanelComponent } from './utils/display-panel/display-panel.component';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
+import { CustomerComponent } from './customer/customer.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import {MatSelectModule} from '@angular/material/select';
     BookingDetailsComponent,
     BillDetailsComponent,
     DisplayPanelComponent,
+    CustomerComponent,
   ],
 
   imports: [
