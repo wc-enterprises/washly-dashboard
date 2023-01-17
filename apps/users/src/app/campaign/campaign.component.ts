@@ -150,7 +150,7 @@ export class CampaignComponent {
       ],
     },
     {
-      id: 'c_usf443_385',
+      id: 'c_usf443_387',
       heading: 'Campaign service 5',
       selected: false,
       dataToDisplay: [
@@ -198,7 +198,7 @@ export class CampaignComponent {
   }
 
   blurDisplayPanel() {
-    this.isBlurred = true;
+     this.isBlurred = !this.isBlurred;
   }
 
   removeBlur() {
@@ -209,6 +209,7 @@ export class CampaignComponent {
     this.campaign = this.campaign.filter(
       (data) => data.id !== this.itemToDelete.id
     );
+    this.displayedData = this.campaign[0];
     this.isModalActive = false;
   }
 
