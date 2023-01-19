@@ -96,6 +96,11 @@
             </div>
         </ng-template>
     </div>
+
+    <!-- <div *ngFor="let campaignData of Campaigns | async">
+        <button>sumbit</button>
+        <button>cancel</button>
+    </div> -->
 </div>
 <washly-app-delete-confirmation-modal (removeBlurEvent)="removeBlur()" *ngIf="isModalActive"
     (closePopup)="closeDeleteConfirmationModal()" (delete)="deleteData()"></washly-app-delete-confirmation-modal>

@@ -4,14 +4,19 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { lastValueFrom, map, Observable } from 'rxjs';
 import { IBooking, ICustomer, IStore } from '../booking/utils/interface';
+import { ICampaign } from '../campaign/utils/interface';
+import { v4 as uuidv4 } from 'uuid';
+
 
 @Injectable()
 export class WashlyService {
   constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) {}
 
+
+
   // create a new user
   async createUser() {
-    const email = 'user@example.com';
+    const email = 'user@example.com'; 
     const password = 'password';
     try {
       const res = await this.afAuth.createUserWithEmailAndPassword(
@@ -55,4 +60,29 @@ export class WashlyService {
       return null;
     }
   }
+
+async createCampaign(){
+
+ const campaignData ={
+  id:`c_${uuidv4()}`,
+  heading:"campaign service 1",
+  description:"50% OFF",
+  buttonLabel:"Get Now",
+  imageUrl:"google.com/ice-cream.png.",
+  startDate:"18/01/2023",
+  endDate:"12/12/2023",
+
+}
+ const res =  await this.afs.collection('campaigns').doc(campaignData.id).set(campaignData);
+  
+}
+ getCampaign():Observable<ICampaign[]> | null {
+
+  
+      const res = this.afs
+        .collection<ICampaign>('campaigns') 
+        .valueChanges();
+
+             return res;
+          }
 }

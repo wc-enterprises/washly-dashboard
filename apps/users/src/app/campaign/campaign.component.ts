@@ -6,6 +6,8 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { WashlyService } from '../services/washly.service';
+import {ICampaign} from './utils/interface';
 
 @Component({
   selector: 'washly-campaign',
@@ -13,7 +15,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./campaign.component.css'],
 })
 export class CampaignComponent {
+
   @Output() deletePopUp = new EventEmitter<boolean>();
+  
 
   isBlurred = false;
 
@@ -185,9 +189,13 @@ export class CampaignComponent {
 
   displayedData = this.campaign[0];
   itemToDelete: any;
+  ws: any;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, ws: WashlyService) {}
+  loadingData = true;
+  // campaignsData: ParsedCampaigns[] | undefined;
   isModalActive = false;
+   currentCampaign: ICampaign[] | undefined;
 
   setSelectedBooking(data: any) {
     this.campaign.forEach((item) => {
@@ -288,4 +296,21 @@ export class CampaignComponent {
     this.displayedData.selected = true;
     this.addNew = false;
   }
+  
+  
+
+  //  ngOnInit() {
+  //   console.log('Loaded ngOnIt of Bookings Component');
+  //   const campaingsStream = this.ws.getCampaign();
+  //   if (campaingsStream) {
+  //     campaingsStream.subscribe(async (bookings: Promise<ICampaign[]>) => {
+  //       console.log('campaigns:');
+  //       console.log(await campaingsStream);
+  //       if (campaign) {
+  //        const parsedCampaigns = parsedCampaigns(await compaigns);
+  //        } 
+  //       this.loadingData = false;
+  //     });
+  //   }
+  // }
 }
