@@ -32,6 +32,7 @@ import { BillDetailsComponent } from './booking-details/booking-details.componen
 import { DisplayPanelComponent } from './utils/display-panel/display-panel.component';
 import { MatSelectModule } from '@angular/material/select';
 import { CustomerComponent } from './customer/customer.component';
+import { CustomerDetailsComponent } from './utils/customer-details/customer-details.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { CustomerComponent } from './customer/customer.component';
     BillDetailsComponent,
     DisplayPanelComponent,
     CustomerComponent,
+    CustomerDetailsComponent,
   ],
 
   imports: [

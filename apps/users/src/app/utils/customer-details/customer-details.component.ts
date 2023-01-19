@@ -1,59 +1,57 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'washly-booking-details',
-  templateUrl: './booking-details.component.html',
-  styleUrls: ['./booking-details.component.css'],
+  selector: 'washly-customer-details',
+  templateUrl: './customer-details.component.html',
+  styleUrls: ['./customer-details.component.css'],
 })
-export class BookingDetailsComponent {
+export class CustomerDetailsComponent {
   dataSource = [
     { serviceName: 'Laundry', noOfItems: 20, weightOfItems: 10, amount: 200 },
   ];
 
-  displayedColumns = ['serviceName', 'noOfItems', 'weightOfItems', 'amount'];
 
-  bookings = [
+  customers = [
     {
-      bookingId: 'X78976TY6546I',
+      customerId: 'X78976TY6546I',
       cardData: {
-        bookingId: 'X78976TY6546I',
-        storeName: 'Guduvanchery washly',
-        date: '2/1/2023',
+        Name: 'Harish',
+        no: '9790909162',
         selected: true,
       },
-      bookingDetails: [
-        {
-          title: 'Booking id',
-          value: 'X78976TY6546I',
-        },
+      customerDetails: [
         {
           title: 'Customer name',
-          value: 'Sivaraman S',
-        },
-        {
-          title: 'Date',
-          value: '2/1/2023',
-        },
-        {
-          title: 'Store name',
-          value: 'Guduvanchery washly',
+          value: 'Harish',
         },
         {
           title: 'Status',
-          value: 'PENDING APPROVAL',
+          value: 'Active',
         },
+        {
+          title: 'Customer ID',
+          value: 'X78976TY6546I',
+        },
+        {
+          title: 'Store name',
+          value: 'Guduvanchery',
+        },
+       
       ],
-      pickUpAndDeliveryDetails: [
+      contact: [
        
         {
-          title: 'Pickup timeslot',
-          value: '8AM - 10AM',
+          title: 'Phone number',
+          value: '9790909162',
         },
         {
           title: 'Delivery timeslot',
           value: '8AM - 10AM',
         },
-        {
+     
+      ],
+      address: [
+   {
           title: 'Pickup address',
           value: `14/A, East coast street, South west
           Kotturpalayamkotai, Vikasvendra kundramma puram,
@@ -64,116 +62,6 @@ export class BookingDetailsComponent {
           value: `14/A, East coast street, South west
           Kotturpalayamkotai, Vikasvendra kundramma puram,
           Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.   `,
-        },
-      ],
-      selectedService: [
-        {
-          name: 'Regular Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '122',
-        },
-        {
-          name: 'Ironing',
-          numberOfItems: 7,
-          weight: '21',
-          amount: '232',
-        },
-        {
-          name: 'Dry Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '121',
-        },
-        {
-          name: 'Regular Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '122',
-        },
-        {
-          name: 'Ironing',
-          numberOfItems: 7,
-          weight: '21',
-          amount: '232',
-        },
-        {
-          name: 'Dry Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '121',
-        },
-        {
-          name: 'Regular Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '122',
-        },
-        {
-          name: 'Ironing',
-          numberOfItems: 7,
-          weight: '21',
-          amount: '232',
-        },
-        {
-          name: 'Dry Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '121',
-        },
-        {
-          name: 'Regular Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '122',
-        },
-        {
-          name: 'Ironing',
-          numberOfItems: 7,
-          weight: '21',
-          amount: '232',
-        },
-        {
-          name: 'Dry Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '121',
-        },
-        {
-          name: 'Regular Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '122',
-        },
-        {
-          name: 'Ironing',
-          numberOfItems: 7,
-          weight: '21',
-          amount: '232',
-        },
-        {
-          name: 'Dry Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '121',
-        },
-        {
-          name: 'Regular Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '122',
-        },
-        {
-          name: 'Ironing',
-          numberOfItems: 7,
-          weight: '21',
-          amount: '232',
-        },
-        {
-          name: 'Dry Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '121',
         },
       ],
       bill: {
@@ -424,7 +312,7 @@ export class BookingDetailsComponent {
       },
     },
   ];
-  selectedBooking = this.bookings[0];
+  selectedBooking = this.customers[0];
 
   editMode = false;
 
@@ -519,10 +407,11 @@ export class BookingDetailsComponent {
   // eslint-disable-next-line @typescript-eslint/member-ordering
   showListElements = false;
   setSelectedBooking(booking: any) {
-    this.bookings.forEach((booking) => {
+    this.customers.forEach((booking) => {
       booking.cardData.selected = false;
     });
     booking.cardData.selected = true;
     this.selectedBooking = booking;
   }
 }
+

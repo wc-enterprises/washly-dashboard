@@ -1,0 +1,48 @@
+<div class="main">
+    <div class="card-list">
+        <div *ngFor="let item of customers" class="card-container">
+            <mat-card class="card" [ngClass]="{ selected: item.cardData.selected }" (click)="setSelectedBooking(item)">
+                <mat-card-title>{{ item.cardData.Name }} </mat-card-title>
+                <mat-card-content class="card-content">
+                    <ul>
+                        <li>{{ item.cardData.no }}</li>
+                    </ul>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+
+    <div class="details">
+        <div class="booking-details">
+
+
+            <!--CUSTOMER DETAILS -->
+            <div style="height: 35%">
+                <h4 style="color: white">CUSTOMER DETAILS</h4>
+
+                <div style="display: flex; justify-content: space-between; padding: 2% 0"
+                    *ngFor="let bookingDetail of selectedBooking.bookingDetails">
+                    <div class="key">{{ customerDetails.title }}</div>
+                    <div class="value">{{ customerDetailsl.value }}</div>
+                </div>
+
+                <h4 style="color: white">CONTACT INFO</h4>
+                <div style="display: flex; justify-content: space-between; padding: 2% 0"
+                    *ngFor="let bookingDetail of selectedBooking.bookingDetails">
+                    <div class="key">{{ bookingDetail.title }}</div>
+                    <div class="value">{{ bookingDetail.value }}</div>
+                </div>
+                <h4 style="color: white">ADDRESSES</h4>
+                <div style="display: flex; justify-content: space-between; padding: 2% 0"
+                    *ngFor="let bookingDetail of selectedBooking.bookingDetails">
+                    <div class="key">{{ bookingDetail.title }}</div>
+                    <div class="value">{{ bookingDetail.value }}</div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>

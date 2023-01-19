@@ -1,9 +1,3 @@
-.main-container {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  background-color: #f5f4ee;
-}
 .outerbox {
   height: 100vh;
   width: 100vw;
@@ -12,4 +6,49 @@
 
 .nav-bar {
   display: contents;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-color: #f5f4ee;
+}
+
+.main-content {
+  flex-grow: 1;
+}
+
+.tab-area {
+  height: 85.3vh;
+}
+@media screen and (max-width: 1370px) {
+  body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+}
+@media screen and (max-width: 1540px) {
+  body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+}
+.name {
+  position: absolute;
+
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 24px;
+  /* identical to box height */
+  padding-left: 60px;
+  color: rgba(0, 0, 0, 0.9);
+
+  opacity: 0.75;
+}
+.dropdown {
+  padding-top: 7px;
+  margin-left: 130px;
 }

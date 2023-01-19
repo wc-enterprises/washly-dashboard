@@ -183,7 +183,7 @@ export class BookingComponent {
       bookingId: 'X78976TY6546I',
       storeName: 'Guduvanchery',
       date: '2/1/2023', 
-    },
+    }, 
     {
       bookingId: 'X78976TY6546I',
       storeName: 'Guduvanchery',
