@@ -11,6 +11,12 @@ import { BookingComponent } from './booking/booking.component';
 import { CampaignComponent } from './campaign/campaign.component';
 import { BillDetailsComponent } from './booking-details/booking-details.component';
 import { DisplayPanelComponent } from './utils/display-panel/display-panel.component';
+import { CustomerComponent } from './customer/customer.component';
+import { CustomerDetailsComponent } from './utils/customer-details/customer-details.component';
+import { ExecutiveComponent } from './executive/executive.component';
+import { RevenueComponent } from './revenue/revenue.component';
+import { StoreComponent } from './store/store.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
 
 export const appRoutes: Route[] = [
   { path: '', component: BookingComponent },
@@ -25,5 +31,12 @@ export const appRoutes: Route[] = [
   { path: 'bookings', component: BookingComponent },
   { path: 'campaign', component: CampaignComponent },
   { path: 'bill', component: BillDetailsComponent },
-  {  path: 'display',component:DisplayPanelComponent}
+  {  path: 'display',component:DisplayPanelComponent},
+  {path: 'customer', component:CustomerComponent},
+  {path: 'customer-details' , component : CustomerDetailsComponent},
+  { path: 'customer', component: CustomerComponent },
+  { path: 'executive', component: ExecutiveComponent },
+  { path: 'revenue', component: RevenueComponent },
+  { path: 'store', component: StoreComponent },
+  { path: 'analytics', component: AnalyticsComponent },
 ];
