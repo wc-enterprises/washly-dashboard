@@ -1,0 +1,14 @@
+div {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    margin-top: 2vh;
+    font-weight: 400;
+    font-size: large;
+}

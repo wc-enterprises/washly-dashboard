@@ -1,5 +1,12 @@
 <div class="header">
-    <div class="heading">{{heading}}</div>
+    <div style="display: flex; height: 40px; padding-left: 2vw">
+        <div class="heading">{{ heading }}</div>
+        <div *ngIf="this.loadSpinner" style="display: flex">
+            <div class="loading"></div>
+            <p class="sync-text">Syncing...</p>
+        </div>
+    </div>
+
     <div class="subtitle">
         <img class="bellicon" src="/assets/Notifications.png" />
         <img class="settingicon" src="/assets/Setting.png" />

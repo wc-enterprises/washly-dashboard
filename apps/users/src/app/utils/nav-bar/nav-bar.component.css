@@ -70,7 +70,7 @@
     position: relative;
     left: 4.5vw;
     bottom: 6vh;
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .logouttext {
@@ -83,84 +83,64 @@
     cursor: pointer;
 }
 
-
-@media screen and (max-width:1370px) {
- .nav {
-  width:250px;
-  }
-  .logo{
-    margin-left: -1vw;
-
-  }
-  .logotitle{
-    top:12.5vh;
-  }
-  .booking{
-     padding:5px;
-     width:12vw;
-    text-align: center;
-    align-items: center;
- justify-content: space-evenly;
-
-  }
-
- .content{
-    width:12vw;
-    height: 4vh;
-    font-size: 15px;
- align-items: start;
-    
-    
-}
-/* .icon{
-padding-right: 2vw;
-
- } */
-.logoutlogo{
-
-
-padding-bottom: 4vh;
- }
- .logouttext{
-padding-top: 0.2vh;
-padding-left: 1vh;
-font-size: medium;
-
- }
+@media screen and (max-width: 1370px) {
+    .nav {
+        width: 250px;
+    }
+    .logo {
+        margin-left: -1vw;
+    }
+    .logotitle {
+        top: 12.5vh;
+    }
+    .booking {
+        padding: 5px;
+        width: 12vw;
+        text-align: center;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .content {
+        width: 12vw;
+        height: 4vh;
+        font-size: 15px;
+        align-items: start;
+    }
+    .logoutlogo {
+        padding-bottom: 4vh;
+    }
+    .logouttext {
+        padding-top: 0.2vh;
+        padding-left: 1vh;
+        font-size: medium;
+    }
 }
 
-@media screen and (max-width:1540px)  {
-  .nav {
-  width:250px;
-  }
-  .logo{
-    margin-left: -1vw;
-
-  }
-  .logotitle{
-    margin-top:5vh;
-  }
- .booking{
-    padding: 5px;
-    width: 10vw;
-    
-   
- }
- .icon{
-padding-right: 2vw;
- }
- .content{
-    padding-top: 3.5px;
-    
-    width: 15vw;
-}
-  .logoutlogo{
-bottom: 6.5vh;
-
- }
- .logouttext{
-bottom: 5.5vh; 
-
- }
-
+@media screen and (max-width: 1540px) {
+    .nav {
+        width: 250px;
+    }
+    .logo {
+        margin-left: -1vw;
+    }
+    .logotitle {
+        margin-top: 5vh;
+    }
+    .booking {
+        padding: 5px;
+        width: 10vw;
+    }
+    .icon {
+        padding-right: 2vw;
+    }
+    .content {
+        padding-top: 3.5px;
+        width: 15vw;
+    }
+    .logoutlogo {
+        bottom: 6.5vh;
+    }
+    .logouttext {
+        bottom: 5.5vh;
+    }
 }
