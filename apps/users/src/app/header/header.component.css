@@ -8,6 +8,39 @@
     justify-content: space-between;
 }
 
+.heading {
+    width: auto;
+    height: 40px;
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    color: #000000;
+    text-shadow: 1px 3px 4px rgba(0, 0, 0, 0.15);
+}
+
+.sync-text {
+    margin: 9px 0 0 6px;
+}
+
+.loading {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid #555;
+    border-top-color: #f3f3f3;
+    animation: spin 1s linear infinite;
+    margin-left: 15px;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 .subtitle {
     width: 250px;
     height: 45px;
@@ -19,20 +52,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
-
-.heading {
-    width: 180px;
-    height: 26px;
-    margin-left: 2.6vw;
-    margin-top: 10px;
-    font-family: 'IBM Plex Sans';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 25px;
-    line-height: 26px;
-    color: #000000;
-    text-shadow: 1px 3px 4px rgba(0, 0, 0, 0.15);
 }
 
 .settingicon {

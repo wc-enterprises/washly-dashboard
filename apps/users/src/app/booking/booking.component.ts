@@ -11,7 +11,7 @@ import { classifyBookings, parseBookings } from './utils/util';
 export class BookingComponent implements OnInit {
   constructor(private ws: WashlyService) {}
 
-  loadingData = true;
+  loadSpinner = true;
   pendingBookings: ParsedBooking[] | undefined;
   ongoingBookings: ParsedBooking[] | undefined;
   outForDeliveryBookings: ParsedBooking[] | undefined;
@@ -35,7 +35,7 @@ export class BookingComponent implements OnInit {
           this.completedBookings = classifiedBookings.completedBookings;
           this.rejectedBookings = classifiedBookings.rejectedBookings;
         }
-        this.loadingData = false;
+        this.loadSpinner = false;
       });
     }
   }

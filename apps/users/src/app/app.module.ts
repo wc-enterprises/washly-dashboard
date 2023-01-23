@@ -43,6 +43,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 import { environment } from '../environments/environment';
 import { WashlyService } from './services/washly.service';
+import { EmptyScreenComponent } from './utils/empty-screen/empty-screen.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +67,7 @@ import { WashlyService } from './services/washly.service';
     StoreComponent,
     RevenueComponent,
     AnalyticsComponent,
+    EmptyScreenComponent,
   ],
 
   imports: [
