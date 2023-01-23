@@ -1,5 +1,4 @@
 import { Route } from '@angular/router';
-import { AppComponent } from './app.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { AppsettingpageComponent } from './appsettingpage/appsettingpage.component';
 import { CampaignEditpageComponent } from './campaign-editpage/campaign-editpage.component';
@@ -12,11 +11,9 @@ import { BookingComponent } from './booking/booking.component';
 import { CampaignComponent } from './campaign/campaign.component';
 import { BillDetailsComponent } from './booking-details/booking-details.component';
 import { DisplayPanelComponent } from './utils/display-panel/display-panel.component';
-import { CustomerComponent } from './customer/customer.component';
-import { CustomerDetailsComponent } from './utils/customer-details/customer-details.component';
 
 export const appRoutes: Route[] = [
-  { path: 'App', component: AppComponent },
+  { path: '', component: BookingComponent },
   { path: 'login', component: LoginpageComponent },
   { path: 'app-setting', component: AppsettingpageComponent },
   { path: 'campaigneditpage', component: CampaignEditpageComponent },
@@ -28,7 +25,5 @@ export const appRoutes: Route[] = [
   { path: 'bookings', component: BookingComponent },
   { path: 'campaign', component: CampaignComponent },
   { path: 'bill', component: BillDetailsComponent },
-  {  path: 'display',component:DisplayPanelComponent},
-  {path: 'customer', component:CustomerComponent},
-  {path: 'customer-details' , component : CustomerDetailsComponent},
+  {  path: 'display',component:DisplayPanelComponent}
 ];

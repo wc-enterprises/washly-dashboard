@@ -3,6 +3,10 @@
     display: flex;
 }
 
+.empty-bookings {
+    background-color: #fe8f8f;
+}
+
 .card-list {
     width: 23vw;
     padding-top: 3vh;
@@ -26,6 +30,11 @@
 
 .card.selected {
     background-color: rgba(33, 36, 39, 0.1);
+}
+
+.card-title {
+    font-weight: 500;
+    font-size: large;
 }
 
 .card-content {
@@ -336,52 +345,44 @@ Details:
     text-align: right;
 }
 
-@media screen and (max-width:1370px) {
-  .card-list::-webkit-scrollbar{
-    display: none;
-    
-  }
-  .booking-details::-webkit-scrollbar{
-display: none;
-  }
-  .service-details::-webkit-scrollbar{
-display: none;
-  }
-  .approve-button {
-   line-height: 0.8vh;
-}
-   #drop-down-logo{
-    
-   margin-top: -7px;
-   }       
-   #head-line{
-    padding-top: 5vh;
-   }   
+@media screen and (max-width: 1370px) {
+    .card-list::-webkit-scrollbar {
+        display: none;
+    }
+    .booking-details::-webkit-scrollbar {
+        display: none;
+    }
+    .service-details::-webkit-scrollbar {
+        display: none;
+    }
+    .approve-button {
+        line-height: 0.8vh;
+    }
+    #drop-down-logo {
+        margin-top: -7px;
+    }
+    #head-line {
+        padding-top: 5vh;
+    }
 }
 
-@media screen and (max-width:1540px) {
-
-  .card-list::-webkit-scrollbar{
-   display: none;
-    
-  }
-  .booking-details::-webkit-scrollbar {
- display: none;
-  }
-  .service-details::-webkit-scrollbar{
- display: none;
-  }
- 
-.approve-button {
-   line-height: 1vh;
+@media screen and (max-width: 1540px) {
+    .card-list::-webkit-scrollbar {
+        display: none;
+    }
+    .booking-details::-webkit-scrollbar {
+        display: none;
+    }
+    .service-details::-webkit-scrollbar {
+        display: none;
+    }
+    .approve-button {
+        line-height: 1vh;
+    }
+    #drop-down-logo {
+        margin-top: -6px;
+    }
+    #head-line {
+        padding-top: 3vh;
+    }
 }
-   #drop-down-logo{
-    
-   margin-top: -6px;
-   }       
-   #head-line{
-    padding-top: 3vh;
-   }    
-}
-
-

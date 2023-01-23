@@ -1,203 +1,42 @@
-import { Component } from '@angular/core';
- 
-@Component({ 
+import { Component, OnInit } from '@angular/core';
+import { WashlyService } from '../services/washly.service';
+import { IBooking, ParsedBooking } from './utils/interface';
+import { classifyBookings, parseBookings } from './utils/util';
+
+@Component({
   selector: 'washly-booking',
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.css'],
 })
-export class BookingComponent {
-  columns = ['name', 'no of items', 'weight', 'amount'];
-  data = [
-    ['washing', '2', '3 kg', '50'],
-    ['ironing', '3', '3', '30'],
-  ];
+export class BookingComponent implements OnInit {
+  constructor(private ws: WashlyService) {}
 
-  columnsSchema = [
-    {
-      key: 'name',
-      type: 'text',
-      label: 'Full Name',
-    },
-    {
-      key: 'occupation',
-      type: 'text',
-      label: 'Occupation',
-    },
-    {
-      key: 'age',
-      type: 'number',
-      label: 'Age',
-    },
-    {
-      key: 'isEdit',
-      type: 'isEdit',
-      label: 'jj',
-    },
-  ];
-  displayedColumns: string[] = ['name', 'occupation', 'age'];
-  dataSource = [
-    {
-      name: 'John Smith',
-      occupation: 'Advisor',
-      dateOfBirth: '1984-05-05',
-      age: 36,
-    },
-    {
-      name: 'Muhi Masri',
-      occupation: 'Developer',
-      dateOfBirth: '1992-02-02',
-      age: 28,
-    },
-    {
-      name: 'Peter Adams',
-      occupation: 'HR',
-      dateOfBirth: '2000-01-01',
-      age: 20,
-    },
-    {
-      name: 'Lora Bay',
-      occupation: 'Marketing',
-      dateOfBirth: '1977-03-03',
-      age: 43,
-    },
-  ];
+  loadSpinner = true;
+  pendingBookings: ParsedBooking[] | undefined;
+  ongoingBookings: ParsedBooking[] | undefined;
+  outForDeliveryBookings: ParsedBooking[] | undefined;
+  completedBookings: ParsedBooking[] | undefined;
+  rejectedBookings: ParsedBooking[] | undefined;
 
-  editing = false;
-
-  startEditing() {
-    this.editing = true;
+  ngOnInit() {
+    console.log('Loaded ngOnIt of Bookings Component');
+    const bookingsStream = this.ws.getBookings();
+    if (bookingsStream) {
+      bookingsStream.subscribe(async (bookings: Promise<IBooking[]>) => {
+        console.log('Bookings:');
+        console.log(await bookings);
+        if (bookings) {
+          const parsedBookings = parseBookings(await bookings);
+          const classifiedBookings = classifyBookings(parsedBookings);
+          this.pendingBookings = classifiedBookings.pendingBookings;
+          this.ongoingBookings = classifiedBookings.ongoingBookings;
+          this.outForDeliveryBookings =
+            classifiedBookings.outForDeliveryBookings;
+          this.completedBookings = classifiedBookings.completedBookings;
+          this.rejectedBookings = classifiedBookings.rejectedBookings;
+        }
+        this.loadSpinner = false;
+      });
+    }
   }
-
-  stopEditing() {
-    this.editing = false;
-  }
-
-  onEdit(rowIndex: number, colIndex: number, event: Event) {
-    console.log(rowIndex, colIndex, (event.target as HTMLInputElement).value);
-    this.data[rowIndex][colIndex] = (event.target as HTMLInputElement).value;
-    console.log('data updated successfully');
-  }
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  items = [
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023', 
-    }, 
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      storeName: 'Guduvanchery',
-      date: '2/1/2023',
-    },
-  ];
 }

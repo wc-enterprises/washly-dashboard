@@ -112,17 +112,12 @@
     align-items: center;
     justify-content: space-evenly;
   }
-
   .content {
     width: 12vw;
     height: 4vh;
     font-size: 15px;
     align-items: start;
   }
-  /* .icon{
-padding-right: 2vw;
-
- } */
   .logoutlogo {
     padding-bottom: 4vh;
   }
@@ -152,7 +147,6 @@ padding-right: 2vw;
   }
   .content {
     padding-top: 3.5px;
-
     width: 15vw;
   }
   .logoutlogo {

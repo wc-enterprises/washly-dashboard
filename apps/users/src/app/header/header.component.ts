@@ -6,5 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-@Input() heading!: string;
+  @Input() heading!: string;
+  @Input() loadSpinner = false;
 }

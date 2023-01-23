@@ -5,6 +5,8 @@
                 <mat-card-title class="card-title">{{ item.heading }}</mat-card-title>
                 <mat-icon id="edit-icon" (click)="editCampaign()">mode_edit</mat-icon>
                 <!-- <mat-icon class="delete-icon" (click)="openDeleteConfirmationModal()">delete</mat-icon> -->
+                <mat-icon (click)="ngAfterViewInit()" (click)="openDeleteConfirmationModal()"
+                    class="delete-icon">delete</mat-icon>
             </mat-card>
             <!-- <div class="status" *ngIf="campaign.status==='ACTIVE'">
                 <img src="/assets/greendot.png">
@@ -22,7 +24,7 @@
     </div>
 
 
-    <div class="total-display-area">
+    <div #click class="total-display-area">
         <div class="black-area" *ngIf="!addNew; else addNewForm">
             <div *ngIf="editing" style="text-align: right; width: 32vw">
                 <mat-icon class="cancel-icon" (click)="cancelEditing()">clear</mat-icon>

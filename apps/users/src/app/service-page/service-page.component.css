@@ -3,7 +3,6 @@
     height: 100%;
     display: flex;
     flex-direction: row;
-  
 }
 
 .card-list {
@@ -125,6 +124,7 @@
 
 .delete-icon {
     font-size: large;
+    padding-top: 5px;
 }
 
 .cancel-icon {
@@ -181,20 +181,17 @@
     margin-top: 2vh;
 }
 
-@media screen and (max-width:1370px) {
-  .card-list::-webkit-scrollbar{
-    display: none;
-    
-  }
-  #add-new-label {
-    margin-top: 0.5vh;
+@media screen and (max-width: 1370px) {
+    .card-list::-webkit-scrollbar {
+        display: none;
+    }
+    #add-new-label {
+        margin-top: 0.5vh;
+    }
 }
 
-}
-
-@media screen and (max-width:1540px) {
-  .card-list::-webkit-scrollbar{
-    display: none;
-    
-  }
+@media screen and (max-width: 1540px) {
+    .card-list::-webkit-scrollbar {
+        display: none;
+    }
 }

@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppsettingpageComponent } from './appsettingpage/appsettingpage.component';
@@ -30,10 +31,20 @@ import { BookingComponent } from './booking/booking.component';
 import { BookingDetailsComponent } from './utils/booking-details/booking-details.component';
 import { BillDetailsComponent } from './booking-details/booking-details.component';
 import { DisplayPanelComponent } from './utils/display-panel/display-panel.component';
-import { MatSelectModule } from '@angular/material/select';
-import { CustomerComponent } from './customer/customer.component';
 import { CustomerDetailsComponent } from './utils/customer-details/customer-details.component';
+import { CustomerComponent } from './customer/customer.component';
+import { ExecutiveComponent } from './executive/executive.component';
+import { StoreComponent } from './store/store.component';
+import { RevenueComponent } from './revenue/revenue.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
+import { environment } from '../environments/environment';
+import { WashlyService } from './services/washly.service';
+import { EmptyScreenComponent } from './utils/empty-screen/empty-screen.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +65,11 @@ import { CustomerDetailsComponent } from './utils/customer-details/customer-deta
     DisplayPanelComponent,
     CustomerComponent,
     CustomerDetailsComponent,
+    ExecutiveComponent,
+    StoreComponent,
+    RevenueComponent,
+    AnalyticsComponent,
+    EmptyScreenComponent,
   ],
 
   imports: [
@@ -70,8 +86,11 @@ import { CustomerDetailsComponent } from './utils/customer-details/customer-deta
     MatTabsModule,
     MatIconModule,
     MatTableModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
   ],
-  providers: [],
+  providers: [WashlyService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
