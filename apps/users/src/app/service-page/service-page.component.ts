@@ -10,7 +10,7 @@ export class ServicePageComponent {
   @Output() deletePopUp = new EventEmitter<boolean>();
    @ViewChild('click')
   divElement!: ElementRef;
-   isBlurred = true;
+   isBlurred = true; 
 
   editing = false;
   addNew = false;

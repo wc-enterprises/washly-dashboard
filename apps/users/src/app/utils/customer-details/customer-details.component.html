@@ -1,6 +1,6 @@
 <div class="main">
     <div class="card-list">
-        <div *ngFor="let item of customers" class="card-container">
+        <div *ngFor="let item of customers ; let i = index" class="card-container">
             <mat-card class="card" [ngClass]="{ selected: item.cardData.selected }" (click)="setSelectedcustomer(item)">
                 <mat-card-title>{{ item.cardData.Name }} </mat-card-title>
                 <mat-card-content class="card-content">
@@ -11,6 +11,9 @@
                 </mat-card-content>
             </mat-card>
         </div>
+        <!-- <mat-card id="add-new-service" *ngIf=" i === customers.length - 1" (click)="addNewService()">
+            <mat-card-title id="add-new-label">ADD NEW +</mat-card-title>
+        </mat-card> -->
     </div>
 
     <div class="details">

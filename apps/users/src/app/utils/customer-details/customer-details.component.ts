@@ -68,7 +68,7 @@ export class CustomerDetailsComponent {
       cardData: {
         Name: 'Abin',
         no: '9987654321',
-        selected: true,
+       selected: false,
       },
       customerDetails: [
         {
@@ -122,7 +122,7 @@ export class CustomerDetailsComponent {
       cardData: {
         Name: 'Arun',
         no: '1234567890',
-        selected: true,
+   selected: false,
       },
       customerDetails: [
         {
@@ -176,7 +176,7 @@ export class CustomerDetailsComponent {
       cardData: {
         Name: 'Madan',
         no: '9234567890',
-        selected: true,
+        selected: false,
       },
       customerDetails: [
         {
@@ -227,7 +227,7 @@ export class CustomerDetailsComponent {
       cardData: {
         Name: 'Nivetha',
         no: '1234567890',
-        selected: true,
+        selected: false,
       },
       customerDetails: [
         {
@@ -273,6 +273,161 @@ export class CustomerDetailsComponent {
       ],
     },
 
+    
+      {
+      customerId: 'X78976TY6546I',
+      cardData: {
+        Name: 'Akash',
+        no: '1234567890',
+ selected: false,
+      },
+      customerDetails: [
+        {
+          title: 'Customer name',
+          value: 'Akash',
+        },
+        {
+          title: 'Status',
+          value: 'Active',
+        },
+        {
+          title: 'Customer ID',
+          value: 'X78976TY6546I',
+        },
+        {
+          title: 'Store name',
+          value: 'Guduvanchery',
+        },
+       
+      ],
+      contact: [
+       
+        {
+          title: 'Phone number',
+          value: '1234567890',
+        },
+     
+     
+      ],
+      address: [
+   {
+          title: 'Home',
+          value: `14/A, East coast street, South west
+          Kotturpalayamkotai, Vikasvendra kundramma puram,
+          Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.  `,
+        },
+        {
+          title: 'Office',
+          value: `14/A, East coast street, South west
+          Kotturpalayamkotai, Vikasvendra kundramma puram,
+          Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.   `,
+        },
+      ],
+    },
+
+      {
+      customerId: 'X78976TY6546I',
+      cardData: {
+        Name: 'Tazeen',
+        no: '1234567890',
+  selected: false,
+      },
+      customerDetails: [
+        {
+          title: 'Customer name',
+          value: 'Tazeen',
+        },
+        {
+          title: 'Status',
+          value: 'Active',
+        },
+        {
+          title: 'Customer ID',
+          value: 'X78976TY6546I',
+        },
+        {
+          title: 'Store name',
+          value: 'Guduvanchery',
+        },
+       
+      ],
+      contact: [
+       
+        {
+          title: 'Phone number',
+          value: '1234567890',
+        },
+     
+     
+      ],
+      address: [
+   {
+          title: 'Home',
+          value: `14/A, East coast street, South west
+          Kotturpalayamkotai, Vikasvendra kundramma puram,
+          Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.  `,
+        },
+        {
+          title: 'Office',
+          value: `14/A, East coast street, South west
+          Kotturpalayamkotai, Vikasvendra kundramma puram,
+          Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.   `,
+        },
+      ],
+    },
+
+      {
+      customerId: 'X78976TY6546I',
+      cardData: {
+        Name: 'Sam',
+        no: '1234567890',
+        selected: false,
+      },
+      customerDetails: [
+        {
+          title: 'Customer name',
+          value: 'Sam',
+        },
+        {
+          title: 'Status',
+          value: 'Active',
+        },
+        {
+          title: 'Customer ID',
+          value: 'X78976TY6546I',
+        },
+        {
+          title: 'Store name',
+          value: 'Guduvanchery',
+        },
+       
+      ],
+      contact: [
+       
+        {
+          title: 'Phone number',
+          value: '1234567890',
+        },
+     
+     
+      ],
+      address: [
+   {
+          title: 'Home',
+          value: `14/A, East coast street, South west
+          Kotturpalayamkotai, Vikasvendra kundramma puram,
+          Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.  `,
+        },
+        {
+          title: 'Office',
+          value: `14/A, East coast street, South west
+          Kotturpalayamkotai, Vikasvendra kundramma puram,
+          Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.   `,
+        },
+      ],
+    },
+
+
   ]
  
    
@@ -312,5 +467,13 @@ export class CustomerDetailsComponent {
     customer.cardData.selected = true;
     this.selectedcustomer = customer;
   }
-}
+
+
+
+
+  //  addNewService() {
+  //   this.customers.forEach((item) => (item.selected = false));
+  //   this.addNew = true;
+  // }
+} 
 

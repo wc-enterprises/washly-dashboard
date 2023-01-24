@@ -7,7 +7,7 @@
   width: 23vw;
   padding-top: 3vh;
   padding-bottom: 3vh;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .card-container {
@@ -44,13 +44,13 @@ Details:
 
 .details {
   flex-grow: 1;
-  padding: 5.1vh 2.5vh 0vh 30vh;
+  padding: 5.1vh 2.5vh 0vh 15vh;
   display: flex;
 }
 
 .booking-details {
   width: 36vw;
-  height: 77.5vh;
+  height: 75.5vh;
   background-color: #212427;
   border-radius: 5px 0 0 5px;
   padding: 3vh;
