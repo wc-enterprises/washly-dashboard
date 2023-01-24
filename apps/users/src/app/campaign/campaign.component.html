@@ -1,8 +1,8 @@
-<div class="main">
+<div class="main" *ngIf="this.campaign && this.campaign.length && this.displayedData; else emptyScreen">
     <div class="card-list">
         <div *ngFor="let item of campaign; let i = index" class="card-container">
-            <mat-card class="card" [ngClass]="{ selected: item.selected }" (click)="setSelectedBooking(item)">
-                <mat-card-title class="card-title">{{ item.heading }}</mat-card-title>
+            <mat-card class="card" [ngClass]="{selected: item.selected }" (click)="setSelectedcampaign(item)">
+                <mat-card-title class="card-title">{{item.heading }}</mat-card-title>
                 <mat-icon id="edit-icon" (click)="editCampaign()">mode_edit</mat-icon>
 
                 <mat-icon (click)="blurDisplayPanel()" (click)="openDeleteConfirmationModal(item)"
@@ -21,13 +21,13 @@
                 <mat-icon class="cancel-icon" (click)="cancelEditing()">clear</mat-icon>
             </div>
             <div style="display: flex; justify-content: space-between; padding: 2% 0"
-                *ngFor="let campaignData of displayedData.dataToDisplay">
-                <div class="key">{{ campaignData.title }}</div>
+                *ngFor="let dataToDisplay of displayedData.dataToDisplay">
+                <div class="key">{{dataToDisplay.title}}</div>
 
                 <div class="value">
-                    <input class="edit-box" *ngIf="editing; else name" type="text" [(ngModel)]="campaignData.value"
+                    <input class="edit-box" *ngIf="editing; else name" type="text" [(ngModel)]="dataToDisplay.value"
                         required />
-                    <ng-template #name>{{ campaignData.value }}</ng-template>
+                    <ng-template #name>{{dataToDisplay.value}}</ng-template>
                 </div>
             </div>
 
@@ -104,3 +104,8 @@
 </div>
 <washly-app-delete-confirmation-modal (removeBlurEvent)="removeBlur()" *ngIf="isModalActive"
     (closePopup)="closeDeleteConfirmationModal()" (delete)="deleteData()"></washly-app-delete-confirmation-modal>
+
+
+<ng-template #emptyScreen>
+    <p>NO data</p>
+</ng-template>

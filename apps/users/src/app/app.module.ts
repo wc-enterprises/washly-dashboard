@@ -89,4 +89,6 @@ import { WashlyService } from './services/washly.service';
   providers: [WashlyService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+
+}

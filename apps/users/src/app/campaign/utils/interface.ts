@@ -8,3 +8,14 @@ export interface ICampaign {
    endDate:string;
    status: 'ACTIVE' | 'INACTIVE';
 }
+export interface ParsedCampaign {
+   id:string;
+      heading:string;
+      selected: boolean;
+      dataToDisplay:{
+         
+          title:string;
+          value: string;
+      
+      }[];
+}

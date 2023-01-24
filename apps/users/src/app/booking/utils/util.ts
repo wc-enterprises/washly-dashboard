@@ -20,7 +20,7 @@ export function parseBookings(bookings: IBooking[]): ParsedBooking[] {
       bookingDetails: [
         {
           title: 'Booking id',
-          value: booking.id,
+          value: booking.id, 
         },
         {
           title: 'Customer name',

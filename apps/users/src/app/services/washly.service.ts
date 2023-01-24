@@ -62,7 +62,7 @@ export class WashlyService {
   }
 
 async createCampaign(){
-
+ console.log("Creating new campaign function called.")
  const campaignData ={
   id:`c_${uuidv4()}`,
   heading:"campaign service 1",
@@ -70,19 +70,22 @@ async createCampaign(){
   buttonLabel:"Get Now",
   imageUrl:"google.com/ice-cream.png.",
   startDate:"18/01/2023",
-  endDate:"12/12/2023",
+  endDate:"12/12/2023", 
 
 }
  const res =  await this.afs.collection('campaigns').doc(campaignData.id).set(campaignData);
-  
+console.log("CAmpaign saved successfully to firestore and the response is:", res)
 }
+
+
  getCampaign():Observable<ICampaign[]> | null {
 
   
       const res = this.afs
-        .collection<ICampaign>('campaigns') 
+        .collection<ICampaign>('campaigns')
         .valueChanges();
-
-             return res;
+             
+             return res; 
           }
 }
+                                                            
