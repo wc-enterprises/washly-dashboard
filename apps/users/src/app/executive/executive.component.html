@@ -4,29 +4,87 @@
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&family=Lato:wght@700&family=Open+Sans:wght@600&family=Roboto:wght@400;500&display=swap"
         rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 </head>
 
 <body>
-    <div class="main-container">
-        <div style="display: contents">
+    <div class="outerbox">
+        <div class="nav-bar">
             <washly-nav-bar></washly-nav-bar>
         </div>
 
-        <div style="
-          height: 100vh;
-          width: 82vw;
-          margin-right: 5px;">
+        <!-- main con start div -->
+        <div class="main-container">
             <div style="display: contents">
                 <washly-header [heading]="'Executives'"></washly-header>
             </div>
 
 
+
+            <div class="tab-area">
+                <div class="recent">
+                    <p class="recentsearch">Recent searches</p>
+                    <img class="dropdown" src="../../assets/external-down-arrows 3.svg">
+                </div>
+                <div class="search">
+                    <img src="../../assets/Search icon 1.svg" class="searchimg">
+                    <input class="search2" type="text" placeholder="Search for Executives names, Executives ID and more ">
+                </div>
+
+            </div>
+            <div class="main">
+                <div class="card-list">
+                    <div *ngFor="let item of executives" class="card-container">
+                        <mat-card class="card" [ngClass]="{ selected: item.cardData.selected }" (click)="setSelectedexecutives(item)">
+                            <mat-card-title>{{ item.cardData.Name }} </mat-card-title>
+                            <mat-card-content class="card-content">
+            
+                                <img src="../../../assets/Phone 3.svg" class="phone">
+                                <p class="number">{{ item.cardData.no }}</p>
+            
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                </div>
+            
+                <div class="details">
+                    <div class="booking-details">
+            
+            
+                        <!--EXECUTIVES DETAILS -->
+                        <div style="height: 35%">
+                            <h4 style="color: white">EXECUTIVES DETAILS</h4>
+            
+                            <div style="display: flex; justify-content: space-between; padding: 2% 0"
+                                *ngFor="let executivesDetails of selectedexecutives.executivesDetails">
+                                <div class="key">{{ executivesDetails.title }}</div>
+                                <div class="value">{{ executivesDetails.value }}</div>
+                            </div>
+            
+                            <h4 style="color: white">CONTACT INFO</h4>
+                            <div style="display: flex; justify-content: space-between; padding: 2% 0"
+                                *ngFor="let executivesDetail of selectedexecutives.contact">
+                                <img src="../../../assets/Phone 2.svg" alt="" class="phone">
+                                <div class="key">{{ executivesDetail.title }}</div>
+                                <div class="value">{{ executivesDetail.value }}</div>
+                            </div>
+                            <h4 style="color: white">ADDRESSES</h4>
+                            <div style="display: flex; justify-content: space-between; padding: 2% 0"
+                                *ngFor="let executivesDetail of selectedexecutives.address">
+                                <img src="../../../assets/Location 1.svg" class="loc">
+                                <div class="key">{{executivesDetail.title }}</div>
+                                <div class="value">{{ executivesDetail.value }}</div>
+                            </div>
+                        </div>
+            
+            
+                    </div>
+            
+            
+                </div>
+            </div>
         </div>
     </div>
-    <!-- modal component -->
-    <!-- <washly-app-delete-confirmation-modal *ngIf="isModalActive" [isActive]="isModalActive"
-        (close)="closeDeleteConfirmationModal()" (delete)="deleteItem()"></washly-app-delete-confirmation-modal> -->
-
 </body>
 
 </html>
