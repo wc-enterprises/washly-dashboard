@@ -6,6 +6,7 @@ import {
   ViewChild,
   OnInit,
 } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { uuidv4 } from '@firebase/util';
 
@@ -32,21 +33,30 @@ export class CampaignComponent implements OnInit {
   displayedData: ParsedCampaign | undefined;
 
   itemToDelete: any;
+  washlyService: any;
 
-  constructor(private router: Router, private ws: WashlyService) {}
+  constructor(private router: Router, private ws: WashlyService) {
+
+
+ 
+
+  }
   loadingData = true;
 
   isModalActive = false;
 
   currentCampaign: ICampaign[] | undefined;
 
+
+
   setSelectedcampaign(data: any) {
-    // this.campaign.forEach((item) => {
-    //   item.selected = false;
-    // });
-    // data.selected = true;
-    // this.displayedData = data;
-   
+    if(this.campaign){
+    this.campaign.forEach((item) => {
+      item.selected = false;
+    });
+    data.selected = true;
+    this.displayedData = data;
+  }
   }
 
   blurDisplayPanel() {
@@ -58,11 +68,13 @@ export class CampaignComponent implements OnInit {
   }
 
   deleteData() {
-    // this.campaign = this.campaign.filter(
-    //   (data) => data.id !== this.itemToDelete.id
-    // );
-    // this.displayedData = this.campaign[0];
-    // this.isModalActive = false;
+    if(this.campaign){
+    this.campaign = this.campaign.filter(
+      (data) => data.id !== this.itemToDelete.id
+    );
+    this.displayedData = this.campaign[0];
+    this.isModalActive = false;
+    }
   }
 
   openDeleteConfirmationModal(item: any) {
@@ -72,8 +84,10 @@ export class CampaignComponent implements OnInit {
     console.log('change modal active status to:', this.isModalActive);
   }
   addNewCampaign() {
-   // this.campaign.forEach((item) => (item.selected = false));
+    if(this.campaign){
+   this.campaign.forEach((item) => (item.selected = false));
     this.addNew = true;
+    }
   }
 
   closeDeleteConfirmationModal() {
@@ -83,34 +97,36 @@ export class CampaignComponent implements OnInit {
   // deleteItem() {
   //   return;
   // }
-  onSubmit(data: any) {
-    // console.log('new', data);
-    // console.log('new campaign', data.status);
-    // this.addNew = false;
+  addCampaign(data: any) {
+    if(this.campaign){
+    console.log('new', data);
+    console.log('new campaign', data.status);
+    this.addNew = false;
 
-    // data = {
-    //   heading: data.heading,
-    //   selected: true,
-    //   dataToDisplay: [
-    //     {
-    //       title: 'Heading',
-    //       value: data.heading,
-    //     },
-    //     {
-    //       title: 'Description',
-    //       value: data.description,
-    //     },
-    //     { title: 'ButtonLabel', value: data.buttonLabel },
-    //     { title: 'ImageUrl', value: data.imageUrl },
-    //     { title: 'StartDate', value: data.startDate },
-    //     { title: 'EndDate', value: data.EndDate },
-    //     { title: 'Status', value: data.status },
-    //   ],
-    // };
+    data = {
+      heading: data.heading,
+      selected: true,
+      dataToDisplay: [
+        {
+          title: 'Heading',
+          value: data.heading,
+        },
+        {
+          title: 'Description',
+          value: data.description,
+        },
+        { title: 'ButtonLabel', value: data.buttonLabel },
+        { title: 'ImageUrl', value: data.imageUrl },
+        { title: 'StartDate', value: data.startDate },
+        { title: 'EndDate', value: data.EndDate },
+        { title: 'Status', value: data.status },
+      ],
+    };
 
-    // console.log('new campaign framed', data);
-    // this.displayedData = data;
-    // this.campaign.push(data);
+    console.log('new campaign framed', data);
+    this.displayedData = data;
+    this.campaign.push(data);
+  }
   }
   // editing() {
   //   this.router.navigate(['/campaigneditpage']);
@@ -129,6 +145,7 @@ export class CampaignComponent implements OnInit {
 
   save() {
     this.editing = false;
+    
   }
   cancelEditing() {
     console.log('Cancel editing called', this.editing);
@@ -136,9 +153,11 @@ export class CampaignComponent implements OnInit {
   }
 
    cancelAddForm() {
-  //   this.displayedData = this.campaign[0];
-  //   this.displayedData.selected = true;
-  //   this.addNew = false;
+    if(this.campaign){
+    this.displayedData = this.campaign[0];
+    this.displayedData.selected = true;
+    this.addNew = false;
+    }
    }
   // eslint-disable-next-line @typescript-eslint/member-ordering
 
@@ -214,3 +233,11 @@ export class CampaignComponent implements OnInit {
     
   }
 }
+function getCampaigns() {
+  throw new Error('Function not implemented.');
+}
+
+function addCampaign(data: any) {
+  throw new Error('Function not implemented.');
+}
+

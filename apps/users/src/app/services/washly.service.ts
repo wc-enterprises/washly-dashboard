@@ -10,6 +10,12 @@ import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
 export class WashlyService {
+  collection(arg0: string) {
+    throw new Error('Method not implemented.');
+  }
+  group(arg0: { name: any; description: any; status: any; }): import("../campaign/utils/interface").ParsedCampaign[] | undefined {
+    throw new Error('Method not implemented.');
+  }
   constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) {}
 
 
@@ -87,5 +93,9 @@ console.log("CAmpaign saved successfully to firestore and the response is:", res
              
              return res; 
           }
+
+   addCampaign(data: any): void {
+    this.afs.collection('campaigns').add(data);
+  }       
 }
                                                             

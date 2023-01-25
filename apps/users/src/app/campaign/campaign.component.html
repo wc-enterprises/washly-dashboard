@@ -42,7 +42,7 @@
             flex-direction: column;
             justify-content: space-between;
             padding: 2% 0;
-          " #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
+          " #formRef="ngForm" (ngSubmit)="addCampaign(formRef.value)">
                     <div style="text-align: right; width: 32vw; margin-bottom: 2vh">
                         <mat-icon class="cancel-icon" (click)="cancelAddForm()">clear</mat-icon>
                     </div>
@@ -97,10 +97,6 @@
         </ng-template>
     </div>
 
-    <!-- <div *ngFor="let campaignData of Campaigns | async">
-        <button>sumbit</button>
-        <button>cancel</button>
-    </div> -->
 </div>
 <washly-app-delete-confirmation-modal (removeBlurEvent)="removeBlur()" *ngIf="isModalActive"
     (closePopup)="closeDeleteConfirmationModal()" (delete)="deleteData()"></washly-app-delete-confirmation-modal>
