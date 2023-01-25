@@ -4,9 +4,7 @@
 }
 
 .empty-bookings {
-    position: absolute;
-    top: 35%;
-    left: 57%;
+    background-color: #fe8f8f;
 }
 
 .card-list {

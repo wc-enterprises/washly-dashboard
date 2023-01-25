@@ -13,11 +13,11 @@
 
         <!-- main con start div -->
         <div class="main-container">
-            <div style="display: contents">
-                <washly-header [heading]="'Bookings'"></washly-header>
+            <div style="display: flex">
+                <washly-header [heading]="'Bookings'" [loadSpinner]="this.loadSpinner"></washly-header>
             </div>
 
-            <div class="main-content" *ngIf="!loadingData; else loadScreen">
+            <div class="main-content">
                 <mat-tab-group class="mat-tab-group">
                     <mat-tab label="Pending" class="mat-tab">
                         <div class="tab-area">
@@ -47,9 +47,9 @@
                 </mat-tab-group>
             </div>
 
-            <ng-template #loadScreen>
+            <!-- <ng-template #loadScreen>
                 <div class="loading-spinner"></div>
-            </ng-template>
+            </ng-template> -->
         </div>
     </div>
 </body>
