@@ -76,3 +76,29 @@
   padding-left: 10px;
   width: 500px;
 }
+
+/* for add new customer*/
+
+.addnew {
+  margin-left: 20vh;
+}
+
+#add-new-service {
+  cursor: pointer;
+  height: 5vh;
+  width: 25vh;
+  box-shadow: 3px 3px 5px 0px rgba(0.2, 0, 0, 0.2),
+    -3px -3px 5px 0px rgba(0.2, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color: rgba(33, 36, 39, 0.95);
+}
+#add-new-label {
+  margin-top: 1px;
+  font-weight: 400;
+  font-size: medium;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  /* This will center the text vertically */
+  justify-content: center;
+}

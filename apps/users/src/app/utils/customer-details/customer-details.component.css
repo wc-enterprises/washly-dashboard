@@ -4,10 +4,12 @@
 }
 
 .card-list {
+  margin-top: 3vh;
+  height: 79vh;
   width: 23vw;
-  padding-top: 3vh;
+
   padding-bottom: 3vh;
-  overflow-y: scroll;
+  overflow: scroll;
 }
 
 .card-container {
@@ -123,4 +125,47 @@ Details:
   #head-line {
     padding-top: 3vh;
   }
+}
+
+.customerheader {
+  display: flex;
+  flex-wrap: wrap;
+}
+.info {
+  margin-left: 38vh;
+  cursor: pointer;
+}
+
+.dots {
+  background: white;
+  height: 25px;
+  border-radius: 6.7px;
+}
+
+.detailsdiv {
+  margin-left: 40vh;
+  border: 3px solid white;
+  border-radius: 10px;
+  height: 12.5vh;
+  width: 22vh;
+  z-index: 10;
+}
+.view {
+  background-color: white;
+  margin-top: 14px;
+  margin: 14px 10px 10px 10px;
+  padding-left: 10px;
+  border-radius: 7px;
+  cursor: pointer;
+  height: 3.5vh;
+  padding-top: 0.5vh;
+}
+.unblock {
+  color: red;
+  width: 12vh;
+  background-color: white;
+  margin: 14px 10px 10px 35px;
+  padding-left: 2.5vh;
+  border-radius: 7px;
+  cursor: pointer;
 }
