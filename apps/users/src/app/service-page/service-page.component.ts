@@ -24,7 +24,7 @@ export class ServicePageComponent {
           title: 'Name',
           value: 'Regular wash',
         },
-        {
+        { 
           title: 'Price per unit',
           value: '10',
         },
@@ -150,7 +150,7 @@ export class ServicePageComponent {
     this.service.forEach((item) => (item.selected = false));
     this.addNew = true;
   }
-
+ 
   cancelEditing() {
     console.log('Cancel editing called', this.editing);
     this.editing = false;
