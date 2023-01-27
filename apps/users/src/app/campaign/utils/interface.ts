@@ -19,3 +19,12 @@ export interface ParsedCampaign {
       
       }[];
 }
+export interface Idata{
+   heading: string;
+   description: string;
+   buttonLabel: string;
+   imageUrl: string;
+   startDate:string;
+   endDate:string;
+   status: 'ACTIVE' | 'INACTIVE';
+}

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { ComponentFactoryResolver, Injectable } from '@angular/core';
 // import { AngularFireAuth } from '@angular/fire';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
@@ -95,7 +95,10 @@ console.log("CAmpaign saved successfully to firestore and the response is:", res
           }
 
    addCampaign(data: any): void {
-    this.afs.collection('campaigns').add(data);
+this.afs.collection('campaigns').add(data);
+   
   }       
+
+  
 }
                                                             

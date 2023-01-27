@@ -10,10 +10,9 @@ import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { uuidv4 } from '@firebase/util';
 
-
 import { WashlyService } from '../services/washly.service';
 
-import { ICampaign,ParsedCampaign } from './utils/interface';
+import { ICampaign, ParsedCampaign } from './utils/interface';
 
 @Component({
   selector: 'washly-campaign',
@@ -34,29 +33,23 @@ export class CampaignComponent implements OnInit {
 
   itemToDelete: any;
   washlyService: any;
+  campaignService: any;
 
-  constructor(private router: Router, private ws: WashlyService) {
-
-
- 
-
-  }
+  constructor(private router: Router, private ws: WashlyService) {}
   loadingData = true;
 
   isModalActive = false;
 
   currentCampaign: ICampaign[] | undefined;
 
-
-
   setSelectedcampaign(data: any) {
-    if(this.campaign){
-    this.campaign.forEach((item) => {
-      item.selected = false;
-    });
-    data.selected = true;
-    this.displayedData = data;
-  }
+    if (this.campaign) {
+      this.campaign.forEach((item) => {
+        item.selected = false;
+      });
+      data.selected = true;
+      this.displayedData = data;
+    }
   }
 
   blurDisplayPanel() {
@@ -68,12 +61,12 @@ export class CampaignComponent implements OnInit {
   }
 
   deleteData() {
-    if(this.campaign){
-    this.campaign = this.campaign.filter(
-      (data) => data.id !== this.itemToDelete.id
-    );
-    this.displayedData = this.campaign[0];
-    this.isModalActive = false;
+    if (this.campaign) {
+      this.campaign = this.campaign.filter(
+        (data) => data.id !== this.itemToDelete.id
+      );
+      this.displayedData = this.campaign[0];
+      this.isModalActive = false;
     }
   }
 
@@ -84,9 +77,9 @@ export class CampaignComponent implements OnInit {
     console.log('change modal active status to:', this.isModalActive);
   }
   addNewCampaign() {
-    if(this.campaign){
-   this.campaign.forEach((item) => (item.selected = false));
-    this.addNew = true;
+    if (this.campaign) {
+      this.campaign.forEach((item) => (item.selected = false));
+      this.addNew = true;
     }
   }
 
@@ -97,37 +90,34 @@ export class CampaignComponent implements OnInit {
   // deleteItem() {
   //   return;
   // }
-  addCampaign(data: any) {
-    if(this.campaign){
-    console.log('new', data);
-    console.log('new campaign', data.status);
-    this.addNew = false;
+  addCampaign(data:any) {
+    if (this.campaign) {
+      console.log('new', data);
+      console.log('new campaign', data.status);
+      this.addNew = false;
 
-    data = {
-      heading: data.heading,
-      selected: true,
-      dataToDisplay: [
-        {
-          title: 'Heading',
-          value: data.heading,
-        },
-        {
-          title: 'Description',
-          value: data.description,
-        },
-        { title: 'ButtonLabel', value: data.buttonLabel },
-        { title: 'ImageUrl', value: data.imageUrl },
-        { title: 'StartDate', value: data.startDate },
-        { title: 'EndDate', value: data.EndDate },
-        { title: 'Status', value: data.status },
-      ],
-    };
+      data = {
+        
+        heading: data.heading,
+        description: data.description,
+        buttonLabel: data.buttonLabel,
+        imageUrl: data.imageUrl,
+        startDate: data.startDate,
+        endDate: data.endDate,
+        status: data.status,
+      };
 
-    console.log('new campaign framed', data);
-    this.displayedData = data;
-    this.campaign.push(data);
+      console.log('new campaign framed', data);
+      this.displayedData = data;
+      this.campaign.push(data);
+   
+    }
+    
   }
-  }
+ saveCampaignData(data: any) {
+  this.washlyService.collection('campaigns').add(data);
+}
+ 
   // editing() {
   //   this.router.navigate(['/campaigneditpage']);
   // }
@@ -145,35 +135,34 @@ export class CampaignComponent implements OnInit {
 
   save() {
     this.editing = false;
-    
+    if (this.campaign) {
+      const campaignData = this.campaign.values;
+      this.campaignService.addCampaign(campaignData);
+    }
   }
   cancelEditing() {
     console.log('Cancel editing called', this.editing);
     this.editing = false;
   }
 
-   cancelAddForm() {
-    if(this.campaign){
-    this.displayedData = this.campaign[0];
-    this.displayedData.selected = true;
-    this.addNew = false;
+  cancelAddForm() {
+    if (this.campaign) {
+      this.displayedData = this.campaign[0];
+      this.displayedData.selected = true;
+      this.addNew = false;
     }
-   }
+  }
   // eslint-disable-next-line @typescript-eslint/member-ordering
 
   ngOnInit() {
-
-  // console.log("Creating a mock campaign");
-  // this.ws.createCampaign();
-
-
+    // console.log("Creating a mock campaign");
+    // this.ws.createCampaign();
 
     console.log('Loaded ngOnIt of Campaign Component');
     const campaingsStream = this.ws.getCampaign();
     console.log('Campaign stream:', campaingsStream);
     if (campaingsStream) {
       campaingsStream.subscribe(async (campaigns: ICampaign[]) => {
-        
         console.log('campaigns:', await campaigns);
         if (await campaigns) {
           // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -186,8 +175,7 @@ export class CampaignComponent implements OnInit {
     }
   }
 
-  parsedCampaign(campaigns: ICampaign[]):ParsedCampaign[] {
-    
+  parsedCampaign(campaigns: ICampaign[]): ParsedCampaign[] {
     return campaigns.map((campaign) => {
       return {
         id: campaign.id,
@@ -202,8 +190,7 @@ export class CampaignComponent implements OnInit {
             title: 'Description',
             value: campaign.description,
           },
-          { title: 'ButtonLabel',
-           value: campaign.buttonLabel },
+          { title: 'ButtonLabel', value: campaign.buttonLabel },
           {
             title: 'ImageUrl',
             value: campaign.imageUrl,
@@ -221,16 +208,8 @@ export class CampaignComponent implements OnInit {
             value: campaign.status,
           },
         ],
-
-        // heading:campaign.heading,
-        // description:campaign.description,
-        // buttonLabel:campaign.buttonLabel,
-        // imageUrl:campaign.imageUrl,
-        // startDate:campaign.startDate,
-        // endDate:campaign.endDate,
       };
     });
-    
   }
 }
 function getCampaigns() {
@@ -240,4 +219,3 @@ function getCampaigns() {
 function addCampaign(data: any) {
   throw new Error('Function not implemented.');
 }
-
