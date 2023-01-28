@@ -7,17 +7,18 @@ import { Component } from '@angular/core';
 })
 export class CustomerComponent {
 
- addNew = false;
+  addNew = false;
+  editing = false;
 
 
   customers = [
     {
       customerId: 'X78976TY6546I',
-        selected: true,
+      selected: true,
       cardData: {
         Name: 'Harish',
         no: '9790909162',
-      
+
       },
       customerDetails: [
         {
@@ -36,19 +37,19 @@ export class CustomerComponent {
           title: 'Store name',
           value: 'Guduvanchery',
         },
-       
+
       ],
       contact: [
-       
+
         {
           title: 'Phone number',
           value: '9790909162',
         },
-     
-     
+
+
       ],
       address: [
-   {
+        {
           title: 'Home',
           value: `14/A, East coast street, South west
           Kotturpalayamkotai, Vikasvendra kundramma puram,
@@ -65,13 +66,13 @@ export class CustomerComponent {
 
     // 2nd customer
 
-     {
+    {
       customerId: 'X78976TY6546I',
-        selected: false,
+      selected: false,
       cardData: {
         Name: 'Abin',
         no: '9987654321',
-     
+
       },
       customerDetails: [
         {
@@ -90,19 +91,19 @@ export class CustomerComponent {
           title: 'Store name',
           value: 'Guduvanchery',
         },
-       
+
       ],
       contact: [
-       
+
         {
           title: 'Phone number',
           value: '9987654321',
         },
-     
-     
+
+
       ],
       address: [
-   {
+        {
           title: 'Home',
           value: `14/A, East coast street, South west
           Kotturpalayamkotai, Vikasvendra kundramma puram,
@@ -120,13 +121,13 @@ export class CustomerComponent {
 
     // 3rdcustomer
 
-     {
+    {
       customerId: 'X78976TY6546I',
-        selected: false,
+      selected: false,
       cardData: {
         Name: 'Arun',
         no: '1234567890',
- 
+
       },
       customerDetails: [
         {
@@ -145,19 +146,19 @@ export class CustomerComponent {
           title: 'Store name',
           value: 'Guduvanchery',
         },
-       
+
       ],
       contact: [
-       
+
         {
           title: 'Phone number',
           value: '1234567890',
         },
-     
-     
+
+
       ],
       address: [
-   {
+        {
           title: 'Home',
           value: `14/A, East coast street, South west
           Kotturpalayamkotai, Vikasvendra kundramma puram,
@@ -175,13 +176,13 @@ export class CustomerComponent {
 
     // 4th customer
 
-     {
+    {
       customerId: 'X78976TY6546I',
-         selected: false,
+      selected: false,
       cardData: {
         Name: 'Madan',
         no: '9234567890',
-     
+
       },
       customerDetails: [
         {
@@ -200,19 +201,19 @@ export class CustomerComponent {
           title: 'Store name',
           value: 'Guduvanchery',
         },
-       
+
       ],
       contact: [
-       
+
         {
           title: 'Phone number',
           value: '9234567890',
         },
-     
-     
+
+
       ],
       address: [
-   {
+        {
           title: 'Home',
           value: `14/A, East coast street, South west
           Kotturpalayamkotai, Vikasvendra kundramma puram,
@@ -227,13 +228,13 @@ export class CustomerComponent {
       ],
     },
 
-      {
+    {
       customerId: 'X78976TY6546I',
       selected: false,
       cardData: {
         Name: 'Nivetha',
         no: '1234567890',
-        
+
       },
       customerDetails: [
         {
@@ -252,19 +253,19 @@ export class CustomerComponent {
           title: 'Store name',
           value: 'Guduvanchery',
         },
-       
+
       ],
       contact: [
-       
+
         {
           title: 'Phone number',
           value: '1234567890',
         },
-     
-     
+
+
       ],
       address: [
-   {
+        {
           title: 'Home',
           value: `14/A, East coast street, South west
           Kotturpalayamkotai, Vikasvendra kundramma puram,
@@ -279,195 +280,169 @@ export class CustomerComponent {
       ],
     },
 
-    
-      {
-      customerId: 'X78976TY6546I',
-       selected: false,
-      cardData: {
-        Name: 'Akash',
-        no: '1234567890',
 
-      },
-      customerDetails: [
-        {
-          title: 'Customer name',
-          value: 'Akash',
-        },
-        {
-          title: 'Status',
-          value: 'Active',
-        },
-        {
-          title: 'Customer ID',
-          value: 'X78976TY6546I',
-        },
-        {
-          title: 'Store name',
-          value: 'Guduvanchery',
-        },
-       
-      ],
-      contact: [
-       
-        {
-          title: 'Phone number',
-          value: '1234567890',
-        },
-     
-     
-      ],
-      address: [
-   {
-          title: 'Home',
-          value: `14/A, East coast street, South west
-          Kotturpalayamkotai, Vikasvendra kundramma puram,
-          Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.  `,
-        },
-        {
-          title: 'Office',
-          value: `14/A, East coast street, South west
-          Kotturpalayamkotai, Vikasvendra kundramma puram,
-          Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.   `,
-        },
-      ],
-    },
+    //     {
+    //     customerId: 'X78976TY6546I',
+    //      selected: false,
+    //     cardData: {
+    //       Name: 'Akash',
+    //       no: '1234567890',
 
-      {
-      customerId: 'X78976TY6546I',
-        selected: false,
-      cardData: {
-        Name: 'Tazeen',
-        no: '1234567890',
+    //     },
+    //     customerDetails: [
+    //       {
+    //         title: 'Customer name',
+    //         value: 'Akash',
+    //       },
+    //       {
+    //         title: 'Status',
+    //         value: 'Active',
+    //       },
+    //       {
+    //         title: 'Customer ID',
+    //         value: 'X78976TY6546I',
+    //       },
+    //       {
+    //         title: 'Store name',
+    //         value: 'Guduvanchery',
+    //       },
 
-      },
-      customerDetails: [
-        {
-          title: 'Customer name',
-          value: 'Tazeen',
-        },
-        {
-          title: 'Status',
-          value: 'Active',
-        },
-        {
-          title: 'Customer ID',
-          value: 'X78976TY6546I',
-        },
-        {
-          title: 'Store name',
-          value: 'Guduvanchery',
-        },
-       
-      ],
-      contact: [
-       
-        {
-          title: 'Phone number',
-          value: '1234567890',
-        },
-     
-     
-      ],
-      address: [
-   {
-          title: 'Home',
-          value: `14/A, East coast street, South west
-          Kotturpalayamkotai, Vikasvendra kundramma puram,
-          Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.  `,
-        },
-        {
-          title: 'Office',
-          value: `14/A, East coast street, South west
-          Kotturpalayamkotai, Vikasvendra kundramma puram,
-          Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.   `,
-        },
-      ],
-    },
+    //     ],
+    //     contact: [
 
-      {
-      customerId: 'X78976TY6546I',
-            selected: false,
-      cardData: {
-        Name: 'Sam',
-        no: '1234567890',
-  
-      },
-      customerDetails: [
-        {
-          title: 'Customer name',
-          value: 'Sam',
-        },
-        {
-          title: 'Status',
-          value: 'Active',
-        },
-        {
-          title: 'Customer ID',
-          value: 'X78976TY6546I',
-        },
-        {
-          title: 'Store name',
-          value: 'Guduvanchery',
-        },
-       
-      ],
-      contact: [
-       
-        {
-          title: 'Phone number',
-          value: '1234567890',
-        },
-     
-     
-      ],
-      address: [
-   {
-          title: 'Home',
-          value: `14/A, East coast street, South west
-          Kotturpalayamkotai, Vikasvendra kundramma puram,
-          Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.  `,
-        },
-        {
-          title: 'Office',
-          value: `14/A, East coast street, South west
-          Kotturpalayamkotai, Vikasvendra kundramma puram,
-          Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.   `,
-        },
-      ],
-    },
+    //       {
+    //         title: 'Phone number',
+    //         value: '1234567890',
+    //       },
+
+
+    //     ],
+    //     address: [
+    //  {
+    //         title: 'Home',
+    //         value: `14/A, East coast street, South west
+    //         Kotturpalayamkotai, Vikasvendra kundramma puram,
+    //         Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.  `,
+    //       },
+    //       {
+    //         title: 'Office',
+    //         value: `14/A, East coast street, South west
+    //         Kotturpalayamkotai, Vikasvendra kundramma puram,
+    //         Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.   `,
+    //       },
+    //     ],
+    //   },
+
+    //     {
+    //     customerId: 'X78976TY6546I',
+    //       selected: false,
+    //     cardData: {
+    //       Name: 'Tazeen',
+    //       no: '1234567890',
+
+    //     },
+    //     customerDetails: [
+    //       {
+    //         title: 'Customer name',
+    //         value: 'Tazeen',
+    //       },
+    //       {
+    //         title: 'Status',
+    //         value: 'Active',
+    //       },
+    //       {
+    //         title: 'Customer ID',
+    //         value: 'X78976TY6546I',
+    //       },
+    //       {
+    //         title: 'Store name',
+    //         value: 'Guduvanchery',
+    //       },
+
+    //     ],
+    //     contact: [
+
+    //       {
+    //         title: 'Phone number',
+    //         value: '1234567890',
+    //       },
+
+
+    //     ],
+    //     address: [
+    //  {
+    //         title: 'Home',
+    //         value: `14/A, East coast street, South west
+    //         Kotturpalayamkotai, Vikasvendra kundramma puram,
+    //         Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.  `,
+    //       },
+    //       {
+    //         title: 'Office',
+    //         value: `14/A, East coast street, South west
+    //         Kotturpalayamkotai, Vikasvendra kundramma puram,
+    //         Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.   `,
+    //       },
+    //     ],
+    //   },
+
+    //     {
+    //     customerId: 'X78976TY6546I',
+    //           selected: false,
+    //     cardData: {
+    //       Name: 'Sam',
+    //       no: '1234567890',
+
+    //     },
+    //     customerDetails: [
+    //       {
+    //         title: 'Customer name',
+    //         value: 'Sam',
+    //       },
+    //       {
+    //         title: 'Status',
+    //         value: 'Active',
+    //       },
+    //       {
+    //         title: 'Customer ID',
+    //         value: 'X78976TY6546I',
+    //       },
+    //       {
+    //         title: 'Store name',
+    //         value: 'Guduvanchery',
+    //       },
+
+    //     ],
+    //     contact: [
+
+    //       {
+    //         title: 'Phone number',
+    //         value: '1234567890',
+    //       },
+
+
+    //     ],
+    //     address: [
+    //  {
+    //         title: 'Home',
+    //         value: `14/A, East coast street, South west
+    //         Kotturpalayamkotai, Vikasvendra kundramma puram,
+    //         Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.  `,
+    //       },
+    //       {
+    //         title: 'Office',
+    //         value: `14/A, East coast street, South west
+    //         Kotturpalayamkotai, Vikasvendra kundramma puram,
+    //         Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.   `,
+    //       },
+    //     ],
+    //   },
 
 
   ]
- 
-   
+
+
   selectedcustomer = this.customers[0];
-
-
-
-
-
-
-
-  
-
-
-
-  // objects = [
-  //   {billTag: 'Total service amount', billAmount: '20',editing:false},
-  //   {billTag: 'Delivery charge', billAmount: '20',editing:false},
-  //   {billTag: 'GST', billAmount: '20',editing:false},
-  //   {billTag: 'Amount', billAmount: '20',editing:false},
-  // ]
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  // showButton = false;
-  // toggleButton() {
-  //   this.showButton = !this.showButton;
-  // }
-  // eslint-disable-next-line @typescript-eslint/member-ordering
   showdetails = false;
-  // eslint-disable-next-line @typescript-eslint/member-ordering
   showListElements = false;
   setSelectedcustomer(customer: any) {
     this.customers.forEach((customer) => {
@@ -479,8 +454,6 @@ export class CustomerComponent {
 
 
   onSubmit(data: any) {
-    console.log('new', data);
-    console.log('new service', data.unitOfCalculation);
     this.addNew = false;
 
     data = {
@@ -492,15 +465,43 @@ export class CustomerComponent {
           value: data.name,
         },
         {
-          title: 'Status',
-          value: data.status,
+          title: 'Store name',
+          value: data.storename,
         },
-        { title: 'Customer ID', value: data.customerId },
+        {
+          title: 'Phone number',
+          value: data.number
+        },
+        {
+          title: 'Address line1',
+          value: data.line1,
+        },
+        {
+          title: 'Address line2',
+          value: data.line2,
+        },
+        {
+          title: 'Address line3',
+          value: data.line3,
+        },
+        {
+          title: 'City',
+          value: data.city,
+        },
+        {
+          title: 'State',
+          value: data.state,
+        },
+        {
+          title: 'Pincode',
+          value: data.pincode,
+        },
+
       ],
-    }; 
+    };
 
     console.log('new service framed', data);
-    this.selectedcustomer= data;
+    this.selectedcustomer = data;
     this.customers.push(data);
   }
 
@@ -508,5 +509,12 @@ export class CustomerComponent {
     this.customers.forEach((item) => (item.selected = false));
     this.addNew = true;
   }
+  cancelAddForm() {
+    this.selectedcustomer = this.customers[0];
+    this.selectedcustomer.selected = true;
+    this.addNew = false;
+  }
+
+
 
 }
