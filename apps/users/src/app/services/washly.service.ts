@@ -7,22 +7,23 @@ import { IBooking, ICustomer, IStore } from '../booking/utils/interface';
 import { ICampaign } from '../campaign/utils/interface';
 import { v4 as uuidv4 } from 'uuid';
 
-
 @Injectable()
 export class WashlyService {
   collection(arg0: string) {
     throw new Error('Method not implemented.');
   }
-  group(arg0: { name: any; description: any; status: any; }): import("../campaign/utils/interface").ParsedCampaign[] | undefined {
+  group(arg0: {
+    name: any;
+    description: any;
+    status: any;
+  }): import('../campaign/utils/interface').ParsedCampaign[] | undefined {
     throw new Error('Method not implemented.');
   }
   constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) {}
 
-
-
   // create a new user
   async createUser() {
-    const email = 'user@example.com'; 
+    const email = 'user@example.com';
     const password = 'password';
     try {
       const res = await this.afAuth.createUserWithEmailAndPassword(
@@ -67,38 +68,40 @@ export class WashlyService {
     }
   }
 
-async createCampaign(){
- console.log("Creating new campaign function called.")
- const campaignData ={
-  id:`c_${uuidv4()}`,
-  heading:"campaign service 1",
-  description:"50% OFF",
-  buttonLabel:"Get Now",
-  imageUrl:"google.com/ice-cream.png.",
-  startDate:"18/01/2023",
-  endDate:"12/12/2023", 
+  async createCampaign() {
+    console.log('Creating new campaign function called.');
+    const campaignData = {
+      id: `c_${uuidv4()}`,
+      heading: 'campaign service 1',
+      description: '50% OFF',
+      buttonLabel: 'Get Now',
+      imageUrl: 'google.com/ice-cream.png.',
+      startDate: '18/01/2023',
+      endDate: '12/12/2023',
+    };
+    const res = await this.afs
+      .collection('campaigns')
+      .doc(campaignData.id)
+      .set(campaignData);
+    console.log(
+      'CAmpaign saved successfully to firestore and the response is:',
+      res
+    );
+  }
 
+  getCampaign(): Observable<ICampaign[]> | null {
+    const res = this.afs.collection<ICampaign>('campaigns').valueChanges();
+
+    return res;
+  }
+
+ async addCampaign(data: ICampaign) {
+  console.log("Received request to store campaign")
+   const response = await  this.afs
+      .collection('campaigns')
+      .add(data);
+    
+  console.log("Firebase response:", response);
+     
+  }
 }
- const res =  await this.afs.collection('campaigns').doc(campaignData.id).set(campaignData);
-console.log("CAmpaign saved successfully to firestore and the response is:", res)
-}
-
-
- getCampaign():Observable<ICampaign[]> | null {
-
-  
-      const res = this.afs
-        .collection<ICampaign>('campaigns')
-        .valueChanges();
-             
-             return res; 
-          }
-
-   addCampaign(data: any): void {
-this.afs.collection('campaigns').add(data);
-   
-  }       
-
-  
-}
-                                                            

@@ -90,7 +90,7 @@ export class CampaignComponent implements OnInit {
   // deleteItem() {
   //   return;
   // }
-  addCampaign(data:any) {
+  async addCampaign(data:any) {
     if (this.campaign) {
       console.log('new', data);
       console.log('new campaign', data.status);
@@ -109,6 +109,7 @@ export class CampaignComponent implements OnInit {
 
       console.log('new campaign framed', data);
       this.displayedData = data;
+      await this.ws.addCampaign(data);
       this.campaign.push(data);
    
     }
