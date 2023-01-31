@@ -9,7 +9,7 @@ export type BookingStatus =
 
 export interface IBooking {
   id: string;
-  pickTimeSlot: string;
+  pickUpTimeSlot: string;
   pickUpAddress: IAddress;
   deliveryAddress: IAddress;
   deliveryTimeSlot: string;
