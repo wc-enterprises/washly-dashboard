@@ -21,6 +21,7 @@ import { ICampaign, ParsedCampaign } from './utils/interface';
   
 })
 export class CampaignComponent implements OnInit {
+  
   @Output() deletePopUp = new EventEmitter<boolean>();
 
   isBlurred = false;
@@ -47,20 +48,23 @@ export class CampaignComponent implements OnInit {
 
   currentCampaign: ICampaign[] | undefined;
 
-   calculateStatus() {
-    const now = new Date();
-    const activationDate = new Date(this.activationDate);
+  
 
-    let status = 'INACTIVE';
+  // onSubmit() {
+  //   if (this.endDate < this.startDate) {
+  //     return;
+  //   }
+  //   this.status = this.calculateStatus(this.startDate, this.endDate);
+  // }
 
-    const diffInDays = Math.floor((now.getTime() - activationDate.getTime()) / (1000 * 3600 * 24));
-
-    if (diffInDays <= this.threshold) {
-      status = 'ACTIVE';
-    }
-
-    this.status = status;
-  }
+  // calculateStatus(startDate: Date, endDate: Date): string {
+  //   const currentDate = new Date();
+  //   if (currentDate >= startDate && currentDate <= endDate) {
+  //     return 'Active';
+  //   } else {
+  //     return 'Inactive';
+  //   }
+  // }
 
   setSelectedcampaign(data: any) {
 
@@ -180,7 +184,7 @@ export class CampaignComponent implements OnInit {
   ngOnInit() {
     // console.log("Creating a mock campaign");
     // this.ws.createCampaign();
-    this.calculateStatus();
+  
     console.log('Loaded ngOnIt of Campaign Component');
     const campaingsStream = this.ws.getCampaign();
     console.log('Campaign stream:', campaingsStream);
