@@ -110,6 +110,28 @@
   justify-content: center;
 }
 
+#new-customer {
+  margin-top: 2vh;
+  cursor: pointer;
+  height: 5.5vh;
+  width: 33.7vh;
+  box-shadow: 3px 3px 5px 0px rgba(0.2, 0, 0, 0.2),
+    -3px -3px 5px 0px rgba(0.2, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color: rgba(33, 36, 39, 0.95);
+}
+
+#new-customer-label {
+  margin-top: 1px;
+  font-weight: 400;
+  font-size: medium;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  /* This will center the text vertically */
+  justify-content: center;
+}
+
 .main {
   height: 100%;
   display: flex;
