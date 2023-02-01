@@ -81,6 +81,7 @@
 }
 
 .key {
+  
     width: 50%;
     text-align: left;
     color: rgba(255, 255, 255, 0.65);
@@ -88,6 +89,7 @@
 }
 
 .value {
+    
     width: 50%;
     text-align: left;
     color: white;
@@ -107,6 +109,10 @@
 .cancel-icon {
     color: white;
     cursor: pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
 }
 
 .edit-box {
@@ -197,6 +203,12 @@ margin-left: 3vw;
   }
    .key {
 margin-left: 3vw;
-font-size: large;
+
 }
+}
+
+@media screen and (max-width:1200px){
+    .value{
+    margin-left: 5vw;
+    }
 }

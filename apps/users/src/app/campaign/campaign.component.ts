@@ -18,6 +18,7 @@ import { ICampaign, ParsedCampaign } from './utils/interface';
   selector: 'washly-campaign',
   templateUrl: './campaign.component.html',
   styleUrls: ['./campaign.component.css'],
+  
 })
 export class CampaignComponent implements OnInit {
   @Output() deletePopUp = new EventEmitter<boolean>();
@@ -35,6 +36,10 @@ export class CampaignComponent implements OnInit {
   washlyService: any;
   campaignService: any;
 
+  activationDate: any;
+  threshold = 30; // 30 days
+  status: any;
+
   constructor(private router: Router, private ws: WashlyService) {}
   loadingData = true;
 
@@ -42,7 +47,23 @@ export class CampaignComponent implements OnInit {
 
   currentCampaign: ICampaign[] | undefined;
 
+   calculateStatus() {
+    const now = new Date();
+    const activationDate = new Date(this.activationDate);
+
+    let status = 'INACTIVE';
+
+    const diffInDays = Math.floor((now.getTime() - activationDate.getTime()) / (1000 * 3600 * 24));
+
+    if (diffInDays <= this.threshold) {
+      status = 'ACTIVE';
+    }
+
+    this.status = status;
+  }
+
   setSelectedcampaign(data: any) {
+
     if (this.campaign) {
       this.campaign.forEach((item) => {
         item.selected = false;
@@ -104,7 +125,7 @@ export class CampaignComponent implements OnInit {
         imageUrl: data.imageUrl,
         startDate: data.startDate,
         endDate: data.endDate,
-        status: data.status,
+        
       };
 
       console.log('new campaign framed', data);
@@ -118,6 +139,7 @@ export class CampaignComponent implements OnInit {
  saveCampaignData(data: any) {
   this.washlyService.collection('campaigns').add(data);
 }
+
  
   // editing() {
   //   this.router.navigate(['/campaigneditpage']);
@@ -158,7 +180,7 @@ export class CampaignComponent implements OnInit {
   ngOnInit() {
     // console.log("Creating a mock campaign");
     // this.ws.createCampaign();
-
+    this.calculateStatus();
     console.log('Loaded ngOnIt of Campaign Component');
     const campaingsStream = this.ws.getCampaign();
     console.log('Campaign stream:', campaingsStream);
@@ -206,12 +228,14 @@ export class CampaignComponent implements OnInit {
           },
           {
             title: 'Status',
-            value: campaign.status,
+            value: campaign.status, 
           },
         ],
       };
     });
   }
+
+  
 }
 function getCampaigns() {
   throw new Error('Function not implemented.');

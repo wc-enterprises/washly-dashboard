@@ -6,7 +6,7 @@ export interface ICampaign {
    imageUrl: string;
    startDate:string;
    endDate:string;
-   status: 'ACTIVE' | 'INACTIVE';
+   status:'';
 }
 
 
@@ -18,7 +18,7 @@ export interface ParsedCampaign {
          
           title:string;
           value: string;
-      
+         
       }[];
 }
 export interface Idata{
