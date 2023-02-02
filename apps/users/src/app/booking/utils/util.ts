@@ -50,7 +50,7 @@ export function parseBookings(bookings: IBooking[]): ParsedBooking[] {
         },
         {
           title: 'Pickup timeslot',
-          value: booking.pickTimeSlot,
+          value: booking.pickUpTimeSlot,
         },
         {
           title: 'Delivery timeslot',
