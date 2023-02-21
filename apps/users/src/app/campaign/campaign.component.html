@@ -1,108 +1,116 @@
-<div class="main" *ngIf="this.campaign && this.campaign.length && this.displayedData; else emptyScreen">
+<div class="main" *ngIf="
+    this.campaign && this.campaign.length && this.displayedData;
+    else emptyScreen
+  ">
     <div class="card-list">
         <div *ngFor="let item of campaign; let i = index" class="card-container">
-            <mat-card class="card" [ngClass]="{selected: item.selected }" (click)="setSelectedcampaign(item)">
-                <mat-card-title class="card-title">{{item.heading }}</mat-card-title>
-                <mat-icon id="edit-icon" (click)="editCampaign()">mode_edit</mat-icon>
+    <mat-card class="card" [ngClass]="{ selected: item.selected }" (click)="setSelectedcampaign(item)">
+        <mat-card-title class="card-title">{{ item.heading }}</mat-card-title>
+        <mat-icon id="edit-icon" (click)="editCampaign()">mode_edit</mat-icon>
 
-                <mat-icon (click)="blurDisplayPanel()" (click)="openDeleteConfirmationModal(item)"
-                    class="delete-icon">delete</mat-icon>
-            </mat-card>
+        <mat-icon (click)="blurDisplayPanel()" (click)="openDeleteConfirmationModal(item)" class="delete-icon">delete</mat-icon>
+        </mat-card>
 
-            <mat-card id="add-new-service" *ngIf="i === campaign.length - 1" (click)="addNewCampaign()">
-                <mat-card-title id="add-new-label">ADD NEW +</mat-card-title>
-            </mat-card>
+    <mat-card id="add-new-service" *ngIf="i === campaign.length - 1" (click)="addNewCampaign()">
+        <mat-card-title id="add-new-label">ADD NEW +</mat-card-title>
+    </mat-card>
+    </div>
+    </div>
+
+<div [class.blurred]="isBlurred" class="total-display-area">
+    <div class="black-area" *ngIf="!addNew; else addNewForm">
+        <div *ngIf="editing" style="text-align: right; width: 32vw">
+            <mat-icon class="cancel-icon" (click)="cancelEditing()">clear</mat-icon>
+        </div>
+    <div style="display: flex; justify-content: space-between; padding: 2% 0"
+        *ngFor="let dataToDisplay of displayedData.dataToDisplay">
+        <div class="key">{{ dataToDisplay.title }}</div>
+
+        <div class="value">
+        <input class="edit-box" *ngIf="editing; else name" type="text" [(ngModel)]="dataToDisplay.value" required />
+        <ng-template #name>{{ dataToDisplay.value }}</ng-template>
         </div>
     </div>
-
-    <div [class.blurred]="isBlurred" class="total-display-area">
-        <div class="black-area" *ngIf="!addNew; else addNewForm">
-            <div *ngIf="editing" style="text-align: right; width: 32vw">
-                <mat-icon class="cancel-icon" (click)="cancelEditing()">clear</mat-icon>
-            </div>
-            <div style="display: flex; justify-content: space-between; padding: 2% 0"
-                *ngFor="let dataToDisplay of displayedData.dataToDisplay">
-                <div class="key">{{dataToDisplay.title}}</div>
-
-                <div class="value">
-                    <input class="edit-box" *ngIf="editing; else name" type="text" [(ngModel)]="dataToDisplay.value"
-                        required />
-                    <ng-template #name>{{dataToDisplay.value}}</ng-template>
-                </div>
-
-            </div>
-<div style="display: flex; margin-bottom: 2.3vh">
-    <div class="key">Status</div>
-    <div class="value">
-        <div class="" (click)="calculateStatus()" name="status" ngModel>{{status}}</div>
-    </div>
+<ng-container *ngIf="editing">
+    <button id="save-button" (click)="save()">Save</button>
+</ng-container>
 </div>
-            <ng-container *ngIf="editing">
-                <button id="save-button" (click)="save()">Save</button>
-            </ng-container>
-        </div>
-        <ng-template #addNewForm>
-            <div class="black-area">
-                <form style="
+<ng-template #addNewForm>
+    <div class="black-area">
+        <form #addForm="ngForm" id="form" style="
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             padding: 2% 0;
-          " #formRef="ngForm" (ngSubmit)="addCampaign(formRef.value)">
-                    <div style="text-align: right; width: 32vw; margin-bottom: 2vh">
-                        <mat-icon class="cancel-icon" (click)="cancelAddForm()">clear</mat-icon>
-                    </div>
-                    <div style="display: flex; margin-bottom: 2.3vh">
-                        <div class="key">Heading</div>
-                        <div class="value">
-                            <input class="edit-box" type="text" name="heading" ngModel />
-                        </div>
-                    </div>
-
-                    <div style="display: flex; margin-bottom: 2.3vh">
-                        <div class="key">Description</div>
-                        <div class="value">
-                            <input class="edit-box" type="text" name="description" ngModel />
-                        </div>
-                    </div>
-
-                    <div style="display: flex; margin-bottom: 2.3vh">
-                        <div class="key">ButtonLabel</div>
-                        <div class="value">
-                            <input class="edit-box" type="text " name="buttonLabel" ngModel />
-                        </div>
-                    </div>
-                    <div style="display: flex; margin-bottom: 2.3vh">
-                        <div class="key">ImageUrl</div>
-                        <div class="value">
-                            <input class="edit-box" type="text " name="imageUrl" ngModel />
-                        </div>
-                    </div>
-                    <div style="display: flex; margin-bottom: 2.3vh">
-                        <div class="key">StartDate</div>
-                        <div class="value">
-                            <input class="edit-box" type="date" name="startDate" ngModel />
-                        </div>
-                    </div>
-                    <div style="display: flex; margin-bottom: 2.3vh">
-                        <div class="key">EndDate</div>
-                        <div class="value">
-                            <input class="edit-box" type="date" name="endDate" ngModel />
-                        </div>
-                    </div>
-                
-
-                    <button id="submit-button" type="submit ">Submit</button>
-                </form>
+          "
+          #formRef="ngForm"
+          (ngSubmit)="addCampaign(formRef.value)"
+        >
+          <div style="text-align: right; width: 32vw; margin-bottom: 2vh">
+            <mat-icon class="cancel-icon" (click)="cancelAddForm()">clear</mat-icon>
             </div>
-        </ng-template>
-    </div>
+            <div style="display: flex; margin-bottom: 2.3vh">
+                <div class="key">Heading</div>
+            <div class="value flex flex-col">
+                <input class="edit-box" type="text" id="heading" name="heading" required #heading="ngModel" ngModel />
+                <span *ngIf="heading.invalid && heading.touched" class="ml-[-5vw] text-red-600 text-xs pt-1">Please enter a
+                    heading</span>
+            </div>
+            </div>
 
+        <div style="display: flex; margin-bottom: 2.3vh">
+            <div class="key">Description</div>
+            <div class="value flex flex-col">
+                <input class="edit-box" type="text" id="description" name="description" required #description="ngModel" ngModel />
+                <span *ngIf="description.invalid && description.touched" class="ml-[-5vw] text-red-600 text-xs pt-1">Please enter a
+                    description</span>
+            </div>
+            </div>
+
+        <div style="display: flex; margin-bottom: 2.3vh">
+            <div class="key">ButtonLabel</div>
+            <div class="value flex flex-col">
+                <input class="edit-box" type="text " id="buttonLabel" name="buttonLabel" required #buttonLabel="ngModel" ngModel />
+                <span *ngIf="buttonLabel.invalid && buttonLabel.touched" class="ml-[-5vw] text-red-600 text-xs pt-1">Please enter a
+                    buttonLabel</span>
+            </div>
+            </div>
+            <div style="display: flex; margin-bottom: 2.3vh">
+                <div class="key">ImageUrl</div>
+            <div class="value flex flex-col">
+                <input class="edit-box" type="text " id="imageUrl" name="imageUrl" required #imageUrl="ngModel" ngModel />
+                <span *ngIf="imageUrl.invalid && imageUrl.touched" class="ml-[-5vw] text-red-600 text-xs pt-1">Please enter a
+                    buttonLabel</span>
+            </div>
+            </div>
+            <div style="display: flex; margin-bottom: 2.3vh">
+                <div class="key">StartDate</div>
+            <div class="value flex flex-col">
+                <input class="edit-box" type="date" id="startDate" name="startDate" required #startDate="ngModel" ngModel />
+                <span *ngIf="startDate.invalid && startDate.touched" class="ml-[-5vw] text-red-600 text-xs pt-1">Please enter a
+                    startDate</span>
+            </div>
+            </div>
+            <div style="display: flex; margin-bottom: 2.3vh">
+                <div class="key">EndDate</div>
+            <div class="value flex flex-col">
+                <input class="edit-box" type="date" id="endDate" name="endDate" required #endDate="ngModel" ngModel />
+                <span *ngIf="endDate.invalid && endDate.touched" class="ml-[-5vw] text-red-600 text-xs pt-1">Please enter a
+                    endDate</span>
+            </div>
+            </div>
+
+        <button id="submit-button" [disabled]="addForm" (click)="(calculateStatus)" type="submit ">
+            Submit
+        </button>
+        </form>
+        </div>
+        </ng-template>
+        </div>
 </div>
 <washly-app-delete-confirmation-modal (removeBlurEvent)="removeBlur()" *ngIf="isModalActive"
     (closePopup)="closeDeleteConfirmationModal()" (delete)="deleteData()"></washly-app-delete-confirmation-modal>
 
-
 <ng-template #emptyScreen>
-    <p>NO data</p>
+<p>NO data</p>
 </ng-template>

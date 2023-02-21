@@ -46,20 +46,20 @@
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label for="email">Email</label>
-                        <div style="width: 10vw; color:red;" *ngIf="nameControl.invalid && nameControl.touched"
+                        <div style="width: 10vw; font-size:10px; color:red;" *ngIf="nameControl.invalid && nameControl.touched"
                             class="error">
                             Email is required
                         </div>
                     </div>
 
                     <div class="group">
-                        <input type="text" id="password" name="password" required #nameControl="ngModel"
+                        <input type="text" id="password" name="password" required #passwordControl="ngModel"
                             [(ngModel)]="password"
-                            [ngClass]="{ 'invalid': nameControl.invalid && nameControl.touched }">
+                            [ngClass]="{ 'invalid': passwordControl.invalid && passwordControl.touched }">
                         <span class="highlight"></span>
                         <span class="bar"></span>
                         <label for="password">Password</label>
-                        <div style="width: 10vw; color:red;" *ngIf="nameControl.invalid && nameControl.touched"
+                        <div style="width: 10vw; font-size:10px;   color:red;" *ngIf="passwordControl.invalid && passwordControl.touched"
                             class="error">
                             Password is required
                         </div>

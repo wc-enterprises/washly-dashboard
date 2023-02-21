@@ -18,10 +18,8 @@ import { ICampaign, ParsedCampaign } from './utils/interface';
   selector: 'washly-campaign',
   templateUrl: './campaign.component.html',
   styleUrls: ['./campaign.component.css'],
-  
 })
 export class CampaignComponent implements OnInit {
-  
   @Output() deletePopUp = new EventEmitter<boolean>();
 
   isBlurred = false;
@@ -36,10 +34,7 @@ export class CampaignComponent implements OnInit {
   itemToDelete: any;
   washlyService: any;
   campaignService: any;
-
-  activationDate: any;
-  threshold = 30; // 30 days
-  status: any;
+  
 
   constructor(private router: Router, private ws: WashlyService) {}
   loadingData = true;
@@ -48,26 +43,29 @@ export class CampaignComponent implements OnInit {
 
   currentCampaign: ICampaign[] | undefined;
 
+
   
 
-  // onSubmit() {
-  //   if (this.endDate < this.startDate) {
-  //     return;
-  //   }
-  //   this.status = this.calculateStatus(this.startDate, this.endDate);
-  // }
-
-  // calculateStatus(startDate: Date, endDate: Date): string {
-  //   const currentDate = new Date();
-  //   if (currentDate >= startDate && currentDate <= endDate) {
-  //     return 'Active';
-  //   } else {
-  //     return 'Inactive';
-  //   }
-  // }
+  calculateStatus(startDate:string, endDate: string): string {
+     const startD=new Date(startDate)
+     const endD= new Date(endDate)
+    const currentDate = new Date();
+  
+    console.log(currentDate);
+    if (
+      currentDate.getTime() >= startD.getTime() &&
+      currentDate.getTime() <= endD.getTime()
+    ) {
+      return 'Active';
+    } else {
+      return 'Inactive';
+    }
+   
+  }
+  
+  
 
   setSelectedcampaign(data: any) {
-
     if (this.campaign) {
       this.campaign.forEach((item) => {
         item.selected = false;
@@ -115,36 +113,32 @@ export class CampaignComponent implements OnInit {
   // deleteItem() {
   //   return;
   // }
-  async addCampaign(data:any) {
+  async addCampaign(data: any) {
     if (this.campaign) {
       console.log('new', data);
       console.log('new campaign', data.status);
       this.addNew = false;
 
       data = {
-        
         heading: data.heading,
         description: data.description,
         buttonLabel: data.buttonLabel,
         imageUrl: data.imageUrl,
         startDate: data.startDate,
         endDate: data.endDate,
-        
       };
+      
 
       console.log('new campaign framed', data);
       this.displayedData = data;
       await this.ws.addCampaign(data);
       this.campaign.push(data);
-   
     }
-    
   }
- saveCampaignData(data: any) {
-  this.washlyService.collection('campaigns').add(data);
-}
+  saveCampaignData(data: any) {
+    this.washlyService.collection('campaigns').add(data);
+  }
 
- 
   // editing() {
   //   this.router.navigate(['/campaigneditpage']);
   // }
@@ -184,7 +178,7 @@ export class CampaignComponent implements OnInit {
   ngOnInit() {
     // console.log("Creating a mock campaign");
     // this.ws.createCampaign();
-  
+    this.calculateStatus;
     console.log('Loaded ngOnIt of Campaign Component');
     const campaingsStream = this.ws.getCampaign();
     console.log('Campaign stream:', campaingsStream);
@@ -232,14 +226,13 @@ export class CampaignComponent implements OnInit {
           },
           {
             title: 'Status',
-            value: campaign.status, 
+            value: this.calculateStatus(campaign.startDate,campaign.endDate),
+            
           },
         ],
       };
     });
   }
-
-  
 }
 function getCampaigns() {
   throw new Error('Function not implemented.');
@@ -248,3 +241,12 @@ function getCampaigns() {
 function addCampaign(data: any) {
   throw new Error('Function not implemented.');
 }
+function isActive() {
+  throw new Error('Function not implemented.');
+}
+
+
+function addTwo(num:number):number{
+  return num+2
+}
+console.log("A number is",addTwo);

@@ -6,7 +6,7 @@ export interface ICampaign {
    imageUrl: string;
    startDate:string;
    endDate:string;
-   status:'';
+   status:string;
 }
 
 
