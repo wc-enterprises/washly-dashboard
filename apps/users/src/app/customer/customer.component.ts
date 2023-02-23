@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
+import { ParsedBooking } from './utils/interface';
 
+ 
 @Component({
   selector: 'washly-customer',
   templateUrl: './customer.component.html',
   styleUrls: ['./customer.component.css'],
 })
 export class CustomerComponent {
-
+  bookings: ParsedBooking[] | undefined;
   addNew = false;
   editing = false;
 

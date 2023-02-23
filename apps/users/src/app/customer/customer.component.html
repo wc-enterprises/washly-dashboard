@@ -54,8 +54,8 @@
 
                                 </mat-card-content>
                             </mat-card>
-                            <mat-card id="add-new-service" *ngIf="i === customers.length - 1" (click)="addNewService()">
-                                <mat-card-title id="add-new-label">ADD NEW +</mat-card-title>
+                            <mat-card id="new-customer" *ngIf="i === customers.length - 1" (click)="addNewService()">
+                                <mat-card-title id="new-customer-label">ADD NEW CUSTOMER +</mat-card-title>
                             </mat-card>
                         </div><!--*ngIf=" i === customers.length - 1" (click)="addNewService()" -->
 
@@ -197,16 +197,11 @@
                             </form>
                         </div>
                     </ng-template>
-
                 </div>
-
-
-
-
             </div>
-
-        </div>
+        </div> 
     </div>
 </body>
+
 
 </html>
