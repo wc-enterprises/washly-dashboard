@@ -27,6 +27,8 @@
     "@ngmodule/material-carousel": "^0.6.0",
     "@nrwl/angular": "^15.3.3",
     "angular-image-slider": "0.0.9",
+    "dexie": "^3.2.2",
+    "dexie-observable": "^4.0.1-beta.13",
     "ng-image-slider": "^7.0.0",
     "ngx-bootstrap": "^10.2.0",
     "ngx-slick-carousel": "^0.6.0",
