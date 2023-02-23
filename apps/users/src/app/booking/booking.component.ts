@@ -26,12 +26,10 @@ export class BookingComponent implements OnInit {
     const bookingsStream = this.ws.getBookings();
     if (bookingsStream) {
       bookingsStream.subscribe(async (bookings: Promise<IBooking[]>) => {
-        console.log('Bookings:');
-        console.log(await bookings);
         if (bookings) {
-          console.log('testing');
+          console.log('bookings', bookings);
           const parsedBookings = parseBookings(await bookings);
-          await this.addUniqueData(parsedBookings);
+          await this.addDataToDexie(parsedBookings);
           await this.updateVariables();
         }
       });
@@ -39,20 +37,9 @@ export class BookingComponent implements OnInit {
     this.loadSpinner = false;
   }
 
-  async addUniqueData(data: ParsedBooking[]) {
-    // Check if the data already exists in the database
-    const existingData = await this.db.bookings
-      .where('id')
-      .anyOf(data.map((item) => item.id))
-      .toArray();
-
-    const existingEmails = existingData.map((item) => item.id);
-
-    // Only add data that doesn't already exist in the database
-    const uniqueData = data.filter((item) => !existingEmails.includes(item.id));
-    console.log('uniqueData', uniqueData);
-    if (uniqueData.length) {
-      await this.db.bookings.bulkAdd(uniqueData);
+  async addDataToDexie(data: ParsedBooking[]) {
+    if (data.length) {
+      await this.db.bookings.bulkPut(data);
     }
   }
 
@@ -65,10 +52,7 @@ export class BookingComponent implements OnInit {
     this.ongoingBookings = await this.db.bookings
       .where('status')
       .equals('OUT_FOR_PICKUP')
-      .toArray();
-
-    this.ongoingBookings = await this.db.bookings
-      .where('status')
+      .or('status')
       .equals('LAUNDRY_IN_PROGRESS')
       .toArray();
 
@@ -85,10 +69,7 @@ export class BookingComponent implements OnInit {
     this.rejectedBookings = await this.db.bookings
       .where('status')
       .equals('CANCELLED_BY_ADMIN')
-      .toArray();
-
-    this.rejectedBookings = await this.db.bookings
-      .where('status')
+      .or('status')
       .equals('CANCELLED_BY_CUSTOMER')
       .toArray();
   }

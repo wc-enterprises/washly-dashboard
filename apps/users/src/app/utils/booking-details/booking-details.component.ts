@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { ParsedBooking } from '../../booking/utils/interface';
+import { BookingStatus, ParsedBooking } from '../../booking/utils/interface';
+import { WashlyService } from '../../services/washly.service';
 
 @Component({
   selector: 'washly-booking-details',
@@ -9,9 +10,21 @@ import { ParsedBooking } from '../../booking/utils/interface';
 export class BookingDetailsComponent implements OnChanges {
   @Input()
   bookings: ParsedBooking[] | undefined;
+
+  @Input() tab: string | undefined;
   selectedBooking: ParsedBooking | undefined;
 
-  displayedColumns = ['serviceName', 'noOfItems', 'weightOfItems', 'amount'];
+  showElements = false;
+  showListElements = false;
+
+  displayedColumns = [
+    'serviceName',
+    'category',
+    'unitPrice',
+    'unitOfCalculation',
+    'quantity',
+    'amount',
+  ];
 
   editMode = false;
 
@@ -33,6 +46,8 @@ export class BookingDetailsComponent implements OnChanges {
     }
   }
 
+  constructor(private ws: WashlyService) {}
+
   // objects = [
   //   {billTag: 'Total service amount', billAmount: '20',editing:false},
   //   {billTag: 'Delivery charge', billAmount: '20',editing:false},
@@ -49,18 +64,14 @@ export class BookingDetailsComponent implements OnChanges {
     this.editMode = false;
   }
 
+  deleteBooking() {
+    this.total = 90;
+  }
+
   save() {
     this.editMode = false;
   }
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  // showButton = false;
-  // toggleButton() {
-  //   this.showButton = !this.showButton;
-  // }
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  showElements = false;
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  showListElements = false;
+
   setSelectedBooking(booking: any) {
     if (this.bookings) {
       this.bookings.forEach((booking) => {
@@ -68,421 +79,11 @@ export class BookingDetailsComponent implements OnChanges {
       });
       booking.cardData.selected = true;
       this.selectedBooking = booking;
+      console.log('currently selected booking:', this.selectedBooking);
     }
   }
-}
 
-/**
- * = [
-    {
-      bookingId: 'X78976TY6546I',
-      cardData: {
-        bookingId: 'X78976TY6546I',
-        storeName: 'Guduvanchery washly',
-        date: '2/1/2023',
-        selected: true,
-      },
-      bookingDetails: [
-        {
-          title: 'Booking id',
-          value: 'X78976TY6546I',
-        },
-        {
-          title: 'Customer name',
-          value: 'Sivaraman S',
-        },
-        {
-          title: 'Date',
-          value: '2/1/2023',
-        },
-        {
-          title: 'Store name',
-          value: 'Guduvanchery washly',
-        },
-        {
-          title: 'Status',
-          value: 'PENDING APPROVAL',
-        },
-      ],
-      pickUpAndDeliveryDetails: [
-       
-        {
-          title: 'Pickup timeslot',
-          value: '8AM - 10AM',
-        },
-        {
-          title: 'Delivery timeslot',
-          value: '8AM - 10AM',
-        },
-        {
-          title: 'Pickup address',
-          value: `14/A, East coast street, South west
-          Kotturpalayamkotai, Vikasvendra kundramma puram,
-          Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.  `,
-        },
-        {
-          title: 'Delivery address',
-          value: `14/A, East coast street, South west
-          Kotturpalayamkotai, Vikasvendra kundramma puram,
-          Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.   `,
-        },
-      ],
-      selectedService: [
-        {
-          name: 'Regular Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '122',
-        },
-        {
-          name: 'Ironing',
-          numberOfItems: 7,
-          weight: '21',
-          amount: '232',
-        },
-        {
-          name: 'Dry Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '121',
-        },
-        {
-          name: 'Regular Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '122',
-        },
-        {
-          name: 'Ironing',
-          numberOfItems: 7,
-          weight: '21',
-          amount: '232',
-        },
-        {
-          name: 'Dry Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '121',
-        },
-        {
-          name: 'Regular Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '122',
-        },
-        {
-          name: 'Ironing',
-          numberOfItems: 7,
-          weight: '21',
-          amount: '232',
-        },
-        {
-          name: 'Dry Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '121',
-        },
-        {
-          name: 'Regular Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '122',
-        },
-        {
-          name: 'Ironing',
-          numberOfItems: 7,
-          weight: '21',
-          amount: '232',
-        },
-        {
-          name: 'Dry Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '121',
-        },
-        {
-          name: 'Regular Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '122',
-        },
-        {
-          name: 'Ironing',
-          numberOfItems: 7,
-          weight: '21',
-          amount: '232',
-        },
-        {
-          name: 'Dry Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '121',
-        },
-        {
-          name: 'Regular Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '122',
-        },
-        {
-          name: 'Ironing',
-          numberOfItems: 7,
-          weight: '21',
-          amount: '232',
-        },
-        {
-          name: 'Dry Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '121',
-        },
-      ],
-      bill: {
-        totalServiceAmount: '342',
-        deliveryFee: '50',
-        tax: '23',
-        totalAmount: '415',
-      },
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      cardData: {
-        bookingId: 'X78976TY6546I',
-        storeName: 'Guduvanchery washly',
-        date: '2/1/2023',
-        selected: false,
-      },
-      bookingDetails: [
-        {
-          title: 'Booking id',
-          value: 'X78976TY6546I',
-        },
-        {
-          title: 'Customer name',
-          value: 'Sivaraman S',
-        },
-        {
-          title: 'Date',
-          value: '2/1/2023',
-        },
-        {
-          title: 'Store name',
-          value: 'thambaram washly',
-        },
-        {
-          title: 'Status',
-          value: 'PENDING APPROVAL',
-        },
-      ],
-      pickUpAndDeliveryDetails: [
-       
-        {
-          title: 'Pickup timeslot',
-          value: '8AM - 10AM',
-        },
-        {
-          title: 'Delivery timeslot',
-          value: '10AM - 12AM',
-        },
-        {
-          title: 'Pickup address',
-          value: `14/A, East coast street, South west
-          Kotturpalayamkotai, Vikasvendra kundramma puram,
-          Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.  `,
-        },
-        {
-          title: 'Delivery address',
-          value: `14/A, East coast street, South west
-          Kotturpalayamkotai, Vikasvendra kundramma puram,
-          Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.   `,
-        },
-      ],
-      selectedService: [
-        {
-          name: 'Regular Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '122',
-        },
-        {
-          name: 'Ironing',
-          numberOfItems: 7,
-          weight: '21',
-          amount: '232',
-        },
-        {
-          name: 'Dry Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '121',
-        },
-      ],
-      bill: {
-        totalServiceAmount: '342',
-        deliveryFee: '50',
-        tax: '23',
-        totalAmount: '415',
-      },
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      cardData: {
-        bookingId: 'X78976TY6546I',
-        storeName: 'Guduvanchery washly',
-        date: '2/1/2023',
-        selected: false,
-      },
-      bookingDetails: [
-        {
-          title: 'Booking id',
-          value: 'X78976TY6546I',
-        },
-        {
-          title: 'Customer name',
-          value: 'Sivaraman S',
-        },
-        {
-          title: 'Date',
-          value: '2/1/2023',
-        },
-        {
-          title: 'Store name',
-          value: 'Guduvanchery washly',
-        },
-        {
-          title: 'Status',
-          value: 'PENDING APPROVAL',
-        },
-      ],
-      pickUpAndDeliveryDetails: [
-      
-        {
-          title: 'Pickup timeslot',
-          value: '8AM - 10AM',
-        },
-        {
-          title: 'Delivery timeslot',
-          value: '8AM - 10AM',
-        },
-        {
-          title: 'Pickup address',
-          value: `14/A, East coast street, South west
-          Kotturpalayamkotai, Vikasvendra kundramma puram,
-          Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.  `,
-        }, 
-        {
-          title: 'Delivery address',
-          value: `14/A, East coast street, South west
-          Kotturpalayamkotai, Vikasvendra kundramma puram,
-          Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.   `,
-        },
-      ],
-      selectedService: [
-        {
-          name: 'Regular Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '122',
-        },
-        {
-          name: 'Ironing',
-          numberOfItems: 7,
-          weight: '21',
-          amount: '232',
-        },
-        {
-          name: 'Dry Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '121',
-        },
-      ],
-      bill: {
-        totalServiceAmount: '342',
-        deliveryFee: '50',
-        tax: '23',
-        totalAmount: '415',
-      },
-    },
-    {
-      bookingId: 'X78976TY6546I',
-      cardData: {
-        bookingId: 'X78976TY6546I',
-        storeName: 'Guduvanchery washly',
-        date: '2/1/2023',
-        selected: false,
-      },
-      bookingDetails: [
-        {
-          title: 'Booking id',
-          value: 'X78976TY6546I',
-        },
-        {
-          title: 'Customer name',
-          value: 'Sivaraman S',
-        },
-        {
-          title: 'Date',
-          value: '2/1/2023',
-        },
-        {
-          title: 'Store name',
-          value: 'Guduvanchery washly',
-        },
-        {
-          title: 'Status',
-          value: 'PENDING APPROVAL',
-        },
-      ],
-      pickUpAndDeliveryDetails: [
-        
-        {
-          title: 'Pickup timeslot',
-          value: '8AM - 10AM',
-        },
-        {
-          title: 'Delivery timeslot',
-          value: '8AM - 10AM',
-        },
-        {
-          title: 'Pickup address',
-          value: `14/A, East coast street, South west
-          Kotturpalayamkotai, Vikasvendra kundramma puram,
-          Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.  `,
-        },
-        {
-          title: 'Delivery address',
-          value: `14/A, East coast street, South west
-          Kotturpalayamkotai, Vikasvendra kundramma puram,
-          Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.   `,
-        },
-      ],
-      selectedService: [
-        {
-          name: 'Regular Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '122',
-        },
-        {
-          name: 'Ironing',
-          numberOfItems: 7,
-          weight: '21',
-          amount: '232',
-        },
-        {
-          name: 'Dry Wash',
-          numberOfItems: 7,
-          weight: '12',
-          amount: '121',
-        },
-      ],
-      bill: {
-        totalServiceAmount: '342',
-        deliveryFee: '50',
-        tax: '23',
-        totalAmount: '415',
-      },
-    },
-  ];
- */
+  updateBookingStatus(id: string, status: BookingStatus) {
+    this.ws.updateBookingStatus(id, status);
+  }
+}
