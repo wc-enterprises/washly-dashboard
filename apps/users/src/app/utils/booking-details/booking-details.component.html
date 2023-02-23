@@ -203,286 +203,114 @@
             <div style="flex: 0.85; text-align: right; margin-top: 1.3vh">
               Total service amount (in Rs)
             </div>
-            <<<<<<< HEAD
-            <div class="bill-contents">
-              <mat-table
-                [dataSource]="selectedBooking.selectedService"
-                class="service-table"
+            <div class="input-box">
+              <div
+                style="margin-top: 1.3vh"
+                *ngIf="!editMode; else editTemplate"
               >
-                <ng-container style="width: 40%" matColumnDef="serviceName">
-                  <mat-header-cell
-                    style="border-radius: 5px 0 0 5px"
-                    class="table-header-cell"
-                    *matHeaderCellDef
-                  >
-                    Service Name
-                  </mat-header-cell>
-                  <mat-cell *matCellDef="let element">
-                    {{ element.name }}
-                  </mat-cell>
-                </ng-container>
-
-                <ng-container matColumnDef="noOfItems">
-                  <mat-header-cell class="table-header-cell" *matHeaderCellDef>
-                    No. of Items
-                  </mat-header-cell>
-                  <mat-cell *matCellDef="let element">
-                    {{ element.numberOfItems }}
-                  </mat-cell>
-                </ng-container>
-
-                <ng-container matColumnDef="weightOfItems">
-                  <mat-header-cell class="table-header-cell" *matHeaderCellDef>
-                    Weight of Items (in kg)
-                  </mat-header-cell>
-                  <mat-cell *matCellDef="let element">
-                    <div *ngIf="!editMode; else editTemplate">
-                      {{ element.weight }}
-                    </div>
-                    <ng-template #editTemplate>
-                      <input
-                        class="edit-box"
-                        type="text"
-                        [(ngModel)]="element.weight"
-                      />
-                    </ng-template>
-                  </mat-cell>
-                </ng-container>
-
-                <ng-container matColumnDef="amount">
-                  <mat-header-cell
-                    style="border-radius: 0 5px 5px 0"
-                    class="table-header-cell"
-                    *matHeaderCellDef
-                  >
-                    Amount (in Rs)
-                  </mat-header-cell>
-
-                  <mat-cell *matCellDef="let element">
-                    <div *ngIf="!editMode; else editTemplate">
-                      {{ element.amount }}
-                    </div>
-                    <ng-template #editTemplate>
-                      <input
-                        class="edit-box"
-                        type="text"
-                        [(ngModel)]="element.amount"
-                      />
-                    </ng-template>
-                  </mat-cell>
-                </ng-container>
-
-                <mat-header-row
-                  *matHeaderRowDef="displayedColumns"
-                ></mat-header-row>
-                <mat-row
-                  *matRowDef="let row; columns: displayedColumns"
-                ></mat-row>
-              </mat-table>
-              <div id="final-bill">
-                <div class="bill-item">
-                  <div style="flex: 0.85; text-align: right; margin-top: 1.3vh">
-                    Total service amount (in Rs)
-                  </div>
-                  <div class="input-box">
-                    <div
-                      style="margin-top: 1.3vh"
-                      *ngIf="!editMode; else editTemplate"
-                    >
-                      {{ selectedBooking.bill.totalServiceAmount }}
-                    </div>
-                    <ng-template #editTemplate>
-                      <input
-                        class="edit-box"
-                        type="text"
-                        [(ngModel)]="selectedBooking.bill.totalServiceAmount"
-                      />
-                    </ng-template>
-                  </div>
-                </div>
-                <div class="bill-item">
-                  <div style="flex: 0.85; text-align: right; margin-top: 1.3vh">
-                    Delivery charges
-                  </div>
-                  <div class="input-box">
-                    <div
-                      style="margin-top: 1.3vh"
-                      *ngIf="!editMode; else editTemplate"
-                    >
-                      {{ selectedBooking.bill.totalServiceAmount }}
-                    </div>
-                    <ng-template #editTemplate>
-                      <input
-                        class="edit-box"
-                        type="text"
-                        [(ngModel)]="selectedBooking.bill.totalServiceAmount"
-                      />
-                    </ng-template>
-                  </div>
-                </div>
-                <div class="bill-item">
-                  <div style="flex: 0.85; text-align: right; margin-top: 1.3vh">
-                    GST
-                  </div>
-                  <div class="input-box">
-                    <div
-                      style="margin-top: 1.3vh"
-                      *ngIf="!editMode; else editTemplate"
-                    >
-                      {{ selectedBooking.bill.totalServiceAmount }}
-                    </div>
-                    <ng-template #editTemplate>
-                      <input
-                        class="edit-box"
-                        type="text"
-                        [(ngModel)]="selectedBooking.bill.totalServiceAmount"
-                      />
-                    </ng-template>
-                  </div>
-                </div>
-                <div
-                  class="bill-item"
-                  style="
-                    margin-top: 3vh;
-                    margin-bottom: 2vh;
-                    border-top: 1px solid black;
-                  "
-                >
-                  <div style="flex: 0.85; text-align: right; margin-top: 1.3vh">
-                    Total Amount
-                  </div>
-                  <div class="input-box">
-                    <div
-                      style="margin-top: 1.3vh"
-                      *ngIf="!editMode; else editTemplate"
-                    >
-                      {{ selectedBooking.bill.totalServiceAmount }}
-                    </div>
-                    <ng-template #editTemplate>
-                      <input
-                        class="edit-box"
-                        type="text"
-                        [(ngModel)]="selectedBooking.bill.totalServiceAmount"
-                      />
-                    </ng-template>
-                  </div>
-                </div>
-                <ng-container style="margin-top: 2vh" *ngIf="editMode">
-                  <button id="save-button" (click)="save()">Save</button>
-                </ng-container>
+                {{ selectedBooking.bill.totalServiceAmount }}
               </div>
-              =======
-              <div class="input-box">
-                <div
-                  style="margin-top: 1.3vh"
-                  *ngIf="!editMode; else editTemplate"
-                >
-                  {{ selectedBooking.bill.totalServiceAmount }}
-                </div>
-                <ng-template #editTemplate>
-                  <input
-                    class="edit-box"
-                    type="text"
-                    [(ngModel)]="selectedBooking.bill.totalServiceAmount"
-                  />
-                </ng-template>
-              </div>
+              <ng-template #editTemplate>
+                <input
+                  class="edit-box"
+                  type="text"
+                  [(ngModel)]="selectedBooking.bill.totalServiceAmount"
+                />
+              </ng-template>
             </div>
-            <div class="bill-item">
-              <div style="flex: 0.85; text-align: right; margin-top: 1.3vh">
-                Delivery charges
-              </div>
-              <div class="input-box">
-                <div
-                  style="margin-top: 1.3vh"
-                  *ngIf="!editMode; else editTemplate"
-                >
-                  {{ selectedBooking.bill.totalServiceAmount }}
-                </div>
-                <ng-template #editTemplate>
-                  <input
-                    class="edit-box"
-                    type="text"
-                    [(ngModel)]="selectedBooking.bill.totalServiceAmount"
-                  />
-                </ng-template>
-              </div>
-            </div>
-            <div class="bill-item">
-              <div style="flex: 0.85; text-align: right; margin-top: 1.3vh">
-                GST
-              </div>
-              <div class="input-box">
-                <div
-                  style="margin-top: 1.3vh"
-                  *ngIf="!editMode; else editTemplate"
-                >
-                  {{ selectedBooking.bill.totalServiceAmount }}
-                </div>
-                <ng-template #editTemplate>
-                  <input
-                    class="edit-box"
-                    type="text"
-                    [(ngModel)]="selectedBooking.bill.totalServiceAmount"
-                  />
-                </ng-template>
-              </div>
-            </div>
-            <div
-              class="bill-item"
-              style="
-                margin-top: 3vh;
-                margin-bottom: 2vh;
-                border-top: 1px solid black;
-              "
-            >
-              <div style="flex: 0.85; text-align: right; margin-top: 1.3vh">
-                Total Amount >>>>>>> f220514940674b9fbbf1646a8192f7cc14c1df5b
-              </div>
-              <div class="input-box">
-                <div
-                  style="margin-top: 1.3vh"
-                  *ngIf="!editMode; else editTemplate"
-                >
-                  {{ selectedBooking.bill.totalServiceAmount }}
-                </div>
-                <ng-template #editTemplate>
-                  <input
-                    class="edit-box"
-                    type="text"
-                    [(ngModel)]="selectedBooking.bill.totalServiceAmount"
-                  />
-                </ng-template>
-              </div>
-            </div>
-            <ng-container style="margin-top: 2vh" *ngIf="editMode">
-              <button id="save-button" (click)="save()">Save</button>
-            </ng-container>
           </div>
-        </div>
-
-        <!-- APPROVE BUTTON-->
-        <div id="approve-reject-box" style="padding-top: 2vh">
-          <div class="approve-button-box">
-            <button
-              class="approve-button"
-              (click)="
-                updateBookingStatus(selectedBooking.id, 'OUT_FOR_PICKUP')
-              "
-            >
-              APPROVE
-            </button>
-            <mat-icon id="drop-down-logo" (click)="showElements = !showElements"
-              >arrow_drop_down</mat-icon
-            >
+          <div class="bill-item">
+            <div style="flex: 0.85; text-align: right; margin-top: 1.3vh">
+              Delivery charges
+            </div>
+            <div class="input-box">
+              <div
+                style="margin-top: 1.3vh"
+                *ngIf="!editMode; else editTemplate"
+              >
+                {{ selectedBooking.bill.totalServiceAmount }}
+              </div>
+              <ng-template #editTemplate>
+                <input
+                  class="edit-box"
+                  type="text"
+                  [(ngModel)]="selectedBooking.bill.totalServiceAmount"
+                />
+              </ng-template>
+            </div>
           </div>
-          <button *ngIf="showElements" class="reject-button">REJECT</button>
+          <div class="bill-item">
+            <div style="flex: 0.85; text-align: right; margin-top: 1.3vh">
+              GST
+            </div>
+            <div class="input-box">
+              <div
+                style="margin-top: 1.3vh"
+                *ngIf="!editMode; else editTemplate"
+              >
+                {{ selectedBooking.bill.totalServiceAmount }}
+              </div>
+              <ng-template #editTemplate>
+                <input
+                  class="edit-box"
+                  type="text"
+                  [(ngModel)]="selectedBooking.bill.totalServiceAmount"
+                />
+              </ng-template>
+            </div>
+          </div>
+          <div
+            class="bill-item"
+            style="
+              margin-top: 3vh;
+              margin-bottom: 2vh;
+              border-top: 1px solid black;
+            "
+          >
+            <div style="flex: 0.85; text-align: right; margin-top: 1.3vh">
+              Total Amount
+            </div>
+            <div class="input-box">
+              <div
+                style="margin-top: 1.3vh"
+                *ngIf="!editMode; else editTemplate"
+              >
+                {{ selectedBooking.bill.totalServiceAmount }}
+              </div>
+              <ng-template #editTemplate>
+                <input
+                  class="edit-box"
+                  type="text"
+                  [(ngModel)]="selectedBooking.bill.totalServiceAmount"
+                />
+              </ng-template>
+            </div>
+          </div>
+          <ng-container style="margin-top: 2vh" *ngIf="editMode">
+            <button id="save-button" (click)="save()">Save</button>
+          </ng-container>
         </div>
+      </div>
+
+      <!-- APPROVE BUTTON-->
+      <div id="approve-reject-box" style="padding-top: 2vh">
+        <div class="approve-button-box">
+          <button
+            class="approve-button"
+            (click)="updateBookingStatus(selectedBooking.id, 'OUT_FOR_PICKUP')"
+          >
+            APPROVE
+          </button>
+          <mat-icon id="drop-down-logo" (click)="showElements = !showElements"
+            >arrow_drop_down</mat-icon
+          >
+        </div>
+        <button *ngIf="showElements" class="reject-button">REJECT</button>
       </div>
     </div>
   </div>
-
-  <ng-template #emptyBooking style="height: 100vh">
-    <washly-empty-screen></washly-empty-screen>
-  </ng-template>
 </div>
+
+<ng-template #emptyBooking style="height: 100vh">
+  <washly-empty-screen></washly-empty-screen>
+</ng-template>
