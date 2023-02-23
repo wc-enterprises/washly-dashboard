@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'washly-executive',
@@ -6,10 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./executive.component.css'],
 })
 export class ExecutiveComponent {
-
   addNew = false;
   editing = false;
-
 
   executives = [
     {
@@ -18,7 +17,6 @@ export class ExecutiveComponent {
       cardData: {
         Name: 'Harish',
         no: '9790909162',
-
       },
       executivesDetails: [
         {
@@ -37,16 +35,12 @@ export class ExecutiveComponent {
           title: 'Store name',
           value: 'Guduvanchery',
         },
-
       ],
       contact: [
-
         {
           title: 'Phone number',
           value: '9790909162',
         },
-
-
       ],
       address: [
         {
@@ -72,7 +66,6 @@ export class ExecutiveComponent {
       cardData: {
         Name: 'Abin',
         no: '9987654321',
-
       },
       executivesDetails: [
         {
@@ -91,16 +84,12 @@ export class ExecutiveComponent {
           title: 'Store name',
           value: 'Guduvanchery',
         },
-
       ],
       contact: [
-
         {
           title: 'Phone number',
           value: '9987654321',
         },
-
-
       ],
       address: [
         {
@@ -117,7 +106,6 @@ export class ExecutiveComponent {
         },
       ],
     },
-
 
     // 3rdexecutives
 
@@ -146,16 +134,12 @@ export class ExecutiveComponent {
           title: 'Store name',
           value: 'Guduvanchery',
         },
-
       ],
       contact: [
-
         {
           title: 'Phone number',
           value: '1234567890',
         },
-
-
       ],
       address: [
         {
@@ -173,7 +157,6 @@ export class ExecutiveComponent {
       ],
     },
 
-
     // 4th executives
 
     {
@@ -182,7 +165,6 @@ export class ExecutiveComponent {
       cardData: {
         Name: 'Madan',
         no: '9234567890',
-
       },
       executivesDetails: [
         {
@@ -201,16 +183,12 @@ export class ExecutiveComponent {
           title: 'Store name',
           value: 'Guduvanchery',
         },
-
       ],
       contact: [
-
         {
           title: 'Phone number',
           value: '9234567890',
         },
-
-
       ],
       address: [
         {
@@ -234,7 +212,6 @@ export class ExecutiveComponent {
       cardData: {
         Name: 'Nivetha',
         no: '1234567890',
-
       },
       executivesDetails: [
         {
@@ -253,16 +230,12 @@ export class ExecutiveComponent {
           title: 'Store name',
           value: 'Guduvanchery',
         },
-
       ],
       contact: [
-
         {
           title: 'Phone number',
           value: '1234567890',
         },
-
-
       ],
       address: [
         {
@@ -279,7 +252,6 @@ export class ExecutiveComponent {
         },
       ],
     },
-
 
     //     {
     //     customerId: 'X78976TY6546I',
@@ -314,7 +286,6 @@ export class ExecutiveComponent {
     //         title: 'Phone number',
     //         value: '1234567890',
     //       },
-
 
     //     ],
     //     address: [
@@ -367,7 +338,6 @@ export class ExecutiveComponent {
     //         value: '1234567890',
     //       },
 
-
     //     ],
     //     address: [
     //  {
@@ -419,7 +389,6 @@ export class ExecutiveComponent {
     //         value: '1234567890',
     //       },
 
-
     //     ],
     //     address: [
     //  {
@@ -436,10 +405,7 @@ export class ExecutiveComponent {
     //       },
     //     ],
     //   },
-
-
-  ]
-
+  ];
 
   selectedexecutives = this.executives[0];
   showdetails = false;
@@ -452,51 +418,49 @@ export class ExecutiveComponent {
     this.selectedexecutives = executives;
   }
 
-
   onSubmit(data: any) {
+    console.log('Form submitted and the data received is:', data);
     this.addNew = false;
 
     data = {
       name: data.name,
       selected: true,
-      dataToDisplay: [
+      cardData: {
+        Name: data.name,
+        no: data.number,
+      },
+      executivesDetails: [
         {
           title: 'Executives name',
           value: data.name,
         },
         {
+          title: 'Executives ID',
+          value: `e_` + uuidv4(),
+        },
+        { title: 'Status', value: `Active` },
+        {
           title: 'Store name',
           value: data.storename,
         },
+      ],
+      contact: [
         {
           title: 'Phone number',
-          value: data.number
+          value: data.number,
         },
+      ],
+      address: [
         {
-          title: 'Address line1',
-          value: data.line1,
+          title: 'Home',
+          value:
+            data.line1 +
+            data.line2 +
+            data.line3 +
+            data.city +
+            data.state +
+            data.pincode,
         },
-        {
-          title: 'Address line2',
-          value: data.line2,
-        },
-        {
-          title: 'Address line3',
-          value: data.line3,
-        },
-        {
-          title: 'City',
-          value: data.city,
-        },
-        {
-          title: 'State',
-          value: data.state,
-        },
-        {
-          title: 'Pincode',
-          value: data.pincode,
-        },
-
       ],
     };
 
@@ -505,16 +469,14 @@ export class ExecutiveComponent {
     this.executives.push(data);
   }
 
-  addNewService() {
+  addNewExecutive() {
     this.executives.forEach((item) => (item.selected = false));
     this.addNew = true;
   }
+
   cancelAddForm() {
     this.selectedexecutives = this.executives[0];
     this.selectedexecutives.selected = true;
     this.addNew = false;
   }
-
-
-
 }
