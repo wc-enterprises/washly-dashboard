@@ -60,12 +60,9 @@ export class CampaignComponent implements OnInit {
     } else {
       return 'Inactive';
     }
-   
-  }
+   }
   
-  
-
-  setSelectedcampaign(data: any) {
+   setSelectedcampaign(data: any) {
     if (this.campaign) {
       this.campaign.forEach((item) => {
         item.selected = false;

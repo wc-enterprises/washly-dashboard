@@ -1,7 +1,9 @@
-<div class="main">
+<div class="main" *ngIf="
+this.service && this.service.length && this.displayedData;
+else emptyScreen">
     <div class="card-list">
         <div *ngFor="let item of service; let i = index" class="card-container">
-            <mat-card class="card" [ngClass]="{ selected: item.selected }" (click)="setSelectedBooking(item)">
+            <mat-card class="card" [ngClass]="{ selected: item.selected }" (click)="setSelectedService(item)">
                 <mat-card-title class="card-title">{{ item.name }}</mat-card-title>
                 <mat-icon id="edit-icon" (click)="editService()">mode_edit</mat-icon>
 
@@ -20,13 +22,13 @@
                 <mat-icon class="cancel-icon" (click)="cancelEditing()">clear</mat-icon>
             </div>
             <div style="display: flex; justify-content: space-between; padding: 2% 0"
-                *ngFor="let serviceData of displayedData.dataToDisplay">
-                <div class="key">{{ serviceData.title }}</div>
+                *ngFor="let dataToDisplay of displayedData.dataToDisplay">
+                <div class="key">{{ dataToDisplay.title }}</div>
 
                 <div class="value">
-                    <input class="edit-box" *ngIf="editing; else name" type="text" [(ngModel)]="serviceData.value"
+                    <input class="edit-box" *ngIf="editing; else name" type="text" [(ngModel)]="dataToDisplay.value"
                         required />
-                    <ng-template #name>{{ serviceData.value }}</ng-template>
+                    <ng-template #name>{{ dataToDisplay.value }}</ng-template>
                 </div>
             </div>
 
@@ -41,7 +43,7 @@
             flex-direction: column;
             justify-content: space-between;
             padding: 2% 0;
-          " #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
+          " #formRef="ngForm" (ngSubmit)="addService(formRef.value)">
                     <div style="text-align: right; width: 32vw; margin-bottom: 2vh">
                         <mat-icon class="cancel-icon" (click)="cancelAddForm()">clear</mat-icon>
                     </div>
@@ -75,3 +77,6 @@
 
 <washly-app-delete-confirmation-modal *ngIf="isModalActive" (closePopup)="closeDeleteConfirmationModal()"
     (delete)="deleteData()"></washly-app-delete-confirmation-modal>
+<ng-template #emptyScreen>
+    <p>NO data</p>
+</ng-template>

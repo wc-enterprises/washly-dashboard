@@ -6,6 +6,8 @@ import { lastValueFrom, map, Observable } from 'rxjs';
 import { IBooking, ICustomer, IStore } from '../booking/utils/interface';
 import { ICampaign } from '../campaign/utils/interface';
 import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv5} from 'uuid';
+import { IProduct } from '../service-page/utils/interface';
 
 @Injectable()
 export class WashlyService {
@@ -84,7 +86,7 @@ export class WashlyService {
       .doc(campaignData.id)
       .set(campaignData);
     console.log(
-      'CAmpaign saved successfully to firestore and the response is:',
+      'Campaign saved successfully to firestore and the response is:',
       res
     );
   }
@@ -104,4 +106,41 @@ export class WashlyService {
   console.log("Firebase response:", response);
      
   }
+  async createService() {
+    console.log('Creating new service function called.');
+    const serviceData = {
+      id: `c_${uuidv5()}`,
+     name:'dry wash',
+     category:'shirt',
+     unitPrice:'9',
+     unitOfCalculation:'10',
+     quantity:'4',
+     amount:'6',
+    };
+    const res = await this.afs
+      .collection('service')
+      .doc(serviceData.id)
+      .set(serviceData);
+    console.log(
+      'service saved successfully to firestore and the response is:',
+      res
+    );
+  }
+
+  getService(): Observable<IProduct[]> | null {
+    const res = this.afs.collection<IProduct>('services').valueChanges();
+
+    return res;
+  }
+
+ async addService(data: IProduct) {
+  console.log("Received request to store service")
+   const response = await  this.afs
+      .collection('services')
+      .add(data);
+    
+  console.log("Firebase response:", response);
+     
+  }
+
 }

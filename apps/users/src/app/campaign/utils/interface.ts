@@ -8,8 +8,6 @@ export interface ICampaign {
    endDate:string;
    status:string;
 }
-
-
 export interface ParsedCampaign {
    id:string;
       heading:string;
