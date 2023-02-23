@@ -10,17 +10,13 @@
     padding-top: 3vh;
     padding-bottom: 7vh;
     overflow: scroll;
-    
 }
 
 .card-container {
     padding: 2vh 2.5vh 0 5vh;
-    /* align the elements in the card horizontally */
 }
 
 .card {
-    /* box-sizing: border-box;
-  */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -43,6 +39,7 @@
     width: 70%;
     /* specify the width of the text element */
 }
+
 #edit-icon {
     font-size: large;
     margin-top: 5px;
@@ -81,14 +78,12 @@
     width: 50%;
     text-align: left;
     color: rgba(255, 255, 255, 0.65);
-   
 }
 
 .value {
     width: 50%;
     text-align: left;
     color: white;
-   
 }
 
 #edit-icon {
@@ -98,7 +93,7 @@
 
 .delete-icon {
     font-size: large;
-    padding-top:5px;
+    padding-top: 5px;
 }
 
 .cancel-icon {
@@ -154,6 +149,7 @@
     align-self: center;
     margin-top: 2vh;
 }
+
 #add-new-label {
     margin-top: 1.1vh;
     font-weight: 500;
@@ -164,6 +160,7 @@
     /* This will center the text vertically */
     justify-content: center;
 }
+
 #add-new-service {
     cursor: pointer;
     margin-top: 3vh;
@@ -173,27 +170,24 @@
     background-color: rgba(33, 36, 39, 0.95);
 }
 
-@media screen and (max-width:1370px) {
-  .card-list::-webkit-scrollbar{
-    display: none;
-    
-  }
-  #add-new-label {
-    margin-top: 0.5vh;
-    
-}
-  .key {
-margin-left: 3vw;
-}
+@media screen and (max-width: 1370px) {
+    .card-list::-webkit-scrollbar {
+        display: none;
+    }
+    #add-new-label {
+        margin-top: 0.5vh;
+    }
+    .key {
+        margin-left: 3vw;
+    }
 }
 
-@media screen and (max-width:1540px) {
-  .card-list::-webkit-scrollbar{
-    display: none;
-    
-  }
-   .key {
-margin-left: 3vw;
-font-size: large;
-}
+@media screen and (max-width: 1540px) {
+    .card-list::-webkit-scrollbar {
+        display: none;
+    }
+    .key {
+        margin-left: 3vw;
+        font-size: large;
+    }
 }
