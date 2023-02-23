@@ -1,6 +1,6 @@
 import {
-  IBill,
   IBooking,
+  IProduct,
   ISelectedService,
   ParsedBooking,
   ParsedSelectedService,
@@ -13,6 +13,7 @@ export function parseBookings(bookings: IBooking[]): ParsedBooking[] {
       status: booking.status,
       cardData: {
         id: booking.id,
+        customerName: booking.customer.name,
         storeName: booking.store.name,
         date: booking.date,
         selected: false,
@@ -65,7 +66,7 @@ export function parseBookings(bookings: IBooking[]): ParsedBooking[] {
           value: Object.values(booking.deliveryAddress).join(','),
         },
       ],
-      selectedService: parseSelectedService(booking.services),
+      selectedService: parseSelectedService(booking.products),
       bill: {
         totalServiceAmount: '-',
         deliveryFee: '-',
@@ -80,14 +81,14 @@ export function parseBookings(bookings: IBooking[]): ParsedBooking[] {
   return parsedBookings;
 }
 
-function parseSelectedService(
-  data: ISelectedService[]
-): ParsedSelectedService[] {
+function parseSelectedService(data: IProduct[]): ParsedSelectedService[] {
   return data.map((item) => {
     return {
       name: item.name,
-      numberOfItems: item.numberOfItems,
-      weight: item.weight?.toString() || '-',
+      category: item.category,
+      unitPrice: item.unitPrice,
+      unitOfCalculation: item.unitOfCalculation,
+      quantity: item.quantity?.toString() || '-',
       amount: item.amount?.toString() || '-',
     };
   });

@@ -3,7 +3,12 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { lastValueFrom, map, Observable } from 'rxjs';
-import { IBooking, ICustomer, IStore } from '../booking/utils/interface';
+import {
+  BookingStatus,
+  IBooking,
+  ICustomer,
+  IStore,
+} from '../booking/utils/interface';
 
 @Injectable()
 export class WashlyService {
@@ -24,14 +29,25 @@ export class WashlyService {
     }
   }
 
-  // get data from Cloud Firestore
+  // update booking status
+  async updateBookingStatus(bookingId: string, status: BookingStatus) {
+    console.log('update booking status called:', bookingId, status);
+    const bookingRef = this.afs.collection<IBooking>('bookings').doc(bookingId);
+    console.log('bookingRef', bookingRef);
+    const t = await bookingRef.update({ status });
+    console.log('response of update booking', t);
+    return t;
+  }
+
+  // get bookings from Cloud Firestore
   getBookings(): Observable<Promise<IBooking[]>> | null {
     try {
       const res = this.afs
-        .collection<IBooking>('bookings')
+        .collectionGroup<IBooking>('user_bookings_test')
         .valueChanges()
         .pipe(
           map(async (bookings) => {
+            console.log('bookings taken from user_bookings', bookings);
             for (const booking of bookings) {
               const customer$ = this.afs
                 .collection<ICustomer>('customers')
