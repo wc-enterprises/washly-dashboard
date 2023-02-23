@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ParsedBooking } from './utils/interface';
 
-
+ 
 @Component({
   selector: 'washly-customer',
   templateUrl: './customer.component.html',

@@ -9,7 +9,7 @@ import { classifyBookings, parseBookings } from './utils/util';
   styleUrls: ['./booking.component.css'],
 })
 export class BookingComponent implements OnInit {
-  constructor(private ws: WashlyService) {}
+  constructor(private ws: WashlyService) { }
 
   loadSpinner = true;
   pendingBookings: ParsedBooking[] | undefined;
