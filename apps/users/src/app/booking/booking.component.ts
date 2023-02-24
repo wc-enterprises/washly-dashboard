@@ -71,6 +71,6 @@ export class BookingComponent implements OnInit {
       .equals('CANCELLED_BY_ADMIN')
       .or('status')
       .equals('CANCELLED_BY_CUSTOMER')
-      .toArray(s);
+      .toArray();
   }
 }
