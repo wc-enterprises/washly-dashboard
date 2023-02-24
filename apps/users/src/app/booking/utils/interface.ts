@@ -9,19 +9,20 @@ export type BookingStatus =
 
 export interface IBooking {
   id: string;
-  pickTimeSlot: string;
+  pickUpTimeSlot: string;
   pickUpAddress: IAddress;
   deliveryAddress: IAddress;
   deliveryTimeSlot: string;
   date: string;
-  customerId: string;
   customer: any;
-  storeId: string;
   store: any;
+  customerId: string;
+  storeId: string;
   status: BookingStatus;
-  services: ISelectedService[];
+  products: IProduct[];
   pickupPartnerId?: string;
   deliveryPartnerId?: string;
+  deliveryInstructions?: string[];
   /**
    * pickUpTimestamp and deliveryTimestamp can be
    * used later when delivery partner uses the
@@ -30,6 +31,16 @@ export interface IBooking {
   pickUpTimestamp?: string; // next release
   deliveryTimestamp?: string; // next release
   bill?: IBill;
+}
+
+export interface IProduct {
+  id: string;
+  name: string; // Regular Wash upto 4kg , Detol wash
+  category: string; // WASHING, ADDON , DRY_CLEANING
+  unitPrice: number;
+  unitOfCalculation: string; //"kg | units | sq.ft"
+  quantity?: number;
+  amount?: number;
 }
 
 export interface IAddress {
@@ -68,6 +79,7 @@ export interface ParsedBooking {
   id: string;
   status: BookingStatus;
   cardData: {
+    customerName: string;
     id: string;
     storeName: string;
     date: string;
@@ -92,8 +104,10 @@ export interface ParsedBooking {
 
 export interface ParsedSelectedService {
   name: string;
-  numberOfItems: number;
-  weight: string;
+  category: string;
+  unitPrice: number;
+  unitOfCalculation: string;
+  quantity: string;
   amount: string;
 }
 

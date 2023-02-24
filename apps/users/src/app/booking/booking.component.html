@@ -1,57 +1,76 @@
 <html>
-
-<head>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&family=Lato:wght@700&family=Open+Sans:wght@600&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&family=Lato:wght@700&family=Open+Sans:wght@600&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="outerbox">
-        <div class="nav-bar">
-            <washly-nav-bar></washly-nav-bar>
+      <div class="nav-bar">
+        <washly-nav-bar></washly-nav-bar>
+      </div>
+
+      <!-- main con start div -->
+      <div class="main-container">
+        <div style="display: flex">
+          <washly-header
+            [heading]="'Bookings'"
+            [loadSpinner]="this.loadSpinner"
+          ></washly-header>
         </div>
 
-        <!-- main con start div -->
-        <div class="main-container">
-            <div style="display: flex">
-                <washly-header [heading]="'Bookings'" [loadSpinner]="this.loadSpinner"></washly-header>
-            </div>
+        <div class="main-content">
+          <mat-tab-group class="mat-tab-group">
+            <mat-tab label="Pending" class="mat-tab">
+              <div class="tab-area">
+                <washly-booking-details
+                  [bookings]="this.pendingBookings"
+                  [tab]="'Pending'"
+                ></washly-booking-details>
+              </div>
+            </mat-tab>
+            <mat-tab label="Ongoing">
+              <div>
+                <washly-booking-details
+                  [bookings]="this.ongoingBookings"
+                  [tab]="'Ongoing'"
+                ></washly-booking-details>
+              </div>
+            </mat-tab>
+            <mat-tab label="Out for delivery">
+              <div>
+                <washly-booking-details
+                  [bookings]="this.outForDeliveryBookings"
+                  [tab]="'Out for Delivery'"
+                ></washly-booking-details>
+              </div>
+            </mat-tab>
+            <mat-tab label="Completed">
+              <div>
+                <washly-booking-details
+                  [bookings]="this.completedBookings"
+                  [tab]="'Completed'"
+                ></washly-booking-details>
+              </div>
+            </mat-tab>
+            <mat-tab label="Rejected">
+              <div>
+                <washly-booking-details
+                  [bookings]="this.rejectedBookings"
+                  [tab]="'Rejected'"
+                ></washly-booking-details>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
 
-            <div class="main-content">
-                <mat-tab-group class="mat-tab-group">
-                    <mat-tab label="Pending" class="mat-tab">
-                        <div class="tab-area">
-                            <washly-booking-details [bookings]="this.pendingBookings"></washly-booking-details>
-                        </div>
-                    </mat-tab>
-                    <mat-tab label="Ongoing">
-                        <div>
-                            <washly-booking-details [bookings]="this.ongoingBookings"></washly-booking-details>
-                        </div>
-                    </mat-tab>
-                    <mat-tab label="Out for delivery">
-                        <div>
-                            <washly-booking-details [bookings]="this.outForDeliveryBookings"></washly-booking-details>
-                        </div>
-                    </mat-tab>
-                    <mat-tab label="Completed">
-                        <div>
-                            <washly-booking-details [bookings]="this.completedBookings"></washly-booking-details>
-                        </div>
-                    </mat-tab>
-                    <mat-tab label="Rejected">
-                        <div>
-                            <washly-booking-details [bookings]="this.rejectedBookings"></washly-booking-details>
-                        </div>
-                    </mat-tab>
-                </mat-tab-group>
-            </div>
-
-            <!-- <ng-template #loadScreen>
+        <!-- <ng-template #loadScreen>
                 <div class="loading-spinner"></div>
             </ng-template> -->
-        </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>

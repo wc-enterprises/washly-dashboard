@@ -211,7 +211,7 @@ export class ServicePageComponent {
 
   cancelAddForm() {
     if (this.service){
-    this.displayedData = this.service[0];
+    this.displayedData = this.service[0]; 
     this.displayedData.selected = true;
     this.addNew = false;
   }

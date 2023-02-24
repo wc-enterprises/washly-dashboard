@@ -44,6 +44,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from '../environments/environment';
 import { WashlyService } from './services/washly.service';
 import { EmptyScreenComponent } from './utils/empty-screen/empty-screen.component';
+import { AppDB } from './services/db';
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,7 +89,7 @@ import { EmptyScreenComponent } from './utils/empty-screen/empty-screen.componen
     AngularFirestoreModule,
     AngularFireAuthModule,
   ],
-  providers: [WashlyService],
+  providers: [WashlyService, AppDB],
   bootstrap: [AppComponent],
 })
 export class AppModule {
