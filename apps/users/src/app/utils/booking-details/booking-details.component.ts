@@ -2,6 +2,13 @@ import { Component, Input, OnChanges } from '@angular/core';
 import { BookingStatus, ParsedBooking } from '../../booking/utils/interface';
 import { WashlyService } from '../../services/washly.service';
 
+type Tab =
+  | 'PENDING'
+  | 'ONGOING'
+  | 'OUT_FOR_DELIVERY'
+  | 'COMPLETED'
+  | 'REJECTED';
+
 @Component({
   selector: 'washly-booking-details',
   templateUrl: './booking-details.component.html',
@@ -11,7 +18,8 @@ export class BookingDetailsComponent implements OnChanges {
   @Input()
   bookings: ParsedBooking[] | undefined;
 
-  @Input() tab: string | undefined;
+  @Input() tab: Tab | undefined;
+
   selectedBooking: ParsedBooking | undefined;
 
   showElements = false;
