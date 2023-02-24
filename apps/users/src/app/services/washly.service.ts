@@ -3,7 +3,9 @@ import { ComponentFactoryResolver, Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { lastValueFrom, map, Observable } from 'rxjs';
-import { IBooking, ICustomer, IStore } from '../booking/utils/interface';
+import { BookingStatus, IBooking, ICustomer, IProduct, IStore } from '../booking/utils/interface';
+import { ICampaign } from '../campaign/utils/interface';
+import { uuidv4 } from '@firebase/util';
 
 @Injectable()
 export class WashlyService {
@@ -116,7 +118,7 @@ export class WashlyService {
   async createService() {
     console.log('Creating new service function called.');
     const serviceData = {
-      id: `c_${uuidv5()}`,
+      id: `c_${uuidv4()}`,
      name:'dry wash',
      category:'shirt',
      unitPrice:'9',
