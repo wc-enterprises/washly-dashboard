@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
-import { ParsedBooking } from './utils/interface';
+import { ICustomer } from './utils/interface';
+import { v4 as uuidv4 } from 'uuid';
 
- 
+
 @Component({
   selector: 'washly-customer',
   templateUrl: './customer.component.html',
   styleUrls: ['./customer.component.css'],
 })
 export class CustomerComponent {
-  bookings: ParsedBooking[] | undefined;
   addNew = false;
   editing = false;
+  fbcustomer: ICustomer[] | undefined;
 
 
   customers = [
@@ -281,165 +282,6 @@ export class CustomerComponent {
         },
       ],
     },
-
-
-    //     {
-    //     customerId: 'X78976TY6546I',
-    //      selected: false,
-    //     cardData: {
-    //       Name: 'Akash',
-    //       no: '1234567890',
-
-    //     },
-    //     customerDetails: [
-    //       {
-    //         title: 'Customer name',
-    //         value: 'Akash',
-    //       },
-    //       {
-    //         title: 'Status',
-    //         value: 'Active',
-    //       },
-    //       {
-    //         title: 'Customer ID',
-    //         value: 'X78976TY6546I',
-    //       },
-    //       {
-    //         title: 'Store name',
-    //         value: 'Guduvanchery',
-    //       },
-
-    //     ],
-    //     contact: [
-
-    //       {
-    //         title: 'Phone number',
-    //         value: '1234567890',
-    //       },
-
-
-    //     ],
-    //     address: [
-    //  {
-    //         title: 'Home',
-    //         value: `14/A, East coast street, South west
-    //         Kotturpalayamkotai, Vikasvendra kundramma puram,
-    //         Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.  `,
-    //       },
-    //       {
-    //         title: 'Office',
-    //         value: `14/A, East coast street, South west
-    //         Kotturpalayamkotai, Vikasvendra kundramma puram,
-    //         Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.   `,
-    //       },
-    //     ],
-    //   },
-
-    //     {
-    //     customerId: 'X78976TY6546I',
-    //       selected: false,
-    //     cardData: {
-    //       Name: 'Tazeen',
-    //       no: '1234567890',
-
-    //     },
-    //     customerDetails: [
-    //       {
-    //         title: 'Customer name',
-    //         value: 'Tazeen',
-    //       },
-    //       {
-    //         title: 'Status',
-    //         value: 'Active',
-    //       },
-    //       {
-    //         title: 'Customer ID',
-    //         value: 'X78976TY6546I',
-    //       },
-    //       {
-    //         title: 'Store name',
-    //         value: 'Guduvanchery',
-    //       },
-
-    //     ],
-    //     contact: [
-
-    //       {
-    //         title: 'Phone number',
-    //         value: '1234567890',
-    //       },
-
-
-    //     ],
-    //     address: [
-    //  {
-    //         title: 'Home',
-    //         value: `14/A, East coast street, South west
-    //         Kotturpalayamkotai, Vikasvendra kundramma puram,
-    //         Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.  `,
-    //       },
-    //       {
-    //         title: 'Office',
-    //         value: `14/A, East coast street, South west
-    //         Kotturpalayamkotai, Vikasvendra kundramma puram,
-    //         Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.   `,
-    //       },
-    //     ],
-    //   },
-
-    //     {
-    //     customerId: 'X78976TY6546I',
-    //           selected: false,
-    //     cardData: {
-    //       Name: 'Sam',
-    //       no: '1234567890',
-
-    //     },
-    //     customerDetails: [
-    //       {
-    //         title: 'Customer name',
-    //         value: 'Sam',
-    //       },
-    //       {
-    //         title: 'Status',
-    //         value: 'Active',
-    //       },
-    //       {
-    //         title: 'Customer ID',
-    //         value: 'X78976TY6546I',
-    //       },
-    //       {
-    //         title: 'Store name',
-    //         value: 'Guduvanchery',
-    //       },
-
-    //     ],
-    //     contact: [
-
-    //       {
-    //         title: 'Phone number',
-    //         value: '1234567890',
-    //       },
-
-
-    //     ],
-    //     address: [
-    //  {
-    //         title: 'Home',
-    //         value: `14/A, East coast street, South west
-    //         Kotturpalayamkotai, Vikasvendra kundramma puram,
-    //         Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.  `,
-    //       },
-    //       {
-    //         title: 'Office',
-    //         value: `14/A, East coast street, South west
-    //         Kotturpalayamkotai, Vikasvendra kundramma puram,
-    //         Tirunelveli. 627422. Opposite: Olala High-class Non-veg Restaurant.   `,
-    //       },
-    //     ],
-    //   },
-
-
   ]
 
 
@@ -456,49 +298,48 @@ export class CustomerComponent {
 
 
   onSubmit(data: any) {
-    this.addNew = false;
+    console.log('Form submitted and the data received is:', data);
 
+    this.addNew = false;
     data = {
       name: data.name,
       selected: true,
-      dataToDisplay: [
+      cardData: {
+        Name: data.name,
+        no: data.number,
+      },
+      customerDetails: [
         {
           title: 'Customer name',
           value: data.name,
         },
         {
+          title: 'Customer ID',
+          value: `e_` + uuidv4(),
+        },
+        { title: 'Status', value: `Active` },
+        {
           title: 'Store name',
           value: data.storename,
         },
+      ],
+      contact: [
         {
           title: 'Phone number',
-          value: data.number
+          value: data.number,
         },
+      ],
+      address: [
         {
-          title: 'Address line1',
-          value: data.line1,
+          title: 'Home',
+          value:
+            data.line1 +
+            data.line2 +
+            data.line3 +
+            data.city +
+            data.state +
+            data.pincode,
         },
-        {
-          title: 'Address line2',
-          value: data.line2,
-        },
-        {
-          title: 'Address line3',
-          value: data.line3,
-        },
-        {
-          title: 'City',
-          value: data.city,
-        },
-        {
-          title: 'State',
-          value: data.state,
-        },
-        {
-          title: 'Pincode',
-          value: data.pincode,
-        },
-
       ],
     };
 

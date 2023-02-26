@@ -26,7 +26,7 @@ export interface ParsedBooking {
 
 // eg interface syntax
 
-interface ICustomer {
+export interface ICustomer {
     id: string;
     name: string;
     phoneNumber: string;
@@ -37,7 +37,7 @@ interface ICustomer {
 
 
 // eg iaddress syntax
-interface IAddress {
+export interface IAddress {
     addressLine1: string;
     addressLine2?: string;
     addressLine3?: string;
