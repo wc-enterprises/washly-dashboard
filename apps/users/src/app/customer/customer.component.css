@@ -188,7 +188,7 @@ Details:
   width: 36vw;
   height: 75.5vh;
   background-color: #212427;
-  border-radius: 5px 0 0 5px;
+  border-radius: 7px;
   padding: 3vh;
   overflow: scroll;
 }
@@ -402,7 +402,7 @@ Details:
   align-self: center;
   margin-top: 2vh;
 }
- 
+
 
 .main {
   display: flex;

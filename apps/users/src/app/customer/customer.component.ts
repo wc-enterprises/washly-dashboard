@@ -313,11 +313,12 @@ export class CustomerComponent {
           title: 'Customer name',
           value: data.name,
         },
+        { title: 'Status', value: `Active` },
         {
           title: 'Customer ID',
           value: `e_` + uuidv4(),
         },
-        { title: 'Status', value: `Active` },
+
         {
           title: 'Store name',
           value: data.storename,
