@@ -293,7 +293,11 @@
       </div>
 
       <!-- APPROVE BUTTON-->
-      <div id="approve-reject-box" style="padding-top: 2vh">
+      <div
+        *ngIf="this.tab === 'PENDING'"
+        id="approve-reject-box"
+        style="padding-top: 2vh"
+      >
         <div class="approve-button-box">
           <button
             class="approve-button"
@@ -306,6 +310,34 @@
           >
         </div>
         <button *ngIf="showElements" class="reject-button">REJECT</button>
+      </div>
+
+      <!-- Ready to Deliver button -->
+      <div *ngIf="this.tab === 'ONGOING'" id="btns" style="padding-top: 2vh">
+        <div class="btns-inner">
+          <button
+            class="btns-actual"
+            (click)="updateBookingStatus(selectedBooking.id, 'OUT_FOR_PICKUP')"
+          >
+            READY TO DELIVER
+          </button>
+        </div>
+      </div>
+
+      <!-- Complete button -->
+      <div
+        *ngIf="this.tab === 'OUT_FOR_DELIVERY'"
+        id="btns"
+        style="padding-top: 2vh"
+      >
+        <div class="btns-inner">
+          <button
+            class="btns-actual"
+            (click)="updateBookingStatus(selectedBooking.id, 'OUT_FOR_PICKUP')"
+          >
+            COMPLETE
+          </button>
+        </div>
       </div>
     </div>
   </div>
