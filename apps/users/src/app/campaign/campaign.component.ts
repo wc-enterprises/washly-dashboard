@@ -39,7 +39,7 @@ export class CampaignComponent implements OnInit {
   constructor(private router: Router, private ws: WashlyService) {}
   loadingData = true;
 
-  isModalActive = false;
+  isModalActive = false;  
 
   currentCampaign: ICampaign[] | undefined;
 
@@ -180,7 +180,7 @@ export class CampaignComponent implements OnInit {
     const campaingsStream = this.ws.getCampaign();
     console.log('Campaign stream:', campaingsStream);
     if (campaingsStream) {
-      campaingsStream.subscribe(async (campaigns: ICampaign[]) => {
+      campaingsStream.subscribe(async (campaigns:ICampaign[]) => {
         console.log('campaigns:', await campaigns);
         if (await campaigns) {
           // eslint-disable-next-line @typescript-eslint/no-unused-vars

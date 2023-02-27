@@ -27,12 +27,10 @@
     "@ngmodule/material-carousel": "^0.6.0",
     "@nrwl/angular": "^15.3.3",
     "angular-image-slider": "0.0.9",
-<<<<<<< HEAD
-    "fire": "^0.55.1",
-=======
-    "dexie": "^3.2.2",
+    "dexie": "^3.2.3",
     "dexie-observable": "^4.0.1-beta.13",
->>>>>>> f220514940674b9fbbf1646a8192f7cc14c1df5b
+    "fire": "^0.55.1",
+    "firebase": "^9.17.1",
     "ng-image-slider": "^7.0.0",
     "ngx-bootstrap": "^10.2.0",
     "ngx-slick-carousel": "^0.6.0",

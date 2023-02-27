@@ -1,11 +1,10 @@
 import { ComponentFactoryResolver, Injectable } from '@angular/core';
-// import { AngularFireAuth } from '@angular/fire';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { lastValueFrom, map, Observable } from 'rxjs';
 import { BookingStatus, IBooking, ICustomer, IProduct, IStore } from '../booking/utils/interface';
+import { uuidv4} from '@firebase/util';
 import { ICampaign } from '../campaign/utils/interface';
-import { uuidv4 } from '@firebase/util';
 
 @Injectable()
 export class WashlyService {

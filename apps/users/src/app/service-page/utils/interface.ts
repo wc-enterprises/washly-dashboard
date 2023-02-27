@@ -1,4 +1,4 @@
-export interface IProduct {
+export interface IProduct{
     id: string;
     name:string,
     category:string,
@@ -8,7 +8,7 @@ export interface IProduct {
     amount:string,
  }
 
- export interface ParsedService {
+ export interface ParsedService{
     id:string;
        name:string;
        selected: boolean;

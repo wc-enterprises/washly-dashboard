@@ -217,17 +217,18 @@ export class ServicePageComponent {
   }
 }
 
-  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
-  ngOnInit() {
+ 
+ ngOnInit() {
    
      console.log('Loaded ngOnIt of service Component');
     const serviceStream = this.ws.getService();
     console.log('service stream:', serviceStream);
     if (serviceStream) {
-      serviceStream.subscribe(async (services: IProduct[]) => {
+      serviceStream.subscribe(async(services: IProduct[]|any) =>{
+    
         console.log('service:', await services);
-        if (await services) {
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        if (await services) { 
+         
           this.service = this.parsedService(await services);
           this.service[0].selected = true;
           this.displayedData = this.service[0];
