@@ -298,7 +298,6 @@ export class CustomerComponent {
 
 
   onSubmit(data: any) {
-    console.log('Form submitted and the data received is:', data);
 
     this.addNew = false;
     data = {
@@ -334,11 +333,19 @@ export class CustomerComponent {
         {
           title: 'Home',
           value:
-            data.line1 +
-            data.line2 +
-            data.line3 +
-            data.city +
-            data.state +
+            data.line1 + ' ' +
+            data.city + ' ' +
+            data.state + ' ' +
+            data.pincode,
+        },
+        {
+          title: 'Office',
+          value:
+
+            data.line2 + ' ' +
+            data.line3 + ' ' +
+            data.city + ' ' +
+            data.state + ' ' +
             data.pincode,
         },
       ],
