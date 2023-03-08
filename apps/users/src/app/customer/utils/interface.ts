@@ -1,5 +1,11 @@
 
+import { AngularFirestore } from "@angular/fire/compat/firestore";
+import { lastValueFrom, map, Observable } from 'rxjs';
+
+import { Injectable } from '@angular/core';
 // below is the code for bookings interface
+
+
 
 export interface ParsedBooking {
     customerId: string;
@@ -28,7 +34,7 @@ export interface ParsedBooking {
 
 export interface ICustomer {
     id: string;
-    name: string;
+    name: any;
     phoneNumber: string;
     status: string; // ALLOWED || BLOCKED
     addresses?: IAddress[];
@@ -45,4 +51,44 @@ export interface IAddress {
     state: string;
     country: string;
     pincode: number;
+}
+
+
+
+@Injectable()
+export class WashlyServices {
+
+
+    constructor(private afs: AngularFirestore) { }
+
+
+    // get bookings from Cloud Firestore
+    getCustomers(): Observable<Promise<ICustomer[]>> | null {
+        try {
+            const res = this.afs
+                .collectionGroup<ICustomer>('customers_data')
+                .valueChanges()
+                .pipe(
+                    map(async (customers) => {
+                        console.log('bookings taken from user_bookings', customers);
+                        for (const customer of customers) {
+                            const customer$ = this.afs
+                                .collection<ICustomer>('customers')
+                                .doc(customer.id)
+                                .get();
+
+                            customer.name = await (await lastValueFrom(customer$)).data();
+                        }
+                        return customers;
+                    }
+
+                    ))
+            return res;
+
+        }
+        catch (error) {
+            console.error('errord at service @ get bookings', error);
+            return null;
+        }
+    }
 }

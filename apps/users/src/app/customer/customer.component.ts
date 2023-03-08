@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ICustomer } from './utils/interface';
 import { v4 as uuidv4 } from 'uuid';
-
+import { WashlyServices } from './utils/interface';
 
 @Component({
   selector: 'washly-customer',
@@ -9,9 +9,13 @@ import { v4 as uuidv4 } from 'uuid';
   styleUrls: ['./customer.component.css'],
 })
 export class CustomerComponent {
+
+  constructor(private ws: WashlyServices) { }
+
   addNew = false;
   editing = false;
   fbcustomer: ICustomer[] | undefined;
+
 
 
   customers = [
@@ -298,7 +302,6 @@ export class CustomerComponent {
 
 
   onSubmit(data: any) {
-
     this.addNew = false;
     data = {
       name: data.name,
@@ -364,6 +367,12 @@ export class CustomerComponent {
     this.selectedcustomer = this.customers[0];
     this.selectedcustomer.selected = true;
     this.addNew = false;
+  }
+
+
+  getdata() {
+    const data = this.ws.getCustomers();
+    console.log("This is the ts data by harish" + data)
   }
 
 

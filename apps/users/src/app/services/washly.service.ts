@@ -12,7 +12,7 @@ import {
 
 @Injectable()
 export class WashlyService {
-  constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) {}
+  constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) { }
 
   // create a new user
   async createUser() {
