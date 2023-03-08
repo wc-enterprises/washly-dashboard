@@ -45,6 +45,8 @@ import { environment } from '../environments/environment';
 import { WashlyService } from './services/washly.service';
 import { EmptyScreenComponent } from './utils/empty-screen/empty-screen.component';
 import { AppDB } from './services/db';
+import { CampaignFormComponent } from './campaign-form/campaign-form.component';
+import { ServiceformComponent } from './serviceform/serviceform.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +71,8 @@ import { AppDB } from './services/db';
     RevenueComponent,
     AnalyticsComponent,
     EmptyScreenComponent,
+    CampaignFormComponent,
+    ServiceformComponent,
   ],
 
   imports: [
@@ -92,6 +96,4 @@ import { AppDB } from './services/db';
   providers: [WashlyService, AppDB],
   bootstrap: [AppComponent],
 })
-export class AppModule {
-
-}
+export class AppModule {}

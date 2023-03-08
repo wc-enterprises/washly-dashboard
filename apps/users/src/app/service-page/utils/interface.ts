@@ -8,7 +8,7 @@ export interface IProduct{
     amount:string,
  }
 
- export interface ParsedService{
+ export interface ParsedService {
     id:string;
        name:string;
        selected: boolean;
@@ -16,14 +16,14 @@ export interface IProduct{
           
            title:string;
            value: string;
-          
+           
        }[];
  }
- export interface Idata{
+ export interface Idata{ 
     name:string,
     category:string,
     unitPrice:string,
     unitOfCalculation:string,
     quantity:string,
     amount:string,
- }
+ } 

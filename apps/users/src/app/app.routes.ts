@@ -15,6 +15,8 @@ import { CustomerComponent } from './customer/customer.component';
 import { RevenueComponent } from './revenue/revenue.component';
 import { StoreComponent } from './store/store.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
+import { CampaignFormComponent } from './campaign-form/campaign-form.component';
+import { ServiceformComponent } from './serviceform/serviceform.component';
 
 export const appRoutes: Route[] = [
   { path: '', component: BookingComponent },
@@ -34,4 +36,6 @@ export const appRoutes: Route[] = [
   { path: 'revenue', component: RevenueComponent },
   { path: 'store', component: StoreComponent },
   { path: 'analytics', component: AnalyticsComponent },
+  {path:'campaignform',component:CampaignFormComponent},
+  {path:'serviceform',component:ServiceformComponent}
 ];

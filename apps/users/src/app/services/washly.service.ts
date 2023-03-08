@@ -141,7 +141,7 @@ export class WashlyService {
     return res;
   }
 
- async addService(data: IProduct) {
+ async addService(data:IProduct) {
   console.log("Received request to store service")
    const response = await  this.afs
       .collection('services')

@@ -1,0 +1,50 @@
+<div class="black-area">
+    <form style="
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+padding: 2% 0;
+" #formRef="ngForm" (ngSubmit)="addService(formRef.value)">
+
+        <div style="display: flex; margin-bottom: 2.3vh">
+            <div class="key">Name</div>
+            <div class="value  flex flex-col">
+                <input class="edit-box" type="text" name="name" required #name="ngModel" ngModel />
+                <span *ngIf="name.invalid && name.touched" class="ml-[-5vw] text-red-600 text-xs pt-1">Please enter a
+                    name</span>
+            </div>
+        </div>
+        <div style="display: flex; margin-bottom: 2.3vh">
+            <div class="key">Category</div>
+            <div class="value  flex flex-col">
+                <input class="edit-box" type="text" name="category" required #category="ngModel" ngModel />
+                <span *ngIf="category.invalid && category.touched" class="ml-[-5vw] text-red-600 text-xs pt-1">Please
+                    enter a
+                    category</span>
+            </div>
+        </div>
+
+        <div style="display: flex; margin-bottom: 2.3vh">
+            <div class="key">UnitPrice</div>
+            <div class="value flex flex-col">
+                <input class="edit-box" type="text" name="pricePerUnit" required #unitPrice="ngModel" ngModel />
+                <span *ngIf="unitPrice.invalid && unitPrice.touched" class="ml-[-5vw] text-red-600 text-xs pt-1">Please
+                    enter a
+                    unit price</span>
+            </div>
+        </div>
+
+        <div style="display: flex; margin-bottom: 2.3vh">
+            <div class="key">Unit of calculation</div>
+            <div class="value  flex flex-col">
+                <input class="edit-box" type="text " name="unitOfCalculation" required #calculation="ngModel" ngModel />
+                <span *ngIf="calculation.invalid && calculation.touched"
+                    class="ml-[-5vw] text-red-600 text-xs pt-1">Please
+                    enter a
+                    unit price</span>
+            </div>
+        </div>
+
+        <button id="submit-button" type="submit">Submit</button>
+    </form>
+</div>

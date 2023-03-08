@@ -182,7 +182,7 @@ export class CampaignComponent implements OnInit {
     if (campaingsStream) {
       campaingsStream.subscribe(async (campaigns:ICampaign[]) => {
         console.log('campaigns:', await campaigns);
-        if (await campaigns) {
+        if (await campaigns.length) {
           // eslint-disable-next-line @typescript-eslint/no-unused-vars
           this.campaign = this.parsedCampaign(await campaigns);
           this.campaign[0].selected = true;

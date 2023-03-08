@@ -88,7 +88,7 @@ export class ServicePageComponent {
   // ];
   service: ParsedService[] | undefined;
 
-  displayedData: ParsedService | undefined;
+  displayedData: ParsedService| undefined;
 
   itemToDelete: any;
   washlyService: any;
@@ -164,7 +164,7 @@ export class ServicePageComponent {
 
       console.log('new service framed', data);
       this.displayedData = data;
-      await this.ws.addCampaign(data);
+      await this.ws.addService(data);
       this.service.push(data);
     }
   }
@@ -199,10 +199,10 @@ export class ServicePageComponent {
   // }
 
   addNewService() {
-    if (this.service){
-    this.service.forEach((item) => (item.selected = false));
-    this.addNew = true;
-  }
+    if (this.service)
+    this.service.forEach((item) =>(item.selected = false));
+    this.addNew =true;
+  
   }
   cancelEditing() {
     console.log('Cancel editing called', this.editing);
@@ -227,7 +227,7 @@ export class ServicePageComponent {
       serviceStream.subscribe(async(services: IProduct[]|any) =>{
     
         console.log('service:', await services);
-        if (await services) { 
+        if (await services.length) { 
          
           this.service = this.parsedService(await services);
           this.service[0].selected = true;
@@ -238,8 +238,8 @@ export class ServicePageComponent {
     }
   }
 
-  parsedService(service: IProduct[]): ParsedService[] {
-    return service.map((service) => {
+  parsedService(services: IProduct[]): ParsedService[] {
+    return services.map((service) => {
       return {
         id: service.id,
         name: service.name,
@@ -259,7 +259,7 @@ export class ServicePageComponent {
             value: service.unitOfCalculation,
           },
           {
-            title: 'Quantity',
+            title: 'Quantity', 
             value: service.quantity,
           },
           {

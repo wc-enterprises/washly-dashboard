@@ -37,7 +37,7 @@
     </ng-container>
     </div>
     <ng-template #addNewForm>
-        <div class="black-area">
+    <div class="black-area">
         <form #addForm="ngForm" id="form" style="
             display: flex;
             flex-direction: column;
@@ -101,17 +101,20 @@
             </div>
         </div>
 
-        <button id="submit-button" [disabled]="addForm" (click)="(calculateStatus)" type="submit ">
+        <button id="submit-button" [disabled]="addForm" type="submit">
             Submit
         </button>
         </form>
     </div>
     </ng-template>
-    </div>
+</div>
 </div>
 <washly-app-delete-confirmation-modal (removeBlurEvent)="removeBlur()" *ngIf="isModalActive"
     (closePopup)="closeDeleteConfirmationModal()" (delete)="deleteData()"></washly-app-delete-confirmation-modal>
 
 <ng-template #emptyScreen>
-<p>NO data</p>
+<mat-card class="w-[25vw]  ml-[5vw]" id="add-new-service" (click)="addNewCampaign()">
+    <mat-card-title id="add-new-label">ADD NEW +</mat-card-title>
+</mat-card>
+<washly-campaign-form></washly-campaign-form>
 </ng-template>

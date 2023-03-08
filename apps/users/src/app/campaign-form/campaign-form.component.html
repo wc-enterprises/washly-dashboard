@@ -1,0 +1,75 @@
+<div class="black-area">
+    <form #addForm="ngForm" id="form" style="
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 2% 0;
+      " #formRef="ngForm" (ngSubmit)="addCampaign(formRef.value)">
+
+        <div style="display: flex; margin-bottom: 2.3vh">
+            <div class="key">Heading</div>
+            <div class="value flex flex-col">
+                <input class="edit-box" type="text" id="heading" name="heading" required #heading="ngModel" ngModel />
+                <span *ngIf="heading.invalid && heading.touched" class="ml-[-5vw] text-red-600 text-xs pt-1">Please
+                    enter a
+                    heading</span>
+            </div>
+        </div>
+
+        <div style="display: flex; margin-bottom: 2.3vh">
+            <div class="key">Description</div>
+            <div class="value flex flex-col">
+                <input class="edit-box" type="text" id="description" name="description" required #description="ngModel"
+                    ngModel />
+                <span *ngIf="description.invalid && description.touched"
+                    class="ml-[-5vw] text-red-600 text-xs pt-1">Please enter a
+                    description</span>
+            </div>
+        </div>
+
+        <div style="display: flex; margin-bottom: 2.3vh">
+            <div class="key">ButtonLabel</div>
+            <div class="value flex flex-col">
+                <input class="edit-box" type="text " id="buttonLabel" name="buttonLabel" required #buttonLabel="ngModel"
+                    ngModel />
+                <span *ngIf="buttonLabel.invalid && buttonLabel.touched"
+                    class="ml-[-5vw] text-red-600 text-xs pt-1">Please enter a
+                    buttonLabel</span>
+            </div>
+        </div>
+        <div style="display: flex; margin-bottom: 2.3vh">
+            <div class="key">ImageUrl</div>
+            <div class="value flex flex-col">
+                <input class="edit-box" type="text " id="imageUrl" name="imageUrl" required #imageUrl="ngModel"
+                    ngModel />
+                <span *ngIf="imageUrl.invalid && imageUrl.touched" class="ml-[-5vw] text-red-600 text-xs pt-1">Please
+                    enter a
+                    imageUrl</span>
+            </div>
+        </div>
+        <div style="display: flex; margin-bottom: 2.3vh">
+            <div class="key">StartDate</div>
+            <div class="value flex flex-col">
+                <input class="edit-box" type="date" id="startDate" name="startDate" required #startDate="ngModel"
+                    ngModel />
+                <span *ngIf="startDate.invalid && startDate.touched" class="ml-[-5vw] text-red-600 text-xs pt-1">Please
+                    enter a
+                    startDate</span>
+            </div>
+        </div>
+        <div style="display: flex; margin-bottom: 2.3vh">
+            <div class="key">EndDate</div>
+            <div class="value flex flex-col">
+                <input class="edit-box" type="date" id="endDate" name="endDate" required #endDate="ngModel" ngModel />
+                <span *ngIf="endDate.invalid && endDate.touched" class="ml-[-5vw] text-red-600 text-xs pt-1">Please
+                    enter a
+                    endDate</span>
+            </div>
+        </div>
+
+        <button id="submit-button" type="submit">
+            Submit
+        </button>
+
+    </form>
+</div>
