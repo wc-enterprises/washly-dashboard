@@ -19,7 +19,7 @@ export class ServicePageComponent {
   @Output() deletePopUp = new EventEmitter<boolean>();
   @ViewChild('click')
   divElement!: ElementRef;
-  isBlurred =false;
+  isBlurred = false;
 
   editing = false;
   addNew = false;
@@ -88,12 +88,11 @@ export class ServicePageComponent {
   // ];
   service: ParsedService[] | undefined;
 
-  displayedData: ParsedService| undefined;
+  displayedData: ParsedService | undefined;
 
   itemToDelete: any;
   washlyService: any;
-  
- 
+
   // displayedData: any = this.service[0];
   // itemToDelete: any;
   // ws: any;
@@ -101,11 +100,11 @@ export class ServicePageComponent {
 
   constructor(private router: Router, private ws: WashlyService) {}
   isModalActive = false;
- 
-  loadingData=true;
+
+  loadingData = true;
   currentService: IProduct[] | undefined;
   setSelectedService(data: any) {
-   if (this.service) {
+    if (this.service) {
       this.service.forEach((item) => {
         item.selected = false;
       });
@@ -138,9 +137,9 @@ export class ServicePageComponent {
 
   deleteData() {
     if (this.service)
-    this.service = this.service.filter(
-      (data) => data.name !== this.itemToDelete.name
-    );
+      this.service = this.service.filter(
+        (data) => data.name !== this.itemToDelete.name
+      );
     this.isModalActive = false;
   }
 
@@ -150,17 +149,16 @@ export class ServicePageComponent {
   async addService(data: any) {
     if (this.service) {
       console.log('new', data);
-     this.addNew = false;
+      this.addNew = false;
 
       data = {
-       name: data.name,
-       category: data.category,
-       unitPrice: data.unitPrice,
+        name: data.name,
+        category: data.category,
+        unitPrice: data.unitPrice,
         unitOfCalculation: data.unitOfCalculation,
         quantity: data.quantity,
         amount: data.amount,
       };
-      
 
       console.log('new service framed', data);
       this.displayedData = data;
@@ -199,10 +197,8 @@ export class ServicePageComponent {
   // }
 
   addNewService() {
-    if (this.service)
-    this.service.forEach((item) =>(item.selected = false));
-    this.addNew =true;
-  
+    if (this.service) this.service.forEach((item) => (item.selected = false));
+    this.addNew = true;
   }
   cancelEditing() {
     console.log('Cancel editing called', this.editing);
@@ -210,25 +206,21 @@ export class ServicePageComponent {
   }
 
   cancelAddForm() {
-    if (this.service){
-    this.displayedData = this.service[0]; 
-    this.displayedData.selected = true;
-    this.addNew = false;
+    if (this.service) {
+      this.displayedData = this.service[0];
+      this.displayedData.selected = true;
+      this.addNew = false;
+    }
   }
-}
 
- 
- ngOnInit() {
-   
-     console.log('Loaded ngOnIt of service Component');
+  ngOnInit() {
+    console.log('Loaded ngOnIt of service Component');
     const serviceStream = this.ws.getService();
     console.log('service stream:', serviceStream);
     if (serviceStream) {
-      serviceStream.subscribe(async(services: IProduct[]|any) =>{
-    
+      serviceStream.subscribe(async (services: IProduct[] | any) => {
         console.log('service:', await services);
-        if (await services.length) { 
-         
+        if (await services.length) {
           this.service = this.parsedService(await services);
           this.service[0].selected = true;
           this.displayedData = this.service[0];
@@ -258,15 +250,6 @@ export class ServicePageComponent {
             title: 'UnitOfCalculation',
             value: service.unitOfCalculation,
           },
-          {
-            title: 'Quantity', 
-            value: service.quantity,
-          },
-          {
-            title: 'Amount',
-            value: service.amount,
-          },
-         
         ],
       };
     });

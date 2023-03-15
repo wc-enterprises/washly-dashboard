@@ -1,104 +1,102 @@
 <div class="main" *ngIf="
-this.service && this.service.length && this.displayedData;
-else emptyScreen">
-    <div class="card-list">
-        <div *ngFor="let item of service; let i= index" class="card-container">
-            <mat-card class="card" [ngClass]="{ selected: item.selected }" (click)="setSelectedService(item)">
-                <mat-card-title class="card-title">{{ item.name }}</mat-card-title>
-                <mat-icon id="edit-icon" (click)="editService()">mode_edit</mat-icon>
+    this.service && this.service.length && this.displayedData;
+    else emptyScreen
+  "
+>
+  <div class="card-list">
+    <div *ngFor="let item of service; let i = index" class="card-container">
+        <mat-card class="card" [ngClass]="{ selected: item.selected }" (click)="setSelectedService(item)">
+            <mat-card-title class="card-title">{{ item.name }}</mat-card-title>
+            <mat-icon id="edit-icon" (click)="editService()">mode_edit</mat-icon>
 
-                <mat-icon (click)="blurDisplayPanel()" (click)="openDeleteConfirmationModal(item)"
-                    class="delete-icon">delete</mat-icon>
-            </mat-card>
-            <mat-card id="add-new-service" *ngIf="i===service.length - 1" (click)="addNewService()">
-                <mat-card-title id="add-new-label">ADD NEW +</mat-card-title>
-            </mat-card>
-        </div>
+        <mat-icon (click)="blurDisplayPanel()" (click)="openDeleteConfirmationModal(item)" class="delete-icon">delete</mat-icon>
+        </mat-card>
+    <mat-card id="add-new-service" *ngIf="i === service.length - 1" (click)="addNewService()">
+        <mat-card-title id="add-new-label">ADD NEW +</mat-card-title>
+    </mat-card>
+    </div>
     </div>
 
-    <div #click class="total-display-area">
-        <div class="black-area" *ngIf="!addNew; else addNewForm">
-            <div *ngIf="editing" style="text-align: right; width: 32vw">
-                <mat-icon class="cancel-icon" (click)="cancelEditing()">clear</mat-icon>
-            </div>
-            <div style="display: flex; justify-content: space-between; padding: 2% 0"
-                *ngFor="let dataToDisplay of displayedData.dataToDisplay">
-                <div class="key">{{ dataToDisplay.title }}</div>
-
-                <div class="value">
-                    <input class="edit-box" *ngIf="editing; else name" type="text" [(ngModel)]="dataToDisplay.value"
-                        required />
-                    <ng-template #name>{{ dataToDisplay.value }}</ng-template>
-                </div>
-            </div>
-
-            <ng-container *ngIf="editing">
-                <button id="save-button" (click)="save()">Save</button>
-            </ng-container>
+<div #click class="total-display-area">
+    <div class="black-area" *ngIf="!addNew; else addNewForm">
+        <div *ngIf="editing" style="text-align: right; width: 32vw">
+            <mat-icon class="cancel-icon" (click)="cancelEditing()">clear</mat-icon>
         </div>
-        <ng-template #addNewForm>
-            <div class="black-area">
-                <form style="
+    <div style="display: flex; justify-content: space-between; padding: 2% 0"
+        *ngFor="let dataToDisplay of displayedData.dataToDisplay">
+        <div class="key">{{ dataToDisplay.title }}</div>
+
+        <div class="value">
+        <input class="edit-box" *ngIf="editing; else name" type="text" [(ngModel)]="dataToDisplay.value" required />
+        <ng-template #name>{{ dataToDisplay.value }}</ng-template>
+        </div>
+        </div>
+
+    <ng-container *ngIf="editing">
+        <button id="save-button" (click)="save()">Save</button>
+    </ng-container>
+    </div>
+    <ng-template #addNewForm>
+        <div class="black-area">
+        <form style="
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             padding: 2% 0;
-          " #formRef="ngForm" (ngSubmit)="addService(formRef.value)">
-                    <div style="text-align: right; width: 32vw; margin-bottom: 2vh">
-                        <mat-icon class="cancel-icon" (click)="cancelAddForm()">clear</mat-icon>
-                    </div>
-                    <div style="display: flex; margin-bottom: 2.3vh">
-                        <div class="key">Name</div>
-                        <div class="value  flex flex-col">
-                            <input class="edit-box" type="text" name="name" required #name="ngModel" ngModel />
-                            <span *ngIf="name.invalid && name.touched" class="ml-[-5vw] text-red-600 text-xs pt-1">Please enter a
-                                name</span>
-                        </div>
-                        </div>
-                        <div style="display: flex; margin-bottom: 2.3vh">
-                            <div class="key">Category</div>
-                            <div class="value  flex flex-col">
-                                <input class="edit-box" type="text" name="category" required #category="ngModel" ngModel />
-                                <span *ngIf="category.invalid && category.touched" class="ml-[-5vw] text-red-600 text-xs pt-1">Please
-                                    enter a
-                                    category</span>
-                        </div>
-                    </div>
-
-                    <div style="display: flex; margin-bottom: 2.3vh">
-                        <div class="key">UnitPrice</div>
-                        <div class="value flex flex-col">
-                            <input class="edit-box" type="text" name="pricePerUnit" required #unitprice="ngModel" ngModel />
-                            <span *ngIf="unitprice.invalid && unitprice.touched" class="ml-[-5vw] text-red-600 text-xs pt-1">Please
-                                enter a
-                                unit price</span>
-                        </div>
-                    </div>
-
-                    <div style="display: flex; margin-bottom: 2.3vh">
-                        <div class="key">Unit of calculation</div>
-                        <div class="value  flex flex-col">
-                            <input class="edit-box" type="text " name="unitOfCalculation" required #calculation="ngModel" ngModel />
-                            <span *ngIf="calculation.invalid && calculation.touched" class="ml-[-5vw] text-red-600 text-xs pt-1">Please
-                                enter a
-                                unit price</span>
-                        </div>
-                    </div>
-
-                    <button id="submit-button" type="submit" [disabled]="">Submit</button>
-                </form>
+          "
+          #formRef="ngForm"
+          (ngSubmit)="addService(formRef.value)"
+        >
+          <div style="text-align: right; width: 32vw; margin-bottom: 2vh">
+            <mat-icon class="cancel-icon" (click)="cancelAddForm()">clear</mat-icon>
             </div>
+            <div style="display: flex; margin-bottom: 2.3vh">
+                <div class="key">Name</div>
+            <div class="value flex flex-col">
+                <input class="edit-box" type="text" name="name" required #name="ngModel" ngModel />
+                <span *ngIf="name.invalid && name.touched" class="ml-[-5vw] text-red-600 text-xs pt-1">Please enter a name</span>
+            </div>
+            </div>
+            <div style="display: flex; margin-bottom: 2.3vh">
+                <div class="key">Category</div>
+            <div class="value flex flex-col">
+                <input class="edit-box" type="text" name="category" required #category="ngModel" ngModel />
+                <span *ngIf="category.invalid && category.touched" class="ml-[-5vw] text-red-600 text-xs pt-1">Please enter a
+                    category</span>
+            </div>
+            </div>
+
+        <div style="display: flex; margin-bottom: 2.3vh">
+            <div class="key">UnitPrice</div>
+            <div class="value flex flex-col">
+            <input class="edit-box" type="text" name="pricePerUnit" required #unitprice="ngModel" ngModel />
+            <span *ngIf="unitprice.invalid && unitprice.touched" class="ml-[-5vw] text-red-600 text-xs pt-1">Please enter a unit
+                price</span>
+            </div>
+            </div>
+
+        <div style="display: flex; margin-bottom: 2.3vh">
+            <div class="key">Unit of calculation</div>
+            <div class="value flex flex-col">
+                <input class="edit-box" type="text " name="unitOfCalculation" required #calculation="ngModel" ngModel />
+                <span *ngIf="calculation.invalid && calculation.touched" class="ml-[-5vw] text-red-600 text-xs pt-1">Please enter a
+                    unit price</span>
+            </div>
+            </div>
+
+        <button id="submit-button" type="submit" [disabled]="">Submit</button>
+        </form>
+        </div>
         </ng-template>
-    </div>
+        </div>
 </div>
 
 <washly-app-delete-confirmation-modal *ngIf="isModalActive" (closePopup)="closeDeleteConfirmationModal()"
     (delete)="deleteData()"></washly-app-delete-confirmation-modal>
 
-
 <ng-template #emptyScreen>
-        <mat-card class="w-[25vw]  ml-[5vw]" id="add-new-service" (click)="addNewService()">
-            <mat-card-title id="add-new-label">ADD NEW +</mat-card-title>
-        </mat-card>
-        <washly-serviceform></washly-serviceform>
+<mat-card class="w-[25vw] ml-[5vw]" id="add-new-service" (click)="addNewService()">
+    <mat-card-title id="add-new-label">ADD NEW +</mat-card-title>
+</mat-card>
+<washly-serviceform></washly-serviceform>
 </ng-template>

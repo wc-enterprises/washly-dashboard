@@ -189,7 +189,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .key {
         margin-left: 3vw;
     }
-}
+  }
 
 @media screen and (max-width: 1540px) {
     .card-list::-webkit-scrollbar {

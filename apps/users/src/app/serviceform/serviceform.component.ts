@@ -8,28 +8,24 @@ import { WashlyService } from '../services/washly.service';
   styleUrls: ['./serviceform.component.css'],
 })
 export class ServiceformComponent {
-  addNew: false|undefined;
+  addNew: false | undefined;
 
-  displayedData: ParsedService[]|undefined;
- 
-  constructor( private ws: WashlyService){}
+  displayedData: ParsedService[] | undefined;
+
+  constructor(private ws: WashlyService) {}
 
   async addService(data: any) {
-   
     console.log('new', data);
-     this.addNew = false;
+    this.addNew = false;
 
-      data = {
-       name: data.name,
-       category: data.category,
-       unitPrice: data.unitPrice,
+    data = {
+      name: data.name,
+      category: data.category,
+      unitPrice: data.unitPrice,
       unitOfCalculation: data.unitOfCalculation,
-       
-      };
-      console.log('new service framed', data);
-      this.displayedData = data;
-      await this.ws.addService(data);
-   
-    }
-  
+    };
+    console.log('new service framed', data);
+    this.displayedData = data;
+    await this.ws.addService(data);
+  }
 }
