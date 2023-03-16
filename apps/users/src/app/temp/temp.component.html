@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <div class="menu-icon">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="logo">
+                <h1>Dashboard</h1>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="blur-container">
+            <div class="content">
+                <h2>Welcome to your Dashboard</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec justo vel enim tincidunt sagittis.
+                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            </div>
+        </div>
+    </div>
+    <script> const menuIcon = document.querySelector(".menu-icon");
+        const sideNav = document.querySelector(".side-nav");
+        const mainContent = document.querySelector(".main-content");
+
+        menuIcon.addEventListener("click", toggleSideNav);
+
+        function toggleSideNav() {
+            sideNav.classList.toggle("active");
+            mainContent.classList.toggle("blur");
+        }
+    </script>
+</body>
+
+</html>

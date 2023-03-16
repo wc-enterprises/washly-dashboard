@@ -7,8 +7,9 @@
     justify-content: space-between;
 }
 
+
 .logo {
-    width: 170px;
+    width: 180px;
     height: 120px;
     position: relative;
     left: 3.5vw;
@@ -36,6 +37,7 @@
     justify-content: space-around;
     height: 43vh;
 }
+
 
 .booking {
     width: 10vw;
@@ -83,6 +85,121 @@
     cursor: pointer;
 }
 
+
+/* Mobile */
+@media screen and (max-width: 767px) {
+    .nav {
+      width: 100%;
+      height: auto;
+    }
+  
+    .logo {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .logotitle {
+      font-size: 14px;
+      text-align: center;
+    }
+  
+    .options {
+      margin: 0;
+      padding: 0;
+    }
+  
+    .booking {
+      width: 100%;
+      height: 60px;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+  
+    .booking:hover {
+      border-radius: 0;
+      background-color: transparent;
+    }
+  
+    .content {
+      font-size: 16px;
+      margin-left: 10px;
+    }
+  
+    .icon {
+      font-size: 24px;
+    }
+  
+    .logoutlogo {
+      display: none;
+    }
+  
+    .logouttext {
+      text-align: center;
+      font-size: 14px;
+    }
+  }
+  
+  /* Tablet */
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .nav {
+      width: 25vw;
+      height: 100vh;
+    }
+  
+    .logo {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .logotitle {
+      font-size: 16px;
+      text-align: center;
+    }
+  
+    .options {
+      margin: 0;
+      padding: 0;
+    }
+  
+    .booking {
+      width: 100%;
+      height: 70px;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+  
+    .booking:hover {
+      border-radius: 0;
+      background-color: transparent;
+    }
+  
+    .content {
+      font-size: 18px;
+      margin-left: 10px;
+    }
+  
+    .icon {
+      font-size: 24px;
+    }
+  
+    .logoutlogo {
+      display: none;
+    }
+  
+    .logouttext {
+      text-align: center;
+      font-size: 14px;
+    }
+  }
+  
+
+
 @media screen and (max-width: 1370px) {
     .nav {
         width: 250px;
@@ -107,7 +224,7 @@
         align-items: start;
     }
     .logoutlogo {
-        padding-bottom: 4vh;
+        padding-bottom: 2vh;
     }
     .logouttext {
         padding-top: 0.2vh;
@@ -115,6 +232,18 @@
         font-size: medium;
     }
 }
+
+
+@media screen and (max-width: 1286px) {
+   
+    .content {
+        width: 15vw;
+        height: 4vh;
+        font-size: 15px;
+        align-items: start;
+    }
+}
+
 
 @media screen and (max-width: 1540px) {
     .nav {
@@ -135,7 +264,7 @@
     }
     .content {
         padding-top: 3.5px;
-        width: 15vw;
+        width: 15vw; 
     }
     .logoutlogo {
         bottom: 6.5vh;

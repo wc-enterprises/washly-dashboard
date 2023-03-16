@@ -47,6 +47,7 @@ import { EmptyScreenComponent } from './utils/empty-screen/empty-screen.componen
 import { AppDB } from './services/db';
 import { CampaignFormComponent } from './campaign-form/campaign-form.component';
 import { ServiceformComponent } from './serviceform/serviceform.component';
+import { TempComponent } from './temp/temp.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +74,7 @@ import { ServiceformComponent } from './serviceform/serviceform.component';
     EmptyScreenComponent,
     CampaignFormComponent,
     ServiceformComponent,
+    TempComponent,
   ],
 
   imports: [
