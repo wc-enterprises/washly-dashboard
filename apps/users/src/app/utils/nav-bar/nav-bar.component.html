@@ -1,5 +1,8 @@
-<div class="nav">
-    
+<button class="menu" [class.active]="isNavOpen" (click)="toggleNav()">
+    <mat-icon>menu</mat-icon>
+</button>
+
+<div [class.show]="isNavOpen" class="nav">
     <div class="logo">
         <img src="/assets/logo.png" />
         <p class="logotitle">A DOORSTEP LAUNDRY SERVICE</p>
@@ -37,8 +40,8 @@
         </div>
     </div>
 
-    <div>
-        <mat-icon class="logoutlogo">power_settings_new</mat-icon>
+    <div class="flex  ml-[3.5vw] mt-[5vh]">
+        <mat-icon class="logoutlogo ">power_settings_new</mat-icon>
         <p class="logouttext">LOG OUT</p>
     </div>
 </div>

@@ -1,4 +1,4 @@
-.nav {
+/* .nav {
     width: 18vw;
     height: 100vh;
     background: linear-gradient( 188.78deg, #000001 27.81%, rgba(14, 15, 17, 0.981559) 46.75%, rgba(33, 36, 39, 0.955011) 66.65%, rgba(33, 36, 39, 0.920709) 70.94%, rgba(33, 36, 39, 0.802728) 80.65%, rgba(33, 36, 39, 0.740568) 84.17%, rgba(33, 36, 39, 0.615767) 88.56%, rgba(33, 36, 39, 0.495308) 92.08%, rgba(6, 0, 35, 0.0210613) 99.95%, rgba(33, 36, 39, 0.0869873) 99.99%);
@@ -83,11 +83,11 @@
     font-weight: 400;
     font-size: medium;
     cursor: pointer;
-}
+} */
 
 
 /* Mobile */
-@media screen and (max-width: 767px) {
+/* @media screen and (max-width: 767px) {
     .nav {
       width: 100%;
       height: auto;
@@ -140,10 +140,10 @@
       text-align: center;
       font-size: 14px;
     }
-  }
+  } */
   
   /* Tablet */
-  @media screen and (min-width: 768px) and (max-width: 1023px) {
+  /* @media screen and (min-width: 768px) and (max-width: 1023px) {
     .nav {
       width: 25vw;
       height: 100vh;
@@ -196,11 +196,11 @@
       text-align: center;
       font-size: 14px;
     }
-  }
+  } */
   
 
 
-@media screen and (max-width: 1370px) {
+/* @media screen and (max-width: 1370px) {
     .nav {
         width: 250px;
     }
@@ -272,4 +272,115 @@
     .logouttext {
         bottom: 5.5vh;
     }
+} */
+
+/* Default styles */
+.nav {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient( 188.78deg, #000001 27.81%, rgba(14, 15, 17, 0.981559) 46.75%, rgba(33, 36, 39, 0.955011) 66.65%, rgba(33, 36, 39, 0.920709) 70.94%, rgba(33, 36, 39, 0.802728) 80.65%, rgba(33, 36, 39, 0.740568) 84.17%, rgba(33, 36, 39, 0.615767) 88.56%, rgba(33, 36, 39, 0.495308) 92.08%, rgba(6, 0, 35, 0.0210613) 99.95%, rgba(33, 36, 39, 0.0869873) 99.99%);
+  color: #fff;
+  padding: 10px;
+  height: 100vh;
+  width: 250px;
+  
+}
+.menu {
+  float: right;
+  display: none;
+ color:rgb(110, 108, 108);
+ margin-top:3.7vh;
+ 
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 180px;
+    height: 120px;
+    margin-top:3vh;
+    margin-left: 1.5vw;
+}
+
+.logotitle {
+  margin: 0;
+ 
+  margin-left: 10px;
+  font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 10px;
+    position: absolute;
+    margin-top: 16vh;
+   
+    opacity: 0.5;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 60vh;
+  margin-left: 3vw;
+  position: relative;
+  margin-top:3vh; 
+}
+
+.booking {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.booking:hover {
+  border-radius: 10px;
+  background-color: rgb(51, 51, 51);
+}
+
+.icon {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.content {
+  margin: 0;
+  
+  font-weight: lighter;
+  font-size: 18px;
+}
+
+.logoutlogo {
+  font-size: 20px;
+  margin-right: 5px;
+  
+}
+
+.logouttext {
+  margin: 0;
+  font-size: 14px;
+  cursor: pointer;
+}
+.menu.active {
+ 
+}
+
+
+/* Media queries for smaller screens */
+@media (max-width: 768px) {
+  .options {
+    margin-top: 20px;
+  }
+ .nav{
+  display: none;
+  
+ }
+  .nav.show {
+    display: block;
+  }
+.menu{
+  display: block;
+}
+  
 }

@@ -1,98 +1,67 @@
-.nav {
-  width: 230px;
-  height: 100vh;
-  left: 0px;
-  top: 0px;
-position: absolute;
-  background: linear-gradient(
-    188.78deg,
-    #000001 27.81%,
-    rgba(14, 15, 17, 0.981559) 46.75%,
-    rgba(33, 36, 39, 0.955011) 66.65%,
-    rgba(33, 36, 39, 0.920709) 70.94%,
-    rgba(33, 36, 39, 0.802728) 80.65%,
-    rgba(33, 36, 39, 0.740568) 84.17%,
-    rgba(33, 36, 39, 0.615767) 88.56%,
-    rgba(33, 36, 39, 0.495308) 92.08%,
-    rgba(6, 0, 35, 0.0210613) 99.95%,
-    rgba(33, 36, 39, 0.0869873) 99.99%
-  );
+/* Hide the nav menu by default */
+nav ul {
+  display: none;
 }
-.logo {
-  position: absolute;
-  width: 126px;
-  height: 85px;
-  left: 45px;
-  top: 29px;
-}
-.menubar {
-  width: 200px;
-  height: 250px;
-  left: 15px;
-  top: 220px;
 
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  color: #ffffff;
+/* Style the nav toggle */
+.nav-toggle {
+  display: inline-block;
+  cursor: pointer;
 }
-.booking {
-  width: 200px;
-  height: 48px;
-  flex-direction: row;
-  display: flex;
-  align-items: center;
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin-bottom: 4px;
+  background-color: #333;
 }
-.booking:hover {
-  /* background-color: rgba(217, 217, 217, 0.55);
-  opacity: 0.34; */
-  transform: scale(1.1);
-}
-.icon {
-  width: 25px;
-  height: 25px;
-  margin-top: 3px;
-  margin-left: 35px;
-}
-.content {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  color: white;
-  opacity: 2;
-}
-p {
-  margin-top: 2vh;
-}
-.logout {
-  position: absolute;
-  width: 150px;
-  height: 69px;
-  left: 60px;
-  top: 600px;
-  font-family: 'Open Sans';
-}
-.log-one {
-  display: flex;
-  flex-direction: row;
-  color: rgba(255, 255, 255, 0.8);
-}
-.exit {
-  width: 20px;
-  height: 20px;
-  margin-top: 2vh;
-}
-#p1 {
-  margin-left: 0.5vw;
-}
-#p2 {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 300;
-  font-size: 13px;
-  line-height: 10px;
-  color: #ffffff;
-  margin-left: -1.5vw;
-  margin-top: -1px;
+
+/* Show the nav menu when the nav toggle is clicked */
+@media screen and (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+  
+  nav ul.show {
+    display: block;
+  }
+  }
+
+/* Style the nav menu for small screens */
+@media screen and (max-width: 768px) {
+  nav ul {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav ul li {
+    display: block;
+    margin: 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  nav ul li:last-child {
+    border-bottom: none;
+  }
+  
+  nav ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .nav-toggle.active {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
 }
