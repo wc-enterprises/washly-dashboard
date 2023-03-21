@@ -194,4 +194,16 @@
     .card-list::-webkit-scrollbar {
         display: none;
     }
+
+    @media screen and (max-width: 768px){
+        .black-area{
+            width: 100%;
+        }
+        .card-list{
+            width: 50vw;
+        }
+        .key{
+            margin-left: -3vw;
+        }
+    }
 }

@@ -1,8 +1,8 @@
-<button class="menu" [class.active]="isNavOpen" (click)="toggleNav()">
+<button class="menu" [class.active]="isNavOpen" (click)="toggleNav($event)">
     <mat-icon>menu</mat-icon>
 </button>
 
-<div [class.show]="isNavOpen" class="nav">
+<div #myDialog [class.show]="isNavOpen" aria-hidden="true" class="nav">
     <div class="logo">
         <img src="/assets/logo.png" />
         <p class="logotitle">A DOORSTEP LAUNDRY SERVICE</p>

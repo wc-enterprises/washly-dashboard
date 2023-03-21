@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'washly-nav-bar',
@@ -26,9 +26,31 @@ export class NavBarComponent {
   // toggleMenu() {
   //   this.menuOpen = !this.menuOpen;
   // }
+
   isNavOpen = false;
 
-  toggleNav() {
+  ngOnInit() {
+    document.addEventListener('click', this.handleClickOutside.bind(this));
+  }
+
+  ngOnDestroy() {
+    document.removeEventListener('click', this.handleClickOutside.bind(this));
+  }
+
+  handleClickOutside(event: MouseEvent) {
+    const target = event.target as HTMLElement;
+    const navElement = document.querySelector('.nav');
+
+    if (navElement && !navElement.contains(target)) {
+      this.isNavOpen = false;
+    }
+  else{
+    this.isNavOpen=false;
+  }
+  }
+  toggleNav(event: Event) {
+    event.stopPropagation();
     this.isNavOpen = !this.isNavOpen;
   }
+ 
 }  

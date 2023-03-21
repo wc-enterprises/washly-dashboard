@@ -364,23 +364,28 @@
 }
 .menu.active {
  
-}
+
+
+} 
 
 
 /* Media queries for smaller screens */
 @media (max-width: 768px) {
-  .options {
+  /* .options {
     margin-top: 20px;
-  }
+  } */
  .nav{
   display: none;
-  
+  position: absolute;
+  z-index: 3;
+ 
  }
   .nav.show {
     display: block;
   }
 .menu{
   display: block;
+  
 }
   
 }

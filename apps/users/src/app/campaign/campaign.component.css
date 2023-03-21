@@ -200,3 +200,26 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         font-size: large;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .card-list::-webkit-scrollbar {
+        display: none;
+    }
+    .key {
+        margin-left: -3vw;
+        font-size: large;
+    }
+  .black-area{
+    width: 100%;
+  }
+ 
+  .card-list {
+    width: 50vw;
+  }
+  .edit-box{
+    margin-left: 1vw;
+  }
+  span{
+    margin-left:1vw;
+  }
+}
