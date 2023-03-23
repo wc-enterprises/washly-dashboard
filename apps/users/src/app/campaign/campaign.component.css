@@ -222,4 +222,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   span{
     margin-left:1vw;
   }
+  @media screen and (max-width: 375px){
+    
+    
+ .card-list{
+    width: 550vw;
+   margin-left: 2vw;
+ }
+
+  }
+
+  
 }

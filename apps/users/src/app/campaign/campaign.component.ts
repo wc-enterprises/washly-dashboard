@@ -5,6 +5,7 @@ import {
   ElementRef,
   ViewChild,
   OnInit,
+  HostListener,
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -26,6 +27,7 @@ export class CampaignComponent implements OnInit {
 
   addNew = false;
   editing = false;
+  
 
   campaign: ParsedCampaign[] | undefined;
 
@@ -34,6 +36,7 @@ export class CampaignComponent implements OnInit {
   itemToDelete: any;
   washlyService: any;
   campaignService: any;
+  
   
 
   constructor(private router: Router, private ws: WashlyService) {}
@@ -230,7 +233,27 @@ export class CampaignComponent implements OnInit {
       };
     });
   }
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  showCard = false;
+
+  // @HostListener('window:resize')
+  // onResize() {
+  //   if (window.innerWidth < 375) {
+  //     this.showCard = false;
+  //   }else {
+  //     this.showCard = true;
+  //   }
+
+  // }
+
+  toggleCard() {
+    this.showCard = !this.showCard;
+  }
+  backCard(){
+    this.showCard = !this.showCard;
+  }
 }
+
 function getCampaigns() {
   throw new Error('Function not implemented.');
 }

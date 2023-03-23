@@ -111,3 +111,18 @@
     color: rgba(0, 0, 0, 0.75);
     padding-top: 2px;
 }
+@media (max-width: 375px) {
+.settingicon{
+    display: none;
+}
+.profile-box{
+    display: none;
+}
+.bellicon{
+   margin-left:100px;
+}
+
+.heading{
+    width: 50vw;
+}
+}

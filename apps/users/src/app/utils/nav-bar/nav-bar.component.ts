@@ -7,39 +7,24 @@ import { Component } from '@angular/core';
 })
 export class NavBarComponent {
 
-  // menuOpen = false;
-
-  // toggleMenu() {
-  //   this.menuOpen = !this.menuOpen;
-  // }
-  // isMobile = false;
-  // menuOpen = false;
-
-  // @HostListener('window:resize', ['$event'])
-  // onResize(event: { target: { innerWidth: number; }; }) {
-  //   this.isMobile = event.target.innerWidth < 768; // or whatever screen size you want to use
-  //   if (!this.isMobile) {
-  //     this.menuOpen = true; // keep menu open on large screens
-  //   }
-  // }
-
-  // toggleMenu() {
-  //   this.menuOpen = !this.menuOpen;
-  // }
-
   isNavOpen = false;
 
   ngOnInit() {
+    console.log("ngoninit is a function")
     document.addEventListener('click', this.handleClickOutside.bind(this));
   }
 
   ngOnDestroy() {
+    console.log('ngOnDestroy is a function')
     document.removeEventListener('click', this.handleClickOutside.bind(this));
+    console.log(this)
   }
 
   handleClickOutside(event: MouseEvent) {
     const target = event.target as HTMLElement;
     const navElement = document.querySelector('.nav');
+    console.log(target);
+    console.log(navElement);
 
     if (navElement && !navElement.contains(target)) {
       this.isNavOpen = false;
