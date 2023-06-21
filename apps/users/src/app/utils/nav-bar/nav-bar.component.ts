@@ -23,8 +23,6 @@ export class NavBarComponent {
   handleClickOutside(event: MouseEvent) {
     const target = event.target as HTMLElement;
     const navElement = document.querySelector('.nav');
-    console.log(target);
-    console.log(navElement);
 
     if (navElement && !navElement.contains(target)) {
       this.isNavOpen = false;

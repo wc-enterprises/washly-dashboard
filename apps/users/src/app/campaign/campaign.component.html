@@ -3,8 +3,9 @@
     else emptyScreen
   "
 >
-<div *ngIf="!showCard" class="card-list">
-    <div (click)="toggleCard()" *ngFor="let item of campaign; let i = index" class="card-container">
+<div class="container">
+    <div *ngIf="showList" class="card-list">
+        <div *ngFor="let item of campaign; let i = index" class="card-container">
         <mat-card class="card" [ngClass]="{ selected: item.selected }" (click)="setSelectedcampaign(item)">
         <mat-card-title class="card-title">{{ item.heading }}</mat-card-title>
         <mat-icon id="edit-icon" (click)="editCampaign()">mode_edit</mat-icon>
@@ -19,8 +20,8 @@
 </div>
 
 <div *ngIf="showCard" [class.blurred]="isBlurred" class="total-display-area">
-    <div (click)="backCard()" class="black-area" *ngIf="!addNew; else addNewForm">
-    <div *ngIf="editing" style="text-align: right; width: 32vw">
+    <div class="black-area" *ngIf="!addNew; else addNewForm">
+        <div *ngIf="editing" style="text-align: right; width: 32vw">
         <mat-icon class="cancel-icon" (click)="cancelEditing()">clear</mat-icon>
     </div>
     <div style="display: flex; justify-content: space-between; padding: 2% 0"
@@ -109,11 +110,12 @@
     </ng-template>
 </div>
 </div>
+</div>
 <washly-app-delete-confirmation-modal (removeBlurEvent)="removeBlur()" *ngIf="isModalActive"
     (closePopup)="closeDeleteConfirmationModal()" (delete)="deleteData()"></washly-app-delete-confirmation-modal>
 
 <ng-template #emptyScreen>
-<mat-card class="w-[25vw]  ml-[5vw]" id="add-new-service" (click)="addNewCampaign()">
+<mat-card class="w-[25vw] ml-[5vw]" id="add-new-service" (click)="addNewCampaign()">
     <mat-card-title id="add-new-label">ADD NEW +</mat-card-title>
 </mat-card>
 <washly-campaign-form></washly-campaign-form>

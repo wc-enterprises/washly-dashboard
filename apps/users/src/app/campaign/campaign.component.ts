@@ -27,6 +27,7 @@ export class CampaignComponent implements OnInit {
 
   addNew = false;
   editing = false;
+  showLists=false;
   
 
   campaign: ParsedCampaign[] | undefined;
@@ -45,6 +46,7 @@ export class CampaignComponent implements OnInit {
   isModalActive = false;  
 
   currentCampaign: ICampaign[] | undefined;
+  showList = true;
 
 
   
@@ -72,6 +74,7 @@ export class CampaignComponent implements OnInit {
       });
       data.selected = true;
       this.displayedData = data;
+  
     }
   }
 
@@ -234,23 +237,35 @@ export class CampaignComponent implements OnInit {
     });
   }
   // eslint-disable-next-line @typescript-eslint/member-ordering
-  showCard = false;
+ 
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  showCard = true;
 
-  // @HostListener('window:resize')
-  // onResize() {
-  //   if (window.innerWidth < 375) {
-  //     this.showCard = false;
-  //   }else {
-  //     this.showCard = true;
-  //   }
-
-  // }
+  @HostListener('window:resize')
+  onResize() {
+    if (window.innerWidth < 375) {
+      this.showCard = true;
+    }else {
+      this.showCard = true;
+    }
+    console.log("on resize function called", window.innerWidth);
+    console.log("showCard ", this.showCard)
+}
 
   toggleCard() {
-    this.showCard = !this.showCard;
+
+    if(window.matchMedia("(max-width:375px)").matches){
+     this.showCard = !this.showCard;
+   
+        
+    }
   }
   backCard(){
-    this.showCard = !this.showCard;
+    if(window.matchMedia("(max-width:375px)").matches){
+        this.showCard = !this.showCard;
+        this.showList = true;
+    }
+    console.log("back to list")
   }
 }
 

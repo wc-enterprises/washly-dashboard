@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'washly-nav-bar',
@@ -6,9 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent {
- isNavOpen = false;
 
-  toggleNav() {
-    this.isNavOpen = !this.isNavOpen;
-  }
 }

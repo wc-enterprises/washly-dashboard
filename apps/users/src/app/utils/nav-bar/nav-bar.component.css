@@ -58,9 +58,11 @@
   align-items: center;
   margin-bottom: 10px;
   cursor: pointer;
+  padding:5px;
 }
 
 .booking:hover {
+
   border-radius: 10px;
   background-color: rgb(51, 51, 51);
 }
